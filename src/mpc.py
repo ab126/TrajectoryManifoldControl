@@ -130,6 +130,7 @@ def quadratic_cost_from_QR(x_vars, u_vars, Q, R):
 
     return lterm, mterm
 
+
 def quadratic_tracking_cost(x_vars, u_vars, Q, R, x_ref=None, u_ref=None):
     """
     Build CasADi expressions for MPC cost from Q and R matrices.
@@ -307,3 +308,5 @@ def deepc_caller(t_all, X_all, u_all, x_tar, dt=0.02, Q=None, R=None, horizon=25
         return controller_state["current_u"]
     
     return u_caller
+
+
