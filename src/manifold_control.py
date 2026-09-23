@@ -11,6 +11,7 @@ trajectory space and ``w = [vec(x), vec(u)]``.
 """
 
 from dataclasses import dataclass
+import math
 from typing import Callable, Dict, Iterable, List, Literal, Mapping, Optional, Sequence, Tuple
 
 import torch
@@ -23,6 +24,289 @@ from .inverted_pendulum import wrap_u_caller_as_physical_F_caller
 
 Array = np.ndarray
 TensorLike = torch.Tensor
+
+
+class DataDrivenTransition(nn.Module):
+    """Learn a discrete transition from state-input trajectory samples.
+
+    The model has no system-specific structure.  Inputs and state increments
+    are standardized with statistics fitted from the training split.  Predicting
+    an increment makes the model well conditioned for finely sampled systems.
+    """
+
+    def __init__(
+        self,
+        x_dim: int,
+        u_dim: int,
+        hidden_dims: Sequence[int] = (256, 256, 256),
+        activation: Callable[[], nn.Module] = nn.SiLU,
+    ) -> None:
+        super().__init__()
+        if x_dim <= 0 or u_dim <= 0:
+            raise ValueError("x_dim and u_dim must be positive")
+        dims = [x_dim + u_dim, *hidden_dims, x_dim]
+        layers: List[nn.Module] = []
+        for in_dim, out_dim in zip(dims[:-2], dims[1:-1]):
+            layers.extend((nn.Linear(in_dim, out_dim), activation()))
+        layers.append(nn.Linear(dims[-2], dims[-1]))
+        self.net = nn.Sequential(*layers)
+        self.x_dim = int(x_dim)
+        self.u_dim = int(u_dim)
+        self.register_buffer("xu_mean", torch.zeros(x_dim + u_dim))
+        self.register_buffer("xu_std", torch.ones(x_dim + u_dim))
+        self.register_buffer("dx_mean", torch.zeros(x_dim))
+        self.register_buffer("dx_std", torch.ones(x_dim))
+
+    @torch.no_grad()
+    def fit_scaling(self, x: TensorLike, u: TensorLike, x_next: TensorLike) -> None:
+        """Fit standardization buffers from training transitions only."""
+        xu = torch.cat((x, u), dim=-1)
+        dx = x_next - x
+        self.xu_mean.copy_(xu.mean(dim=0))
+        self.xu_std.copy_(xu.std(dim=0).clamp_min(1e-6))
+        self.dx_mean.copy_(dx.mean(dim=0))
+        self.dx_std.copy_(dx.std(dim=0).clamp_min(1e-6))
+
+    def forward(self, x: TensorLike, u: TensorLike) -> TensorLike:
+        if x.shape[-1] != self.x_dim or u.shape[-1] != self.u_dim:
+            raise ValueError("state or input trailing dimension is inconsistent")
+        xu = torch.cat((x, u), dim=-1)
+        dx = self.net((xu - self.xu_mean) / self.xu_std)
+        return x + dx * self.dx_std + self.dx_mean
+
+
+class CanonicalBehaviorDecoder(nn.Module):
+    r"""Paper-aligned rollout decoder ``Phi_N(q)`` with ``q=col(x0,u)``.
+
+    The returned behavior uses the paper's input-first ordering
+    ``w=col(u_0,...,u_{N-1},x_0,...,x_N)``.  The initial state and input
+    coordinates pass through exactly; only future states are learned.
+    """
+
+    def __init__(self, transition: DataDrivenTransition, horizon: int) -> None:
+        super().__init__()
+        if horizon <= 0:
+            raise ValueError("horizon must be positive")
+        self.transition = transition
+        self.horizon = int(horizon)
+        self.x_dim = transition.x_dim
+        self.u_dim = transition.u_dim
+        self.alpha_dim = self.x_dim + self.horizon * self.u_dim
+        self.w_dim = self.horizon * self.u_dim + (self.horizon + 1) * self.x_dim
+
+    def coordinates(self, x0: TensorLike, u: TensorLike) -> TensorLike:
+        """Return canonical coordinates ``q=col(x0,u)``."""
+        if u.shape[-2:] != (self.horizon, self.u_dim):
+            raise ValueError("u must end with (horizon, u_dim)")
+        if x0.shape[-1] != self.x_dim:
+            raise ValueError("x0 has the wrong trailing dimension")
+        return torch.cat((x0, u.flatten(start_dim=-2)), dim=-1)
+
+    def rollout(self, x0: TensorLike, u: TensorLike) -> TensorLike:
+        """Decode future states causally from a measured state and inputs."""
+        if u.shape[-2:] != (self.horizon, self.u_dim):
+            raise ValueError("u must end with (horizon, u_dim)")
+        x = x0
+        states = [x]
+        for k in range(self.horizon):
+            x = self.transition(x, u[..., k, :])
+            states.append(x)
+        return torch.stack(states, dim=-2)
+
+    def forward(self, q: TensorLike) -> TensorLike:
+        if q.shape[-1] != self.alpha_dim:
+            raise ValueError(f"expected q dimension {self.alpha_dim}")
+        x0 = q[..., : self.x_dim]
+        u = q[..., self.x_dim :].reshape(*q.shape[:-1], self.horizon, self.u_dim)
+        x = self.rollout(x0, u)
+        return torch.cat((u.flatten(start_dim=-2), x.flatten(start_dim=-2)), dim=-1)
+
+    def unpack_behavior(self, w: TensorLike) -> Tuple[TensorLike, TensorLike]:
+        """Invert the input-first behavior packing into ``(x,u)``."""
+        if w.shape[-1] != self.w_dim:
+            raise ValueError(f"expected behavior dimension {self.w_dim}")
+        split = self.horizon * self.u_dim
+        u = w[..., :split].reshape(*w.shape[:-1], self.horizon, self.u_dim)
+        x = w[..., split:].reshape(*w.shape[:-1], self.horizon + 1, self.x_dim)
+        return x, u
+
+
+@dataclass
+class DataDrivenMPCSolution:
+    x: TensorLike
+    u: TensorLike
+    loss: float
+    iterations: int
+    finite: bool
+
+
+class DataDrivenMPCSolver:
+    """Bounded MPC over a frozen canonical behavior decoder.
+
+    This solver consumes only a measured state and a learned decoder.  Input
+    bounds are enforced by a tanh parameterization at every optimizer iterate.
+    """
+
+    def __init__(
+        self,
+        decoder: CanonicalBehaviorDecoder,
+        Q: TensorLike,
+        R: TensorLike,
+        *,
+        x_ref: Optional[TensorLike] = None,
+        u_ref: Optional[TensorLike] = None,
+        Q_terminal: Optional[TensorLike] = None,
+        u_bounds: Tuple[float, float] = (-1.0, 1.0),
+        lr: float = 0.05,
+        max_iter: int = 100,
+        input_rate_weight: float = 0.0,
+    ) -> None:
+        self.decoder = decoder
+        for parameter in decoder.parameters():
+            parameter.requires_grad_(False)
+        self.Q, self.R = Q, R
+        self.Q_terminal = Q if Q_terminal is None else Q_terminal
+        self.x_ref = torch.zeros(decoder.x_dim, device=Q.device, dtype=Q.dtype) if x_ref is None else x_ref
+        self.u_ref = torch.zeros(decoder.u_dim, device=Q.device, dtype=Q.dtype) if u_ref is None else u_ref
+        self.lower, self.upper = map(float, u_bounds)
+        if not self.lower < self.upper:
+            raise ValueError("u_bounds must be increasing")
+        self.lr, self.max_iter = float(lr), int(max_iter)
+        self.input_rate_weight = float(input_rate_weight)
+
+    def _bounded(self, raw: TensorLike) -> TensorLike:
+        return self.lower + (self.upper - self.lower) * (torch.tanh(raw) + 1.0) / 2.0
+
+    def _raw(self, u: TensorLike) -> TensorLike:
+        scaled = 2.0 * (u - self.lower) / (self.upper - self.lower) - 1.0
+        return torch.atanh(scaled.clamp(-0.999999, 0.999999))
+
+    def objective(self, x: TensorLike, u: TensorLike) -> TensorLike:
+        ex, eu = x[:-1] - self.x_ref, u - self.u_ref
+        value = torch.einsum("ki,ij,kj->", ex, self.Q, ex)
+        value = value + torch.einsum("ki,ij,kj->", eu, self.R, eu)
+        terminal = x[-1] - self.x_ref
+        value = value + terminal @ self.Q_terminal @ terminal
+        if self.input_rate_weight and len(u) > 1:
+            value = value + self.input_rate_weight * torch.sum((u[1:] - u[:-1]) ** 2)
+        return value
+
+    def solve(self, x_current: TensorLike, u_init: Optional[TensorLike] = None) -> DataDrivenMPCSolution:
+        shape = (self.decoder.horizon, self.decoder.u_dim)
+        if u_init is None:
+            u_init = torch.zeros(shape, device=x_current.device, dtype=x_current.dtype)
+        raw = nn.Parameter(self._raw(u_init))
+        optimizer = torch.optim.Adam([raw], lr=self.lr)
+        best = None
+        stale = 0
+        completed = 0
+        for iteration in range(self.max_iter):
+            optimizer.zero_grad(set_to_none=True)
+            u = self._bounded(raw)
+            x = self.decoder.rollout(x_current, u)
+            loss = self.objective(x, u)
+            if not torch.isfinite(loss):
+                break
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_([raw], 100.0)
+            optimizer.step()
+            completed = iteration + 1
+            current = float(loss.detach())
+            if best is None or current < best[0] - 1e-7 * max(1.0, abs(best[0])):
+                best = (current, raw.detach().clone())
+                stale = 0
+            else:
+                stale += 1
+            if stale >= 20:
+                break
+        raw_best = raw.detach() if best is None else best[1]
+        with torch.no_grad():
+            u = self._bounded(raw_best)
+            x = self.decoder.rollout(x_current, u)
+            loss = self.objective(x, u)
+        return DataDrivenMPCSolution(x=x, u=u, loss=float(loss), iterations=completed,
+                                     finite=bool(torch.isfinite(loss)))
+
+
+class DataDrivenCEMSolver:
+    """Batched cross-entropy MPC using only a learned behavior decoder.
+
+    CEM avoids thousands of small reverse-mode operations through a composed
+    decoder.  It is useful for online control on both CPU and GPU and keeps all
+    candidates inside the input box by direct clipping.
+    """
+
+    def __init__(
+        self,
+        decoder: CanonicalBehaviorDecoder,
+        Q: TensorLike,
+        R: TensorLike,
+        *,
+        x_ref: Optional[TensorLike] = None,
+        u_ref: Optional[TensorLike] = None,
+        Q_terminal: Optional[TensorLike] = None,
+        u_bounds: Tuple[float, float] = (-1.0, 1.0),
+        population: int = 1024,
+        elite: int = 64,
+        iterations: int = 6,
+        smoothing: float = 0.15,
+        input_rate_weight: float = 0.0,
+        seed: int = 0,
+    ) -> None:
+        if not 0 < elite <= population:
+            raise ValueError("elite must lie in [1, population]")
+        self.decoder = decoder
+        for parameter in decoder.parameters():
+            parameter.requires_grad_(False)
+        self.Q, self.R = Q, R
+        self.Q_terminal = Q if Q_terminal is None else Q_terminal
+        self.x_ref = torch.zeros(decoder.x_dim, device=Q.device, dtype=Q.dtype) if x_ref is None else x_ref
+        self.u_ref = torch.zeros(decoder.u_dim, device=Q.device, dtype=Q.dtype) if u_ref is None else u_ref
+        self.lower, self.upper = map(float, u_bounds)
+        self.population, self.elite, self.iterations = int(population), int(elite), int(iterations)
+        self.smoothing, self.input_rate_weight = float(smoothing), float(input_rate_weight)
+        self.generator = torch.Generator(device=Q.device).manual_seed(seed)
+
+    def _cost(self, x: TensorLike, u: TensorLike) -> TensorLike:
+        ex, eu = x[:, :-1] - self.x_ref, u - self.u_ref
+        value = torch.einsum("bki,ij,bkj->b", ex, self.Q, ex)
+        value = value + torch.einsum("bki,ij,bkj->b", eu, self.R, eu)
+        terminal = x[:, -1] - self.x_ref
+        value = value + torch.einsum("bi,ij,bj->b", terminal, self.Q_terminal, terminal)
+        if self.input_rate_weight and u.shape[1] > 1:
+            value = value + self.input_rate_weight * torch.sum((u[:, 1:] - u[:, :-1]) ** 2, dim=(1, 2))
+        return value
+
+    def solve(self, x_current: TensorLike, u_init: Optional[TensorLike] = None) -> DataDrivenMPCSolution:
+        shape = (self.decoder.horizon, self.decoder.u_dim)
+        mean = (torch.zeros(shape, device=x_current.device, dtype=x_current.dtype)
+                if u_init is None else u_init.detach().clone())
+        state_scale = self.decoder.transition.xu_std[: self.decoder.x_dim]
+        normalized_error = torch.sqrt(torch.mean(((x_current - self.x_ref) / state_scale) ** 2))
+        exploration_fraction = torch.clamp(2.0 * normalized_error, 0.0, 1.0)
+        exploration = (0.05 + 0.45 * float(exploration_fraction)) * (self.upper - self.lower)
+        std = torch.full_like(mean, exploration)
+        best_cost, best_u = float("inf"), mean
+        with torch.no_grad():
+            for _ in range(self.iterations):
+                noise = torch.randn((self.population, *shape), generator=self.generator,
+                                    device=mean.device, dtype=mean.dtype)
+                candidates = torch.clamp(mean + std * noise, self.lower, self.upper)
+                candidates[0] = mean.clamp(self.lower, self.upper)
+                x0 = x_current.expand(self.population, -1)
+                states = self.decoder.rollout(x0, candidates)
+                costs = self._cost(states, candidates)
+                elite_index = torch.topk(costs, self.elite, largest=False).indices
+                elite = candidates[elite_index]
+                new_mean, new_std = elite.mean(dim=0), elite.std(dim=0).clamp_min(0.02)
+                mean = self.smoothing * mean + (1.0 - self.smoothing) * new_mean
+                std = self.smoothing * std + (1.0 - self.smoothing) * new_std
+                index = int(torch.argmin(costs))
+                if float(costs[index]) < best_cost:
+                    best_cost, best_u = float(costs[index]), candidates[index].clone()
+            x = self.decoder.rollout(x_current, best_u)
+        return DataDrivenMPCSolution(x=x, u=best_u, loss=best_cost,
+                                     iterations=self.iterations, finite=math.isfinite(best_cost))
 
 
 class BehaviorDecoder(nn.Module):

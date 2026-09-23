@@ -1,387 +1,396 @@
-"""Run the normalized inverted-pendulum manifold-control workflow."""
+"""End-to-end, data-driven trajectory-manifold control experiment.
+
+The simulated plant is used only behind ``collect_trajectory_data`` and
+``simulate_plant``. Training and control consume measured state/input arrays
+and contain no inverted-pendulum equations or known model parameters.
+"""
 
 from __future__ import annotations
 
 import argparse
+import json
 import math
-import warnings
+import sys
+import time
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING
 
 import numpy as np
 import torch
-
+from scipy.linalg import solve_discrete_are
 from tqdm import tqdm
 
-from src.inverted_pendulum import (
-    _physical_state_scale,
-    gen_max_theta_data,
-    linearize_upright_dynamics,
-    lqr_ct,
-    rk4_step,
-)
-from src.manifold_control import (
-    LatentBehaviorMPCSolver,
-    build_trajectory_training_matrix,
-    load_autoencoder,
-    split_behavior_matrix,
-    train_decoder,
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-if TYPE_CHECKING:
-    from src.manifold_control import BehaviorDecoder, BehaviorEncoder
+from src.inverted_pendulum import rk4_step
+from src.manifold_control import CanonicalBehaviorDecoder, DataDrivenCEMSolver, DataDrivenTransition
 
 
-def parse_hidden_dims(value: str) -> tuple[int, ...]:
-    """Parse comma-separated positive hidden-layer widths."""
-    dims = tuple(int(part.strip()) for part in value.split(",") if part.strip())
-    if not dims or any(dim <= 0 for dim in dims):
-        raise argparse.ArgumentTypeError("hidden dims must be positive integers")
-    return dims
+@dataclass
+class ExperimentConfig:
+    horizon: int = 40
+    dt: float = 0.02 / math.sqrt(1.0 / 9.81)
+    episodes: int = 5000
+    epochs: int = 160
+    batch_size: int = 2048
+    hidden_dims: tuple[int, ...] = (256, 256, 256)
+    umax: float = 10.0
+    seed: int = 234
+    simulation_seconds: float = 8.0
+    controller_iterations: int = 80
+    controller_lr: float = 0.06
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-def parse_y0(value: str) -> list[float]:
-    """Parse a four-component physical initial state."""
-    values = [float(part.strip()) for part in value.split(",") if part.strip()]
-    if len(values) != 4:
-        raise argparse.ArgumentTypeError("y0 must contain four comma-separated values")
-    return values
+PROFILES = {
+    "smoke": dict(horizon=10, episodes=120, epochs=3, batch_size=256,
+                  hidden_dims=(64, 64), simulation_seconds=0.4, controller_iterations=8),
+    "dev": dict(horizon=30, episodes=3500, epochs=100, batch_size=2048,
+                hidden_dims=(192, 192, 192), simulation_seconds=14.0, controller_iterations=60),
+    "full": {},
+}
 
 
-def build_arg_parser() -> argparse.ArgumentParser:
-    """Build the command-line parser."""
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--M", type=float, default=2.0, help="cart mass")
-    parser.add_argument("--m", type=float, default=1.0, help="pendulum mass")
-    parser.add_argument("--l", type=float, default=1.0, help="pendulum length")
-    parser.add_argument("--g", type=float, default=9.81, help="gravity")
-    parser.add_argument("--H", type=int, default=25, help="control horizon")
-    parser.add_argument("--control-dt", type=float, default=0.02, help="physical controller interval")
-    parser.add_argument("--sim-duration", type=float, default=5.0, help="physical simulation duration")
-    parser.add_argument("--n-repeats", type=int, default=50000, help="number of random mat_theta trajectories to generate")
-    parser.add_argument("--sigma", type=float, default=1.0)
-    parser.add_argument("--theta-max", type=float, default=math.pi / 20.0)
-    parser.add_argument("--alpha-dim", type=int, default=29)
-    parser.add_argument("--hidden-dims", type=parse_hidden_dims, default=(128, 128, 128))
-    parser.add_argument("--epochs", type=int, default=1000)
-    parser.add_argument("--train-lr", type=float, default=1e-3)
-    parser.add_argument("--batch-size", type=int, default=512)
-    parser.add_argument("--lambda-alpha", type=float, default=1e-5)
-    parser.add_argument("--test-fraction", type=float, default=0.2)
-    parser.add_argument("--training-max-iter", type=int, default=1000)
-    parser.add_argument("--print-every", type=int, default=250)
-    parser.add_argument("--checkpoint", type=Path, default=Path("saves/saved_models/behavior_decoder_inverse_pendulum.pt"))
-    parser.add_argument("--y0", type=parse_y0, default=[0.0, 0.0, math.pi / 40.0, 0.0])
-    parser.add_argument("--umax", type=float, default=10.0, help="normalized bound; physical bound is umax*m*g")
-    parser.add_argument("--control-lr", type=float, default=5e-3)
-    parser.add_argument("--control-inner-max-iter", type=int, default=300)
-    parser.add_argument("--control-outer-max-iter", type=int, default=5)
-    parser.add_argument("--control-rho-x0", type=float, default=10.0)
-    parser.add_argument("--control-rho-growth", type=float, default=10.0)
-    parser.add_argument("--control-rho-max", type=float, default=1e7)
-    parser.add_argument("--control-constraint-tol", type=float, default=2e-1)
-    parser.add_argument("--control-lambda-u-bounds", type=float, default=1000.0)
-    parser.add_argument("--control-lambda-alpha", type=float, default=1e-4)
-    parser.add_argument("--control-patience", type=int, default=30)
-    parser.add_argument("--control-relative-loss-tol", type=float, default=1e-6)
-    parser.add_argument("--control-multistart", type=int, default=3)
-    parser.add_argument("--control-lbfgs-polish", action="store_true")
-    parser.add_argument("--results-path", type=Path, default=Path("saves/simulation_results/inverted_pendulum_results.npz"))
-    parser.add_argument("--plot", action="store_true")
-    parser.add_argument("--plot-path", type=Path, default=Path("saves/figures/inverted_pendulum_mc.png"))
-    parser.add_argument("--skip-data-generation", action="store_true")
-    parser.add_argument("--skip-training", action="store_true")
-    parser.add_argument("--skip-control-solve", action="store_true")
-    parser.add_argument("--skip-simulation", action="store_true")
-    parser.add_argument("--seed", type=int, default=None)
-    parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
-    return parser
+def make_config(profile: str, **overrides) -> ExperimentConfig:
+    values = asdict(ExperimentConfig())
+    values.update(PROFILES[profile])
+    values.update({key: value for key, value in overrides.items() if value is not None})
+    values["hidden_dims"] = tuple(values["hidden_dims"])
+    return ExperimentConfig(**values)
+
+
+def _plant_step(x: np.ndarray, u: np.ndarray, dt: float) -> np.ndarray:
+    """Opaque simulated plant interface used only for collection/evaluation."""
+    return rk4_step(x, float(np.asarray(u).reshape(-1)[0]), dt=dt, M=2.0)
+
+
+def collect_trajectory_data(config: ExperimentConfig) -> tuple[np.ndarray, np.ndarray]:
+    """Collect broad, bounded-input trajectories without a model-based policy."""
+    rng = np.random.default_rng(config.seed)
+    X = np.empty((config.episodes, config.horizon + 1, 4), dtype=np.float32)
+    U = np.empty((config.episodes, config.horizon, 1), dtype=np.float32)
+    state_low = np.array([-1.5, -2.5, -1.30, -3.5])
+    state_high = np.array([1.5, 2.5, 1.30, 3.5])
+    for episode in tqdm(range(config.episodes), desc="Collecting trajectories"):
+        x = rng.uniform(state_low, state_high)
+        X[episode, 0] = x
+        u = rng.uniform(-config.umax, config.umax)
+        hold = int(rng.integers(1, 6))
+        for k in range(config.horizon):
+            if k % hold == 0:
+                if episode % 2:
+                    u = rng.uniform(-config.umax, config.umax)
+                else:
+                    u = np.clip(0.75 * u + rng.normal(scale=3.0), -config.umax, config.umax)
+                hold = int(rng.integers(1, 6))
+            U[episode, k, 0] = u
+            x = _plant_step(x, np.array([u]), config.dt)
+            X[episode, k + 1] = x
+    if not np.isfinite(X).all():
+        raise RuntimeError("nonfinite data collected; reduce the collection domain")
+    return X, U
+
+
+def split_episodes(X: np.ndarray, U: np.ndarray, seed: int) -> dict[str, tuple[np.ndarray, np.ndarray]]:
+    """Split complete episodes before transition/window extraction."""
+    rng = np.random.default_rng(seed)
+    order = rng.permutation(len(X))
+    n_test = max(1, round(0.15 * len(X)))
+    n_val = max(1, round(0.15 * len(X)))
+    indices = {"test": order[:n_test], "validation": order[n_test:n_test + n_val],
+               "train": order[n_test + n_val:]}
+    return {name: (X[idx], U[idx]) for name, idx in indices.items()}
+
+
+def train_transition(train, validation, config: ExperimentConfig, checkpoint: Path):
+    """Train a system-agnostic transition from measured trajectory triples."""
+    device = torch.device(config.device)
+    X_train, U_train = (torch.from_numpy(array).to(device) for array in train)
+    X_val, U_val = (torch.from_numpy(array).to(device) for array in validation)
+    x, u, xn = X_train[:, :-1].reshape(-1, 4), U_train.reshape(-1, 1), X_train[:, 1:].reshape(-1, 4)
+    xv, uv, xnv = X_val[:, :-1].reshape(-1, 4), U_val.reshape(-1, 1), X_val[:, 1:].reshape(-1, 4)
+    model = DataDrivenTransition(4, 1, config.hidden_dims).to(device)
+    model.fit_scaling(x, u, xn)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-6)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max(1, config.epochs))
+    generator = torch.Generator(device="cpu").manual_seed(config.seed)
+    history = {"train": [], "validation": []}
+    best, best_state = math.inf, None
+    for epoch in range(config.epochs):
+        model.train()
+        order = torch.randperm(len(x), generator=generator)
+        total = 0.0
+        for start in range(0, len(x), config.batch_size):
+            idx = order[start:start + config.batch_size].to(device)
+            optimizer.zero_grad(set_to_none=True)
+            loss = torch.mean(((model(x[idx], u[idx]) - xn[idx]) / model.dx_std) ** 2)
+            loss.backward()
+            optimizer.step()
+            total += float(loss.detach()) * len(idx)
+        scheduler.step()
+        model.eval()
+        with torch.no_grad():
+            val = torch.mean(((model(xv, uv) - xnv) / model.dx_std) ** 2).item()
+        history["train"].append(total / len(x))
+        history["validation"].append(val)
+        if val < best:
+            best = val
+            best_state = {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
+        if epoch % max(1, config.epochs // 10) == 0 or epoch + 1 == config.epochs:
+            print(f"epoch={epoch:04d} train={history['train'][-1]:.6g} val={val:.6g}")
+    if best_state is None:
+        raise RuntimeError("training produced no finite checkpoint")
+    model.load_state_dict(best_state)
+    model.to(device).eval()
+    checkpoint.parent.mkdir(parents=True, exist_ok=True)
+    torch.save({"format": "canonical_behavior_decoder_v1", "transition_state_dict": best_state,
+                "x_dim": 4, "u_dim": 1, "horizon": config.horizon,
+                "hidden_dims": config.hidden_dims, "config": asdict(config), "history": history}, checkpoint)
+    return model, history
+
+
+def load_transition(checkpoint: Path, device: str):
+    payload = torch.load(checkpoint, map_location=device, weights_only=False)
+    if payload.get("format") != "canonical_behavior_decoder_v1":
+        raise ValueError("checkpoint is not a canonical behavior decoder")
+    model = DataDrivenTransition(payload["x_dim"], payload["u_dim"], tuple(payload["hidden_dims"])).to(device)
+    model.load_state_dict(payload["transition_state_dict"])
+    return model.eval(), payload
+
+
+def prediction_metrics(decoder: CanonicalBehaviorDecoder, data) -> dict[str, object]:
+    X_np, U_np = data
+    device = next(decoder.parameters()).device
+    errors = []
+    with torch.no_grad():
+        for start in range(0, len(X_np), 512):
+            X = torch.from_numpy(X_np[start:start + 512]).to(device)
+            U = torch.from_numpy(U_np[start:start + 512]).to(device)
+            errors.append((decoder.rollout(X[:, 0], U) - X).cpu().numpy())
+    error = np.concatenate(errors)
+    absolute = np.abs(error)
+    return {"mae_by_state": absolute.mean(axis=(0, 1)).tolist(),
+            "p95_by_state": np.percentile(absolute, 95, axis=(0, 1)).tolist(),
+            "final_p95_by_state": np.percentile(absolute[:, -1], 95, axis=0).tolist(),
+            "rmse_by_step": np.sqrt(np.mean(error**2, axis=(0, 2))).tolist()}
+
+
+def fit_local_feedback(data, Q: np.ndarray, R: np.ndarray, samples: int = 6000):
+    """Identify a local linear model and LQR gain from trajectory data only."""
+    X, U = data
+    x = X[:, :-1].reshape(-1, X.shape[-1]).astype(float)
+    u = U.reshape(-1, U.shape[-1]).astype(float)
+    xn = X[:, 1:].reshape(-1, X.shape[-1]).astype(float)
+    scale = np.std(x, axis=0).clip(1e-6)
+    nearest = np.argsort(np.linalg.norm(x / scale, axis=1))[:min(samples, len(x))]
+    regressors = np.concatenate((x[nearest], u[nearest]), axis=1)
+    gram = regressors.T @ regressors + 1e-6 * np.eye(regressors.shape[1])
+    coefficients = np.linalg.solve(gram, regressors.T @ xn[nearest])
+    A, B = coefficients[:x.shape[1]].T, coefficients[x.shape[1]:].T
+    P = solve_discrete_are(A, B, Q, R)
+    gain = np.linalg.solve(R + B.T @ P @ B, B.T @ P @ A)
+    residual = xn[nearest] - (x[nearest] @ A.T + u[nearest] @ B.T)
+    return gain, {"A": A, "B": B, "gain": gain,
+                  "fit_rmse": np.sqrt(np.mean(residual**2, axis=0))}
+
+
+def make_controller(decoder: CanonicalBehaviorDecoder, config: ExperimentConfig, local_gain=None):
+    device = torch.device(config.device)
+    Q = torch.diag(torch.tensor([0.02, 30.0, 100.0, 10.0], device=device))
+    R = torch.tensor([[0.03]], device=device)
+    solver = DataDrivenCEMSolver(
+        decoder, Q, R, Q_terminal=12.0 * Q,
+        u_bounds=(-config.umax, config.umax),
+        population=256, elite=32, iterations=max(3, config.controller_iterations // 20),
+        input_rate_weight=0.002, seed=config.seed,
+    )
+    previous = torch.zeros(config.horizon, 1, device=device)
+    replan_interval = 5
+    pending = torch.empty(0, 1, device=device)
+    diagnostics = {"loss": [], "iterations": [], "solve_seconds": [], "predictions": [],
+                   "terminal_policy_used": []}
+
+    def control(_k: int, state: np.ndarray) -> np.ndarray:
+        nonlocal previous, pending
+        tracking_cost = float(np.asarray(state) @ Q.cpu().numpy() @ np.asarray(state))
+        if local_gain is not None and tracking_cost < 0.75:
+            pending = torch.empty(0, 1, device=device)
+            diagnostics["terminal_policy_used"].append(True)
+            value = -np.asarray(local_gain) @ np.asarray(state)
+            return np.clip(value, -config.umax, config.umax).reshape(1)
+        diagnostics["terminal_policy_used"].append(False)
+        if len(pending):
+            value = pending[0].clone()
+            pending = pending[1:]
+            return value.cpu().numpy()
+        current = torch.as_tensor(state, dtype=torch.float32, device=device)
+        shifted = torch.cat((previous[replan_interval:], previous[-replan_interval:]))
+        start = time.perf_counter()
+        solution = solver.solve(current, shifted)
+        diagnostics["solve_seconds"].append(time.perf_counter() - start)
+        diagnostics["loss"].append(solution.loss)
+        diagnostics["iterations"].append(solution.iterations)
+        diagnostics["predictions"].append(solution.x.detach().cpu().numpy())
+        if not solution.finite:
+            previous = torch.zeros_like(previous)
+            return np.zeros(1)
+        previous = solution.u.detach()
+        pending = previous[:replan_interval].clone()
+        value = pending[0].clone()
+        pending = pending[1:]
+        return value.cpu().numpy()
+
+    control.diagnostics = diagnostics
+    return control
+
+
+def simulate_plant(controller, y0: np.ndarray, config: ExperimentConfig, seconds: float | None = None):
+    """Evaluate a controller through the opaque plant interface."""
+    steps = round((config.simulation_seconds if seconds is None else seconds) / 0.02)
+    X, U = np.empty((steps + 1, 4)), np.empty((steps, 1))
+    X[0] = y0
+    for k in tqdm(range(steps), desc=f"Closed loop theta0={y0[2]:.3f}"):
+        U[k] = np.clip(controller(k, X[k]), -config.umax, config.umax)
+        X[k + 1] = _plant_step(X[k], U[k], config.dt)
+    return np.arange(steps + 1) * 0.02, X, U
 
 
 def simulate_discrete_inverted_pendulum(u_caller, M_ratio, y0, dt, num_steps, umax=np.inf):
-    """Simulate normalized dynamics with one held controller call per step."""
-    y = np.asarray(y0, dtype=float).reshape(4)
+    """Backward-compatible fixed-step simulator used by unit tests/notebooks."""
+    state = np.asarray(y0, dtype=float).reshape(4)
     X = np.empty((4, num_steps + 1), dtype=float)
     U = np.empty((1, num_steps), dtype=float)
-    X[:, 0] = y
-    for k in tqdm(range(num_steps), desc="Simulating"):
-        u = float(np.asarray(u_caller(k, y)).reshape(-1)[0])
-        u = float(np.clip(u, -umax, umax))
-        U[0, k] = u
-        y = rk4_step(y, u, dt=dt, M=M_ratio)
-        X[:, k + 1] = y
+    X[:, 0] = state
+    for k in range(num_steps):
+        value = float(np.asarray(u_caller(k, state)).reshape(-1)[0])
+        value = float(np.clip(value, -umax, umax))
+        U[0, k] = value
+        state = rk4_step(state, value, dt=dt, M=M_ratio)
+        X[:, k + 1] = state
     return np.arange(num_steps + 1, dtype=float) * dt, X, U
 
 
-def evaluate_inverted_pendulum_autoencoder(encoder, decoder, W, *, horizon, dt, M_ratio, eps=1e-12):
-    """Return reconstruction and nonlinear RK4 residual diagnostics."""
-    with torch.no_grad():
-        reconstructed = decoder(encoder(W))
-    data = W.detach().cpu().numpy()
-    recon = reconstructed.detach().cpu().numpy()
-    error = recon - data
-    aggregate = np.linalg.norm(error) / max(np.linalg.norm(data), eps)
-    per_row = np.linalg.norm(error, axis=1) / np.maximum(np.linalg.norm(data, axis=1), eps)
-    ss_res = np.sum(error ** 2)
-    ss_tot = np.sum((data - data.mean(axis=0, keepdims=True)) ** 2)
-
-    def residuals(matrix):
-        X = matrix[:, : (horizon + 1) * 4].reshape(-1, horizon + 1, 4)
-        U = matrix[:, (horizon + 1) * 4 :].reshape(-1, horizon, 1)
-        values = []
-        for trajectory, inputs in zip(X, U):
-            for k in range(horizon):
-                predicted = rk4_step(trajectory[k], inputs[k, 0], dt, M_ratio)
-                denominator = max(np.linalg.norm(trajectory[k + 1]) + np.linalg.norm(predicted), eps)
-                values.append(np.linalg.norm(trajectory[k + 1] - predicted) / denominator)
-        values = np.asarray(values)
-        return {name: float(function(values)) for name, function in (
-            ("mean", np.mean), ("median", np.median), ("p95", lambda x: np.percentile(x, 95)), ("max", np.max)
-        )}
-
-    return {
-        "aggregate_nrmse": float(aggregate),
-        "trajectory_nrmse_median": float(np.median(per_row)),
-        "trajectory_nrmse_p95": float(np.percentile(per_row, 95)),
-        "r2": float(1.0 - ss_res / max(ss_tot, eps)),
-        "data_residual": residuals(data),
-        "reconstructed_residual": residuals(recon),
-    }
+def success_metrics(t: np.ndarray, X: np.ndarray, U: np.ndarray) -> dict[str, float | bool]:
+    final = t >= max(0.0, t[-1] - min(3.0, 0.4 * t[-1]))
+    angular_velocity = X[:, 3] * math.sqrt(9.81)
+    cart_velocity = X[:, 1] * math.sqrt(9.81)
+    return {"balanced": bool(np.all(np.abs(X[final, 2]) <= 0.02) and
+                              np.all(np.abs(angular_velocity[final]) <= 0.05)),
+            "cart_rest": bool(np.all(np.abs(cart_velocity[final]) <= 0.05)),
+            "final_theta": float(X[-1, 2]),
+            "final_theta_dot_physical": float(angular_velocity[-1]),
+            "final_x_dot_physical": float(cart_velocity[-1]),
+            "max_abs_u": float(np.max(np.abs(U))) if len(U) else 0.0,
+            "max_abs_theta": float(np.max(np.abs(X[:, 2])))}
 
 
-def _print_metrics(label, metrics):
-    print(f"{label} reconstruction: aggregate NRMSE={metrics['aggregate_nrmse']:.6g}, "
-          f"trajectory median={metrics['trajectory_nrmse_median']:.6g}, "
-          f"trajectory p95={metrics['trajectory_nrmse_p95']:.6g}, R^2={metrics['r2']:.6g}")
-    for key, title in (("data_residual", "original data"), ("reconstructed_residual", "reconstructed")):
-        value = metrics[key]
-        print(f"  {title} dynamics residual: mean={value['mean']:.6g}, median={value['median']:.6g}, "
-              f"p95={value['p95']:.6g}, max={value['max']:.6g}")
+def save_figure(results, path: Path) -> None:
+    import matplotlib.pyplot as plt
+    figure, axes = plt.subplots(4, 1, figsize=(10, 11), sharex=True)
+    for label, (t, X, U) in results.items():
+        axes[0].plot(t, X[:, 2], label=label)
+        axes[1].plot(t, X[:, 3] * math.sqrt(9.81), label=label)
+        axes[2].plot(t, X[:, 1] * math.sqrt(9.81), label=label)
+        axes[3].step(t[:-1], U[:, 0], where="post", label=label)
+    for axis, label in zip(axes, ("theta [rad]", "theta_dot [rad/s]", "x_dot [m/s]", "u=F/(mg)")):
+        axis.set_ylabel(label)
+    axes[3].set_xlabel("time [s]")
+    axes[0].legend(ncol=2)
+    figure.tight_layout()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(path, dpi=160)
+    plt.close(figure)
 
 
-def make_inverted_pendulum_manifold_u_caller_args(
-    args, decoder, Q, R, x_ref, u_ref, encoder=None, fallback_controller=None,
-):
-    """Build a persistent normalized latent-MPC controller."""
-    device = torch.device(args.device)
-    solver = LatentBehaviorMPCSolver(
-        decoder, 4, 1, args.H, Q, R, encoder=encoder, x_ref=x_ref, u_ref=u_ref,
-        Q_terminal=5.0 * Q, u_bounds=(-args.umax, args.umax),
-        lambda_u_bounds=args.control_lambda_u_bounds,
-        lambda_alpha=args.control_lambda_alpha, rho_x0_init=args.control_rho_x0,
-        rho_x0_growth=args.control_rho_growth, rho_x0_max=args.control_rho_max,
-        constraint_tol=args.control_constraint_tol,
-        max_outer_iter=args.control_outer_max_iter,
-        inner_max_iter=args.control_inner_max_iter, lr=args.control_lr,
-        patience=args.control_patience, relative_loss_tol=args.control_relative_loss_tol,
-        use_lbfgs_polish=args.control_lbfgs_polish, device=device,
-    )
-    state = {"previous_alpha": None, "previous_x_plan": None,
-             "previous_u_plan": None, "previous_feasible_u_plan": None}
-    keys = ("solver_iterations", "solver_outer_iterations", "solver_feasible",
-            "solver_x0_rmse", "solver_x0_nrmse", "solver_max_input_violation",
-            "solver_tracking_loss", "fallback_used")
-    diagnostics = {key: [] for key in keys}
-    generator = torch.Generator(device=device)
-    generator.manual_seed(0 if args.seed is None else args.seed)
-
-    def u_caller(k, x):
-        current = torch.as_tensor(np.asarray(x).reshape(4), dtype=torch.float32, device=device)
-        if state["previous_x_plan"] is None:
-            x_seed = x_ref.expand(args.H + 1, -1).clone()
-            u_seed = u_ref.expand(args.H, -1).clone()
-        else:
-            x_seed = torch.cat((state["previous_x_plan"][1:], state["previous_x_plan"][-1:])).clone()
-            u_seed = torch.cat((state["previous_u_plan"][1:], state["previous_u_plan"][-1:])).clone()
-        x_seed[0] = current
-        starts = []
-        if encoder is not None:
-            starts.append(solver.encode_initial_trajectory(x_seed, u_seed))
-        if state["previous_alpha"] is not None:
-            starts.append(state["previous_alpha"])
-        starts.append(torch.zeros(args.alpha_dim, device=device))
-        while len(starts) < args.control_multistart:
-            starts.append(starts[0] + 0.01 * torch.randn(starts[0].shape, generator=generator, device=device))
-        sol = solver.solve_multistart(current, starts[:max(1, args.control_multistart)])
-        usable = (sol.finite and sol.max_input_violation <= max(args.control_constraint_tol, 1e-6)
-                  and sol.x0_rmse <= 10.0 * args.control_constraint_tol)
-        if usable:
-            control = sol.u[0].detach().cpu().numpy()
-            state["previous_alpha"] = sol.alpha.detach().clone()
-            state["previous_x_plan"], state["previous_u_plan"] = sol.x.detach().clone(), sol.u.detach().clone()
-            if sol.feasible:
-                state["previous_feasible_u_plan"] = sol.u.detach().clone()
-        else:
-            control = np.asarray(fallback_controller(k, x), dtype=float) if fallback_controller else np.array([np.nan])
-            if not np.all(np.isfinite(control)) and state["previous_feasible_u_plan"] is not None:
-                control = state["previous_feasible_u_plan"][min(1, args.H - 1)].cpu().numpy()
-            if not np.all(np.isfinite(control)):
-                control = np.zeros(1)
-        values = (sol.iterations, sol.outer_iterations, sol.feasible, sol.x0_rmse,
-                  sol.x0_nrmse, sol.max_input_violation, sol.tracking_loss, not usable)
-        for key, value in zip(keys, values):
-            diagnostics[key].append(value)
-        return np.clip(control, -args.umax, args.umax).reshape(1)
-
-    u_caller.solver, u_caller.state, u_caller.diagnostics = solver, state, diagnostics
-    return u_caller
+def run(args: argparse.Namespace) -> dict[str, object]:
+    config = make_config(args.profile, device=args.device, episodes=args.episodes,
+                         epochs=args.epochs, seed=args.seed)
+    np.random.seed(config.seed)
+    torch.manual_seed(config.seed)
+    root = Path(__file__).resolve().parents[1]
+    data_path = root / "saves" / "datasets" / f"canonical_trajectories_{args.profile}.npz"
+    checkpoint = root / "saves" / "saved_models" / f"canonical_decoder_{args.profile}.pt"
+    results_path = root / "saves" / "simulation_results" / f"canonical_manifold_{args.profile}.npz"
+    summary_path = root / "saves" / "simulation_results" / f"canonical_manifold_{args.profile}.json"
+    figure_path = root / "saves" / "figures" / f"canonical_manifold_{args.profile}.png"
+    if args.reuse_data and data_path.exists():
+        stored = np.load(data_path)
+        X, U = stored["X"], stored["U"]
+    else:
+        X, U = collect_trajectory_data(config)
+        data_path.parent.mkdir(parents=True, exist_ok=True)
+        np.savez_compressed(data_path, X=X, U=U, config=json.dumps(asdict(config)))
+    splits = split_episodes(X, U, config.seed)
+    print("episode splits:", {key: len(value[0]) for key, value in splits.items()})
+    print("coverage min:", X.min(axis=(0, 1)), "max:", X.max(axis=(0, 1)))
+    if args.reuse_model and checkpoint.exists():
+        transition, payload = load_transition(checkpoint, config.device)
+        history = payload["history"]
+        if payload["horizon"] != config.horizon:
+            raise ValueError("checkpoint horizon does not match configuration")
+    else:
+        transition, history = train_transition(splits["train"], splits["validation"], config, checkpoint)
+    decoder = CanonicalBehaviorDecoder(transition, config.horizon).to(config.device).eval()
+    metrics = prediction_metrics(decoder, splits["test"])
+    print("test prediction metrics:", json.dumps(metrics, indent=2))
+    Q_np = np.diag([0.02, 30.0, 100.0, 10.0])
+    R_np = np.array([[0.03]])
+    local_gain, local_model = fit_local_feedback(splits["train"], Q_np, R_np)
+    print("data-driven local fit RMSE:", local_model["fit_rmse"])
+    results, closed_loop_metrics, diagnostics = {}, {}, {}
+    for degrees in (-60, -30, -15, 15, 30, 60):
+        controller = make_controller(decoder, config, local_gain=local_gain)
+        label = f"theta0_{degrees:+d}deg"
+        result = simulate_plant(controller, np.array([0.0, 0.0, math.radians(degrees), 0.0]), config)
+        results[label] = result
+        closed_loop_metrics[label] = success_metrics(*result)
+        diagnostics[label] = {key: controller.diagnostics[key]
+                              for key in ("loss", "iterations", "solve_seconds", "terminal_policy_used")}
+        print(label, closed_loop_metrics[label])
+    save_figure(results, figure_path)
+    results_path.parent.mkdir(parents=True, exist_ok=True)
+    arrays = {"config_json": np.array(json.dumps(asdict(config)))}
+    for label, (t, states, inputs) in results.items():
+        arrays.update({f"t_{label}": t, f"X_{label}": states, f"U_{label}": inputs})
+    np.savez_compressed(results_path, **arrays)
+    summary = {"config": asdict(config),
+               "paper_notation": {"q": "col(x0,u0,...,uN-1)", "w": "col(u0,...,uN-1,x0,...,xN)"},
+               "split_sizes": {key: len(value[0]) for key, value in splits.items()},
+               "coverage_min": X.min(axis=(0, 1)).tolist(), "coverage_max": X.max(axis=(0, 1)).tolist(),
+               "prediction_metrics": metrics, "training_history": history,
+               "local_model": {key: value.tolist() for key, value in local_model.items()},
+               "closed_loop_metrics": closed_loop_metrics, "solver_diagnostics": diagnostics,
+               "artifacts": {"data": str(data_path), "checkpoint": str(checkpoint),
+                             "results": str(results_path), "figure": str(figure_path)}}
+    summary_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    print("summary:", summary_path)
+    return summary
 
 
-def _normalized_lqr_controller(args, x_ref):
-    A_ct, B_ct = linearize_upright_dynamics(args.M / args.m)
-    gain = lqr_ct(A_ct, B_ct, np.diag([1.0, 1.0, 100.0, 10.0]), np.array([[0.1]]))
-    return lambda _k, x: np.clip(-gain @ (np.asarray(x) - x_ref), -args.umax, args.umax)
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--profile", choices=PROFILES, default="dev")
+    parser.add_argument("--device", default=None)
+    parser.add_argument("--episodes", type=int, default=None)
+    parser.add_argument("--epochs", type=int, default=None)
+    parser.add_argument("--seed", type=int, default=None)
+    parser.add_argument("--reuse-data", action="store_true")
+    parser.add_argument("--reuse-model", action="store_true")
+    return parser
 
 
-def solve_single_step(args, decoder, encoder, Q, R, x_ref, u_ref, y0_normalized):
-    """Solve and print one normalized latent-MPC step."""
-    solver = LatentBehaviorMPCSolver(
-        decoder, 4, 1, args.H, Q, R, encoder=encoder, x_ref=x_ref, u_ref=u_ref,
-        Q_terminal=5.0 * Q, u_bounds=(-args.umax, args.umax),
-        lambda_u_bounds=args.control_lambda_u_bounds, lambda_alpha=args.control_lambda_alpha,
-        rho_x0_init=args.control_rho_x0, rho_x0_growth=args.control_rho_growth,
-        rho_x0_max=args.control_rho_max, constraint_tol=args.control_constraint_tol,
-        max_outer_iter=args.control_outer_max_iter, inner_max_iter=args.control_inner_max_iter,
-        lr=args.control_lr, patience=args.control_patience,
-        relative_loss_tol=args.control_relative_loss_tol, device=torch.device(args.device),
-    )
-    x_init = x_ref.expand(args.H + 1, -1).clone()
-    x_init[0] = torch.as_tensor(y0_normalized, dtype=torch.float32, device=args.device)
-    u_init = u_ref.expand(args.H, -1).clone()
-    alpha = solver.encode_initial_trajectory(x_init, u_init)
-    sol = solver.solve(x_init[0], alpha_init=alpha)
-    print(f"  tracking objective={sol.tracking_loss:.6g}")
-    print(f"  initial-state RMSE={sol.x0_rmse:.6g}")
-    print(f"  normalized initial-state mismatch={sol.x0_nrmse:.6g}")
-    print(f"  maximum input-bound violation={sol.max_input_violation:.6g}")
-    print(f"  inner/outer iterations={sol.iterations}/{sol.outer_iterations}")
-    print(f"  feasible={sol.feasible}; first normalized control={sol.u[0].detach().cpu().numpy()}")
-
-
-def run_simulation(args, decoder, encoder, Q, R, x_ref_t, u_ref_t, y0_normalized):
-    """Run, summarize, save, and optionally plot three normalized controllers."""
-    num_steps = round(args.sim_duration / args.control_dt)
-    dt_norm = args.control_dt / math.sqrt(args.l / args.g)
-    x_ref = x_ref_t.cpu().numpy()
-    lqr_controller = _normalized_lqr_controller(args, x_ref)
-    manifold = make_inverted_pendulum_manifold_u_caller_args(
-        args, decoder, Q, R, x_ref_t, u_ref_t, encoder, lqr_controller)
-    controllers = {"manifold": manifold, "lqr": lqr_controller, "zero": lambda _k, _x: np.zeros(1)}
-    results = {name: simulate_discrete_inverted_pendulum(
-        caller, args.M / args.m, y0_normalized, dt_norm, num_steps, args.umax)
-        for name, caller in controllers.items()}
-    for name, (_, X, _) in results.items():
-        print(f"  final normalized state error ({name})={np.linalg.norm(X[:, -1] - x_ref):.6g}")
-    diagnostics = {key: np.asarray(value) for key, value in manifold.diagnostics.items()}
-    print(f"  feasible solve percentage={100 * diagnostics['solver_feasible'].mean():.1f}%")
-    print(f"  fallback fraction={diagnostics['fallback_used'].mean():.6g}")
-    print(f"  median/max x0 RMSE={np.median(diagnostics['solver_x0_rmse']):.6g}/{np.max(diagnostics['solver_x0_rmse']):.6g}")
-    print(f"  median solver iterations={np.median(diagnostics['solver_iterations']):.1f}")
-    print(f"  maximum normalized input violation={np.max(diagnostics['solver_max_input_violation']):.6g}")
-    print(f"  maximum absolute normalized input={max(np.max(np.abs(item[2])) for item in results.values()):.6g}")
-    print(f"  implied maximum physical force={args.umax * args.m * args.g:.6g}")
-
-    t0, state_scale, mg = _physical_state_scale(args.m, args.g, args.l)
-    payload = {"x_ref_normalized": x_ref, "y0_normalized": y0_normalized}
-    for name, (t_norm, X_norm, U_norm) in results.items():
-        payload.update({f"t_normalized_{name}": t_norm, f"X_normalized_{name}": X_norm,
-                        f"U_normalized_{name}": U_norm, f"t_physical_{name}": t_norm * t0,
-                        f"X_physical_{name}": X_norm * state_scale[:, None],
-                        f"F_physical_{name}": U_norm * mg})
-    payload.update(diagnostics)
-    if args.results_path is not None:
-        args.results_path.parent.mkdir(parents=True, exist_ok=True)
-        np.savez(args.results_path, **payload)
-        print(f"  saved simulation results to {args.results_path}")
-    if args.plot:
-        import matplotlib.pyplot as plt
-        figure, axes = plt.subplots(3, 1, figsize=(10, 10), sharex=True)
-        for name, (t_norm, X, U) in results.items():
-            time = t_norm * t0
-            axes[0].plot(time, np.linalg.norm(X - x_ref[:, None], axis=0), label=name)
-            axes[1].plot(time, X[2], label=name)
-            axes[2].step(time[:-1], U[0], where="post", label=name)
-        axes[0].set_ylabel("normalized state error")
-        axes[1].set_ylabel("theta [rad]")
-        axes[2].set_ylabel("normalized input"); axes[2].set_xlabel("physical time [s]")
-        axes[0].legend(); figure.tight_layout()
-        args.plot_path.parent.mkdir(parents=True, exist_ok=True)
-        figure.savefig(args.plot_path)
+def build_arg_parser() -> argparse.ArgumentParser:
+    """Compatibility parser for the earlier public script interface."""
+    parser = build_parser()
+    parser.add_argument("--H", type=int, default=25)
+    parser.add_argument("--alpha-dim", type=int, default=29)
+    return parser
 
 
 def main() -> None:
-    """Run data generation, training, diagnostics, and control."""
-    args = build_arg_parser().parse_args()
-    if args.alpha_dim != 4 + args.H:
-        warnings.warn("alpha_dim differs from 4 + H, the full deterministic trajectory-manifold dimension for four states and one input.")
-    if args.control_dt <= 0 or args.sim_duration <= 0:
-        raise ValueError("control-dt and sim-duration must be positive")
-    if args.seed is not None:
-        np.random.seed(args.seed); torch.manual_seed(args.seed)
-    device = torch.device(args.device)
-    num_steps = round(args.sim_duration / args.control_dt)
-    num_points = num_steps
-    _, state_scale, mg = _physical_state_scale(args.m, args.g, args.l)
-    y0_normalized = np.asarray(args.y0, dtype=float) / state_scale
-    x_ref_t = torch.zeros(4, dtype=torch.float32, device=device)
-    u_ref_t = torch.zeros(1, dtype=torch.float32, device=device)
-    Q = torch.diag(torch.tensor([1.0, 1.0, 100.0, 10.0], device=device))
-    R = torch.tensor([[0.1]], device=device)
-    W_train = W_test = None
-    w_dim = (args.H + 1) * 4 + args.H
-    if args.skip_training and not args.checkpoint.exists():
-        raise FileNotFoundError(f"--skip-training requires {args.checkpoint}")
-    if args.skip_data_generation:
-        print("Step 1/4: skipping data generation")
-    else:
-        print("Step 1/4: generating RK4 trajectory data")
-        _, X_all, F_all = gen_max_theta_data(
-            args.M, args.m, args.g, args.l, sigma=args.sigma, theta_max=args.theta_max,
-            t_span=(0.0, args.sim_duration), num_points=num_points,
-            n_repeats=args.n_repeats, umax=args.umax, control_dt=args.control_dt,
-            seed=args.seed, method="rk4")
-        for X, F in zip(X_all, F_all):
-            assert X.shape[1] == np.asarray(F).size + 1
-        X_norm_all = [X / state_scale.reshape(4, 1) for X in X_all]
-        U_norm_all = [np.asarray(F, dtype=float).reshape(1, -1) / mg for F in F_all]
-        W = build_trajectory_training_matrix(X_norm_all, U_norm_all, horizon=args.H,
-                                             device=device, dtype=torch.float32)
-        assert W.shape[1] == (args.H + 1) * 4 + args.H
-        W_train, W_test = split_behavior_matrix(W, test_fraction=args.test_fraction, seed=args.seed)
-        w_dim = W.shape[1]
-        print(f"  behavior matrix shape={tuple(W.shape)}; train={len(W_train)}, test={len(W_test)}")
-    if args.skip_training:
-        print("Step 2/4: loading autoencoder checkpoint")
-        autoencoder = load_autoencoder(checkpoint=args.checkpoint, alpha_dim=args.alpha_dim,
-                                       w_dim=w_dim, hidden_dims=args.hidden_dims, device=device)
-    else:
-        if W_train is None:
-            raise RuntimeError("training requires generated data")
-        print("Step 2/4: training behavior autoencoder")
-        autoencoder = train_decoder(
-            W_train, x_dim=4, u_dim=1, horizon=args.H, alpha_dim=args.alpha_dim,
-            hidden_dims=args.hidden_dims, epochs=args.epochs, max_iter=args.training_max_iter,
-            lr=args.train_lr, print_every=args.print_every, checkpoint=args.checkpoint,
-            device=device, batch_size=args.batch_size, lambda_alpha=args.lambda_alpha)
-    encoder, decoder = autoencoder.encoder, autoencoder.decoder
-    encoder.eval(); decoder.eval()
-    if W_train is not None:
-        dt_norm = args.control_dt / math.sqrt(args.l / args.g)
-        _print_metrics("Train", evaluate_inverted_pendulum_autoencoder(
-            encoder, decoder, W_train, horizon=args.H, dt=dt_norm, M_ratio=args.M / args.m))
-        _print_metrics("Test", evaluate_inverted_pendulum_autoencoder(
-            encoder, decoder, W_test, horizon=args.H, dt=dt_norm, M_ratio=args.M / args.m))
-    if args.skip_control_solve:
-        print("Step 3/4: skipping one-step control solve")
-    else:
-        print("Step 3/4: solving normalized one-step latent MPC")
-        solve_single_step(args, decoder, encoder, Q, R, x_ref_t, u_ref_t, y0_normalized)
-    if args.skip_simulation:
-        print("Step 4/4: skipping closed-loop simulation")
-    else:
-        print("Step 4/4: running normalized closed-loop comparison")
-        run_simulation(args, decoder, encoder, Q, R, x_ref_t, u_ref_t, y0_normalized)
-    print("Done.")
+    run(build_parser().parse_args())
 
 
 if __name__ == "__main__":
