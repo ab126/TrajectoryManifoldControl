@@ -31,16 +31,16 @@ from src.manifold_control import CanonicalBehaviorDecoder, DataDrivenCEMSolver, 
 @dataclass
 class ExperimentConfig:
     horizon: int = 40
-    dt: float = 0.02 / math.sqrt(1.0 / 9.81)
+    dt: float = 0.02 / math.sqrt(1.0 / 9.81) # Sampling has to match intrinsic physical time scale of the system/plant
     episodes: int = 5000
     epochs: int = 160
     batch_size: int = 2048
     hidden_dims: tuple[int, ...] = (256, 256, 256)
-    umax: float = 10.0
+    umax: float = 10.0 # Normalized input bounds
     seed: int = 234
     simulation_seconds: float = 8.0
     controller_iterations: int = 80
-    controller_lr: float = 0.06
+    controller_lr: float = 0.06 # Learning rate for the controller
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
 
@@ -49,7 +49,7 @@ PROFILES = {
                   hidden_dims=(64, 64), simulation_seconds=0.4, controller_iterations=8),
     "dev": dict(horizon=30, episodes=3500, epochs=100, batch_size=2048,
                 hidden_dims=(192, 192, 192), simulation_seconds=14.0, controller_iterations=60),
-    "full": {},
+    "full": {}, # Fill this for full test
 }
 
 
@@ -80,7 +80,7 @@ def collect_trajectory_data(config: ExperimentConfig) -> tuple[np.ndarray, np.nd
         hold = int(rng.integers(1, 6))
         for k in range(config.horizon):
             if k % hold == 0:
-                if episode % 2:
+                if episode % 2: # Explore with random input half the time, otherwise use a noisy hold
                     u = rng.uniform(-config.umax, config.umax)
                 else:
                     u = np.clip(0.75 * u + rng.normal(scale=3.0), -config.umax, config.umax)
@@ -105,7 +105,7 @@ def split_episodes(X: np.ndarray, U: np.ndarray, seed: int) -> dict[str, tuple[n
 
 
 def train_transition(train, validation, config: ExperimentConfig, checkpoint: Path):
-    """Train a system-agnostic transition from measured trajectory triples."""
+    """Train a system-agnostic transition from measured trajectory triples. The x_n, u_n -> x_n+1 trasition map fully describes the system"""
     device = torch.device(config.device)
     X_train, U_train = (torch.from_numpy(array).to(device) for array in train)
     X_val, U_val = (torch.from_numpy(array).to(device) for array in validation)
