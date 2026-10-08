@@ -51,6 +51,27 @@ def main():
     counts = {recipe: sum(row['strict_physical_success'] for row in result['local'] if row['recipe']==recipe)
               for recipe in ('submitted_weights', 'fixed_position_candidate')}
     usage = json.loads((local/'job.json').read_text())['worker_seconds']
+    cem_review = HERE/'diagnostics/cem_review.json'
+    if cem_review.exists():
+        completed = json.loads(cem_review.read_text())
+        occupancy = sum(json.loads(line)['worker_seconds'] for line in
+                        (HERE/'diagnostics/usage.jsonl').read_text().splitlines())
+        improved = sum(row['five_start_cost_improvements'] for row in completed['aggregates'].values())
+        pairs = sum(row['pairs'] for row in completed['aggregates'].values())
+        one_safe = sum(row['one_start_safe'] for row in completed['aggregates'].values())
+        five_safe = sum(row['five_start_safe'] for row in completed['aggregates'].values())
+        cem_status = (f'GPU CEM comparison is complete: 200 finite solves; best-five improved cost in '
+                      f'{improved}/{pairs} pairs; combined predicted safety was '
+                      f'{one_safe}/{pairs} for one start and {five_safe}/{pairs} for best-five. '
+                      f'Total diagnostic occupancy is {occupancy:.6f} s of the shared 900 s cap. '
+                      'See [cem_findings.md](cem_findings.md). Do not rerun the completed phases. '
+                      'Next specify a versioned oracle amendment and configuration/audit support; '
+                      'no amendment, box shrink or dependent stage has been launched.')
+    else:
+        cem_status = ('GPU CEM comparison is prepared, not yet reviewed here: 20 fixed states, '
+                      'five common-prefix starts, zero/local-rollout warm starts, 200 solves. '
+                      'Check diagnostics/latest.json and the usage ledger before execution to '
+                      'avoid duplicate work. See validation/oracle_diagnostic_spec.md for scope.')
     summary = f'''# Bounded local-feedback diagnostic
 
 Original plant, known-model local feedback throughout, 20 s, seven fixed probes.
@@ -67,19 +88,9 @@ problem on those probes. Early broad-box safety/search failures remain unresolve
 
 Actual supervised worker usage: {usage:.6f} s ({usage/3600:.6f} h); 14000 diagnostic
 plant transitions, separate from training/acquisition and the 200-case calibration.
-The shared diagnostic cap is 900 s, including imports, failure and future CEM work.
+The shared diagnostic cap is 900 s, including imports, failures and both fixed phases.
 
-GPU CEM comparison is **prepared, not executed**: 20 fixed states, five common-
-prefix starts, zero/local-rollout warm starts, 200 solves. This session has no
-GPU nodes. Run in the GPU-enabled host terminal:
-
-```bash
-bash TrajectoryManifoldControl/validation/run_diagnostics.sh cem --execute
-```
-
-See `validation/oracle_diagnostic_spec.md` for its fixed scope and limitations.
-After reviewing that result, specify and freeze an oracle amendment before a
-new calibration. No box shrink, tuning or dependent stage has been launched.
+{cem_status}
 '''
     (HERE/'diagnostics/local_findings.md').write_text(summary)
     links = ''.join(f'<li><a href="{label}.png">{label}: PNG</a> · <a href="{label}.pdf">PDF</a></li>' for label in cases)
@@ -91,7 +102,7 @@ new calibration. No box shrink, tuning or dependent stage has been launched.
     notebook = json.loads(notebook_path.read_text())
     notebook['cells'] = [cell for cell in notebook['cells'] if not cell['id'].startswith('localdiag')]
     notebook['cells'].append({'cell_type': 'markdown', 'id': 'localdiag-summary', 'metadata': {},
-                             'source': ('## Additional bounded local-feedback diagnosis\n\nOriginal weights: **0/7** strict successes; fixed oracle-only Qp=2: **7/7**, both safe. Four pure-position probes and cases 1,2,9, with local feedback throughout to isolate the gain. This confirms slow nonlinear position recovery on selected probes; it is not a 200-case attainability result or an H modification. Early safety/search failures still need the GPU diagnostic.\n').splitlines(True)})
+                             'source': ('## Additional bounded local-feedback diagnosis\n\nOriginal weights: **0/7** strict successes; fixed oracle-only Qp=2: **7/7**, both safe. Four pure-position probes and cases 1,2,9, with local feedback throughout to isolate the gain. This confirms slow nonlinear position recovery on selected probes; it is not a 200-case attainability result or an H modification. Early safety/search failures remain unresolved; consult diagnostics/cem_findings.md for the later CUDA diagnosis.\n').splitlines(True)})
     representative = 'pure_p_+1'
     notebook['cells'].append({'cell_type': 'code', 'id': 'localdiag-figure', 'metadata': {}, 'execution_count': None,
         'source': [f"display(Image(filename=str(figures / 'diagnostics/local_feedback/{representative}.png')))\n"],
@@ -131,6 +142,8 @@ exec /home/ap60/miniconda3/envs/overseeg/bin/python -m jupyter notebook "$valida
     hashes = {str(path.relative_to(output)): digest(path) for path in sorted(output.rglob('*')) if path.is_file() and path.name!='checksums.json'}
     (output/'checksums.json').write_text(json.dumps(hashes, indent=2)+'\n')
     print(json.dumps({'diagnostic_comparison_figures': len(cases), 'notebook': str(notebook_path), 'local_result': counts}))
+    from angle_failure_media import main as add_angle_nonsettling
+    add_angle_nonsettling()
 
 
 if __name__ == '__main__': main()

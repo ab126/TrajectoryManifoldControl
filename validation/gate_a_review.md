@@ -8,6 +8,14 @@ prove that the plant/task is physically unattainable or that H has no contributi
 Original evidence: `overnight_runs/20261007T054549.695689Z/`. It was not edited.
 Detailed analysis: `reviews/20261007T054549.695689Z/trace_review.json`.
 
+**October 8 update:** both bounded diagnostic phases completed; see
+[cem_findings.md](diagnostics/cem_findings.md). Next specify a versioned oracle
+amendment and configurable independent audit. Do not rerun the diagnostic or
+interpret it as Gate A passing. Current HEAD is
+`17d42cd83dea810af5b2979e657f0074244f2cc4`; submitted source is unchanged relative
+to the original run's commit. Total Stage-0 usage including diagnostics is
+1.385377 h of the user-run 15 h allocation.
+
 ## Execution and evidence
 
 All 200 cases completed 1000 samples: **200000 original-plant steps**.
@@ -15,7 +23,7 @@ Successful IDs: 22, 72, 89. Negative-angle half: **0/94**; positive: **3/106**.
 No nonfinite states or solver-fallback branches were recorded. The saved audit
 passed physical scoring and original NumPy plant replay with **zero maximum
 absolute error**. This review checked **212 saved checksums**, submitted-source
-hashes and the validation-source snapshot: no mismatch at review time. HEAD is
+hashes and the validation-source snapshot: no mismatch at review time. Run HEAD was
 `325beae718ab093d3ca48b18a59ae61fd93798a3`; tracked controller files are unchanged.
 These checks establish execution consistency, not optimizer optimality.
 
@@ -39,6 +47,14 @@ Counts overlap. Only **35** cases stayed within both safety limits throughout:
 3 passed, **27 failed only position**, and 5 failed position and cart speed.
 Among violating cases, median first rail crossing was **0.52 s** and first
 angle crossing **0.22 s**: failures often occur during initial recovery.
+
+The rail and position requirements were reviewer-added, not physical rail
+collisions in the plant or hard constraints in the active planner. Input bounds
+are enforced; rail/angle state bounds are not. Ignoring prior safety, **147/200**
+met final angle/angular-speed tolerances, **67** also met cart-speed tolerance,
+and **12** met all four final tolerances. Nine of those twelve had earlier safety
+violations. Thus 3/200 is strict safe recovery/recentering; only 53 failed the
+angular-settling criterion by 20 seconds. It does not mean 197 never balanced.
 
 ## Diagnosis
 
@@ -82,18 +98,19 @@ after amendments.
 
 The one-start reservation including 20% overhead was **14.28 h**. Actual work
 was smaller because of local/queued execution. A full five-start worst-case
-reservation is **71.40 h**, before prior Stage-0 work, exceeding the remaining
-13.64 h. The short failed run does not justify removing reservation checks.
+reservation is **71.40 h**, before prior Stage-0 work, exceeding the 13.64 h
+remaining at initial review (now 13.614623 h after diagnostics). Even the modeled
+one-start reservation exceeds the current remainder. The short failed run does
+not justify removing reservation checks.
 
 ## Recommended next steps
 
-1. **Bounded oracle diagnosis first**, suggested ceiling 0.25 worker-hours.
-   Compare one versus five CEM starts on roughly 20 saved initial/pre-violation
-   states, replaying common RNG prefixes. Inspect cost components, predicted
-   safety violations and warm-start retention. Include position-only cases
-   1, 2, 9, pure position states and both angle signs. Separately check exact
-   nonlinear local recovery. This is diagnosis, not tuning or a replacement
-   200-case calibration.
+1. **Bounded oracle diagnosis completed**, total 78.986003 s within 0.25 h.
+   Local probes gave 0/7 original versus 7/7 fixed oracle-only candidate; CEM
+   best-five improved cost in 22/40 pairs, without changing combined predicted
+   safety (18/40). Pure-position zero-motion cost was lower than the tested
+   local-feedback plan. These selected-state results are diagnosis, not a new
+   200-case calibration or evidence that more starts fix safety.
 2. **Specify an oracle amendment before execution.** Investigate position-aware
    oracle local feedback/switching and safety-aware oracle planning; label each
    change to the reference. Preserve submitted H and the plant. If campaign

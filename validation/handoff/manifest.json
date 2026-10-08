@@ -1,12 +1,12 @@
 {
   "prepared_utc": "2026-10-08T14:49:45.540051+00:00",
-  "scope": "read-only evidence review, plan/source snapshots, handoff documentation; no new experimental jobs",
-  "git_head": "325beae718ab093d3ca48b18a59ae61fd93798a3",
-  "git_status_short": "?? validation/\n",
-  "tracked_diff_empty": true,
+  "scope": "Saved-data CEM/source review and angle-nonsettling notebook extension; no new experimental jobs",
+  "git_head": "17d42cd83dea810af5b2979e657f0074244f2cc4",
+  "git_status_short": " M validation/README.md\n M validation/diagnostics/local_findings.md\n M validation/diagnostics/usage.jsonl\n M validation/finalize_trajectory_media.py\n M validation/gate_a_review.md\n M validation/notebooks/README.md\n M validation/oracle_amendment_proposal.md\n M validation/oracle_diagnostic_spec.md\n M validation/server_readiness.md\n M validation/validation_handoff.md\n?? validation/diagnostics/20261008T190703.853434Z/\n?? validation/diagnostics/cem_findings.md\n?? validation/diagnostics/cem_review.json\n?? validation/next_session_prompt.md\n?? validation/review_cem_diagnostic.py\n?? validation/reviews/20261007T054549.695689Z/endpoint_breakdown.json\n",
+  "tracked_diff_empty": false,
   "document": {
     "path": "validation_handoff.md",
-    "sha256": "012f2e44a4230e87e7385987905f1da2739ccdaa6ce698c9c91a1d69a5444411"
+    "sha256": "25874c2ac3ad35a387f6f5465606c0324d823895ae2b65870ec765926a660686"
   },
   "plan_and_note_snapshots": [
     {
@@ -152,32 +152,28 @@
   ],
   "evidence_files": [
     {
-      "path": "artifacts/usage_summary.json",
-      "sha256": "588ac13a0f715e20c03ab4d0ca4d56480a091db38ae1487a0882dc6b822f4202"
+      "path": "README.md",
+      "sha256": "9de405ca760f77160eddc24804add7fa105783756f1f58fd1bd24d0982075a54"
+    },
+    {
+      "path": "angle_failure_media.py",
+      "sha256": "2e51e1e56f0c19bf37187e4e41a749890509d5a2d11e43cad5d468cc810289cc"
+    },
+    {
+      "path": "artifacts/angle_animation_ui_checks.json",
+      "sha256": "7539aaaf6d02d8ded53425685c93448675a2698b3afffdfdbdde173a5d7d4a93"
+    },
+    {
+      "path": "artifacts/angle_notebook_checks.json",
+      "sha256": "cf549ccd763b792ae049886bd80853188234b81013cd7779bbab095e374f3c28"
+    },
+    {
+      "path": "artifacts/animation_ui_checks.json",
+      "sha256": "8e51a853092621b155da602fa4041d4534310ff2843571f7218b01d424592b34"
     },
     {
       "path": "artifacts/determinism.json",
       "sha256": "1a9a437dc3b7d41091c6f0e5e142b61ec9ab8f02c16c7c27bd2ea6cffe9350cc"
-    },
-    {
-      "path": "artifacts/seed_manifest.json",
-      "sha256": "3bed71809a80797b05befd319671500559908d01d561a1e705202d11c2df8a16"
-    },
-    {
-      "path": "artifacts/interaction_manifest.json",
-      "sha256": "9d02bd41cfc99e9a36d46f630e2174618b5ad06651fd7227eb215b94bd9a6632"
-    },
-    {
-      "path": "artifacts/stage_estimates.json",
-      "sha256": "48c554208c927a9f19b9a6083abe08a7b7922650637a8ce4b8b881d770dea400"
-    },
-    {
-      "path": "artifacts/stage_estimates_cuda.json",
-      "sha256": "9651f690b16e2491e6767a4f4ca0621469b0dbf78952e3ba21e35b84f5f57832"
-    },
-    {
-      "path": "artifacts/plant_checks.json",
-      "sha256": "fd215dbe4b4ff427d3a4f36c44592f3efc615d4407862fc3cfe8972061101c4d"
     },
     {
       "path": "artifacts/equivalence.json",
@@ -192,6 +188,22 @@
       "sha256": "9acccfa3ed520ebd1855dd7d2f5baa6516857f45bff243d7df4fb2ce807d106e"
     },
     {
+      "path": "artifacts/interaction_manifest.json",
+      "sha256": "9d02bd41cfc99e9a36d46f630e2174618b5ad06651fd7227eb215b94bd9a6632"
+    },
+    {
+      "path": "artifacts/notebook_checks.json",
+      "sha256": "91bb2b29aa4f6d087c5d201135a72a04058b835c5321cc6a587654278e595405"
+    },
+    {
+      "path": "artifacts/plant_checks.json",
+      "sha256": "fd215dbe4b4ff427d3a4f36c44592f3efc615d4407862fc3cfe8972061101c4d"
+    },
+    {
+      "path": "artifacts/seed_manifest.json",
+      "sha256": "3bed71809a80797b05befd319671500559908d01d561a1e705202d11c2df8a16"
+    },
+    {
       "path": "artifacts/smoke.json",
       "sha256": "cb91afbbe7c78463488d3fd1b60a9aa4fc117120017af997c22233dce73c6524"
     },
@@ -200,80 +212,144 @@
       "sha256": "d64a14e7f1363b4dba26eaa1dba3c2f2047c89a1a0f8e4dd0aa254d1eb47a8b0"
     },
     {
+      "path": "artifacts/stage_estimates.json",
+      "sha256": "48c554208c927a9f19b9a6083abe08a7b7922650637a8ce4b8b881d770dea400"
+    },
+    {
+      "path": "artifacts/stage_estimates_cuda.json",
+      "sha256": "9651f690b16e2491e6767a4f4ca0621469b0dbf78952e3ba21e35b84f5f57832"
+    },
+    {
       "path": "artifacts/trajectory_media_checks.json",
       "sha256": "71fdfd640927e2d7bb44a8ef7499ae1c4af331301ef29549f2e630db1fa07b59"
     },
     {
-      "path": "artifacts/notebook_checks.json",
-      "sha256": "91bb2b29aa4f6d087c5d201135a72a04058b835c5321cc6a587654278e595405"
-    },
-    {
-      "path": "artifacts/animation_ui_checks.json",
-      "sha256": "8e51a853092621b155da602fa4041d4534310ff2843571f7218b01d424592b34"
-    },
-    {
-      "path": "overnight_runs/20261007T054549.695689Z/run.json",
-      "sha256": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1"
-    },
-    {
-      "path": "reviews/20261007T054549.695689Z/trace_review.json",
-      "sha256": "8f9deb6a4f33d93796669d379caf7bd9597290af66551f9253688c1f42e10a28"
-    },
-    {
-      "path": "diagnostics/latest.json",
-      "sha256": "eb25cf01a8d4cf9579f4d5ad621c9274023a0799ff91a667b6eeb23399608ed0"
-    },
-    {
-      "path": "diagnostics/usage.jsonl",
-      "sha256": "e319a20ab9b51a4e6d5712c2c15565e374f25ac7e4808485219c2c039b9ad064"
+      "path": "artifacts/usage_summary.json",
+      "sha256": "588ac13a0f715e20c03ab4d0ca4d56480a091db38ae1487a0882dc6b822f4202"
     },
     {
       "path": "diagnostics/20261007T175948.296063Z/results.json",
       "sha256": "f5c98b5487d77a1b7736e46c27c5c78d133ac33355a9f6fb87ee8a4b09c66169"
     },
     {
-      "path": "oracle_diagnostic_spec.md",
-      "sha256": "52235a456a99000479ffa1b1e8a36db72a9e6af8e5cc5a14687e87209b790846"
+      "path": "diagnostics/20261008T190703.853434Z/config.json",
+      "sha256": "e9c709eb66a284d557949328f9dc5a2f468e3b0866d43db85ee7e5603246cefd"
     },
     {
-      "path": "oracle_amendment_proposal.md",
-      "sha256": "e8822fa40948603480e8fd4b910f5935ccaa853702c0a0a206cd2fddf1d3da6b"
+      "path": "diagnostics/20261008T190703.853434Z/cuda_runtime_check.json",
+      "sha256": "2334e68789486422527cfcaf384a5de07c6ec1f5eee025017517d57c3ff3844f"
     },
     {
-      "path": "server_readiness.md",
-      "sha256": "0d597331d934e7d0d33088d92ce9067722943d682a053377b20ad2fc19d8b3c1"
+      "path": "diagnostics/20261008T190703.853434Z/job.json",
+      "sha256": "2642f8b064a619403c7e7e4a077b68dfd40017543d226fae2690232d22f85295"
     },
     {
-      "path": "gate_a_review.md",
-      "sha256": "c5463fc1cbf90f336e788eca9f77b75ffed01b64acf5dd2c3c0a5505760757ba"
+      "path": "diagnostics/20261008T190703.853434Z/results.json",
+      "sha256": "a2d3ec88088701feb1854a402bb100a8d595317f7ce1c39a05ebaba8336dfac3"
+    },
+    {
+      "path": "diagnostics/cem_findings.md",
+      "sha256": "48e864d1555ee247534686184e2df75b36b73a3c4b9e2219e22c4f76d1a4d333"
+    },
+    {
+      "path": "diagnostics/cem_review.json",
+      "sha256": "5dd6b203183b65e73856ee6cbaddc4bd423ee3668fe04c97dcaca389b62171e4"
+    },
+    {
+      "path": "diagnostics/latest.json",
+      "sha256": "03cdce2ec81b09fd08b88802e8daceeaffc5a54e11717df74bfdff6949f88c7b"
     },
     {
       "path": "diagnostics/local_findings.md",
-      "sha256": "c8e3d63506f0d42b84f025bef786580b3ab85b07bbd148593a5854e815c34f95"
+      "sha256": "e4149a5e1faa8005a113e9315747046dd82a12871b62718a0b6c90ddf2993951"
     },
     {
-      "path": "requirements.lock",
-      "sha256": "730ae671d0fdba0380d353fdcba2983566a9f8320c0d092a5ec958b31fd5488f"
+      "path": "diagnostics/usage.jsonl",
+      "sha256": "687bf5f4ce86841b89324ae48b321c0bd8c7d40f600a75d312a35b2200fdafb8"
     },
     {
-      "path": "gpu-requirements.lock",
-      "sha256": "f87c6f861b12fae621c5a19cca983de50f28fab6acc0fb97bbe7410694853dc1"
+      "path": "figures/20261007T054549.695689Z/angle_nonsettling/manifest.json",
+      "sha256": "65830cd8a93b8de1682fb182fa1da4af0549ca76f5a08829df30ccf088330d32"
     },
     {
-      "path": "pip-freeze.txt",
-      "sha256": "94abee80a48270283e3024aa1f8117a4ed2c8fd3912ca4c4e0807f3a9c1246c6"
+      "path": "figures/20261007T054549.695689Z/manifest.json",
+      "sha256": "303358ea31fcc7c2f794c7b371363175b5ab331c541bdf6c6e7c7e0495c40c4b"
+    },
+    {
+      "path": "finalize_trajectory_media.py",
+      "sha256": "3f420267bb5188703cd242fa877fa49d71b5bd8c80ff05aa328b13dd3c390f63"
+    },
+    {
+      "path": "gate_a_review.md",
+      "sha256": "f80f02798687647e4e181fdb8c3556506dcb926623cfa566a59b1deeefdec94c"
     },
     {
       "path": "gpu-pip-freeze.txt",
       "sha256": "1b3326e46e2aa993bb80e447b724bfaef7e10f52b4a5e0c0b785737b2ef65cb8"
     },
     {
-      "path": "notebooks/gate_a_examples.ipynb",
-      "sha256": "008a3a9e12700f3b04820ec9db2e7d7b2910b728a8653d4de1c984123bd25c63"
+      "path": "gpu-requirements.lock",
+      "sha256": "f87c6f861b12fae621c5a19cca983de50f28fab6acc0fb97bbe7410694853dc1"
     },
     {
-      "path": "figures/20261007T054549.695689Z/manifest.json",
-      "sha256": "fa4368c0ae093dcb522c73ca4140265ac3b6228b57397f023acc044121cc7644"
+      "path": "next_session_prompt.md",
+      "sha256": "e8691fa9cb96abfbb83f990242a6586209fb5cb9e7283f56124ec77e7c07b236"
+    },
+    {
+      "path": "notebooks/README.md",
+      "sha256": "a9d47054d63d06266a6511a9bf05d1c9917342364fb29e83497a8a2eae2a81aa"
+    },
+    {
+      "path": "notebooks/export_source.py",
+      "sha256": "9b9aba0cd525e9cdfe67b86a46ba335c3ad9014e8e271f41b9685388e1997681"
+    },
+    {
+      "path": "notebooks/gate_a_examples.ipynb",
+      "sha256": "6d8d930c6a8bdfba2608703f1eaba9f52da231d408a3b9c7dfed79c83e371acb"
+    },
+    {
+      "path": "notebooks/gate_a_examples_source.ipynb",
+      "sha256": "1bc98db606588d955e3a6d20b18173ef4827918ea6b60953d75b4d9c0e21306f"
+    },
+    {
+      "path": "oracle_amendment_proposal.md",
+      "sha256": "0f6b7a1e7df411297fd2c4e906f0cc79a06a039b2f207baa4ae0f6860d5c6100"
+    },
+    {
+      "path": "oracle_diagnostic_spec.md",
+      "sha256": "f4683b85d9b935b5ba6bb56f26678fbf3c75f8c69954d3991cbdf043cee87e19"
+    },
+    {
+      "path": "overnight_runs/20261007T054549.695689Z/run.json",
+      "sha256": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1"
+    },
+    {
+      "path": "pip-freeze.txt",
+      "sha256": "94abee80a48270283e3024aa1f8117a4ed2c8fd3912ca4c4e0807f3a9c1246c6"
+    },
+    {
+      "path": "requirements.lock",
+      "sha256": "730ae671d0fdba0380d353fdcba2983566a9f8320c0d092a5ec958b31fd5488f"
+    },
+    {
+      "path": "review_cem_diagnostic.py",
+      "sha256": "1ca5df25401cb2365c03c7c01aaadf977c8d5811eead5987dcf2f0d2516a57e6"
+    },
+    {
+      "path": "reviews/20261007T054549.695689Z/endpoint_breakdown.json",
+      "sha256": "5f0fe1bd193a7732fe3f3a5e8d23edc4bb67103dc5ffd4f4dc4b96c77b1cd263"
+    },
+    {
+      "path": "reviews/20261007T054549.695689Z/trace_review.json",
+      "sha256": "8f9deb6a4f33d93796669d379caf7bd9597290af66551f9253688c1f42e10a28"
+    },
+    {
+      "path": "server_readiness.md",
+      "sha256": "e6a6cc13184574b2153d337ab7df4f2b6855d10a4c7790f06a752964f1466c49"
+    },
+    {
+      "path": "trajectory_media.py",
+      "sha256": "e5c426de1530f40f139532cf54c00be5fb00de18cf3d2630377f6abf1236b03f"
     }
   ],
   "status": {
@@ -282,27 +358,131 @@
     "oracle_cases": 200,
     "overnight_status": "stopped_awaiting_review",
     "completed_diagnostic_jobs": [
-      "oracle_diagnostic_local"
+      "oracle_diagnostic_local",
+      "oracle_diagnostic_cem"
     ],
-    "gpu_cem_diagnostic_executed": false,
+    "gpu_cem_diagnostic_executed": true,
     "dependent_stages": "stopped",
-    "oracle_amendment": "proposed, not adopted"
+    "oracle_amendment": "proposed, not adopted",
+    "gpu_cem_diagnostic_returncode": 0,
+    "next_deliverable": "versioned oracle-amendment specification and configuration/audit requirements; no automatic execution"
   },
   "usage": {
     "readiness_worker_seconds": 1715.7841650049027,
     "readiness_cap_seconds": 3600,
     "overnight_worker_seconds": 3192.586323780939,
-    "diagnostic_worker_seconds": 7.076881527900696,
-    "total_stage0_worker_seconds": 4915.447370313743,
-    "total_stage0_worker_hours": 1.365402047309373,
+    "diagnostic_worker_seconds": 78.98600335605443,
+    "total_stage0_worker_seconds": 4987.3564921418965,
+    "total_stage0_worker_hours": 1.385376803372749,
     "stage0_user_run_cap_hours": 15.0,
     "shared_diagnostic_cap_seconds": 900,
     "new_experimental_worker_seconds_for_handoff": 0,
-    "llm_usage": "not exposed"
+    "llm_usage": "not exposed",
+    "diagnostic_remaining_seconds": 821.0139966439456,
+    "stage0_remaining_worker_hours": 13.614623196627251,
+    "new_experimental_worker_seconds_for_this_followup": 0
   },
   "missing_original_pdf_inputs": [
     "trajectory_manifold_implementation.pdf",
     "Trajectory_Manifolds_Part_1.pdf"
   ],
-  "model_and_effort": "inherited settings not exposed; requested Terra unavailable; no subagent used"
+  "model_and_effort": "inherited settings not exposed; requested Terra unavailable; no subagent used",
+  "initial_prepared_utc": "2026-10-08T14:49:45.540051+00:00",
+  "updated_utc": "2026-10-08T20:07:05.397731+00:00",
+  "evaluated_submitted_commit": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "git_status_at_refresh": " M validation/README.md\n M validation/diagnostics/local_findings.md\n M validation/diagnostics/usage.jsonl\n M validation/figures/20261007T054549.695689Z/README.md\n M validation/figures/20261007T054549.695689Z/checksums.json\n M validation/figures/20261007T054549.695689Z/manifest.json\n M validation/finalize_trajectory_media.py\n M validation/gate_a_review.md\n M validation/handoff/document_checks.json\n M validation/handoff/manifest.json\n M validation/notebooks/README.md\n M validation/notebooks/gate_a_examples_source.ipynb\n M validation/oracle_amendment_proposal.md\n M validation/oracle_diagnostic_spec.md\n M validation/server_readiness.md\n M validation/trajectory_media.py\n M validation/validation_handoff.md\n?? validation/angle_failure_media.py\n?? validation/artifacts/angle_animation_ui_checks.json\n?? validation/artifacts/angle_notebook_checks.json\n?? validation/diagnostics/20261008T190703.853434Z/\n?? validation/diagnostics/cem_findings.md\n?? validation/diagnostics/cem_review.json\n?? validation/figures/20261007T054549.695689Z/angle_nonsettling/\n?? validation/next_session_prompt.md\n?? validation/review_cem_diagnostic.py\n?? validation/reviews/20261007T054549.695689Z/endpoint_breakdown.json\n",
+  "submitted_source_diff_empty": true,
+  "source_pin_update_reason": "Validation-only commit; submitted controller/plant source matches evaluated commit",
+  "CEM_review_checks": {
+    "complete_finite_solves": 200,
+    "saved_predictions_verified": 200,
+    "fixed_states_match_original_traces_or_pure_probes": true,
+    "objective_and_safety_recomputed": true,
+    "warm_candidate_retention_passed": true,
+    "execution_source_hashes_verified": true,
+    "runtime_check_passed": true,
+    "max_objective_absolute_discrepancy": 1.0186340659856796e-10
+  },
+  "original_endpoint_rescoring": {
+    "scope": "saved original physical-state rescoring only; no new simulations",
+    "run": "overnight_runs/20261007T054549.695689Z",
+    "cases": 200,
+    "final_window_s": [
+      17,
+      20
+    ],
+    "counts": {
+      "angular_settled": 147,
+      "angular_and_cart_speed_settled": 67,
+      "all_state_settled": 12,
+      "strict_safe_recovery": 3,
+      "settled_but_earlier_unsafe": 9,
+      "unsafe_at_any_sample": 165
+    },
+    "original_run_checksums_verified": 212,
+    "old_success_labels_match_independent_rescoring": true
+  },
+  "CEM_execution_source_snapshots": [
+    {
+      "name": "common.py",
+      "sha256": "95a2e953509bf257db59386da416dbb1722f31306af1aa70b53f423160156e04",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "compat.py",
+      "sha256": "fa17e597658eb47633136f207c3b98427dd8d7d4c559b52432721c9fa2d7304d",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "diagnostic_supervisor.py",
+      "sha256": "81745958d8381c217bcc0ae2d2663cd8c138cee372569875f8ba404f7e6b4053",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "gate_a.py",
+      "sha256": "f8a664a288809d0daac3ee6fa42dcbef10841ac0acdfd8041fcb55f0a618eab5",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "models.py",
+      "sha256": "650adf11348b8e13bce7a1ad35e4c77243f3d8862ee147e171c399e6e3e76a84",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "oracle_diagnostic_spec.md",
+      "sha256": "52235a456a99000479ffa1b1e8a36db72a9e6af8e5cc5a14687e87209b790846",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "oracle_diagnostics.py",
+      "sha256": "7ebf8e3e2df2e30c40748a2e1d48d433bcdfdee2250d50e71c6768625dd74fe8",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "overnight_runtime.py",
+      "sha256": "263ff793944d7bf989bf396f09c203c1cd331eb6f8b1cceb7629071693ebfa25",
+      "matches_execution_commit": true
+    },
+    {
+      "name": "run_diagnostics.sh",
+      "sha256": "769aaad88e3c6c0a1616fc8aee5b43713232b2586216f25ee9881ff2328279ed",
+      "matches_execution_commit": true
+    }
+  ],
+  "angle_visualization_update": {
+    "angle_failure_cases": 52,
+    "angular_failure_cases": 53,
+    "omega_only_case": 51,
+    "examples": [
+      63,
+      139,
+      28
+    ],
+    "animation_start_s": 17,
+    "notebook_code_cells_executed_offline": 27,
+    "new_experimental_jobs": 0,
+    "actual_browser_rendering_tested": false,
+    "raw_run_checksums_verified": 212,
+    "figure_checksums_verified": 642
+  }
 }

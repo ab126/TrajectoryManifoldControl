@@ -1,10 +1,10 @@
-# TrajectoryManifoldControl server readiness — 2026-10-06
+# TrajectoryManifoldControl server readiness — 2026-10-06, follow-ups through October 8
 
 **October 7 follow-up:** user-launched CUDA Gate A completed 200 cases and failed
 (3/200 strict successes); its original-plant replay audit passed. Dependent stages
 remain stopped. See [gate_a_review.md](gate_a_review.md) for the position-recovery
 diagnosis, safety failures and recommended bounded diagnostics. Total Stage-0
-usage is now 1.363436 worker-hours, including 0.476607 readiness. The measurements
+usage at that review was 1.363436 worker-hours, including 0.476607 readiness. The measurements
 and “unexecuted” statements below describe the earlier readiness snapshot, before
 calibration. The submitted controller remains unchanged.
 
@@ -13,18 +13,29 @@ failures on all seven selected probes; a fixed oracle-only position-weight
 candidate passed seven, with both recipes safe. See
 [local_findings.md](diagnostics/local_findings.md). This is selected-state
 diagnosis, not Gate A success or an adopted H change. Additional experimental
-usage is 7.077 worker-seconds (14000 diagnostic plant transitions). CUDA CEM
-diagnosis remains prepared but unexecuted in this GPU-inaccessible session.
+usage is 7.077 worker-seconds (14000 diagnostic plant transitions).
+
+**October 8 follow-up:** host CUDA diagnosis completed all 200 finite solves in
+71.909 worker-seconds. Saved-array objective/safety/source checks passed; see
+[cem_findings.md](diagnostics/cem_findings.md). Best-five improved cost in 22/40
+pairs, while combined predicted safety remained 18/40. Both diagnostic phases
+are complete; do not repeat them. Total Stage-0 occupancy is now **1.385377 h**
+of the user-run 15 h allocation; shared diagnostic usage is 78.986003/900 s.
+Gate A remains failed. Next specify an oracle amendment and configurable audit;
+no reference/H/endpoint change was adopted. Current repository HEAD is
+`17d42cd83dea810af5b2979e657f0074244f2cc4`, a validation-only commit; the submitted
+source still matches the original evaluated commit. The current handoff is
+[validation_handoff.md](validation_handoff.md).
 
 **CPU and CUDA correctness gates passed with the disclosed offline import
 workaround. GPU training is faster; submitted MPC is slower on the L4 in these
-measurements. Both devices exceed campaign reservations. CUDA Gate A also
-exceeds the current Stage-0 cap even with one start: resolve allocation/device
-choice before execution. No scientific success or attainability claim is made.**
+measurements. Forecast campaign reservations exceed caps. The original CUDA
+Gate A failed under the user's allocation override; dependent stages remain
+stopped. No attainability or trained-method superiority claim is made.**
 
 ## Snapshot and environment
 
-HEAD: `325beae718ab093d3ca48b18a59ae61fd93798a3`; first inspection clean, final
+Readiness HEAD: `325beae718ab093d3ca48b18a59ae61fd93798a3`; first inspection clean, final
 status `?? validation/`. Tracked controller diff is empty; submitted source hashes match
 before/after. The stress-test plan was subsequently amended for CUDA at the
 user's explicit request; its original text, amendment diff and before/after
@@ -213,7 +224,7 @@ transitions; width² tuning scaling is unmeasured. s=1 bounds solve count, not
 runtime at mean tau. Stage 2 planning alone: 2593.95/518.79 h; Stage 3 projection
 also exceeds cap. Stage 1's projected fit is insufficient launch authorization.
 
-## CUDA runtime projection and Gate A decision
+## Historical CUDA runtime projection and pre-calibration allocation decision
 
 Use measured **tau_H=0.074332 s**, **tau_E=0.399123 s**,
 **tau_oracle=0.214193 s/start**, CUDA smoke rate **0.20**. The same plan formulas,
@@ -266,7 +277,7 @@ reservation. Do not silently switch devices, shrink cases/box or reduce dtype.
    nearest-6000 local fit as submitted, with diagnostics. Their tested agreement
    does not certify nonlinear stability/safety; small-data local ID can be broad.
    No baseline repository has yet been audited. E recipe freezing, full dev
-   reproduction, calibration, hidden final cases and complete deadline fallback
+   reproduction, amended calibration, hidden final cases and complete deadline fallback
    logging for future H/L/E sweeps remain outstanding.
 5. Both CPU and CUDA full-campaign reservations exceed caps. CUDA training
    helps training cost but does not fix planning cost. The earlier one-start
@@ -274,7 +285,7 @@ reservation. Do not silently switch devices, shrink cases/box or reduce dtype.
    it needs an allocation/overhead review too. Resolve the CUDA Gate A decision
    above before execution and retain the unchanged 200 cases/box/thresholds.
 
-## Usage, artifacts and next command
+## Readiness-phase usage, artifacts and historical next command
 
 Charge **1715.78 seconds = 0.47661 worker-hours**, below 1 h: **1535.69 metered**
 plus **180.09 conservatively charged** for an aborted CPU scaling attempt.
@@ -288,8 +299,8 @@ figure are under validation/. `artifacts/stage_estimates.json` and
 are in device-specific JSON files; continuous total-device VRAM peaks are unmeasured. No full calibration, tuning, power simulation,
 confirmation, Gymnasium transfer or baseline experiment was launched.
 
-The host GPU readiness run has completed. No additional experimental Bash
-command is needed for readiness. The next-stage command is **preflight only**:
+At readiness completion, the proposed next-stage command was **preflight only**
+(historical; not the next command after failed calibration and completed diagnosis):
 
 ```bash
 bash TrajectoryManifoldControl/validation/run_gpu.sh gate_a \
@@ -301,7 +312,8 @@ planning reservation of 11.90 h, so the allocation is infeasible. Do not add
 --execute until the device/allocation amendment is resolved. Gate A retains
 original NumPy plant evaluation, validated float64 RK4 predictions, known-model
 LQR, physical scoring and timing exemption; require ≥98% overall and ≥95% in
-both angle-sign halves. Full calibration remains unexecuted.
+both angle-sign halves. Calibration was unexecuted at that snapshot; the later
+one-start run completed and failed as described at the top of this report.
 
 ## Prepared overnight queue
 

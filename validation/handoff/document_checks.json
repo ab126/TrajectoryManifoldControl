@@ -1,10 +1,18 @@
 {
-  "markdown_file_targets_checked": 23,
+  "markdown_targets_checked": 46,
   "missing_targets": [],
   "snapshots_equal_to_sources": true,
-  "evidence_file_hashes_verified": 31,
-  "submitted_sources_unchanged": true,
-  "tracked_diff_empty": true,
+  "submitted_source_files_verified": 19,
+  "evidence_file_hashes_verified": 50,
+  "CEM_execution_snapshots_match_commit": 9,
+  "original_run_hashes_reverified": 212,
+  "submitted_source_diff_empty": true,
+  "new_python_source_parse_passed": true,
+  "tracked_diff_whitespace_check_passed": true,
   "experimental_jobs_launched": 0,
-  "scope": "document, snapshot, link and provenance checks only; scientific tests not rerun"
+  "scope": "Saved-data document/provenance/angle-section checks; existing scientific tests and benchmarks not rerun",
+  "angle_section_notebook_schema_passed": true,
+  "angle_section_source_cells_match": true,
+  "angle_section_animation_ui_check_passed": true,
+  "figure_hashes_reverified": 642
 }

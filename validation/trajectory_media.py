@@ -168,7 +168,9 @@ def dashboard(data, row, png, pdf):
     plt.close(fig)
 
 
-def animation_document(data, row, description):
+def animation_document(data, row, description, start_sample=0):
+    if not isinstance(start_sample, int) or not 0 <= start_sample <= 1000:
+        raise ValueError('Animation start sample must be an integer from 0 to 1000')
     values = np.c_[data['physical'], np.r_[data['force_N'], data['force_N'][-1]]].round(9).tolist()
     payload = json.dumps({'values': values, 'branches': data['branches'].tolist()}, separators=(',', ':'), allow_nan=False)
     title = html.escape(f'Case {row["case"]:03d}: {description}')
@@ -179,7 +181,7 @@ def animation_document(data, row, description):
 <p><button id="play">Play</button> <button id="reset">Reset</button> <input id="seek" type="range" min="0" max="1000" value="0"><select id="speed"><option value=".5">0.5×</option><option value="1" selected>1× physical time</option><option value="2">2×</option></select> <span id="time"></span></p>
 <canvas id="scene" width="1000" height="350"></canvas><canvas id="plots" width="1000" height="260"></canvas>
 <p class="muted">Rod length 1 m, COM at half length. Positive angle tips right from upright. Dashed red lines are rail limits. Scene follows the cart when it leaves the central viewport; plotted values retain the full trace. Final 3 s are shaded. Gate A timing is exempt. Select examples for explanation, not performance inference.</p>
-<script>const D=__DATA__;const rows=D.values;const scene=document.getElementById('scene'),g=scene.getContext('2d');const plots=document.getElementById('plots'),q=plots.getContext('2d');const seek=document.getElementById('seek'),play=document.getElementById('play');let pos=0,running=false,last=0;
+<script>const D=__DATA__;const rows=D.values;const scene=document.getElementById('scene'),g=scene.getContext('2d');const plots=document.getElementById('plots'),q=plots.getContext('2d');const seek=document.getElementById('seek'),play=document.getElementById('play');let pos=__START_SAMPLE__,running=false,last=0;
 function line(c,x1,y1,x2,y2,color,width=1){c.strokeStyle=color;c.lineWidth=width;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke()}
 function draw(){const i=Math.min(1000,Math.floor(pos)),[p,v,th,w,F]=rows[i];seek.value=i;document.getElementById('time').textContent=(i*.02).toFixed(2)+' s';g.clearRect(0,0,1000,350);const cam=Math.abs(p)>1.7?p:0,scale=130,X=x=>500+(x-cam)*scale,base=180;
 line(g,0,205,1000,205,'#60788a',2);for(const rail of [-2.4,2.4]){g.setLineDash([5,4]);line(g,X(rail),35,X(rail),205,'#bd314c',2);g.setLineDash([]);g.fillStyle='#bd314c';g.fillText('rail '+rail+' m',Math.max(8,Math.min(915,X(rail)+4)),30)}
@@ -190,7 +192,7 @@ g.fillStyle='#183047';g.fillText('p='+p.toFixed(3)+' m   v='+v.toFixed(3)+' m/s 
 q.clearRect(0,0,1000,260);const specs=[[0,'p (m)',2.4,1],[2,'theta (deg)',90,180/Math.PI],[4,'F (N)',98.1,1]];for(let r=0;r<3;r++){const [col,label,bound,mult]=specs[r],top=r*85+12,bottom=top+60;const vals=rows.map(z=>z[col]*mult),lo=Math.min(-bound,...vals),hi=Math.max(bound,...vals),Y=y=>bottom-(y-lo)/(hi-lo||1)*60;const T=k=>80+k/1000*900;q.fillStyle='#e4ebdf';q.fillRect(T(850),top,135,60);for(const b of [-bound,bound])line(q,80,Y(b),980,Y(b),'#d19a9f');line(q,80,bottom,980,bottom,'#a1aeb8');q.strokeStyle='#1768ac';q.lineWidth=1;q.beginPath();vals.forEach((y,k)=>k?q.lineTo(T(k),Y(y)):q.moveTo(T(k),Y(y)));q.stroke();line(q,T(i),top,T(i),bottom,'#183047');q.fillStyle='#183047';q.fillText(label,4,top+12);q.fillText(hi.toFixed(1),4,top+28);q.fillText(lo.toFixed(1),4,bottom);q.fillText('0 s',80,bottom+12);q.fillText('20 s',945,bottom+12)}}
 function tick(now){if(!running)return;if(last)pos=Math.min(1000,pos+(now-last)/1000*Number(document.getElementById('speed').value)/.02);last=now;draw();if(pos>=1000){running=false;play.textContent='Play'}else requestAnimationFrame(tick)}
 play.onclick=()=>{running=!running;play.textContent=running?'Pause':'Play';if(running){if(pos>=1000)pos=0;last=0;requestAnimationFrame(tick)}};document.getElementById('reset').onclick=()=>{running=false;play.textContent='Play';pos=0;draw()};seek.oninput=()=>{pos=Number(seek.value);last=0;draw()};draw();</script></body></html>'''
-    return template.replace('__TITLE__', title).replace('__OUTCOME__', html.escape(outcome)).replace('__DATA__', payload)
+    return template.replace('__TITLE__', title).replace('__OUTCOME__', html.escape(outcome)).replace('__DATA__', payload).replace('__START_SAMPLE__', str(start_sample))
 
 
 def animation_iframe(document):

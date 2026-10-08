@@ -4,8 +4,8 @@ and tiny smoke results are not scientific validation.
 
 **October 8 handoff:** [validation_handoff.md](validation_handoff.md) consolidates
 the original/current plans, completed evidence, remaining control/mathematical/ML
-tests and visualizations, implementation gaps, compute constraints, and the next
-bounded GPU diagnostic. Full plan snapshots and provenance are in `handoff/`.
+tests and visualizations, implementation gaps, compute constraints, and completed
+bounded CPU/GPU diagnostics. Full plan snapshots and provenance are in `handoff/`.
 
 Git keeps validation source, reports, plan snapshots, dependency locks/freezes,
 compact result/config JSON, usage ledgers, and hashes. Environments, raw
@@ -23,11 +23,23 @@ existing traces without launching experimental work.
 
 The [animation notebook](notebooks/gate_a_examples.ipynb) and
 [figure gallery](figures/20261007T054549.695689Z/index.html) now cover every saved
-case. See [notebook instructions](notebooks/README.md) and
-[local diagnostic findings](diagnostics/local_findings.md). The remaining CUDA
-CEM diagnosis is prepared with a shared 0.25-hour cap; run
-`bash TrajectoryManifoldControl/validation/run_diagnostics.sh cem --execute`
-from the GPU-enabled host terminal. This does not launch calibration or Stage 1.
+case. See [notebook instructions](notebooks/README.md),
+[local diagnostic findings](diagnostics/local_findings.md), and the completed
+[CUDA CEM diagnosis](diagnostics/cem_findings.md). All 200 diagnostic solves
+completed; best-five lowered cost in 22/40 state/warm pairs but combined predicted
+safety stayed 18/40. **Do not rerun the completed phases.** Next prepare a versioned
+oracle-amendment specification and reviewed configuration/audit support; no
+amendment is adopted and no dependent stage is authorized by these results.
+
+The notebook now also has an **angle-nonsettling** section: all 52 angle failures,
+three examples (063/139/028), final-window angle/angular-speed plots, and
+animations starting at 17 s. The output-free source companion includes it too.
+
+The 3/200 strict Gate A successes include added all-time rail/angle safety and
+cart recentering. Ignoring prior safety, 147 settled the pendulum, 67 also settled
+cart speed, and 12 met all final tolerances. These were true-model reference
+tests. Rail/position requirements were reviewer-added; active MPC/LQR only
+enforce force bounds, with no hard state constraints.
 
 Run from `/home/ap60/github/data-driven-control`:
 
@@ -73,13 +85,15 @@ and supplied CEM tensors. It is a separate implementation by the same
 orchestrator, not the requested fresh-context Terra implementation; that model
 was unavailable. Do not overstate reviewer independence.
 
-The ensemble benchmark uses five dev-architecture networks and averages member
+The readiness ensemble benchmark used five dev-architecture networks and averaged member
 trajectory costs. Four members are initialized rather than trained, so this is
 only a computational workload. Training throughput repeats smoke triples to
 84000 training and 21000 validation transitions. No ensemble recipe tuning,
-full oracle calibration, confirmatory sweep, or transfer was run.
+confirmatory sweep, or transfer was run. The subsequent one-start Gate A
+calibration and both bounded diagnoses completed as described above.
 
-The next stage is preflighted without executing calibration by:
+The following is a **historical original-reference preflight**, not the next
+action after failed Gate A; its reservation does not fit this eight-hour cap:
 
 ```bash
 bash TrajectoryManifoldControl/validation/run.sh gate_a --cases 200 --starts 5 --max-worker-hours 8
@@ -125,7 +139,7 @@ The tiny CUDA smoke supplies a device-specific replan-rate proxy; training
 performance still replays the fixed CPU smoke data for a common workload.
 A GPU probe success is required even when CUDA imports successfully.
 
-Before Gate A, review device-specific runtime forecasts and preflight:
+Historical CUDA Gate A preflight (before the completed failed calibration):
 
 ```bash
 bash TrajectoryManifoldControl/validation/run_gpu.sh gate_a \
@@ -138,7 +152,7 @@ artifacts; the original NumPy plant still evaluates every transition. The
 7-hour cap is a proposed budget, subject to the measured reservation and actual
 Stage-0 usage. No GPU speedup or deadline feasibility is claimed before measurement.
 
-An unattended Gate-A-only queue is now prepared; see [overnight.md](overnight.md).
-It requires an explicit 15-hour total Stage-0 allocation, accounts for prior
-usage, checkpoints interruption, audits saved traces and stops for morning
-review. It does not auto-launch Stage 1 or change the nominal task.
+The original unattended Gate-A-only queue completed under the user's explicit
+15-hour Stage-0 allocation; see [overnight.md](overnight.md) for its historical
+command. It stopped after failed Gate A and did not launch Stage 1. Do not reuse
+it for an amended reference without generalizing its configuration and audit.

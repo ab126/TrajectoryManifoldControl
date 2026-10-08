@@ -3964,5 +3964,14 @@
     "worker_seconds": 7.076881527900696,
     "calibration": false
   },
-  "notebook_SHA256": "008a3a9e12700f3b04820ec9db2e7d7b2910b728a8653d4de1c984123bd25c63"
+  "notebook_SHA256": "6d8d930c6a8bdfba2608703f1eaba9f52da231d408a3b9c7dfed79c83e371acb",
+  "angle_nonsettling": {
+    "manifest": "angle_nonsettling/manifest.json",
+    "angle_failure_cases": 52,
+    "examples": [
+      63,
+      139,
+      28
+    ]
+  }
 }

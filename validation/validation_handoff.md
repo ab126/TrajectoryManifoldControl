@@ -1,10 +1,10 @@
 # TrajectoryManifoldControl validation handoff
 
-Prepared October 8, 2026. This is a handoff of completed work and proposed remaining work, not authorization to launch every experiment below. **Gate A failed; Stage 1, tuning, confirmation, robustness sweeps, and transfer remain stopped.** Finish the bounded GPU diagnosis, review its evidence, and specify a versioned oracle amendment before another calibration. The submitted controller and original plant remain unchanged.
+Prepared October 8, 2026; updated after the completed host CUDA diagnosis. This is a handoff of completed work and proposed remaining work, not authorization to launch every experiment below. **Gate A failed; Stage 1, tuning, confirmation, robustness sweeps, and transfer remain stopped.** Both bounded diagnostic phases are complete. Specify a versioned oracle amendment and prepare its configuration/audit support before another calibration. The submitted controller and original plant remain unchanged.
 
 ## 1. Scope, provenance, and plans to carry forward
 
-System under test: `scripts/run_inverted_pendulum_mc.py` and its active path through `src/manifold_control.py`, at HEAD **`325beae718ab093d3ca48b18a59ae61fd93798a3`**. Current `git status --short`: `?? validation/`; tracked diff is empty. Validation is still untracked and must be preserved when transferring the workspace. The handoff manifest checks submitted source hashes against the initial readiness snapshot. No applicable repository instructions were found during readiness. The parent directory is not a Git repository.
+System under test: `scripts/run_inverted_pendulum_mc.py` and its active path through `src/manifold_control.py`, originally evaluated at **`325beae718ab093d3ca48b18a59ae61fd93798a3`**. Current HEAD is **`17d42cd83dea810af5b2979e657f0074244f2cc4`** (`Validation work`): the user committed the validation package; the submitted source is unchanged relative to the evaluated commit. At review start, only `validation/diagnostics/usage.jsonl` was modified and the new CUDA diagnostic directory was untracked. This follow-up additionally changes validation reports/review code. The handoff manifest records current status and checks submitted source hashes against readiness. Raw artifacts are ignored by Git and require a separate archive. No applicable repository instructions were found during readiness. The parent directory is not a Git repository.
 
 Full plans, rather than only this summary, are included as byte-for-byte snapshots:
 
@@ -17,7 +17,7 @@ Full plans, rather than only this summary, are included as byte-for-byte snapsho
 
 Live plans are [stress_test_plan.md](../../review/stress_test_plan.md) and [critique_plan.md](../../review/critique_plan.md). Snapshot/source hashes and current evidence inventory are in [manifest.json](handoff/manifest.json). Neither plan nor the original transcription was edited for this handoff. The original implementation and Part I PDFs were not found in the present workspace; obtain and hash the exact supplied PDFs before a page-by-page proof/transcription audit. Earlier review statements describe their inspection at that time, not current PDF availability.
 
-The request initially mentioned a 48-character invalid commit and 97.5% Bonferroni component bounds. The plan actually available on disk already used the valid 40-character HEAD above and the correct **95% intersection-union component bounds**. Preserve this version distinction. Historical readiness documents contain statements such as “calibration unexecuted”; their later follow-up sections and the completed run's `run.json` supersede those statements.
+The request initially mentioned a 48-character invalid commit and 97.5% Bonferroni component bounds. The plan actually available on disk already used the valid 40-character original evaluated commit above and the correct **95% intersection-union component bounds**. Preserve this version distinction. Historical readiness documents contain statements such as “calibration unexecuted”; their later follow-up sections and the completed run's `run.json` supersede those statements.
 
 `inverted_pendulum/` contains candidate baseline implementations only. None has been audited or reused. Never substitute its plant or archived results. `external_repos/` is reference material. New adapters, model variants, and artifacts belong under `validation/` and need explicit labels distinguishing original H, oracle reference, and experimental alternatives.
 
@@ -30,7 +30,7 @@ The stress campaign tests reviewer-defined practical performance; it does not co
 | Readiness and cheap Stage 0 | Plant/units checks, ordinary-shooting equivalence, indexed RNG, existing tests, smoke, resource/timing estimates | Implemented and executed on CPU and host CUDA where applicable; limitations below |
 | Original dev reproduction | Original collection/split/training/evaluation at submitted dev budget | Tiny smoke only; complete 3500-episode/100-epoch reproduction not performed |
 | Gate A | 200 development cases, original plant, true-model MPC N=60, up to five starts; at least 98% overall and 95% in each angle-sign half | One-start, full-box CUDA run completed: **3/200**; audit passed; gate failed |
-| Failure diagnosis | Separate local recentering, objective/search, safety and recoverability explanations | Local phase completed; fixed-state GPU CEM phase implemented but not executed |
+| Failure diagnosis | Separate local recentering, objective/search, safety and recoverability explanations | Local and fixed-state GPU CEM phases completed; lower search cost did not improve combined predicted safety; broad-box viability remains unresolved |
 | Amended Gate A | Specify reference/task changes, audit them, recalibrate, freeze a passing nominal box | Proposal only; no amendment adopted, no box shrink or rerun |
 | Stage 1 / Gate B | Freeze E; H/L/E full-budget kill check on 3 bundles × 50 common cases; then lower-budget pilot if informative | Not implemented as a complete campaign; no tuning or H/L/E comparison executed |
 | Stage 2 | Power-selected, locked H/L/E confirmation and qualified data-efficiency curves | Inference rule scaffold only; simulation, curve fitting, final-case lock, and campaign runner absent |
@@ -46,6 +46,8 @@ Stage 1's mandatory methods are **H** (submitted neural MPC + identified local L
 Coarse acquisition budgets are 10/35/100/350/1000/3500 episodes of **30 transitions**, i.e. 300/1050/3000/10500/30000/105000 transitions. Campaign splitting is 80/20 by episode; the original runner uses 70/15/15 and has 73500 training transitions at its dev budget. The campaign's full training count is 84000. Both protocols must be recorded without conflation. Fixed tuning overhead is D=31500 transitions per method, including unused access charged to H/L; acquisition comparisons use A=D+T. Recipe-changing development interactions require an additional accounting review.
 
 The locked endpoint is 20 physical seconds / 1000 samples: all states finite, all-time |p|≤2.4 m and |θ|≤π/2; throughout the final three seconds |p|≤0.1 m, |ṗ|≤0.05 m/s, |θ|≤0.02 rad, |θ̇|≤0.05 rad/s. Exceptions and deadline misses fail H/L/E under the current rule. The original runner's narrower metrics must also be reported, but do not substitute for this endpoint. Oracle calibration alone is timing-exempt.
+
+**Endpoint provenance:** the rail/position safety requirements were added by the validation plan, not derived from the rod equations or a modeled physical rail. The active CEM solver and local LQR enforce only input clipping, |u|≤10 (98.1 N); neither enforces hard state bounds. Quadratic position/angle costs are soft penalties. The simulator continued after rail/angle crossings. Keep this added strict safe-recovery claim separate from the original balancing metric; any endpoint change must be explicitly adopted before lock.
 
 ## 3. Completed evidence and what it establishes
 
@@ -92,6 +94,17 @@ Original evidence: [morning_review.md](overnight_runs/20261007T054549.695689Z/mo
 
 Overlapping failed-condition counts: rail 145, angle 103, terminal position 188, speed 133, angle settling 52, angular-speed settling 53. Among violating cases, median first rail/angle crossings were 0.52/0.22 s. **The 3/200 count is a failed true-model reference, not a test of a fully trained H or E.** It does not establish physical impossibility, optimizer optimality, or absence of a scientific contribution.
 
+Independent rescoring of the saved physical trajectories makes the distinction explicit; see [endpoint_breakdown.json](reviews/20261007T054549.695689Z/endpoint_breakdown.json). The original run's 212 checksums were reverified during this follow-up:
+
+| Nested endpoint requirement | Passed / failed |
+|---|---:|
+| Upright angle and angular velocity settled, ignoring earlier safety | **147 / 53** |
+| Above, plus cart velocity settled | **67 / 133** |
+| Above, plus cart centered within ±0.1 m | **12 / 188** |
+| All four settling conditions plus both all-time safety limits | **3 / 197** |
+
+Nine cases met all final settling conditions but violated safety earlier. In total 165 crossed at least one safety bound. The 53 angular-settling failures describe this 20-second window; they do not establish inability ever to stabilize.
+
 Two distinct mechanisms need attention:
 
 1. **Slow position recovery is supported by direct evidence.** The reference uses Q=diag(0.02,30,100,10), R=0.03, and local entry xᵀQx<0.75. Pure cart displacement at the rail costs only 0.1152, so local entry is not a near-target position condition. The original known-model discrete LQR is linearly stable but has a slow pole 0.998382/sample (12.35 s time constant). A pure p=1 m start predicts p≈0.270 m at 17 s and 0.212 m at 20 s. Saved nonlinear case 1 is safe but has terminal-window maximum |p|≈0.505 m.
@@ -99,23 +112,32 @@ Two distinct mechanisms need attention:
 
 The bounded local-only diagnostic applied each of two fixed known-model gains throughout 20 s on seven selected states: p=±1,±0.5 and saved initial cases 1,2,9. Original Qp=0.02 passed **0/7**; predeclared oracle-only Qp=2 passed **7/7**; all fourteen traces remained safe. For p=±1, terminal-window |p| maxima were 0.270384 m versus about 1.03e−7 m. See [local_findings.md](diagnostics/local_findings.md) and paired diagnostic figures. These are selected probes, applied outside the original switch when needed; **neither a new Gate A pass nor an adopted H/reference change**.
 
-The pending GPU phase is fixed at 20 saved/pure-position states × two explicit warm starts × five CEM starts =200 solves. It compares start zero with its best-of-five prefix, decomposes cost, checks candidate-zero retention, and records predicted safety. Historical full warm plans were not saved, so it is a controlled diagnostic rather than an exact replay of old solves. See [oracle_diagnostic_spec.md](oracle_diagnostic_spec.md). No GPU diagnostic result directory exists at this handoff.
+The GPU phase completed at `diagnostics/20261008T190703.853434Z`: **200/200 finite solves**, job/runtime checks passed, 20 selected states × two explicit warm starts × five starts. See [cem_findings.md](diagnostics/cem_findings.md) and [cem_review.json](diagnostics/cem_review.json). The saved-data review independently recomputed objective components, input bounds, force conversion and safety for all 200 predictions; maximum objective discrepancy was 1.019e−10, and all reported warm-candidate loss bounds passed.
+
+| Warm start | Best-five improves cost | Median / maximum reduction | Both predicted safety limits: one / best-five |
+|---|---:|---:|---:|
+| Zero controls | 11/20 | 4.06% / 71.69% | 9/20 / 9/20 |
+| Original oracle local-feedback rollout | 11/20 | 8.87% / 30.20% | 9/20 / 9/20 |
+
+Local warm had lower best-five cost on 8/20 states; zero warm on 12/20. All six pre-violation probes remained predicted unsafe for both warm starts. These are **1.2-second open-loop prediction limits**, not closed-loop strict successes or a viability certificate. Combined safety classification did not change in any pair; individual rail counts changed (zero 9→11 failures, local 11→10), while angle failures remained 10 per group.
+
+For pure p=±1 m, the zero-warm solve retained zero force, cost **1.44**, leaving p unchanged. The original local-feedback plan cost **2.105506** and ended at |p|=0.960875 m. Neither best-five improved its first cost. Thus the short-horizon cost ranks the tested no-motion plan below the tested recentering plan; zero control is not established as a global optimum. This supports objective/endpoint misalignment alongside the independent local-gain diagnosis. More starts alone did not repair predicted safety on this selected cohort. Historical full warm plans were not saved, so these are controlled synthetic warm-start comparisons, not exact historical solve replay. No new closed-loop transitions or reference/H changes occurred.
 
 ## 4. What already exists for visualization
 
-[gate_a_examples.ipynb](notebooks/gate_a_examples.ipynb) has prepopulated offline animations of all three successes and five failure types; a case selector covers any of the 200 cases. The [gallery](figures/20261007T054549.695689Z/index.html) includes **200 PNG + 200 PDF dashboards**, complete-cohort views, eight standalone HTML animations, raw/derived NPZ exports, and seven paired local-feedback comparisons. Subfolders distinguish successes, rail/angle/both violations, and settling failures.
+[gate_a_examples.ipynb](notebooks/gate_a_examples.ipynb) has prepopulated offline animations of all three successes and five original failure types; a case selector covers any of the 200 cases. A new **angle-nonsettling** section adds three examples (063/139/028), a cohort plot of all 52 angle failures, 17–20 s angle/angular-speed zooms, and animations opening at 17 s. Case 139 ends near zero but fails to stay in tolerance; case 051 is separately identified as speed-only. The [gallery](figures/20261007T054549.695689Z/index.html) includes **200 PNG + 200 PDF dashboards**, complete-cohort views, **eleven standalone HTML animations** (eight original, three additional), raw/derived NPZ exports, and seven paired local-feedback comparisons. Subfolders distinguish successes, rail/angle/both violations, and settling failures. The new section is available directly at [angle_nonsettling/index.html](figures/20261007T054549.695689Z/angle_nonsettling/index.html); its generator is `angle_failure_media.py`.
 
 Each case displays physical states, normalized/physical input, force slew, energy/work/residual, tracking/switch cost, terminal tolerances, safety margins, branch and solve time. Rod geometry uses the original full-length rod and COM, and the complete 20 seconds remain visible. Energy, power, work, acceleration, and geometry are **derived measurables, not simulated noisy sensor observations**. There are no learned-model uncertainty bands in these original oracle figures.
 
-Recorded export checks verified all 200 traces/force/energy conversions, original-source integrity, and 629 generated-artifact checksums. All 20 notebook Python cells ran offline and schema validation passed; JavaScript playback/scrub/reset passed a mocked DOM/canvas check. **Actual browser rendering remains untested.** The display kernel is a separately frozen existing Python 3.12 environment; it reads saved data and does not define the scientific numerical environment. Selected animations illustrate mechanisms, not representative success probabilities.
+Recorded original export checks verified all 200 traces/force/energy conversions, original-source integrity, and 629 generated-artifact checksums. After adding the angle section, all **27 notebook Python cells** ran offline and both notebook schemas validated; source outputs are cleared. JavaScript playback/scrub/reset passed a mocked DOM/canvas check. **Actual browser rendering remains untested.** The display kernel is a separately frozen existing Python 3.12 environment; it reads saved data and does not define the scientific numerical environment. Selected animations illustrate mechanisms, not representative success probabilities. No new controller/plant experiments were used to add this section.
 
 ## 5. Prioritized remaining control and numerical tests
 
-P0 means next before recalibration; P1 means needed before pilot/lock; P2 means exploratory after the campaign remains informative. Except the prepared bounded diagnostic, these are proposed designs needing a measured allocation. Use the original plant for evaluation, common cases/RNG, declared variants, and all failures in denominators.
+P0 means next before recalibration; P1 means needed before pilot/lock; P2 means exploratory after the campaign remains informative. CT01 is complete; remaining experimental designs need a measured allocation. Use the original plant for evaluation, common cases/RNG, declared variants, and all failures in denominators.
 
 | ID / priority | Question and minimal design | Evidence / decision to save |
 |---|---|---|
-| CT01 / P0 | Execute the prepared CUDA fixed-state diagnostic, without broadening its 200-solve scope | Per-start cost decomposition, best-of-prefix gain, warm-plan retention, predicted violations/first action, frozen config, actual usage; distinguish better quadratic objective from better safety |
+| CT01 / completed | Fixed CUDA diagnosis, all 200 solves; do not repeat | Cost improved in 22/40 pairs, combined predicted safety stayed 18/40; saved-data arithmetic/source review passed; findings above |
 | CT02 / P0 | After CT01, specify the oracle local gain, position-aware switch, planning cost and any safety handling. Check proposed entry states with exact nonlinear dynamics, clipping and original strict thresholds | Versioned proposal; entry/saturation/failure maps. Qp=2 probes motivate a candidate but do not validate a whole switch region |
 | CT03 / P0 | Separate search deficiency from objective deficiency using fixed-state comparisons before any horizon/population/start sweep | If warm candidates already outperform returned plans, diagnose implementation; if lower-cost plans remain unsafe, diagnose objective. A feasible open-loop plan is not closed-loop attainability |
 | CT04 / P0 | Investigate broad-box viability only where needed: saved early failures, input saturation, short-horizon reachable-state envelopes; any longer-horizon/high-accuracy reference is separately allocated | Report unresolved cases. Failure of sampled search does not certify nonviability; simple cart braking estimates ignore rod coupling and cannot certify safety |
@@ -205,7 +227,7 @@ Remaining statistical work:
 | ID / priority | Visualization to add | Data prerequisite / interpretation |
 |---|---|---|
 | V01 / P0 | Inspect existing success/failure animations in a real browser; verify play/pause/scrub/reset, physical time, angle sign and rail/COM geometry | Existing artifacts only; record browser/version and screenshots; this closes a display check, not a scientific gate |
-| V02 / P0 | GPU diagnostic small multiples: one/best-five loss, state/input/terminal/rate decomposition, warm candidate vs returned plan, predicted rail/angle margins | Pending CT01. Show lower cost and safety separately, and mark each warm-start recipe |
+| V02 / P0 | GPU diagnostic small multiples: one/best-five loss, state/input/terminal/rate decomposition, warm candidate vs returned plan, predicted rail/angle margins | CT01 data now available; visualization still unimplemented. Show lower cost and safety separately, and mark each warm-start recipe |
 | V03 / P0–P1 | Position-feedback comparison with switch ellipsoid, terminal tolerances, saturation and p–ṗ / θ–θ̇ phase portraits | Existing local probes plus any allocated entry tests; phase projections do not certify a full 4-D safe region |
 | V04 / P1 | Predicted-vs-true 1/5/30/60-step trajectories, per-coordinate error fans, and optimizer-selected counterfactual replay | Actual trained checkpoints and independently held-out inputs; show model/oracle errors separately from control outcomes |
 | V05 / P1 | State-action coverage and error maps: training vs closed-loop, near boundaries, nearest-6000 local subset/radius, design singular values | Actual datasets/visited states; mark projections and density, avoid presenting 2-D coverage as full-state coverage |
@@ -248,21 +270,25 @@ Source: [stage_estimates.json](artifacts/stage_estimates.json) and [stage_estima
 
 The failed Gate A observed r_oracle=0.08064 (16128 replans), 60.294% local and 31.642% queued. Its solve mean/p99 were 193.47/231.42 ms, with scope limited to CEM solves. Do not apply this rate to H/E or an amended oracle. One-start CUDA worst planning plus 20% overhead was about 14.28 h; five starts about 71.40 h, exceeding current Stage-0 remainder. Any amended reference needs a new feasible reservation, including startup/failures/audit/statistics.
 
+After completed diagnosis, the 15-hour Stage-0 allocation has **13.614623 h remaining**. Even the unchanged one-start CUDA planning-plus-20%-overhead model (~14.28 h) exceeds that remainder. A fresh calibration therefore needs a reviewed allocation/device/protocol decision; neither short actual prior runs nor the unused diagnostic balance justify bypassing preflight.
+
 **Recommended endpoint amendment, still pending:** use timing-agnostic physical success as primary, with latency and deadline-enforced operational success as secondary/descriptive endpoints. Under the current primary, misses are strict failures and device choice can change primary outcomes; this may mainly compare implementation/hardware rather than control/data efficiency. Accept and freeze any change before pilot/final lock, retaining the original operational rule in separate reporting. Changing device, precision, objective, safety constraints, nominal box or primary endpoint must be explicit.
 
-Recorded experimental occupancy: readiness **1715.784 s (0.476607 h)** within its one-worker-hour cap; user-launched overnight queue **3192.586 s (0.886830 h)**; local diagnostic **7.076882 s (0.001966 h)**. Total Stage-0 occupancy **4915.447 s (1.365402 h)** under the user-run 15 h allocation. The shared diagnostic cap is 900 s, with about 892.923 s remaining before pending CEM. Includes startup/failures as logged. Read-only review/export/documentation is separate; figure generation recorded 520.576 s. Readiness interaction manifest is phase-local: add the later 200000 calibration and 14000 diagnostic plant transitions rather than interpreting its old zero-calibration field as current. No experimental jobs were launched to write this handoff; LLM usage is unexposed.
+Recorded experimental occupancy: readiness **1715.784 s (0.476607 h)** within its one-worker-hour cap; user-launched overnight queue **3192.586 s (0.886830 h)**; local diagnostic **7.076882 s**; completed CUDA diagnosis **71.909122 s**. Total Stage-0 occupancy **4987.356492 s (1.385377 h)** under the user-run 15 h allocation. Shared diagnostic usage is **78.986003/900 s**, leaving **821.013997 s** numerically; both phases are complete and unused time does not authorize additional experiments. Includes startup/failures as logged. CEM solve-only mean/median/p95/p99 were 214.27/213.26/217.72/220.28 ms; this is not end-to-end latency. Read-only review/export/documentation is separate; figure generation recorded 520.576 s. Readiness interaction manifest is phase-local: add the later 200000 calibration and 14000 diagnostic plant transitions rather than interpreting its old zero-calibration field as current. CUDA diagnosis added model-prediction solves but no closed-loop acquisition. No experimental jobs were launched for this follow-up; LLM usage is unexposed.
 
 ## 12. Concrete next actions and runnable commands
 
-From `/home/ap60/github/data-driven-control`, **in the host terminal where CUDA allocation works**, run only the prepared bounded phase next:
+Both bounded diagnostic phases are complete; **do not rerun `run_diagnostics.sh cem --execute`**. The next work is a reviewed oracle-amendment specification and configuration/audit support, with no automatic recalibration. From `/home/ap60/github/data-driven-control`, the saved-data CEM review can be reproduced without GPU/controller execution:
 
 ```bash
-bash TrajectoryManifoldControl/validation/run_diagnostics.sh cem
-# After its reservation preflight, execute the same fixed scope:
-bash TrajectoryManifoldControl/validation/run_diagnostics.sh cem --execute
+validation_dir="$PWD/TrajectoryManifoldControl/validation"
+LD_LIBRARY_PATH="$validation_dir/.venv/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+LD_PRELOAD="$validation_dir/.venv/lib/libstdc++.so.6" \
+OPENBLAS_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 \
+"$validation_dir/.venv/bin/python" "$validation_dir/review_cem_diagnostic.py"
 ```
 
-The default is preflight; the supervisor charges runtime checking/imports/failures, enforces the shared 900 s cap, and prevents duplicate execution/active-job overlap. It launches neither tuning nor 200-case recalibration. Inspect the new directory in `diagnostics/latest.json`, job return codes, `results.json`, config/source snapshots and `diagnostics/usage.jsonl`. A failed/partial diagnosis is not an oracle improvement. Keep the existing local run at `diagnostics/20261007T175948.296063Z`.
+This reads original diagnostic arrays and writes the aggregate `diagnostics/cem_review.json` outside the run directory. It requires the separately archived NPZ files, which are intentionally ignored by Git. Completed local/CUDA directories are `diagnostics/20261007T175948.296063Z` and `diagnostics/20261008T190703.853434Z`; preserve both. The experimental supervisor still enforces the shared cap and rejects duplicate completed phases.
 
 View saved visualizations without any new control experiments:
 
@@ -272,6 +298,8 @@ bash TrajectoryManifoldControl/validation/notebooks/open_notebook.sh --no-browse
 
 Or open `validation/figures/20261007T054549.695689Z/index.html` directly in a browser. Do not regenerate the full figure archive merely to read the handoff.
 
-After the CEM review: (1) finalize the claim ledger/proof-to-code checks in parallel with read-only diagnosis; (2) specify the reference gain/switch/cost/safety amendment; (3) implement reviewed configurable audit/queue and meaningful regressions; (4) preflight a fresh 200-case Gate A with explicit feasible allocation; (5) execute only that gate and review; (6) freeze a passing nominal task, resolve E recipe/endpoint/power/allocation, then consider Stage 1. **There is no ready-to-copy amended-calibration command yet**, because that reference and audit have not been finalized. Do not reuse the old overnight launcher to silently run Qp=2 or a smaller box.
+After this completed review: (1) finalize the claim ledger/proof-to-code checks alongside read-only work; (2) specify the reference gain/switch/cost/safety amendment, keeping balancing and added safe-recentering requirements distinct; (3) implement reviewed configurable audit/queue and meaningful regressions; (4) preflight a fresh 200-case Gate A with explicit feasible allocation; (5) execute only the separately specified gate and review; (6) freeze a passing nominal task, resolve E recipe/endpoint/power/allocation, then consider Stage 1. **There is no ready-to-copy amended-calibration command yet**, because that reference and audit have not been finalized. Do not reuse the old overnight launcher to silently run Qp=2 or a smaller box.
 
-The handoff is complete when the next reviewer can distinguish measured evidence from a scaffold or proposal, reproduce saved results, and choose the smallest test that resolves each remaining uncertainty. The next experimental deliverable is the bounded GPU objective/search diagnosis, not a confirmatory sweep.
+The next deliverable is a concrete, versioned oracle-amendment proposal with reviewed configuration/audit requirements and a feasible allocation. The completed diagnostic does not authorize a new calibration or confirmatory sweep.
+
+A copyable continuation prompt is saved in [next_session_prompt.md](next_session_prompt.md).

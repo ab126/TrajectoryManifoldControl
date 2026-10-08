@@ -1,5 +1,10 @@
 # Fixed oracle diagnosis specification — October 7, 2026
 
+**Execution update, October 8:** both fixed phases are complete. Local usage
+7.076882 s; CUDA usage 71.909122 s; total 78.986003/900 s. The commands below
+record the original execution protocol and must not be rerun. See
+[cem_findings.md](diagnostics/cem_findings.md) for the completed CUDA review.
+
 Authorized after the Gate A review; development only. Shared cap **0.25 worker-hours**
 includes imports, failures and sequential CPU-local/CUDA-CEM jobs. No tuning,
 200-case recalibration, box reduction or dependent stage is launched here.
@@ -33,7 +38,7 @@ Before solving, repeat the established host runtime check: frozen L4 UUID/driver
 private CUDA native hashes, actual allocation, deterministic GEMM and oracle RK4
 agreement. Its process/import occupancy is included in the diagnostic reservation.
 
-Commands from workspace root:
+Historical execution commands from workspace root (completed):
 
 ```bash
 # Local phase (agent executes this once).

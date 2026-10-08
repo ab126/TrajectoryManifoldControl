@@ -14,16 +14,14 @@ problem on those probes. Early broad-box safety/search failures remain unresolve
 
 Actual supervised worker usage: 7.076882 s (0.001966 h); 14000 diagnostic
 plant transitions, separate from training/acquisition and the 200-case calibration.
-The shared diagnostic cap is 900 s, including imports, failure and future CEM work.
+The shared diagnostic cap is 900 s, including imports, failures and both fixed phases.
 
-GPU CEM comparison is **prepared, not executed**: 20 fixed states, five common-
-prefix starts, zero/local-rollout warm starts, 200 solves. This session has no
-GPU nodes. Run in the GPU-enabled host terminal:
+**October 8 follow-up:** the user completed the GPU CEM comparison: 20 fixed
+states, five common-prefix starts, zero/local-rollout warm starts, 200 solves.
+See [cem_findings.md](cem_findings.md). More starts improved cost in 22/40 pairs
+but combined predicted safety stayed 18/40; both phases are complete and should
+not be rerun. Total diagnostic occupancy is 78.986003 s of the shared 900 s cap.
 
-```bash
-bash TrajectoryManifoldControl/validation/run_diagnostics.sh cem --execute
-```
-
-See `validation/oracle_diagnostic_spec.md` for its fixed scope and limitations.
-After reviewing that result, specify and freeze an oracle amendment before a
-new calibration. No box shrink, tuning or dependent stage has been launched.
+Next specify a versioned oracle amendment and reviewed configuration/audit
+support before a new calibration. No box shrink, tuning, reference amendment or
+dependent stage has been launched.

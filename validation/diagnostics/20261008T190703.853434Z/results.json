@@ -1,0 +1,4808 @@
+{
+  "local": [],
+  "cem": [
+    {
+      "state": {
+        "label": "case_001_initial",
+        "case": 1,
+        "sample": 0,
+        "x": [
+          -1.2962876437495208,
+          0.3332541881989598,
+          -0.24332591477450713,
+          1.0924123635553142
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 127701.70502250572,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1362.623058409673,
+          "objective_parts": {
+            "position": 0.7232378684258077,
+            "speed": 1012.226801300908,
+            "angle": 146.9092465981822,
+            "angular_speed": 75.53186670341674,
+            "terminal": 63.079567717235605,
+            "control": 57.21367189203731,
+            "rate": 6.938666329467481,
+            "total": 1362.6230584096731
+          },
+          "solve_seconds": 0.31484451331198215,
+          "warm_candidate_cost": 127701.70502250572,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 79.56044888140107
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1658.99849575135,
+          "objective_parts": {
+            "position": 0.5674574153214303,
+            "speed": 982.5463517090116,
+            "angle": 298.05443255959483,
+            "angular_speed": 88.80052971650763,
+            "terminal": 209.78497438413237,
+            "control": 69.30923122009804,
+            "rate": 9.935518746684304,
+            "total": 1658.99849575135
+          },
+          "solve_seconds": 0.21839814446866512,
+          "warm_candidate_cost": 145810.064850193,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 81.33968953935849
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1411.1247074925388,
+          "objective_parts": {
+            "position": 0.7477698627934853,
+            "speed": 1000.0194466571785,
+            "angle": 198.97167469876723,
+            "angular_speed": 74.29049026844955,
+            "terminal": 84.88851767390098,
+            "control": 47.47358022898267,
+            "rate": 4.733228102466598,
+            "total": 1411.1247074925388
+          },
+          "solve_seconds": 0.21632200106978416,
+          "warm_candidate_cost": 243615.98836773448,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 34.110257759773106
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 2543.8979553664644,
+          "objective_parts": {
+            "position": 1.1312942395361865,
+            "speed": 1296.0901450891993,
+            "angle": 442.5867795071067,
+            "angular_speed": 81.87988718455266,
+            "terminal": 655.6088936544224,
+            "control": 58.34685692877965,
+            "rate": 8.254098762867294,
+            "total": 2543.897955366464
+          },
+          "solve_seconds": 0.2160067930817604,
+          "warm_candidate_cost": 367201.49904335797,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 95.84740102800326
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 3444.6359640711867,
+          "objective_parts": {
+            "position": 1.5345413878937135,
+            "speed": 1972.7207228159239,
+            "angle": 132.03287693548194,
+            "angular_speed": 150.84426818085134,
+            "terminal": 1109.9343834640185,
+            "control": 67.75382311285723,
+            "rate": 9.815348174160153,
+            "total": 3444.635964071187
+          },
+          "solve_seconds": 0.2202814444899559,
+          "warm_candidate_cost": 54175.76520175542,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        }
+      ],
+      "one_start_loss": 1362.623058409673,
+      "five_start_loss": 1362.623058409673,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_001_initial",
+        "case": 1,
+        "sample": 0,
+        "x": [
+          -1.2962876437495208,
+          0.3332541881989598,
+          -0.24332591477450713,
+          1.0924123635553142
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 1151.056387131045,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1151.056387131045,
+          "objective_parts": {
+            "position": 0.4223465245558458,
+            "speed": 741.4387030405069,
+            "angle": 342.14380982589074,
+            "angular_speed": 31.550900843450858,
+            "terminal": 22.495343525813816,
+            "control": 12.882818208218314,
+            "rate": 0.12246516260881349,
+            "total": 1151.056387131045
+          },
+          "solve_seconds": 0.21759456023573875,
+          "warm_candidate_cost": 1151.056387131045,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1444.6958682895488,
+          "objective_parts": {
+            "position": 0.4276590478714436,
+            "speed": 841.2623406326627,
+            "angle": 251.4186019213552,
+            "angular_speed": 103.61577504837607,
+            "terminal": 165.87390339056304,
+            "control": 74.1626401826663,
+            "rate": 7.93494806605414,
+            "total": 1444.695868289549
+          },
+          "solve_seconds": 0.22038142383098602,
+          "warm_candidate_cost": 163488.46758261076,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1957.8697919721587,
+          "objective_parts": {
+            "position": 1.4829939234720535,
+            "speed": 1502.8937077245114,
+            "angle": 156.0090360703921,
+            "angular_speed": 104.94184511527975,
+            "terminal": 116.67203471578956,
+            "control": 65.53477519263159,
+            "rate": 10.33539923008257,
+            "total": 1957.869791972159
+          },
+          "solve_seconds": 0.2166894730180502,
+          "warm_candidate_cost": 116676.70882181694,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1687.7044803904566,
+          "objective_parts": {
+            "position": 1.1335682622737389,
+            "speed": 1286.6589056190019,
+            "angle": 76.53070053443898,
+            "angular_speed": 74.55452142631476,
+            "terminal": 160.35754074041446,
+            "control": 76.43748073290452,
+            "rate": 12.031763075108087,
+            "total": 1687.7044803904562
+          },
+          "solve_seconds": 0.21651966497302055,
+          "warm_candidate_cost": 8682.634659688882,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 64.29487049351306
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1868.4526278025248,
+          "objective_parts": {
+            "position": 0.5692115382274027,
+            "speed": 926.0726814326041,
+            "angle": 292.55293813062747,
+            "angular_speed": 101.79374076612527,
+            "terminal": 448.6142299100587,
+            "control": 86.91220927713458,
+            "rate": 11.937616747746947,
+            "total": 1868.4526278025244
+          },
+          "solve_seconds": 0.2170796673744917,
+          "warm_candidate_cost": 76689.23728833288,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 72.84148752992284
+        }
+      ],
+      "one_start_loss": 1151.056387131045,
+      "five_start_loss": 1151.056387131045,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_002_initial",
+        "case": 2,
+        "sample": 0,
+        "x": [
+          -1.3543492220328757,
+          0.993694009149868,
+          0.6266440157741283,
+          -2.0931922432387906
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 224857.85720973805,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1435.147496049847,
+          "objective_parts": {
+            "position": 2.886708348669834,
+            "speed": 166.6610934714927,
+            "angle": 326.80241121995783,
+            "angular_speed": 210.1630913265382,
+            "terminal": 672.2771110488522,
+            "control": 50.00526739132501,
+            "rate": 6.3518132430110965,
+            "total": 1435.147496049847
+          },
+          "solve_seconds": 0.21702071651816368,
+          "warm_candidate_cost": 224857.85720973805,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -79.23773933343097
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1605.3172599810566,
+          "objective_parts": {
+            "position": 4.043128863748648,
+            "speed": 792.4893162257958,
+            "angle": 304.4141746951486,
+            "angular_speed": 369.6154859709277,
+            "terminal": 58.10753991916847,
+            "control": 68.84481873226127,
+            "rate": 7.802795574006026,
+            "total": 1605.3172599810564
+          },
+          "solve_seconds": 0.21688959002494812,
+          "warm_candidate_cost": 365406.8459083401,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": -31.769274733039463
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1076.7484126069644,
+          "objective_parts": {
+            "position": 2.9488168275123283,
+            "speed": 318.7434295081946,
+            "angle": 187.1486431294387,
+            "angular_speed": 251.18766769119165,
+            "terminal": 238.79082907323672,
+            "control": 69.82392699560825,
+            "rate": 8.105099381782223,
+            "total": 1076.7484126069644
+          },
+          "solve_seconds": 0.21534958481788635,
+          "warm_candidate_cost": 246119.73906156686,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -34.89830038521651
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 881.9435161573291,
+          "objective_parts": {
+            "position": 2.4376150636412173,
+            "speed": 181.5996399163827,
+            "angle": 254.43279425336414,
+            "angular_speed": 174.57093431234813,
+            "terminal": 202.68429772632808,
+            "control": 60.13683348160863,
+            "rate": 6.081401403656207,
+            "total": 881.9435161573291
+          },
+          "solve_seconds": 0.21599644608795643,
+          "warm_candidate_cost": 97849.49610039768,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1014.427559806136,
+          "objective_parts": {
+            "position": 3.5091754900594605,
+            "speed": 415.0248604723777,
+            "angle": 220.7232883048014,
+            "angular_speed": 219.5478089769598,
+            "terminal": 76.64732603812602,
+            "control": 70.18197557525514,
+            "rate": 8.793124948556516,
+            "total": 1014.4275598061361
+          },
+          "solve_seconds": 0.2161994967609644,
+          "warm_candidate_cost": 63580.154342299706,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 1435.147496049847,
+      "five_start_loss": 881.9435161573291,
+      "best_attempt": 3
+    },
+    {
+      "state": {
+        "label": "case_002_initial",
+        "case": 2,
+        "sample": 0,
+        "x": [
+          -1.3543492220328757,
+          0.993694009149868,
+          0.6266440157741283,
+          -2.0931922432387906
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 388.3915175163939,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 388.39151751639383,
+          "objective_parts": {
+            "position": 2.608029639929911,
+            "speed": 83.48895382293951,
+            "angle": 177.84497996767166,
+            "angular_speed": 109.5930706003103,
+            "terminal": 2.4497738378611387,
+            "control": 12.333735015260805,
+            "rate": 0.07297463242061489,
+            "total": 388.3915175163939
+          },
+          "solve_seconds": 0.2151271477341652,
+          "warm_candidate_cost": 388.3915175163939,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1396.952946672649,
+          "objective_parts": {
+            "position": 4.180557298268444,
+            "speed": 757.6310620195953,
+            "angle": 178.0781997276051,
+            "angular_speed": 251.97649468056204,
+            "terminal": 133.7801554557666,
+            "control": 64.02756632441178,
+            "rate": 7.278911166439866,
+            "total": 1396.9529466726492
+          },
+          "solve_seconds": 0.21485579386353493,
+          "warm_candidate_cost": 14935.397669788583,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": -84.81654055635975
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1019.262038734225,
+          "objective_parts": {
+            "position": 2.364384747807558,
+            "speed": 270.1821767668909,
+            "angle": 272.4958135683401,
+            "angular_speed": 227.17765241100653,
+            "terminal": 135.2756735727007,
+            "control": 99.95947983627103,
+            "rate": 11.806857831208104,
+            "total": 1019.2620387342249
+          },
+          "solve_seconds": 0.21591288037598133,
+          "warm_candidate_cost": 136851.8776190003,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1104.6684389343689,
+          "objective_parts": {
+            "position": 2.9535627201279895,
+            "speed": 258.6169796725289,
+            "angle": 372.58318496986084,
+            "angular_speed": 193.351286332253,
+            "terminal": 200.78881994434886,
+            "control": 67.79262214677613,
+            "rate": 8.581983148473244,
+            "total": 1104.668438934369
+          },
+          "solve_seconds": 0.21698961779475212,
+          "warm_candidate_cost": 116090.33835655358,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -74.11967856094965
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 868.4906004345796,
+          "objective_parts": {
+            "position": 2.8631367641879653,
+            "speed": 302.89069641558945,
+            "angle": 233.92156115888065,
+            "angular_speed": 223.5037397558612,
+            "terminal": 34.45737853610167,
+            "control": 63.52717909567954,
+            "rate": 7.326908708279263,
+            "total": 868.4906004345797
+          },
+          "solve_seconds": 0.21450737863779068,
+          "warm_candidate_cost": 62493.66608330342,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -83.71531439666121
+        }
+      ],
+      "one_start_loss": 388.39151751639383,
+      "five_start_loss": 388.39151751639383,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_009_initial",
+        "case": 9,
+        "sample": 0,
+        "x": [
+          0.8698521344688275,
+          0.15943403722401772,
+          -0.11122880831981677,
+          0.5750339342462543
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 90400.60541492864,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 834.0382961084337,
+          "objective_parts": {
+            "position": 2.746080100034443,
+            "speed": 324.1366030491285,
+            "angle": 306.8721261398897,
+            "angular_speed": 60.31296355384301,
+            "terminal": 65.4920903859163,
+            "control": 65.14053445690857,
+            "rate": 9.33789842271328,
+            "total": 834.0382961084338
+          },
+          "solve_seconds": 0.21447803266346455,
+          "warm_candidate_cost": 90400.60541492864,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 47.59895867993045
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 743.0777911934697,
+          "objective_parts": {
+            "position": 3.1536720619386993,
+            "speed": 278.52439280885807,
+            "angle": 161.41011363742493,
+            "angular_speed": 45.725398585966786,
+            "terminal": 232.97825266989636,
+            "control": 18.52306240976057,
+            "rate": 2.7628990196242604,
+            "total": 743.0777911934697
+          },
+          "solve_seconds": 0.21460426971316338,
+          "warm_candidate_cost": 78490.02438016147,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 29.97674369456339
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1420.8362543166727,
+          "objective_parts": {
+            "position": 5.354661956946211,
+            "speed": 997.2415391016846,
+            "angle": 57.67690197975556,
+            "angular_speed": 39.78224984224851,
+            "terminal": 305.11538125684393,
+            "control": 14.020972699723965,
+            "rate": 1.64454747946993,
+            "total": 1420.8362543166727
+          },
+          "solve_seconds": 0.21625733748078346,
+          "warm_candidate_cost": 167307.10051094295,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": -2.6341073905220145
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1000.3109979290781,
+          "objective_parts": {
+            "position": 3.700259974556099,
+            "speed": 517.1407687801641,
+            "angle": 71.66868641656116,
+            "angular_speed": 77.87469929856316,
+            "terminal": 248.1045401474591,
+            "control": 71.93754745015661,
+            "rate": 9.884495861617834,
+            "total": 1000.310997929078
+          },
+          "solve_seconds": 0.21593667194247246,
+          "warm_candidate_cost": 86433.63151090751,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 84.85311797624101
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1332.7628797636642,
+          "objective_parts": {
+            "position": 4.551410551283546,
+            "speed": 583.5188137405996,
+            "angle": 242.3342977978693,
+            "angular_speed": 77.65616046067322,
+            "terminal": 344.03262364482543,
+            "control": 71.44869963492843,
+            "rate": 9.220873933484823,
+            "total": 1332.7628797636646
+          },
+          "solve_seconds": 0.21518748812377453,
+          "warm_candidate_cost": 106583.95977741046,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 42.56210948167265
+        }
+      ],
+      "one_start_loss": 834.0382961084337,
+      "five_start_loss": 743.0777911934697,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_009_initial",
+        "case": 9,
+        "sample": 0,
+        "x": [
+          0.8698521344688275,
+          0.15943403722401772,
+          -0.11122880831981677,
+          0.5750339342462543
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 313.63825839629754,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 313.63825839629766,
+          "objective_parts": {
+            "position": 2.932351807492894,
+            "speed": 186.1701404209941,
+            "angle": 104.80424439680247,
+            "angular_speed": 7.972198292231626,
+            "terminal": 5.702493285529426,
+            "control": 5.9433322792504555,
+            "rate": 0.11349791399656813,
+            "total": 313.63825839629754
+          },
+          "solve_seconds": 0.21568038873374462,
+          "warm_candidate_cost": 313.63825839629754,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 671.4183033070591,
+          "objective_parts": {
+            "position": 2.6781670190981703,
+            "speed": 233.48576292098127,
+            "angle": 213.50729655068596,
+            "angular_speed": 49.48366977731521,
+            "terminal": 151.00143580921463,
+            "control": 18.606739578514567,
+            "rate": 2.655231651249345,
+            "total": 671.4183033070591
+          },
+          "solve_seconds": 0.21939162723720074,
+          "warm_candidate_cost": 105558.73075432386,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 53.325923424855596
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 605.4817240829651,
+          "objective_parts": {
+            "position": 3.1886201924063524,
+            "speed": 309.66836667471256,
+            "angle": 68.74266724805979,
+            "angular_speed": 58.42843583918061,
+            "terminal": 98.6910029566895,
+            "control": 59.07801582290711,
+            "rate": 7.6846153490090385,
+            "total": 605.481724082965
+          },
+          "solve_seconds": 0.21684566512703896,
+          "warm_candidate_cost": 119111.84599971135,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 47.64942904095464
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 862.5627784461716,
+          "objective_parts": {
+            "position": 4.782646652807691,
+            "speed": 652.8357303357759,
+            "angle": 32.45124156769985,
+            "angular_speed": 50.675241722341234,
+            "terminal": 63.13640821296512,
+            "control": 51.18541294075195,
+            "rate": 7.496097013829715,
+            "total": 862.5627784461714
+          },
+          "solve_seconds": 0.2151352595537901,
+          "warm_candidate_cost": 14715.233484805729,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 20.218869612670755
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 758.9498347266913,
+          "objective_parts": {
+            "position": 2.8523934767925287,
+            "speed": 339.4260199445803,
+            "angle": 94.98256357579216,
+            "angular_speed": 75.50566377623664,
+            "terminal": 141.95559924018943,
+            "control": 92.99606742609211,
+            "rate": 11.231527287008255,
+            "total": 758.9498347266915
+          },
+          "solve_seconds": 0.21497306413948536,
+          "warm_candidate_cost": 110018.6244086606,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        }
+      ],
+      "one_start_loss": 313.63825839629766,
+      "five_start_loss": 313.63825839629766,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_000_initial",
+        "case": 0,
+        "sample": 0,
+        "x": [
+          1.1436894822469386,
+          2.0281693031113712,
+          -0.010390363398823576,
+          1.5206873360998614
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 207993.66599321584,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 21593.028430436098,
+          "objective_parts": {
+            "position": 67.93351259580434,
+            "speed": 15259.405898270166,
+            "angle": 1607.2115256185348,
+            "angular_speed": 241.29142235997216,
+            "terminal": 4323.520618491816,
+            "control": 84.94109233431712,
+            "rate": 8.724360765486516,
+            "total": 21593.028430436098
+          },
+          "solve_seconds": 0.21726044826209545,
+          "warm_candidate_cost": 207993.66599321584,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 69.00033080296933
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 22602.41606624199,
+          "objective_parts": {
+            "position": 75.63035853617595,
+            "speed": 18972.74277294109,
+            "angle": 280.6541138840134,
+            "angular_speed": 145.00983147596324,
+            "terminal": 3030.3722494714607,
+            "control": 85.64247844114186,
+            "rate": 12.364261492137267,
+            "total": 22602.41606624198
+          },
+          "solve_seconds": 0.21539858728647232,
+          "warm_candidate_cost": 254934.85829983404,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 16103.453953071386,
+          "objective_parts": {
+            "position": 66.45000094336339,
+            "speed": 14204.95754396155,
+            "angle": 581.4875047363367,
+            "angular_speed": 228.53086297987807,
+            "terminal": 923.6383068861177,
+            "control": 90.61643357986732,
+            "rate": 7.773299984275629,
+            "total": 16103.453953071388
+          },
+          "solve_seconds": 0.21622749045491219,
+          "warm_candidate_cost": 191380.3422990767,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 83.08081196338267
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 48893.46455312968,
+          "objective_parts": {
+            "position": 68.7988787547981,
+            "speed": 16455.964503106647,
+            "angle": 10460.523408899697,
+            "angular_speed": 1309.1480301158322,
+            "terminal": 20536.76954077299,
+            "control": 56.31789633140618,
+            "rate": 5.942295148303183,
+            "total": 48893.464553129685
+          },
+          "solve_seconds": 0.2162514626979828,
+          "warm_candidate_cost": 279355.3773111985,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 72.06536201700592
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 21589.476244398258,
+          "objective_parts": {
+            "position": 76.20407538895876,
+            "speed": 17800.791211290765,
+            "angle": 330.736005355138,
+            "angular_speed": 350.8928283014656,
+            "terminal": 2954.4549463983144,
+            "control": 68.19416808288717,
+            "rate": 8.203009580723629,
+            "total": 21589.47624439825
+          },
+          "solve_seconds": 0.21496205404400826,
+          "warm_candidate_cost": 187634.15496602564,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 75.5355792095151
+        }
+      ],
+      "one_start_loss": 21593.028430436098,
+      "five_start_loss": 16103.453953071386,
+      "best_attempt": 2
+    },
+    {
+      "state": {
+        "label": "case_000_initial",
+        "case": 0,
+        "sample": 0,
+        "x": [
+          1.1436894822469386,
+          2.0281693031113712,
+          -0.010390363398823576,
+          1.5206873360998614
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 205143.28889415704,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 19398.727747901175,
+          "objective_parts": {
+            "position": 39.69059323860113,
+            "speed": 10369.987956957342,
+            "angle": 4530.692407363123,
+            "angular_speed": 317.8842300597322,
+            "terminal": 3999.520240799831,
+            "control": 134.99652171394996,
+            "rate": 5.9557977685965415,
+            "total": 19398.727747901175
+          },
+          "solve_seconds": 0.21540165320038795,
+          "warm_candidate_cost": 205143.28889415704,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 15065.563928999149,
+          "objective_parts": {
+            "position": 56.68998059764299,
+            "speed": 11639.847001105447,
+            "angle": 2275.8583418958247,
+            "angular_speed": 380.7742563420368,
+            "terminal": 598.9461224689924,
+            "control": 106.26407963361255,
+            "rate": 7.184146955589688,
+            "total": 15065.563928999145
+          },
+          "solve_seconds": 0.21569861471652985,
+          "warm_candidate_cost": 71520.10958916204,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 58.00025698542595
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 14441.936943647215,
+          "objective_parts": {
+            "position": 49.6858558789536,
+            "speed": 10161.660959840634,
+            "angle": 2621.150195777475,
+            "angular_speed": 360.06065114969306,
+            "terminal": 1127.4128249451755,
+            "control": 115.10092040607654,
+            "rate": 6.865535649207056,
+            "total": 14441.936943647215
+          },
+          "solve_seconds": 0.21501168981194496,
+          "warm_candidate_cost": 83211.46121870558,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 96.32419238369913
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 19669.745518909054,
+          "objective_parts": {
+            "position": 44.170463934814244,
+            "speed": 10066.670774155604,
+            "angle": 2776.532001924632,
+            "angular_speed": 1153.6737429063237,
+            "terminal": 5505.652810521026,
+            "control": 114.34774772620737,
+            "rate": 8.69797774043914,
+            "total": 19669.745518909043
+          },
+          "solve_seconds": 0.21651091612875462,
+          "warm_candidate_cost": 65357.26623371362,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 96.89499054801469
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 13540.153115172092,
+          "objective_parts": {
+            "position": 52.588312070125795,
+            "speed": 10387.52841001094,
+            "angle": 2122.0294516735744,
+            "angular_speed": 308.5036915036732,
+            "terminal": 546.5010051611728,
+            "control": 112.05788805996075,
+            "rate": 10.944356692636255,
+            "total": 13540.153115172083
+          },
+          "solve_seconds": 0.21550915576517582,
+          "warm_candidate_cost": 163231.1564537578,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": true,
+          "first_force_N": 57.60416885161083
+        }
+      ],
+      "one_start_loss": 19398.727747901175,
+      "five_start_loss": 13540.153115172092,
+      "best_attempt": 4
+    },
+    {
+      "state": {
+        "label": "case_022_initial",
+        "case": 22,
+        "sample": 0,
+        "x": [
+          -1.3143329720937358,
+          1.0682400501610152,
+          0.2525747916826402,
+          -1.1856880268995165
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 137633.68879773314,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1320.485779673539,
+          "objective_parts": {
+            "position": 0.6196412361001845,
+            "speed": 440.89886025747467,
+            "angle": 276.32182717091933,
+            "angular_speed": 178.96523460352236,
+            "terminal": 343.20605160440954,
+            "control": 71.78779346989283,
+            "rate": 8.68637133121999,
+            "total": 1320.485779673539
+          },
+          "solve_seconds": 0.21434679627418518,
+          "warm_candidate_cost": 137633.68879773314,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -39.45695144178468
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 373.843422570175,
+          "objective_parts": {
+            "position": 0.5653176714390338,
+            "speed": 231.19476235124708,
+            "angle": 59.8984054245383,
+            "angular_speed": 41.83903463975677,
+            "terminal": 24.8570285134715,
+            "control": 13.888548373391826,
+            "rate": 1.600325596330435,
+            "total": 373.84342257017494
+          },
+          "solve_seconds": 0.21566176414489746,
+          "warm_candidate_cost": 157039.03750029058,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -70.13880750035933
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 956.7517652924504,
+          "objective_parts": {
+            "position": 1.0591007428456778,
+            "speed": 438.5830705713716,
+            "angle": 179.22853663274446,
+            "angular_speed": 204.44466557778432,
+            "terminal": 40.251295443457934,
+            "control": 83.20775546816033,
+            "rate": 9.977340856085915,
+            "total": 956.7517652924503
+          },
+          "solve_seconds": 0.2172809075564146,
+          "warm_candidate_cost": 136595.64346215088,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -33.93670485378446
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 870.0151858940374,
+          "objective_parts": {
+            "position": 0.5194208779572312,
+            "speed": 427.98335676560276,
+            "angle": 223.38357484093154,
+            "angular_speed": 78.12545591624205,
+            "terminal": 65.65575239583889,
+            "control": 65.59259512099857,
+            "rate": 8.755029976466439,
+            "total": 870.0151858940375
+          },
+          "solve_seconds": 0.21499473601579666,
+          "warm_candidate_cost": 133542.42663486156,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -74.66698738848183
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1063.3805511108835,
+          "objective_parts": {
+            "position": 1.119275416731576,
+            "speed": 449.0068798945734,
+            "angle": 266.2705929009839,
+            "angular_speed": 177.84562748897358,
+            "terminal": 91.06322760866918,
+            "control": 69.76503610106109,
+            "rate": 8.309911699890522,
+            "total": 1063.3805511108833
+          },
+          "solve_seconds": 0.2166919931769371,
+          "warm_candidate_cost": 307240.67038013646,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 31.29086580585407
+        }
+      ],
+      "one_start_loss": 1320.485779673539,
+      "five_start_loss": 373.843422570175,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_022_initial",
+        "case": 22,
+        "sample": 0,
+        "x": [
+          -1.3143329720937358,
+          1.0682400501610152,
+          0.2525747916826402,
+          -1.1856880268995165
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 289.3438009064691,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 289.3438009064691,
+          "objective_parts": {
+            "position": 0.6057274959683921,
+            "speed": 202.72528656281088,
+            "angle": 39.56129302468738,
+            "angular_speed": 40.45421379086491,
+            "terminal": 3.4766971442754997,
+            "control": 2.509605587844442,
+            "rate": 0.010977300017646725,
+            "total": 289.3438009064691
+          },
+          "solve_seconds": 0.2165297530591488,
+          "warm_candidate_cost": 289.3438009064691,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -57.76867471436354
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 932.7993803623751,
+          "objective_parts": {
+            "position": 0.6000607154298535,
+            "speed": 511.10245236429904,
+            "angle": 70.17022826981093,
+            "angular_speed": 82.12240748672677,
+            "terminal": 193.2022669756881,
+            "control": 64.90903013247686,
+            "rate": 10.692934417943608,
+            "total": 932.7993803623751
+          },
+          "solve_seconds": 0.21841181628406048,
+          "warm_candidate_cost": 12147.78717357082,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -61.18367022040964
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 561.8808381779769,
+          "objective_parts": {
+            "position": 0.5913846103611264,
+            "speed": 319.6789831905452,
+            "angle": 67.09262555092506,
+            "angular_speed": 54.931389226256854,
+            "terminal": 101.39778255468391,
+            "control": 16.108985882842447,
+            "rate": 2.0796871623623288,
+            "total": 561.8808381779769
+          },
+          "solve_seconds": 0.21584820002317429,
+          "warm_candidate_cost": 4370.41705459071,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -65.43359059082955
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 573.2168898137684,
+          "objective_parts": {
+            "position": 0.6291267831038596,
+            "speed": 290.51348750999085,
+            "angle": 68.87928646534542,
+            "angular_speed": 103.10137240296103,
+            "terminal": 1.292786201182309,
+            "control": 94.15072442805607,
+            "rate": 14.650106023128687,
+            "total": 573.2168898137683
+          },
+          "solve_seconds": 0.21555734053254128,
+          "warm_candidate_cost": 51575.57060244339,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -84.72046546339989
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 630.9100849344468,
+          "objective_parts": {
+            "position": 0.7217130014018422,
+            "speed": 279.0754080107603,
+            "angle": 70.26142917467266,
+            "angular_speed": 109.85350587492317,
+            "terminal": 84.94527606921758,
+            "control": 75.620119224262,
+            "rate": 10.432633579209478,
+            "total": 630.910084934447
+          },
+          "solve_seconds": 0.21389136463403702,
+          "warm_candidate_cost": 76099.07108307285,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 289.3438009064691,
+      "five_start_loss": 289.3438009064691,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_072_initial",
+        "case": 72,
+        "sample": 0,
+        "x": [
+          -1.262925043011584,
+          1.87127025852326,
+          0.2722811359987268,
+          -2.1071894284504746
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 273732.8906185588,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 3835.3456300968955,
+          "objective_parts": {
+            "position": 0.4061908003668804,
+            "speed": 815.5554950985126,
+            "angle": 870.8074159053008,
+            "angular_speed": 299.0052029465149,
+            "terminal": 1775.333870759032,
+            "control": 67.32739665609485,
+            "rate": 6.91005793107337,
+            "total": 3835.345630096895
+          },
+          "solve_seconds": 0.21856277994811535,
+          "warm_candidate_cost": 273732.8906185588,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 3717.0305304567123,
+          "objective_parts": {
+            "position": 0.45535811302328155,
+            "speed": 979.4660417979122,
+            "angle": 934.5889117646439,
+            "angular_speed": 301.84347570347813,
+            "terminal": 1426.2220720256355,
+            "control": 66.52683414346852,
+            "rate": 7.927836908550976,
+            "total": 3717.0305304567123
+          },
+          "solve_seconds": 0.21599429287016392,
+          "warm_candidate_cost": 472471.60574525397,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -73.71113312529774
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1265.5820079972502,
+          "objective_parts": {
+            "position": 0.5568010880348969,
+            "speed": 600.5368927638547,
+            "angle": 278.4281500725747,
+            "angular_speed": 200.80831447123703,
+            "terminal": 82.411094833678,
+            "control": 89.7680114098091,
+            "rate": 13.072743358062171,
+            "total": 1265.5820079972505
+          },
+          "solve_seconds": 0.21614987589418888,
+          "warm_candidate_cost": 239452.10559202472,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -41.25453525494378
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 4862.75880127747,
+          "objective_parts": {
+            "position": 0.39717216748654555,
+            "speed": 996.4547329029697,
+            "angle": 625.0849133409472,
+            "angular_speed": 408.04978965435964,
+            "terminal": 2751.898254779741,
+            "control": 71.67675902613165,
+            "rate": 9.197179405835623,
+            "total": 4862.75880127747
+          },
+          "solve_seconds": 0.2138069737702608,
+          "warm_candidate_cost": 440394.5155688599,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -94.8345083002291
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1933.5037023433138,
+          "objective_parts": {
+            "position": 0.5981079325916685,
+            "speed": 585.959970150233,
+            "angle": 370.9834675541389,
+            "angular_speed": 264.55961892024294,
+            "terminal": 602.6341909655205,
+            "control": 96.21303735641638,
+            "rate": 12.55530946417051,
+            "total": 1933.5037023433138
+          },
+          "solve_seconds": 0.2168330904096365,
+          "warm_candidate_cost": 172464.20436149294,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -40.73796542188427
+        }
+      ],
+      "one_start_loss": 3835.3456300968955,
+      "five_start_loss": 1265.5820079972502,
+      "best_attempt": 2
+    },
+    {
+      "state": {
+        "label": "case_072_initial",
+        "case": 72,
+        "sample": 0,
+        "x": [
+          -1.262925043011584,
+          1.87127025852326,
+          0.2722811359987268,
+          -2.1071894284504746
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 638.9129603442598,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 638.9129603442595,
+          "objective_parts": {
+            "position": 0.29069661933987967,
+            "speed": 438.4510451030491,
+            "angle": 79.00631968531204,
+            "angular_speed": 103.0376458714801,
+            "terminal": 5.879875252027487,
+            "control": 12.197608975878506,
+            "rate": 0.049768837172695715,
+            "total": 638.9129603442598
+          },
+          "solve_seconds": 0.21436159871518612,
+          "warm_candidate_cost": 638.9129603442598,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1723.7141425041536,
+          "objective_parts": {
+            "position": 0.4289889201040086,
+            "speed": 802.2662985484279,
+            "angle": 257.4674440804347,
+            "angular_speed": 183.90692485961904,
+            "terminal": 406.4792681017526,
+            "control": 66.71325748756335,
+            "rate": 6.451960506251557,
+            "total": 1723.714142504153
+          },
+          "solve_seconds": 0.21648872643709183,
+          "warm_candidate_cost": 81576.29882672931,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -84.83533263637733
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 918.1263168896784,
+          "objective_parts": {
+            "position": 0.37108233464931306,
+            "speed": 454.8509991717985,
+            "angle": 164.4455268314092,
+            "angular_speed": 154.14598646338632,
+            "terminal": 118.11576288858146,
+            "control": 24.005063836968663,
+            "rate": 2.191895362885194,
+            "total": 918.1263168896787
+          },
+          "solve_seconds": 0.2187123242765665,
+          "warm_candidate_cost": 74303.69528850887,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -74.2118122572272
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1068.4846636800687,
+          "objective_parts": {
+            "position": 0.303134431405335,
+            "speed": 490.4351890623455,
+            "angle": 203.24214364704963,
+            "angular_speed": 152.71440243464625,
+            "terminal": 154.6637539346416,
+            "control": 60.00074009338848,
+            "rate": 7.125300076592055,
+            "total": 1068.484663680069
+          },
+          "solve_seconds": 0.21557987108826637,
+          "warm_candidate_cost": 51587.90904407294,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1257.781886043304,
+          "objective_parts": {
+            "position": 0.33389902035976443,
+            "speed": 632.5088717249483,
+            "angle": 62.985571043071786,
+            "angular_speed": 163.4024513696666,
+            "terminal": 298.152537813147,
+            "control": 90.11012774404371,
+            "rate": 10.288427328066879,
+            "total": 1257.7818860433042
+          },
+          "solve_seconds": 0.21735438518226147,
+          "warm_candidate_cost": 121785.30189631035,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -62.58291003935639
+        }
+      ],
+      "one_start_loss": 638.9129603442595,
+      "five_start_loss": 638.9129603442595,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_089_initial",
+        "case": 89,
+        "sample": 0,
+        "x": [
+          1.0863355589013755,
+          -0.15665016956971145,
+          0.5704717154658555,
+          -1.1732741245961593
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 95535.12013039351,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1210.5266913361263,
+          "objective_parts": {
+            "position": 0.29013576803508795,
+            "speed": 413.317110326627,
+            "angle": 370.08226348240726,
+            "angular_speed": 93.3820106703955,
+            "terminal": 273.5427572403022,
+            "control": 54.08240770142126,
+            "rate": 5.830006146937878,
+            "total": 1210.5266913361263
+          },
+          "solve_seconds": 0.2185816764831543,
+          "warm_candidate_cost": 95535.12013039351,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1639.5564323617625,
+          "objective_parts": {
+            "position": 0.41857667350023936,
+            "speed": 552.4452547305108,
+            "angle": 273.9642219435941,
+            "angular_speed": 173.94048478112958,
+            "terminal": 552.8852038081467,
+            "control": 75.65117491593615,
+            "rate": 10.251515508945168,
+            "total": 1639.5564323617627
+          },
+          "solve_seconds": 0.21579196117818356,
+          "warm_candidate_cost": 88048.4505954698,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 46.07617887137217
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1555.3348026143883,
+          "objective_parts": {
+            "position": 0.9080954775434601,
+            "speed": 1053.452522467357,
+            "angle": 157.72057673505446,
+            "angular_speed": 125.21036537462223,
+            "terminal": 168.61541054609538,
+            "control": 42.524100118463515,
+            "rate": 6.903731895252129,
+            "total": 1555.334802614388
+          },
+          "solve_seconds": 0.2175865527242422,
+          "warm_candidate_cost": 82515.54933628447,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 18.245276163062723
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1334.455721768699,
+          "objective_parts": {
+            "position": 0.39554474540137635,
+            "speed": 584.0992493932372,
+            "angle": 299.81202214336923,
+            "angular_speed": 113.74788008754763,
+            "terminal": 233.12757550474356,
+            "control": 92.60739388378968,
+            "rate": 10.666056010610058,
+            "total": 1334.4557217686986
+          },
+          "solve_seconds": 0.21580054983496666,
+          "warm_candidate_cost": 125658.05381123247,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1492.353385342457,
+          "objective_parts": {
+            "position": 0.30714233685725584,
+            "speed": 429.995660427435,
+            "angle": 566.3062633700443,
+            "angular_speed": 118.66601687015056,
+            "terminal": 295.6685798008464,
+            "control": 72.62181608297159,
+            "rate": 8.787906454151665,
+            "total": 1492.353385342457
+          },
+          "solve_seconds": 0.21768668107688427,
+          "warm_candidate_cost": 19911.885586224635,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 98.10000000000001
+        }
+      ],
+      "one_start_loss": 1210.5266913361263,
+      "five_start_loss": 1210.5266913361263,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_089_initial",
+        "case": 89,
+        "sample": 0,
+        "x": [
+          1.0863355589013755,
+          -0.15665016956971145,
+          0.5704717154658555,
+          -1.1732741245961593
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 763.9354422270452,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 763.9354422270454,
+          "objective_parts": {
+            "position": 0.2603171147600919,
+            "speed": 310.44926823857327,
+            "angle": 403.2855773389634,
+            "angular_speed": 30.497085048832204,
+            "terminal": 13.941001565465701,
+            "control": 5.443671359250626,
+            "rate": 0.05852156119989004,
+            "total": 763.9354422270452
+          },
+          "solve_seconds": 0.21722327545285225,
+          "warm_candidate_cost": 763.9354422270452,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1291.608435738407,
+          "objective_parts": {
+            "position": 0.5157092134521979,
+            "speed": 698.1850538045413,
+            "angle": 213.70706129379732,
+            "angular_speed": 137.327468807537,
+            "terminal": 174.98799607922976,
+            "control": 58.16575298673086,
+            "rate": 8.719393553118609,
+            "total": 1291.608435738407
+          },
+          "solve_seconds": 0.21998094394803047,
+          "warm_candidate_cost": 5329.082115106145,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 62.516729760581754
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 990.2181263413503,
+          "objective_parts": {
+            "position": 0.3522974053814103,
+            "speed": 495.5789997124792,
+            "angle": 287.7435457138395,
+            "angular_speed": 91.77208696853408,
+            "terminal": 52.94024891474857,
+            "control": 54.45989655646954,
+            "rate": 7.371051069897999,
+            "total": 990.2181263413503
+          },
+          "solve_seconds": 0.21682261675596237,
+          "warm_candidate_cost": 62060.26339233034,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -76.10994247594994
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1128.2643712540912,
+          "objective_parts": {
+            "position": 0.3917082001065831,
+            "speed": 539.7739800246482,
+            "angle": 341.77921605438104,
+            "angular_speed": 96.52453328692029,
+            "terminal": 82.26178355367796,
+            "control": 59.787226376506794,
+            "rate": 7.74592375784997,
+            "total": 1128.2643712540907
+          },
+          "solve_seconds": 0.21765705570578575,
+          "warm_candidate_cost": 45151.98401355233,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -90.9578767244255
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1491.7358185117114,
+          "objective_parts": {
+            "position": 0.33316125019299014,
+            "speed": 430.55842547759516,
+            "angle": 705.3087202176957,
+            "angular_speed": 122.4085194728504,
+            "terminal": 161.59741033778852,
+            "control": 64.05379087563608,
+            "rate": 7.475790879952379,
+            "total": 1491.7358185117114
+          },
+          "solve_seconds": 0.21722073294222355,
+          "warm_candidate_cost": 76675.25875316109,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -96.26075595187731
+        }
+      ],
+      "one_start_loss": 763.9354422270454,
+      "five_start_loss": 763.9354422270454,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_003_initial",
+        "case": 3,
+        "sample": 0,
+        "x": [
+          -0.811315867901083,
+          -0.4764719516686772,
+          -0.027008419667867156,
+          -3.4107884887830413
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 596615.026178495,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 76158.96874294194,
+          "objective_parts": {
+            "position": 3.7282232536360262,
+            "speed": 1779.9844450529706,
+            "angle": 66569.59027039578,
+            "angular_speed": 2730.435735082757,
+            "terminal": 5003.755389377012,
+            "control": 64.32799470106201,
+            "rate": 7.146685078726097,
+            "total": 76158.96874294194
+          },
+          "solve_seconds": 0.2134996671229601,
+          "warm_candidate_cost": 596615.026178495,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -32.624378676948204
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 78845.17265660163,
+          "objective_parts": {
+            "position": 4.3489432606724305,
+            "speed": 1179.067180485447,
+            "angle": 65232.10994380673,
+            "angular_speed": 1830.464096144953,
+            "terminal": 10516.331848650829,
+            "control": 74.0635264600133,
+            "rate": 8.78711779297757,
+            "total": 78845.17265660162
+          },
+          "solve_seconds": 0.2115020640194416,
+          "warm_candidate_cost": 853948.3592738707,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 70989.39471987203,
+          "objective_parts": {
+            "position": 5.263825497887815,
+            "speed": 1131.0040579259721,
+            "angle": 57405.64831997703,
+            "angular_speed": 1651.6147459393278,
+            "terminal": 10711.456789018892,
+            "control": 76.20082907395123,
+            "rate": 8.206152438971495,
+            "total": 70989.39471987203
+          },
+          "solve_seconds": 0.2144302912056446,
+          "warm_candidate_cost": 485129.9087146454,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -97.43390801731024
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 64287.488375206885,
+          "objective_parts": {
+            "position": 9.201792179349255,
+            "speed": 1890.2277407489398,
+            "angle": 54590.16435084762,
+            "angular_speed": 1957.1181907404268,
+            "terminal": 5760.286302509125,
+            "control": 72.54852874132987,
+            "rate": 7.941469440084415,
+            "total": 64287.48837520688
+          },
+          "solve_seconds": 0.21454163827002048,
+          "warm_candidate_cost": 692257.2198141125,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 3.116769745120513
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 81582.71694686904,
+          "objective_parts": {
+            "position": 5.4774630555585055,
+            "speed": 1102.8274776475596,
+            "angle": 63287.91215382484,
+            "angular_speed": 1542.678088912438,
+            "terminal": 15563.545983382657,
+            "control": 72.95569332539871,
+            "rate": 7.3200867206037294,
+            "total": 81582.71694686906
+          },
+          "solve_seconds": 0.21346496231853962,
+          "warm_candidate_cost": 814905.8264484348,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -91.80593966189231
+        }
+      ],
+      "one_start_loss": 76158.96874294194,
+      "five_start_loss": 64287.488375206885,
+      "best_attempt": 3
+    },
+    {
+      "state": {
+        "label": "case_003_initial",
+        "case": 3,
+        "sample": 0,
+        "x": [
+          -0.811315867901083,
+          -0.4764719516686772,
+          -0.027008419667867156,
+          -3.4107884887830413
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 500968.012086004,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 152958.25291691237,
+          "objective_parts": {
+            "position": 59.29203519150001,
+            "speed": 25068.678589610845,
+            "angle": 95269.65666221683,
+            "angular_speed": 2493.1232908197453,
+            "terminal": 29987.83493301051,
+            "control": 75.941024513135,
+            "rate": 3.726381549772413,
+            "total": 152958.25291691234
+          },
+          "solve_seconds": 0.2141819130629301,
+          "warm_candidate_cost": 500968.012086004,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -79.36467574809018
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 134408.99993640638,
+          "objective_parts": {
+            "position": 51.047611788009405,
+            "speed": 19833.71933091755,
+            "angle": 90014.95372953442,
+            "angular_speed": 2517.343877194096,
+            "terminal": 21908.073247285876,
+            "control": 77.56655180362566,
+            "rate": 6.295587882817604,
+            "total": 134408.99993640638
+          },
+          "solve_seconds": 0.21266650594770908,
+          "warm_candidate_cost": 585828.4226116928,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -46.64631240499356
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 134577.22606868314,
+          "objective_parts": {
+            "position": 35.09902098285577,
+            "speed": 14409.521822731847,
+            "angle": 95725.3010009081,
+            "angular_speed": 2676.2185753818057,
+            "terminal": 21654.45359200168,
+            "control": 70.74920971830015,
+            "rate": 5.882846958524029,
+            "total": 134577.22606868314
+          },
+          "solve_seconds": 0.21173901855945587,
+          "warm_candidate_cost": 553349.0750771908,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -42.931892212602506
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 130460.69077785627,
+          "objective_parts": {
+            "position": 31.5995256838778,
+            "speed": 13070.60980027208,
+            "angle": 89493.46660580755,
+            "angular_speed": 2116.297771377501,
+            "terminal": 25667.147008065942,
+            "control": 75.86878892403271,
+            "rate": 5.7012777252822575,
+            "total": 130460.69077785627
+          },
+          "solve_seconds": 0.2121362667530775,
+          "warm_candidate_cost": 772444.2952626658,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -69.7546350817469
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 132456.3447115974,
+          "objective_parts": {
+            "position": 35.729237357862836,
+            "speed": 15532.752436092924,
+            "angle": 91039.5439202321,
+            "angular_speed": 2369.1102286435757,
+            "terminal": 23383.59067241785,
+            "control": 88.7617415684768,
+            "rate": 6.856475284639073,
+            "total": 132456.34471159743
+          },
+          "solve_seconds": 0.21247976459562778,
+          "warm_candidate_cost": 545225.0051956542,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 152958.25291691237,
+      "five_start_loss": 130460.69077785627,
+      "best_attempt": 3
+    },
+    {
+      "state": {
+        "label": "case_004_initial",
+        "case": 4,
+        "sample": 0,
+        "x": [
+          -1.0985629736751492,
+          0.7791650057888805,
+          -0.12189005757743457,
+          -3.257556367599441
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 567343.627212896,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 54565.05301023906,
+          "objective_parts": {
+            "position": 6.701319565040586,
+            "speed": 8714.621930907333,
+            "angle": 36615.73557838356,
+            "angular_speed": 1945.0565679519025,
+            "terminal": 7188.467316466458,
+            "control": 87.3077783221521,
+            "rate": 7.162518642633823,
+            "total": 54565.05301023908
+          },
+          "solve_seconds": 0.21243341080844402,
+          "warm_candidate_cost": 567343.627212896,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -68.36795879614398
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 60324.54131416718,
+          "objective_parts": {
+            "position": 2.5242716380336603,
+            "speed": 5042.180274680955,
+            "angle": 47443.08298552363,
+            "angular_speed": 1927.391539573935,
+            "terminal": 5821.3180502715195,
+            "control": 79.40545995074963,
+            "rate": 8.638732528362551,
+            "total": 60324.54131416719
+          },
+          "solve_seconds": 0.21305994875729084,
+          "warm_candidate_cost": 607564.9563641587,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 82390.57377314019,
+          "objective_parts": {
+            "position": 1.9295363393822291,
+            "speed": 3017.9015648246595,
+            "angle": 67351.06925240252,
+            "angular_speed": 2059.983186802804,
+            "terminal": 9887.648849943169,
+            "control": 64.71619942887905,
+            "rate": 7.325183398744723,
+            "total": 82390.57377314016
+          },
+          "solve_seconds": 0.21649362333118916,
+          "warm_candidate_cost": 317726.2648771251,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -17.95475452297529
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 67456.4747114166,
+          "objective_parts": {
+            "position": 2.617384501255513,
+            "speed": 1044.0711590316532,
+            "angle": 56101.77849507454,
+            "angular_speed": 1689.6462493301224,
+            "terminal": 8530.887251975553,
+            "control": 79.12867790594065,
+            "rate": 8.345493597528241,
+            "total": 67456.47471141661
+          },
+          "solve_seconds": 0.21447407267987728,
+          "warm_candidate_cost": 561568.1670773586,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -63.905627776289116
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 55622.666041065306,
+          "objective_parts": {
+            "position": 1.9125338995365255,
+            "speed": 3747.8459768232146,
+            "angle": 44258.13190470953,
+            "angular_speed": 1581.9291121604167,
+            "terminal": 5934.420305427734,
+            "control": 87.97100775430677,
+            "rate": 10.455200290553112,
+            "total": 55622.66604106529
+          },
+          "solve_seconds": 0.21385526284575462,
+          "warm_candidate_cost": 449135.126866651,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 54565.05301023906,
+      "five_start_loss": 54565.05301023906,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_004_initial",
+        "case": 4,
+        "sample": 0,
+        "x": [
+          -1.0985629736751492,
+          0.7791650057888805,
+          -0.12189005757743457,
+          -3.257556367599441
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 487315.336398551,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 124543.6946676948,
+          "objective_parts": {
+            "position": 19.021912276769285,
+            "speed": 10591.732433443962,
+            "angle": 93991.31268140042,
+            "angular_speed": 3001.3106479076464,
+            "terminal": 16856.628017044997,
+            "control": 78.72181006712988,
+            "rate": 4.967165553885576,
+            "total": 124543.69466769483
+          },
+          "solve_seconds": 0.21267093531787395,
+          "warm_candidate_cost": 487315.336398551,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -78.45487200397721
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 117378.57499637193,
+          "objective_parts": {
+            "position": 4.9630163024071665,
+            "speed": 3313.7142759554104,
+            "angle": 89846.50250487778,
+            "angular_speed": 2052.312397168141,
+            "terminal": 22071.572478586717,
+            "control": 82.8406655415531,
+            "rate": 6.669657939895236,
+            "total": 117378.57499637191
+          },
+          "solve_seconds": 0.21737271174788475,
+          "warm_candidate_cost": 510547.5306660462,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -75.45583134513038
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 122101.68908335471,
+          "objective_parts": {
+            "position": 10.381711432354441,
+            "speed": 4995.786172820928,
+            "angle": 98824.4835756986,
+            "angular_speed": 3154.878909613774,
+            "terminal": 15036.680868265548,
+            "control": 72.85386999023743,
+            "rate": 6.6239755332291255,
+            "total": 122101.6890833547
+          },
+          "solve_seconds": 0.2118786834180355,
+          "warm_candidate_cost": 360299.0148742322,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -9.88106962723425
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 115367.76251662729,
+          "objective_parts": {
+            "position": 11.647365137141854,
+            "speed": 6050.084924816899,
+            "angle": 89584.82191956733,
+            "angular_speed": 2470.819312038579,
+            "terminal": 17164.108504475153,
+            "control": 80.92962397813163,
+            "rate": 5.350866614053557,
+            "total": 115367.76251662729
+          },
+          "solve_seconds": 0.2107129581272602,
+          "warm_candidate_cost": 589687.4125211665,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -54.24890392136857
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 113778.50081095517,
+          "objective_parts": {
+            "position": 5.960442736247912,
+            "speed": 2814.3746122642724,
+            "angle": 87150.14132795615,
+            "angular_speed": 1973.929507288565,
+            "terminal": 21741.387087649025,
+            "control": 85.6113659864364,
+            "rate": 7.096467074460596,
+            "total": 113778.50081095516
+          },
+          "solve_seconds": 0.21316885389387608,
+          "warm_candidate_cost": 453814.2595983775,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -84.87368020617328
+        }
+      ],
+      "one_start_loss": 124543.6946676948,
+      "five_start_loss": 113778.50081095517,
+      "best_attempt": 4
+    },
+    {
+      "state": {
+        "label": "case_005_initial",
+        "case": 5,
+        "sample": 0,
+        "x": [
+          0.20528568831699268,
+          -0.966236935816982,
+          -0.6919775732681512,
+          1.165666788376106
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 74964.69486931135,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1212.9197585930376,
+          "objective_parts": {
+            "position": 1.0923579400434478,
+            "speed": 622.4071303276221,
+            "angle": 307.72557613935635,
+            "angular_speed": 189.66525379017605,
+            "terminal": 10.75920058472592,
+            "control": 69.7951889314257,
+            "rate": 11.475050879688084,
+            "total": 1212.9197585930376
+          },
+          "solve_seconds": 0.2162805013358593,
+          "warm_candidate_cost": 74964.69486931135,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -31.94458633232979
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1266.5102572992012,
+          "objective_parts": {
+            "position": 1.5896669541457915,
+            "speed": 632.5686352127695,
+            "angle": 340.723799926541,
+            "angular_speed": 129.47564541782882,
+            "terminal": 132.14237683929258,
+            "control": 26.439152659694074,
+            "rate": 3.5709802889293147,
+            "total": 1266.5102572992014
+          },
+          "solve_seconds": 0.21502160094678402,
+          "warm_candidate_cost": 53918.62938477147,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 63.0641595208326
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1732.711921831685,
+          "objective_parts": {
+            "position": 1.3973025808368065,
+            "speed": 773.8642153014516,
+            "angle": 514.9629718225387,
+            "angular_speed": 209.5671395151594,
+            "terminal": 134.60479807734114,
+            "control": 85.75123105503687,
+            "rate": 12.564263479320427,
+            "total": 1732.7119218316852
+          },
+          "solve_seconds": 0.21475270576775074,
+          "warm_candidate_cost": 31229.3519612105,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 63.23093367539638
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1423.9021940118325,
+          "objective_parts": {
+            "position": 1.3775597560153323,
+            "speed": 666.5537549352767,
+            "angle": 302.2098305866808,
+            "angular_speed": 180.05182115701066,
+            "terminal": 172.1865046194252,
+            "control": 88.50955074074027,
+            "rate": 13.013172216683524,
+            "total": 1423.9021940118325
+          },
+          "solve_seconds": 0.21395860984921455,
+          "warm_candidate_cost": 42758.86033294067,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1310.357267806687,
+          "objective_parts": {
+            "position": 1.4817978177399944,
+            "speed": 651.7255092926723,
+            "angle": 360.3369668439442,
+            "angular_speed": 127.43245203608618,
+            "terminal": 95.01051915079019,
+            "control": 64.85353686757763,
+            "rate": 9.516485797875921,
+            "total": 1310.3572678066864
+          },
+          "solve_seconds": 0.2129091639071703,
+          "warm_candidate_cost": 94777.80158808333,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 91.18658019406364
+        }
+      ],
+      "one_start_loss": 1212.9197585930376,
+      "five_start_loss": 1212.9197585930376,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_005_initial",
+        "case": 5,
+        "sample": 0,
+        "x": [
+          0.20528568831699268,
+          -0.966236935816982,
+          -0.6919775732681512,
+          1.165666788376106
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 933.6895277703762,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 933.6895277703761,
+          "objective_parts": {
+            "position": 1.1309318597171338,
+            "speed": 551.6604258914898,
+            "angle": 211.22678789625806,
+            "angular_speed": 154.5303189499539,
+            "terminal": 6.6875420392709986,
+            "control": 8.305451891050346,
+            "rate": 0.14806924263603308,
+            "total": 933.6895277703762
+          },
+          "solve_seconds": 0.21166531182825565,
+          "warm_candidate_cost": 933.6895277703762,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1240.1661555694945,
+          "objective_parts": {
+            "position": 1.5336449226172253,
+            "speed": 697.6999173009443,
+            "angle": 210.98567055839067,
+            "angular_speed": 178.61967987472178,
+            "terminal": 89.06363278706823,
+            "control": 55.56315341898101,
+            "rate": 6.70045670677125,
+            "total": 1240.1661555694945
+          },
+          "solve_seconds": 0.21285600773990154,
+          "warm_candidate_cost": 23865.817402733574,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 1.979529356456783
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 1430.6516920925644,
+          "objective_parts": {
+            "position": 1.6006324754217374,
+            "speed": 726.1416705689595,
+            "angle": 288.74952944351463,
+            "angular_speed": 183.5251812371427,
+            "terminal": 128.0327305584632,
+            "control": 89.9288637264873,
+            "rate": 12.673084082575453,
+            "total": 1430.6516920925644
+          },
+          "solve_seconds": 0.21075068786740303,
+          "warm_candidate_cost": 60500.220969747614,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -9.892030599585366
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1274.6417016764904,
+          "objective_parts": {
+            "position": 1.5143614486861392,
+            "speed": 709.7612265893035,
+            "angle": 196.61370025909514,
+            "angular_speed": 124.08275487666307,
+            "terminal": 221.78774411324355,
+            "control": 18.432078292732243,
+            "rate": 2.449836096766576,
+            "total": 1274.6417016764904
+          },
+          "solve_seconds": 0.21145568788051605,
+          "warm_candidate_cost": 60849.4337959303,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -63.48807482463345
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 1245.095668416153,
+          "objective_parts": {
+            "position": 1.258826161535709,
+            "speed": 641.7353451754157,
+            "angle": 270.0759495695868,
+            "angular_speed": 198.47853598634183,
+            "terminal": 35.79090428836356,
+            "control": 87.66385769854774,
+            "rate": 10.092249536361193,
+            "total": 1245.0956684161524
+          },
+          "solve_seconds": 0.21395100466907024,
+          "warm_candidate_cost": 36832.19642087605,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 933.6895277703761,
+      "five_start_loss": 933.6895277703761,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_006_initial",
+        "case": 6,
+        "sample": 0,
+        "x": [
+          -1.3033911899203763,
+          -2.1288024423761467,
+          0.6946798292539458,
+          2.5090720503114934
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 463581.35080138734,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 72136.92578252115,
+          "objective_parts": {
+            "position": 41.01912617762615,
+            "speed": 12482.255448601789,
+            "angle": 50555.35742126544,
+            "angular_speed": 1429.7812277236033,
+            "terminal": 7554.138172655439,
+            "control": 67.73889489643906,
+            "rate": 6.635491200818057,
+            "total": 72136.92578252115
+          },
+          "solve_seconds": 0.21011347323656082,
+          "warm_candidate_cost": 463581.35080138734,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 16.86755436619456
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 70362.41549836745,
+          "objective_parts": {
+            "position": 27.11310609379927,
+            "speed": 8307.292665655923,
+            "angle": 50648.8681470577,
+            "angular_speed": 1211.270550230199,
+            "terminal": 10090.711761738006,
+            "control": 71.34020258396625,
+            "rate": 5.819065007865515,
+            "total": 70362.41549836744
+          },
+          "solve_seconds": 0.21134724281728268,
+          "warm_candidate_cost": 293517.63444934995,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 76.57400237936191
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 69863.29214122797,
+          "objective_parts": {
+            "position": 58.42598024920229,
+            "speed": 20459.599225225964,
+            "angle": 41242.55227000515,
+            "angular_speed": 2083.4768315619813,
+            "terminal": 5938.615699046444,
+            "control": 73.88858741976271,
+            "rate": 6.7335477194521,
+            "total": 69863.29214122795
+          },
+          "solve_seconds": 0.2122108694165945,
+          "warm_candidate_cost": 552540.1735376137,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 92.07745645929587
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 68257.6396634686,
+          "objective_parts": {
+            "position": 65.94532099109423,
+            "speed": 21556.463284539554,
+            "angle": 35104.6782954552,
+            "angular_speed": 1459.1015567335303,
+            "terminal": 9994.608508348905,
+            "control": 70.311013546298,
+            "rate": 6.531683854005931,
+            "total": 68257.63966346858
+          },
+          "solve_seconds": 0.21487805247306824,
+          "warm_candidate_cost": 346217.1829096132,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 22.537912908433718
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 64601.08359101207,
+          "objective_parts": {
+            "position": 19.13331158109631,
+            "speed": 5685.773905352203,
+            "angle": 49945.88496422997,
+            "angular_speed": 1316.965011073991,
+            "terminal": 7546.9150478952815,
+            "control": 79.31227732613044,
+            "rate": 7.099073553410183,
+            "total": 64601.08359101207
+          },
+          "solve_seconds": 0.21176123432815075,
+          "warm_candidate_cost": 534415.1699858619,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        }
+      ],
+      "one_start_loss": 72136.92578252115,
+      "five_start_loss": 64601.08359101207,
+      "best_attempt": 4
+    },
+    {
+      "state": {
+        "label": "case_006_initial",
+        "case": 6,
+        "sample": 0,
+        "x": [
+          -1.3033911899203763,
+          -2.1288024423761467,
+          0.6946798292539458,
+          2.5090720503114934
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 684185.1587927961,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 121506.66505516306,
+          "objective_parts": {
+            "position": 6.069080442753795,
+            "speed": 3685.7660186279754,
+            "angle": 101583.7597394645,
+            "angular_speed": 2678.2860930322267,
+            "terminal": 13469.682530133898,
+            "control": 78.12702159466672,
+            "rate": 4.974571867033254,
+            "total": 121506.66505516304
+          },
+          "solve_seconds": 0.21135792322456837,
+          "warm_candidate_cost": 684185.1587927961,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 5.231889717419241
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 110442.23501552126,
+          "objective_parts": {
+            "position": 6.6521595527644735,
+            "speed": 2387.2467343078165,
+            "angle": 95759.18062772286,
+            "angular_speed": 2720.161678397494,
+            "terminal": 9496.11391150664,
+            "control": 67.63579060872195,
+            "rate": 5.244113424952444,
+            "total": 110442.23501552123
+          },
+          "solve_seconds": 0.2147461324930191,
+          "warm_candidate_cost": 692410.2829708211,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 19.70857108650812
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 114675.92017307993,
+          "objective_parts": {
+            "position": 7.828991895699114,
+            "speed": 2710.151697488597,
+            "angle": 97127.05438759248,
+            "angular_speed": 2450.62516471133,
+            "terminal": 12303.914833976323,
+            "control": 70.9970539263407,
+            "rate": 5.348043489119464,
+            "total": 114675.92017307988
+          },
+          "solve_seconds": 0.21206614561378956,
+          "warm_candidate_cost": 562402.6121738504,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 10.093499414873763
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 112091.24152070508,
+          "objective_parts": {
+            "position": 11.167079186849008,
+            "speed": 2757.527502987115,
+            "angle": 93476.59350566409,
+            "angular_speed": 2110.9275251071963,
+            "terminal": 13649.689409117422,
+            "control": 78.43669697115381,
+            "rate": 6.899801671237572,
+            "total": 112091.24152070507
+          },
+          "solve_seconds": 0.21185008995234966,
+          "warm_candidate_cost": 603963.4301825538,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 115857.48867202993,
+          "objective_parts": {
+            "position": 13.39133000988911,
+            "speed": 3703.7093904340527,
+            "angle": 92320.62359524328,
+            "angular_speed": 1739.711184012822,
+            "terminal": 17994.438222291043,
+            "control": 80.30497111386723,
+            "rate": 5.3099789249794656,
+            "total": 115857.48867202994
+          },
+          "solve_seconds": 0.21077567525207996,
+          "warm_candidate_cost": 589654.7456424255,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        }
+      ],
+      "one_start_loss": 121506.66505516306,
+      "five_start_loss": 110442.23501552126,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_007_initial",
+        "case": 7,
+        "sample": 0,
+        "x": [
+          1.15196421265907,
+          -0.5751520206479549,
+          0.945838534367401,
+          2.6037694746884434
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 501834.363022094,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 60737.177115973,
+          "objective_parts": {
+            "position": 15.597286828703412,
+            "speed": 14365.919085666274,
+            "angle": 36623.734957552246,
+            "angular_speed": 1794.1540759756215,
+            "terminal": 7855.55524344394,
+            "control": 74.57959971411547,
+            "rate": 7.63686679209375,
+            "total": 60737.17711597299
+          },
+          "solve_seconds": 0.2137933187186718,
+          "warm_candidate_cost": 501834.363022094,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 14.847750948261098
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 72898.842121356,
+          "objective_parts": {
+            "position": 7.768998060576345,
+            "speed": 6959.2485984860905,
+            "angle": 54569.89324326588,
+            "angular_speed": 1243.222719908923,
+            "terminal": 10029.645391932303,
+            "control": 80.20009996987402,
+            "rate": 8.863069732367329,
+            "total": 72898.84212135602
+          },
+          "solve_seconds": 0.2130165472626686,
+          "warm_candidate_cost": 353328.7456454964,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 20.747581513467857
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 78561.2723891818,
+          "objective_parts": {
+            "position": 12.923493556954655,
+            "speed": 9919.931906309252,
+            "angle": 56255.334648137774,
+            "angular_speed": 1355.3159178871022,
+            "terminal": 10945.107195127483,
+            "control": 65.31087718563056,
+            "rate": 7.348350977619446,
+            "total": 78561.2723891818
+          },
+          "solve_seconds": 0.2132434118539095,
+          "warm_candidate_cost": 466731.343204724,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 7.76072274065665
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 76191.91593339911,
+          "objective_parts": {
+            "position": 3.249329884743468,
+            "speed": 3873.232508067061,
+            "angle": 62874.058241188155,
+            "angular_speed": 1484.8490748937934,
+            "terminal": 7866.801640727728,
+            "control": 80.41125251936262,
+            "rate": 9.313886118250393,
+            "total": 76191.9159333991
+          },
+          "solve_seconds": 0.21296906471252441,
+          "warm_candidate_cost": 510801.89973657235,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 50.98102167811951
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 54965.183575856216,
+          "objective_parts": {
+            "position": 16.928140878724633,
+            "speed": 13779.308656246832,
+            "angle": 32534.8530154231,
+            "angular_speed": 1741.4171445650272,
+            "terminal": 6802.859504371032,
+            "control": 83.11897701893619,
+            "rate": 6.698137352567677,
+            "total": 54965.18357585622
+          },
+          "solve_seconds": 0.21194657124578953,
+          "warm_candidate_cost": 439132.6550663179,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        }
+      ],
+      "one_start_loss": 60737.177115973,
+      "five_start_loss": 54965.183575856216,
+      "best_attempt": 4
+    },
+    {
+      "state": {
+        "label": "case_007_initial",
+        "case": 7,
+        "sample": 0,
+        "x": [
+          1.15196421265907,
+          -0.5751520206479549,
+          0.945838534367401,
+          2.6037694746884434
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 896498.1622738501,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 128209.84531615328,
+          "objective_parts": {
+            "position": 7.767592155964093,
+            "speed": 4311.603702683674,
+            "angle": 106274.14287385734,
+            "angular_speed": 2428.6697577901846,
+            "terminal": 15121.484965557982,
+            "control": 60.96308500510983,
+            "rate": 5.213339103052932,
+            "total": 128209.84531615331
+          },
+          "solve_seconds": 0.21217177622020245,
+          "warm_candidate_cost": 896498.1622738501,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 48.00565141733039
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 116225.35635586499,
+          "objective_parts": {
+            "position": 3.244409008732328,
+            "speed": 2345.085179126679,
+            "angle": 99419.56493792262,
+            "angular_speed": 2351.5036247597363,
+            "terminal": 12023.942406206848,
+            "control": 74.43783816602489,
+            "rate": 7.577960674394273,
+            "total": 116225.35635586502
+          },
+          "solve_seconds": 0.2130931317806244,
+          "warm_candidate_cost": 792472.5197722479,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 27.377142229294343
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 121270.57669212525,
+          "objective_parts": {
+            "position": 9.055065047839042,
+            "speed": 5392.065438284877,
+            "angle": 100115.04060334193,
+            "angular_speed": 2873.4958844205516,
+            "terminal": 12802.783420233174,
+            "control": 73.16766559399883,
+            "rate": 4.968615202853528,
+            "total": 121270.57669212522
+          },
+          "solve_seconds": 0.21277236565947533,
+          "warm_candidate_cost": 740546.0598105816,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -21.450180795912964
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 120757.45180692807,
+          "objective_parts": {
+            "position": 3.2346877200383677,
+            "speed": 3126.36497231641,
+            "angle": 97640.92069676213,
+            "angular_speed": 1880.7667702050078,
+            "terminal": 18012.86099996821,
+            "control": 84.54393585091279,
+            "rate": 8.759744105332889,
+            "total": 120757.45180692805
+          },
+          "solve_seconds": 0.2113108355551958,
+          "warm_candidate_cost": 836615.1602358698,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 60.04610110118198
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 118310.25087126959,
+          "objective_parts": {
+            "position": 3.357780101595977,
+            "speed": 1952.028487932935,
+            "angle": 101737.40190394403,
+            "angular_speed": 2334.7545738153667,
+            "terminal": 12206.861827089706,
+            "control": 68.60532714340792,
+            "rate": 7.240971242559812,
+            "total": 118310.25087126961
+          },
+          "solve_seconds": 0.21170839294791222,
+          "warm_candidate_cost": 785407.0768417914,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        }
+      ],
+      "one_start_loss": 128209.84531615328,
+      "five_start_loss": 116225.35635586499,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_100_pre_violation_1",
+        "case": 100,
+        "sample": 1,
+        "x": [
+          -0.3055227366245615,
+          1.3645325610176708,
+          1.4103860592119688,
+          2.7505372574419304
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 563566.2367141735,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 55310.696127127645,
+          "objective_parts": {
+            "position": 1.9581307231437974,
+            "speed": 3305.3043590967436,
+            "angle": 47017.1774116983,
+            "angular_speed": 1537.3573835893187,
+            "terminal": 3384.3634392590943,
+            "control": 59.03555074234618,
+            "rate": 5.499852018700651,
+            "total": 55310.696127127645
+          },
+          "solve_seconds": 0.21025029942393303,
+          "warm_candidate_cost": 563566.2367141735,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 11.634423580665132
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 51242.21555854656,
+          "objective_parts": {
+            "position": 2.721416386242495,
+            "speed": 3210.0216417867346,
+            "angle": 41341.9945296809,
+            "angular_speed": 1258.4490192945311,
+            "terminal": 5339.714572240051,
+            "control": 83.06575374410252,
+            "rate": 6.248625414012783,
+            "total": 51242.21555854657
+          },
+          "solve_seconds": 0.21217217668890953,
+          "warm_candidate_cost": 537904.3863141857,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 42.88618487579396
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 58175.626829788634,
+          "objective_parts": {
+            "position": 0.7590952246407198,
+            "speed": 2058.5516355503833,
+            "angle": 51060.163258357235,
+            "angular_speed": 1307.428622596683,
+            "terminal": 3656.3968394711437,
+            "control": 83.10172367306295,
+            "rate": 9.225654915469548,
+            "total": 58175.62682978862
+          },
+          "solve_seconds": 0.2142581157386303,
+          "warm_candidate_cost": 789294.9801371178,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -4.48674963643271
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 64660.843754332025,
+          "objective_parts": {
+            "position": 0.3686763909665119,
+            "speed": 1865.5849351916245,
+            "angle": 58377.057350437695,
+            "angular_speed": 1748.4511433832445,
+            "terminal": 2591.9854328435013,
+            "control": 71.11976439113697,
+            "rate": 6.2764516938632955,
+            "total": 64660.84375433203
+          },
+          "solve_seconds": 0.21156017296016216,
+          "warm_candidate_cost": 551322.6335455192,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": 32.26594639380518
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 63444.76741807797,
+          "objective_parts": {
+            "position": 1.1992207808795305,
+            "speed": 3634.898710541153,
+            "angle": 54701.09167868489,
+            "angular_speed": 2119.885988091777,
+            "terminal": 2914.3112281973954,
+            "control": 67.45124434350834,
+            "rate": 5.929347438370769,
+            "total": 63444.76741807798
+          },
+          "solve_seconds": 0.2119840532541275,
+          "warm_candidate_cost": 646198.1654674612,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -92.46071048428276
+        }
+      ],
+      "one_start_loss": 55310.696127127645,
+      "five_start_loss": 51242.21555854656,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_100_pre_violation_1",
+        "case": 100,
+        "sample": 1,
+        "x": [
+          -0.3055227366245615,
+          1.3645325610176708,
+          1.4103860592119688,
+          2.7505372574419304
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 1196793.2967982038,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 149469.88879979122,
+          "objective_parts": {
+            "position": 38.520425012338045,
+            "speed": 22855.827762429017,
+            "angle": 102822.38373189689,
+            "angular_speed": 3183.3183626373843,
+            "terminal": 20479.169570702583,
+            "control": 86.7030664401685,
+            "rate": 3.9658806728075158,
+            "total": 149469.8887997912
+          },
+          "solve_seconds": 0.21222509630024433,
+          "warm_candidate_cost": 1196793.2967982038,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 44.3928300119112
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 135357.16122896003,
+          "objective_parts": {
+            "position": 17.447217576004178,
+            "speed": 11783.864636936838,
+            "angle": 104402.44094987916,
+            "angular_speed": 2151.426444255833,
+            "terminal": 16926.113571880273,
+            "control": 69.31587679967024,
+            "rate": 6.552531632245997,
+            "total": 135357.16122896003
+          },
+          "solve_seconds": 0.21271135285496712,
+          "warm_candidate_cost": 1022789.2008782456,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -41.45975850335253
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 142724.46446125573,
+          "objective_parts": {
+            "position": 18.84140795280068,
+            "speed": 10119.052536030922,
+            "angle": 111068.91240575942,
+            "angular_speed": 1864.4420261913551,
+            "terminal": 19563.278160171223,
+            "control": 81.9623944507259,
+            "rate": 7.975530699340073,
+            "total": 142724.4644612558
+          },
+          "solve_seconds": 0.21242305636405945,
+          "warm_candidate_cost": 1242002.8420150497,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 18.812071711272527
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 136450.64037503168,
+          "objective_parts": {
+            "position": 21.477486919737498,
+            "speed": 13604.842921685758,
+            "angle": 105035.29937333813,
+            "angular_speed": 2235.9746030571773,
+            "terminal": 15471.167702959225,
+            "control": 75.77389711620327,
+            "rate": 6.104389955449577,
+            "total": 136450.64037503165
+          },
+          "solve_seconds": 0.21214238740503788,
+          "warm_candidate_cost": 1101202.8719352442,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 81.91626794312003
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 142860.55497993657,
+          "objective_parts": {
+            "position": 37.57857641002104,
+            "speed": 19884.141708095412,
+            "angle": 105201.68502309202,
+            "angular_speed": 2779.1082936656157,
+            "terminal": 14889.017764124063,
+            "control": 64.48092452390588,
+            "rate": 4.542690025586357,
+            "total": 142860.55497993663
+          },
+          "solve_seconds": 0.21161990240216255,
+          "warm_candidate_cost": 914439.0792116583,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 29.098157901116238
+        }
+      ],
+      "one_start_loss": 149469.88879979122,
+      "five_start_loss": 135357.16122896003,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_112_pre_violation_1",
+        "case": 112,
+        "sample": 1,
+        "x": [
+          0.4360692307564317,
+          1.522633253704935,
+          -1.4372985290720504,
+          -3.3082798249652337
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 759535.8202614374,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 105605.78103173783,
+          "objective_parts": {
+            "position": 54.77267077505413,
+            "speed": 18467.762302669187,
+            "angle": 74883.49105102678,
+            "angular_speed": 1667.3413922203345,
+            "terminal": 10464.260472662452,
+            "control": 61.82408153010095,
+            "rate": 6.329060853890969,
+            "total": 105605.7810317378
+          },
+          "solve_seconds": 0.21490590274333954,
+          "warm_candidate_cost": 759535.8202614374,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -24.57024708888947
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 100573.19172821137,
+          "objective_parts": {
+            "position": 51.92038949328097,
+            "speed": 19616.16435456653,
+            "angle": 70992.50288091335,
+            "angular_speed": 2129.171145443112,
+            "terminal": 7699.658875842828,
+            "control": 75.38632274426381,
+            "rate": 8.387759208024772,
+            "total": 100573.19172821137
+          },
+          "solve_seconds": 0.21210791915655136,
+          "warm_candidate_cost": 971452.2508650668,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 18.640996390996442
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 121290.02973252849,
+          "objective_parts": {
+            "position": 37.39786439606837,
+            "speed": 13723.979529552864,
+            "angle": 95534.72329250182,
+            "angular_speed": 2382.9898389332675,
+            "terminal": 9540.499268947548,
+            "control": 63.26726852871359,
+            "rate": 7.172669668205455,
+            "total": 121290.02973252848
+          },
+          "solve_seconds": 0.21063180826604366,
+          "warm_candidate_cost": 1102985.6896099567,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -78.30523052033976
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 106976.94130613198,
+          "objective_parts": {
+            "position": 38.97415290131193,
+            "speed": 13241.915495020674,
+            "angle": 81887.85784563104,
+            "angular_speed": 2033.7817702148732,
+            "terminal": 9711.669904189612,
+            "control": 58.7902317480548,
+            "rate": 3.951906426412707,
+            "total": 106976.94130613198
+          },
+          "solve_seconds": 0.20901172421872616,
+          "warm_candidate_cost": 885699.1788210898,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -36.35410920360259
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 107669.07999447339,
+          "objective_parts": {
+            "position": 33.73736832548672,
+            "speed": 11034.552208389963,
+            "angle": 84823.6180810139,
+            "angular_speed": 1891.9620142135368,
+            "terminal": 9802.722120673641,
+            "control": 74.56831117917685,
+            "rate": 7.9198906776601,
+            "total": 107669.07999447337
+          },
+          "solve_seconds": 0.21210244297981262,
+          "warm_candidate_cost": 777683.6006731582,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 105605.78103173783,
+      "five_start_loss": 100573.19172821137,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_112_pre_violation_1",
+        "case": 112,
+        "sample": 1,
+        "x": [
+          0.4360692307564317,
+          1.522633253704935,
+          -1.4372985290720504,
+          -3.3082798249652337
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 1335992.2857698041,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 130524.22501313203,
+          "objective_parts": {
+            "position": 2.106220735285684,
+            "speed": 6823.264307489433,
+            "angle": 108576.96198950283,
+            "angular_speed": 3847.6475243310792,
+            "terminal": 11175.040594842336,
+            "control": 94.80787630599563,
+            "rate": 4.396499925081025,
+            "total": 130524.22501313203
+          },
+          "solve_seconds": 0.2116281557828188,
+          "warm_candidate_cost": 1335992.2857698041,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -49.75394795625007
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 134608.38735381726,
+          "objective_parts": {
+            "position": 3.3244837206519913,
+            "speed": 7985.664105928153,
+            "angle": 113964.67570790816,
+            "angular_speed": 3923.4081450499466,
+            "terminal": 8638.103736786858,
+            "control": 89.25411475602499,
+            "rate": 3.957059667478579,
+            "total": 134608.38735381726
+          },
+          "solve_seconds": 0.2112073116004467,
+          "warm_candidate_cost": 1339877.8383775782,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -48.106744469301724
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 139573.11156445573,
+          "objective_parts": {
+            "position": 2.2730080340086305,
+            "speed": 6024.216522438104,
+            "angle": 118481.07173874007,
+            "angular_speed": 4119.432259605989,
+            "terminal": 10852.047688749703,
+            "control": 88.40950807090738,
+            "rate": 5.660838816963572,
+            "total": 139573.11156445573
+          },
+          "solve_seconds": 0.2112401556223631,
+          "warm_candidate_cost": 1407851.6796310202,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 114342.33449938936,
+          "objective_parts": {
+            "position": 2.5676067241241864,
+            "speed": 1996.816014536983,
+            "angle": 104928.73898517828,
+            "angular_speed": 4864.129470267772,
+            "terminal": 2454.853538895177,
+            "control": 86.82094274148199,
+            "rate": 8.407941045526856,
+            "total": 114342.33449938934
+          },
+          "solve_seconds": 0.21089954301714897,
+          "warm_candidate_cost": 1320699.0544009907,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": 56.514591734286796
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 126900.9571553353,
+          "objective_parts": {
+            "position": 2.840034658386748,
+            "speed": 2596.146032397407,
+            "angle": 112009.25735985402,
+            "angular_speed": 2845.063490097508,
+            "terminal": 9367.253228692027,
+            "control": 74.51862433359504,
+            "rate": 5.878385302366846,
+            "total": 126900.95715533532
+          },
+          "solve_seconds": 0.2115473747253418,
+          "warm_candidate_cost": 1145388.3119372802,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 130524.22501313203,
+      "five_start_loss": 114342.33449938936,
+      "best_attempt": 3
+    },
+    {
+      "state": {
+        "label": "case_018_pre_violation_2",
+        "case": 18,
+        "sample": 2,
+        "x": [
+          -1.306201984096363,
+          -0.9442368070160496,
+          -1.4401462153796762,
+          -2.5861137369014857
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 508950.0760846636,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 54778.09749112208,
+          "objective_parts": {
+            "position": 2.5374708335314913,
+            "speed": 3606.28840137937,
+            "angle": 45446.72469889951,
+            "angular_speed": 1580.6982923378494,
+            "terminal": 4051.8975324681837,
+            "control": 81.07544096548128,
+            "rate": 8.875654238131245,
+            "total": 54778.09749112206
+          },
+          "solve_seconds": 0.21153223514556885,
+          "warm_candidate_cost": 508950.0760846636,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -8.114364693602944
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 60581.63281544868,
+          "objective_parts": {
+            "position": 2.6734863360414693,
+            "speed": 2391.834437026988,
+            "angle": 53927.23856290697,
+            "angular_speed": 1744.6749127632268,
+            "terminal": 2438.9699529004347,
+            "control": 69.02633749700985,
+            "rate": 7.215126017983592,
+            "total": 60581.632815448655
+          },
+          "solve_seconds": 0.21305284276604652,
+          "warm_candidate_cost": 429748.97705650824,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": 26.939531737635523
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 52941.15951058485,
+          "objective_parts": {
+            "position": 3.47439968065702,
+            "speed": 5056.0575640806765,
+            "angle": 41136.07656376012,
+            "angular_speed": 1517.4747131406173,
+            "terminal": 5136.723190763286,
+            "control": 81.40922477677124,
+            "rate": 9.943854382720724,
+            "total": 52941.159510584854
+          },
+          "solve_seconds": 0.2140267677605152,
+          "warm_candidate_cost": 605983.8234577697,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 69275.47135269466,
+          "objective_parts": {
+            "position": 2.298112705663678,
+            "speed": 2686.776657126565,
+            "angle": 57937.21375199023,
+            "angular_speed": 1454.9270565973213,
+            "terminal": 7128.044354876821,
+            "control": 60.210705620795984,
+            "rate": 6.000713777226557,
+            "total": 69275.47135269463
+          },
+          "solve_seconds": 0.21180371567606926,
+          "warm_candidate_cost": 527233.6791180952,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -21.503040369295377
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 53728.24326548737,
+          "objective_parts": {
+            "position": 2.70335882996905,
+            "speed": 4117.5139430324025,
+            "angle": 43678.74843397429,
+            "angular_speed": 1484.3759682807743,
+            "terminal": 4362.223178279057,
+            "control": 76.0425112934261,
+            "rate": 6.635871797457245,
+            "total": 53728.24326548737
+          },
+          "solve_seconds": 0.2134835235774517,
+          "warm_candidate_cost": 608130.1491072009,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        }
+      ],
+      "one_start_loss": 54778.09749112208,
+      "five_start_loss": 52941.15951058485,
+      "best_attempt": 2
+    },
+    {
+      "state": {
+        "label": "case_018_pre_violation_2",
+        "case": 18,
+        "sample": 2,
+        "x": [
+          -1.306201984096363,
+          -0.9442368070160496,
+          -1.4401462153796762,
+          -2.5861137369014857
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 1123913.4034979974,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 145634.13797796157,
+          "objective_parts": {
+            "position": 41.439102837550465,
+            "speed": 17285.054825557036,
+            "angle": 108642.06540291836,
+            "angular_speed": 2795.700580042373,
+            "terminal": 16793.625302313492,
+            "control": 70.85887868643688,
+            "rate": 5.393885606278474,
+            "total": 145634.13797796154
+          },
+          "solve_seconds": 0.21076285280287266,
+          "warm_candidate_cost": 1123913.4034979974,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -65.55091361656402
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 134602.2605193513,
+          "objective_parts": {
+            "position": 36.38293714529953,
+            "speed": 13831.727788389118,
+            "angle": 103302.15581700236,
+            "angular_speed": 2535.9882616413724,
+            "terminal": 14829.04084730701,
+            "control": 63.02826757281227,
+            "rate": 3.936600293336663,
+            "total": 134602.2605193513
+          },
+          "solve_seconds": 0.2137442845851183,
+          "warm_candidate_cost": 788335.767868627,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -77.08699214906514
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 127664.00182075887,
+          "objective_parts": {
+            "position": 33.41900325003333,
+            "speed": 13544.017607680467,
+            "angle": 98536.12783211062,
+            "angular_speed": 2450.6945544787445,
+            "terminal": 13033.46294585762,
+            "control": 61.889643060178734,
+            "rate": 4.390234321189464,
+            "total": 127664.00182075886
+          },
+          "solve_seconds": 0.21138080023229122,
+          "warm_candidate_cost": 1020195.8242933459,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 3.4777049738321066
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 136367.624553382,
+          "objective_parts": {
+            "position": 38.39304063958055,
+            "speed": 13956.337861465063,
+            "angle": 106250.57826164328,
+            "angular_speed": 3375.8160933077756,
+            "terminal": 12669.574304791186,
+            "control": 71.12636027405621,
+            "rate": 5.7986312610767135,
+            "total": 136367.62455338202
+          },
+          "solve_seconds": 0.21236797235906124,
+          "warm_candidate_cost": 927005.1147439874,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 36.20279021202974
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 126859.3555268119,
+          "objective_parts": {
+            "position": 24.829553161305817,
+            "speed": 8752.28293038824,
+            "angle": 100634.09728731125,
+            "angular_speed": 1851.2264820422758,
+            "terminal": 15523.35597479108,
+            "control": 67.07157969614728,
+            "rate": 6.491719421594786,
+            "total": 126859.35552681188
+          },
+          "solve_seconds": 0.21140985563397408,
+          "warm_candidate_cost": 999553.5353133401,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -84.93088495961385
+        }
+      ],
+      "one_start_loss": 145634.13797796157,
+      "five_start_loss": 126859.3555268119,
+      "best_attempt": 4
+    },
+    {
+      "state": {
+        "label": "case_028_pre_violation_2",
+        "case": 28,
+        "sample": 2,
+        "x": [
+          1.248900245392713,
+          -0.3218862913037183,
+          1.4025746382408868,
+          3.121289035476894
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 684587.4941174331,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 74143.80346270154,
+          "objective_parts": {
+            "position": 13.288722196072513,
+            "speed": 10869.575147272659,
+            "angle": 54123.81820276709,
+            "angular_speed": 1471.698916981571,
+            "terminal": 7581.293604247456,
+            "control": 77.11823340933054,
+            "rate": 7.010635827356074,
+            "total": 74143.80346270154
+          },
+          "solve_seconds": 0.2124356385320425,
+          "warm_candidate_cost": 684587.4941174331,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 29.453271187854252
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 78052.87802225513,
+          "objective_parts": {
+            "position": 9.241190282789765,
+            "speed": 8020.7204993861205,
+            "angle": 56489.3030714554,
+            "angular_speed": 1469.836531428988,
+            "terminal": 11973.803759405813,
+            "control": 83.05897037816183,
+            "rate": 6.913999917854396,
+            "total": 78052.87802225513
+          },
+          "solve_seconds": 0.21696162037551403,
+          "warm_candidate_cost": 806975.9120249647,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 51.17150190706801
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 88714.29111828253,
+          "objective_parts": {
+            "position": 5.353254530837528,
+            "speed": 4664.149994052796,
+            "angle": 72327.76785882798,
+            "angular_speed": 1451.7044447536748,
+            "terminal": 10169.004436577045,
+            "control": 85.43083600233354,
+            "rate": 10.880293537870283,
+            "total": 88714.29111828253
+          },
+          "solve_seconds": 0.21194458194077015,
+          "warm_candidate_cost": 668263.8547987991,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 70.26235849359209
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 78229.24482898755,
+          "objective_parts": {
+            "position": 4.576267248211324,
+            "speed": 5286.078556548895,
+            "angle": 66951.3289940498,
+            "angular_speed": 1959.3111558414719,
+            "terminal": 3932.6701838312165,
+            "control": 87.95865945484012,
+            "rate": 7.321012013136091,
+            "total": 78229.24482898758
+          },
+          "solve_seconds": 0.2107384279370308,
+          "warm_candidate_cost": 395482.563475104,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 99376.95460326907,
+          "objective_parts": {
+            "position": 2.0427909108783777,
+            "speed": 2164.523317262083,
+            "angle": 85877.68866978587,
+            "angular_speed": 1726.4945198572073,
+            "terminal": 9521.413924063,
+            "control": 76.53616461591209,
+            "rate": 8.255216774104666,
+            "total": 99376.95460326907
+          },
+          "solve_seconds": 0.213344132527709,
+          "warm_candidate_cost": 723557.8985955529,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": 35.76098384705161
+        }
+      ],
+      "one_start_loss": 74143.80346270154,
+      "five_start_loss": 74143.80346270154,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_028_pre_violation_2",
+        "case": 28,
+        "sample": 2,
+        "x": [
+          1.248900245392713,
+          -0.3218862913037183,
+          1.4025746382408868,
+          3.121289035476894
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 1284662.3274258664,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 133996.25246052287,
+          "objective_parts": {
+            "position": 13.144896926843927,
+            "speed": 9480.98014340933,
+            "angle": 103108.76263221259,
+            "angular_speed": 2707.1917644363953,
+            "terminal": 18598.380843811712,
+            "control": 82.64516290473455,
+            "rate": 5.147016821270494,
+            "total": 133996.25246052287
+          },
+          "solve_seconds": 0.2145525924861431,
+          "warm_candidate_cost": 1284662.3274258664,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 120893.2715248128,
+          "objective_parts": {
+            "position": 5.025093715277105,
+            "speed": 3517.2609073052236,
+            "angle": 107319.9673351655,
+            "angular_speed": 3301.4731923183795,
+            "terminal": 6674.3119208884855,
+            "control": 69.17724812636669,
+            "rate": 6.05582729360767,
+            "total": 120893.27152481284
+          },
+          "solve_seconds": 0.21301898919045925,
+          "warm_candidate_cost": 1082566.7876398775,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 5.537820564431365
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 128123.3798731965,
+          "objective_parts": {
+            "position": 5.955437311946794,
+            "speed": 3945.225072199997,
+            "angle": 109378.3576064124,
+            "angular_speed": 2842.684673225274,
+            "terminal": 11861.609116496034,
+            "control": 81.45590889094201,
+            "rate": 8.092058659896454,
+            "total": 128123.3798731965
+          },
+          "solve_seconds": 0.2109838519245386,
+          "warm_candidate_cost": 1374896.8359863511,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 20.60207631112722
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 124026.74698126143,
+          "objective_parts": {
+            "position": 11.245788112281051,
+            "speed": 5899.559100229631,
+            "angle": 106799.42561630544,
+            "angular_speed": 3274.740509897918,
+            "terminal": 7972.5819499986155,
+            "control": 65.23793677556094,
+            "rate": 3.9560799420121904,
+            "total": 124026.74698126146
+          },
+          "solve_seconds": 0.2124176062643528,
+          "warm_candidate_cost": 1054017.7842375156,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 53.08048086295378
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 134509.51487646558,
+          "objective_parts": {
+            "position": 18.948902009159845,
+            "speed": 10001.57560230088,
+            "angle": 110330.73226252754,
+            "angular_speed": 3741.6247246360563,
+            "terminal": 10346.760209847409,
+            "control": 64.63138568675316,
+            "rate": 5.241789457762345,
+            "total": 134509.51487646558
+          },
+          "solve_seconds": 0.21177052706480026,
+          "warm_candidate_cost": 1127291.4286540782,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 35.12669513780783
+        }
+      ],
+      "one_start_loss": 133996.25246052287,
+      "five_start_loss": 120893.2715248128,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_152_pre_violation_2",
+        "case": 152,
+        "sample": 2,
+        "x": [
+          0.9789617575804784,
+          -0.08926779863553042,
+          -1.443061966884491,
+          -1.9872419155227503
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 309849.11858356907,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 48194.07212716199,
+          "objective_parts": {
+            "position": 18.301969619717816,
+            "speed": 7271.028810202158,
+            "angle": 36034.57893757086,
+            "angular_speed": 1286.301577150396,
+            "terminal": 3505.773221794017,
+            "control": 72.28778165519041,
+            "rate": 5.799829169672875,
+            "total": 48194.072127162006
+          },
+          "solve_seconds": 0.21291304007172585,
+          "warm_candidate_cost": 309849.11858356907,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 43.18153918803241
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 50754.0083189681,
+          "objective_parts": {
+            "position": 25.025131746695155,
+            "speed": 10582.772931252597,
+            "angle": 31941.631545508626,
+            "angular_speed": 1065.301467120766,
+            "terminal": 7065.289333524131,
+            "control": 68.45401019416006,
+            "rate": 5.533899621121675,
+            "total": 50754.008318968095
+          },
+          "solve_seconds": 0.21276136487722397,
+          "warm_candidate_cost": 415507.4353703359,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 13.004230468252693
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 59993.42109440457,
+          "objective_parts": {
+            "position": 14.343627555627439,
+            "speed": 5572.516936506317,
+            "angle": 47096.95274133335,
+            "angular_speed": 1150.5208257721083,
+            "terminal": 6093.3341381968485,
+            "control": 59.03441540527742,
+            "rate": 6.718409635051761,
+            "total": 59993.421094404584
+          },
+          "solve_seconds": 0.21251127310097218,
+          "warm_candidate_cost": 287138.7184089709,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -44.70972727948282
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 52276.651311022615,
+          "objective_parts": {
+            "position": 15.820886002876675,
+            "speed": 6715.691341443057,
+            "angle": 41295.75335741834,
+            "angular_speed": 1480.6932248665025,
+            "terminal": 2689.0246565728057,
+            "control": 70.43235931400736,
+            "rate": 9.235485405020501,
+            "total": 52276.651311022615
+          },
+          "solve_seconds": 0.2118433117866516,
+          "warm_candidate_cost": 154905.84475125826,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -66.10779559431118
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 49646.29015490388,
+          "objective_parts": {
+            "position": 21.60122976883972,
+            "speed": 11189.78896500476,
+            "angle": 31139.67246985689,
+            "angular_speed": 1332.0763565578509,
+            "terminal": 5875.332110306779,
+            "control": 79.56944758380597,
+            "rate": 8.249575824962822,
+            "total": 49646.29015490389
+          },
+          "solve_seconds": 0.21209711208939552,
+          "warm_candidate_cost": 359315.4507807712,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -90.5591516192218
+        }
+      ],
+      "one_start_loss": 48194.07212716199,
+      "five_start_loss": 48194.07212716199,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_152_pre_violation_2",
+        "case": 152,
+        "sample": 2,
+        "x": [
+          0.9789617575804784,
+          -0.08926779863553042,
+          -1.443061966884491,
+          -1.9872419155227503
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 883661.7591903401,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 129785.6089332837,
+          "objective_parts": {
+            "position": 8.389072885246515,
+            "speed": 10748.019263265613,
+            "angle": 100796.26107027779,
+            "angular_speed": 1911.1529007372658,
+            "terminal": 16245.61724332452,
+            "control": 71.77772340843045,
+            "rate": 4.391659384812465,
+            "total": 129785.60893328367
+          },
+          "solve_seconds": 0.2121741846203804,
+          "warm_candidate_cost": 883661.7591903401,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 114053.82196947426,
+          "objective_parts": {
+            "position": 5.89657609610419,
+            "speed": 6314.573748508044,
+            "angle": 95084.5256726127,
+            "angular_speed": 2065.219494498034,
+            "terminal": 10505.683691812803,
+            "control": 72.251022773882,
+            "rate": 5.6717631726935505,
+            "total": 114053.82196947426
+          },
+          "solve_seconds": 0.21114322170615196,
+          "warm_candidate_cost": 707360.9153166997,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -56.35891261651871
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 119053.33812743373,
+          "objective_parts": {
+            "position": 1.6853516220684792,
+            "speed": 4565.756630146887,
+            "angle": 93789.15513195067,
+            "angular_speed": 1203.2210174623804,
+            "terminal": 19410.22309420532,
+            "control": 78.07933726731339,
+            "rate": 5.2175647791053335,
+            "total": 119053.33812743372
+          },
+          "solve_seconds": 0.2146527487784624,
+          "warm_candidate_cost": 675835.5605201697,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -69.01027291754899
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 114894.51575576184,
+          "objective_parts": {
+            "position": 2.7402048064650435,
+            "speed": 3852.4073193844524,
+            "angle": 98479.44371039614,
+            "angular_speed": 2012.1523753924648,
+            "terminal": 10479.301369667435,
+            "control": 62.05014520051754,
+            "rate": 6.420630914366966,
+            "total": 114894.51575576184
+          },
+          "solve_seconds": 0.21183482557535172,
+          "warm_candidate_cost": 659234.0728322332,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -27.81064140412454
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 116557.66191753958,
+          "objective_parts": {
+            "position": 1.9242972335450883,
+            "speed": 3312.7853247199537,
+            "angle": 102959.1078707681,
+            "angular_speed": 2739.5397506344584,
+            "terminal": 7473.282089046277,
+            "control": 63.48146337993703,
+            "rate": 7.541121757299365,
+            "total": 116557.66191753958
+          },
+          "solve_seconds": 0.21173498779535294,
+          "warm_candidate_cost": 813537.8314387846,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -46.26825595215755
+        }
+      ],
+      "one_start_loss": 129785.6089332837,
+      "five_start_loss": 114053.82196947426,
+      "best_attempt": 1
+    },
+    {
+      "state": {
+        "label": "case_156_pre_violation_2",
+        "case": 156,
+        "sample": 2,
+        "x": [
+          1.1351154712708902,
+          0.13405756908652283,
+          1.551687365049544,
+          3.1676204747524452
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 699212.8614941011,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 73149.73156405118,
+          "objective_parts": {
+            "position": 9.7647630557673,
+            "speed": 7482.171285207709,
+            "angle": 55068.78266416312,
+            "angular_speed": 1438.7263902542159,
+            "terminal": 9078.404819850883,
+            "control": 66.58085697414262,
+            "rate": 5.300784545348978,
+            "total": 73149.7315640512
+          },
+          "solve_seconds": 0.21210256218910217,
+          "warm_candidate_cost": 699212.8614941011,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -25.799375991189855
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 97791.02965476291,
+          "objective_parts": {
+            "position": 1.4399437510630673,
+            "speed": 1732.617364724204,
+            "angle": 86320.84103825416,
+            "angular_speed": 1686.7175203147995,
+            "terminal": 7949.23227013126,
+            "control": 89.5535493362064,
+            "rate": 10.627968251229595,
+            "total": 97791.02965476293
+          },
+          "solve_seconds": 0.2138778269290924,
+          "warm_candidate_cost": 852971.790886036,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -6.723775172475775
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 77762.60785122047,
+          "objective_parts": {
+            "position": 5.382709884537657,
+            "speed": 5348.064268620968,
+            "angle": 66071.03207340476,
+            "angular_speed": 1793.3177288588565,
+            "terminal": 4441.4968548965,
+            "control": 91.49440839512641,
+            "rate": 11.819807159749837,
+            "total": 77762.6078512205
+          },
+          "solve_seconds": 0.21157707273960114,
+          "warm_candidate_cost": 735566.7985401591,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -61.20882365422755
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 89176.01471157442,
+          "objective_parts": {
+            "position": 3.9905527201588167,
+            "speed": 3853.6937990250267,
+            "angle": 77700.38227698923,
+            "angular_speed": 1779.731350271709,
+            "terminal": 5771.9170700410905,
+            "control": 59.602571803526786,
+            "rate": 6.69709072368536,
+            "total": 89176.01471157443
+          },
+          "solve_seconds": 0.21233532764017582,
+          "warm_candidate_cost": 746497.5147209258,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 96186.90632381527,
+          "objective_parts": {
+            "position": 0.8788473212129853,
+            "speed": 1276.6325697679674,
+            "angle": 86202.12624351938,
+            "angular_speed": 1874.8292893649489,
+            "terminal": 6753.4976843951445,
+            "control": 71.11235289513903,
+            "rate": 7.829336551451881,
+            "total": 96186.90632381524
+          },
+          "solve_seconds": 0.2121228091418743,
+          "warm_candidate_cost": 902894.5721987196,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": false,
+          "first_force_N": -2.7039003296433584
+        }
+      ],
+      "one_start_loss": 73149.73156405118,
+      "five_start_loss": 73149.73156405118,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "case_156_pre_violation_2",
+        "case": 156,
+        "sample": 2,
+        "x": [
+          1.1351154712708902,
+          0.13405756908652283,
+          1.551687365049544,
+          3.1676204747524452
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 1336013.7895648396,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 142563.4673641998,
+          "objective_parts": {
+            "position": 18.678788965796862,
+            "speed": 10972.809065278767,
+            "angle": 115595.83429685753,
+            "angular_speed": 3442.0654796878202,
+            "terminal": 12461.44140906612,
+            "control": 68.3745435041146,
+            "rate": 4.2637808397166275,
+            "total": 142563.46736419987
+          },
+          "solve_seconds": 0.21546864695847034,
+          "warm_candidate_cost": 1336013.7895648396,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": -40.49047835348509
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 135423.54940519625,
+          "objective_parts": {
+            "position": 17.914392834832377,
+            "speed": 10363.060312793401,
+            "angle": 108410.3843153294,
+            "angular_speed": 3186.9597332071035,
+            "terminal": 13362.720395681785,
+            "control": 77.24333941667496,
+            "rate": 5.266915933064988,
+            "total": 135423.54940519627
+          },
+          "solve_seconds": 0.21266989968717098,
+          "warm_candidate_cost": 1209245.8635166509,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 67.6098134666166
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 127533.19192225098,
+          "objective_parts": {
+            "position": 18.05500109166921,
+            "speed": 9378.491370575313,
+            "angle": 104379.76209988739,
+            "angular_speed": 2997.471296936925,
+            "terminal": 10691.306441127246,
+            "control": 63.954091672302624,
+            "rate": 4.151620960153416,
+            "total": 127533.191922251
+          },
+          "solve_seconds": 0.21175230853259563,
+          "warm_candidate_cost": 1087690.8417511138,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 93.69038805284546
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 137685.17773600188,
+          "objective_parts": {
+            "position": 25.066281559576808,
+            "speed": 15289.009856788585,
+            "angle": 105217.89594153943,
+            "angular_speed": 3418.7166777065804,
+            "terminal": 13651.386710525108,
+            "control": 79.74982954895928,
+            "rate": 3.3524383336384944,
+            "total": 137685.1777360019
+          },
+          "solve_seconds": 0.21127799525856972,
+          "warm_candidate_cost": 955855.3589046344,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 34.59381043006794
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 123867.15414077658,
+          "objective_parts": {
+            "position": 18.837964092363027,
+            "speed": 10733.613780348009,
+            "angle": 97478.57129203653,
+            "angular_speed": 2528.709407261174,
+            "terminal": 13010.75215049426,
+            "control": 91.38017078727952,
+            "rate": 5.2893757569560345,
+            "total": 123867.15414077658
+          },
+          "solve_seconds": 0.21328147314488888,
+          "warm_candidate_cost": 1200402.7309643473,
+          "predicted_rail_safe": false,
+          "predicted_angle_safe": false,
+          "first_force_N": 77.53650554629942
+        }
+      ],
+      "one_start_loss": 142563.4673641998,
+      "five_start_loss": 123867.15414077658,
+      "best_attempt": 4
+    },
+    {
+      "state": {
+        "label": "pure_position_-1",
+        "case": "pure_position_-1",
+        "sample": 0,
+        "x": [
+          -1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 1.4400000000000006,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1.4400000000000002,
+          "objective_parts": {
+            "position": 1.2000000000000006,
+            "speed": 0.0,
+            "angle": 0.0,
+            "angular_speed": 0.0,
+            "terminal": 0.24,
+            "control": 0.0,
+            "rate": 0.0,
+            "total": 1.4400000000000006
+          },
+          "solve_seconds": 0.21257198601961136,
+          "warm_candidate_cost": 1.4400000000000006,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 0.0
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 1073.9120595973257,
+          "objective_parts": {
+            "position": 0.8296148553076933,
+            "speed": 331.6303164837296,
+            "angle": 217.01838748890896,
+            "angular_speed": 41.20060370910247,
+            "terminal": 396.4225579518683,
+            "control": 76.20725377996516,
+            "rate": 10.603325328443283,
+            "total": 1073.9120595973254
+          },
+          "solve_seconds": 0.21453491784632206,
+          "warm_candidate_cost": 82573.04258047669,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -98.10000000000001
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 420.41525208555714,
+          "objective_parts": {
+            "position": 1.2064189922671331,
+            "speed": 102.54214361350681,
+            "angle": 29.69997852732199,
+            "angular_speed": 79.80939635415332,
+            "terminal": 87.60159604459663,
+            "control": 104.24843566929813,
+            "rate": 15.30728288441309,
+            "total": 420.41525208555714
+          },
+          "solve_seconds": 0.20975332148373127,
+          "warm_candidate_cost": 29934.850451268536,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -26.601182098830666
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 635.7303340813703,
+          "objective_parts": {
+            "position": 1.6234065579170875,
+            "speed": 284.11241580598545,
+            "angle": 157.17401835766142,
+            "angular_speed": 57.600120055546135,
+            "terminal": 51.919628211352894,
+            "control": 71.0518191082006,
+            "rate": 12.248925984706638,
+            "total": 635.7303340813701
+          },
+          "solve_seconds": 0.21098342910408974,
+          "warm_candidate_cost": 227756.31775295304,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 5.753306955499657
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 535.1008061228497,
+          "objective_parts": {
+            "position": 1.1429935176397632,
+            "speed": 83.95230191862962,
+            "angle": 51.32244922031654,
+            "angular_speed": 69.7281391707647,
+            "terminal": 255.03833145069672,
+            "control": 64.63598369873534,
+            "rate": 9.280607146066954,
+            "total": 535.1008061228496
+          },
+          "solve_seconds": 0.20769219659268856,
+          "warm_candidate_cost": 61318.76073226947,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -44.44645086033073
+        }
+      ],
+      "one_start_loss": 1.4400000000000002,
+      "five_start_loss": 1.4400000000000002,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "pure_position_-1",
+        "case": "pure_position_-1",
+        "sample": 0,
+        "x": [
+          -1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 2.105506444510779,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 2.1055064445107794,
+          "objective_parts": {
+            "position": 1.176557707017157,
+            "speed": 0.34709021860080147,
+            "angle": 0.18150069784319395,
+            "angular_speed": 0.020785046528965057,
+            "terminal": 0.3718013381924565,
+            "control": 0.007479020929051858,
+            "rate": 0.00029241539915384466,
+            "total": 2.105506444510779
+          },
+          "solve_seconds": 0.2119818516075611,
+          "warm_candidate_cost": 2.105506444510779,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -4.212408268696531
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 270.4224406535343,
+          "objective_parts": {
+            "position": 1.5225921746278799,
+            "speed": 92.60795393699584,
+            "angle": 41.461182763988596,
+            "angular_speed": 47.11442802400675,
+            "terminal": 4.764770263438719,
+            "control": 72.23402358660437,
+            "rate": 10.717489903872226,
+            "total": 270.42244065353435
+          },
+          "solve_seconds": 0.20790836215019226,
+          "warm_candidate_cost": 82929.3323742643,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -14.831700103249752
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 329.7836442662505,
+          "objective_parts": {
+            "position": 1.2216775844297914,
+            "speed": 100.58665326684199,
+            "angle": 26.430669066365578,
+            "angular_speed": 69.52283366481329,
+            "terminal": 12.407055273726803,
+            "control": 104.30095145670352,
+            "rate": 15.313803953369504,
+            "total": 329.7836442662505
+          },
+          "solve_seconds": 0.21246818080544472,
+          "warm_candidate_cost": 29425.558238495658,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -30.813590367527198
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 1838.3233445632643,
+          "objective_parts": {
+            "position": 1.9202591890068692,
+            "speed": 380.69159754821794,
+            "angle": 462.99373541349235,
+            "angular_speed": 133.32777082245326,
+            "terminal": 800.5732449452344,
+            "control": 52.00150640321603,
+            "rate": 6.815230241643313,
+            "total": 1838.3233445632643
+          },
+          "solve_seconds": 0.21151074394583702,
+          "warm_candidate_cost": 227862.98406259617,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -10.619457461295296
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 486.7690181580995,
+          "objective_parts": {
+            "position": 1.6058213681043996,
+            "speed": 126.74999244277777,
+            "angle": 41.00359201577179,
+            "angular_speed": 64.14001936911001,
+            "terminal": 164.57057906740368,
+            "control": 77.09682979014006,
+            "rate": 11.602184104791815,
+            "total": 486.7690181580995
+          },
+          "solve_seconds": 0.209067951887846,
+          "warm_candidate_cost": 61184.05613291683,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -18.411938656059565
+        }
+      ],
+      "one_start_loss": 2.1055064445107794,
+      "five_start_loss": 2.1055064445107794,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "pure_position_+1",
+        "case": "pure_position_+1",
+        "sample": 0,
+        "x": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "warm_kind": "zeros",
+      "initial_warm_cost": 1.4400000000000006,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 1.4400000000000002,
+          "objective_parts": {
+            "position": 1.2000000000000006,
+            "speed": 0.0,
+            "angle": 0.0,
+            "angular_speed": 0.0,
+            "terminal": 0.24,
+            "control": 0.0,
+            "rate": 0.0,
+            "total": 1.4400000000000006
+          },
+          "solve_seconds": 0.20889178849756718,
+          "warm_candidate_cost": 1.4400000000000006,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 0.0
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 831.2406988194141,
+          "objective_parts": {
+            "position": 1.7927343586171653,
+            "speed": 265.2749743634816,
+            "angle": 219.798856166732,
+            "angular_speed": 62.578484257605645,
+            "terminal": 202.57216931326886,
+            "control": 71.82686531869871,
+            "rate": 7.396615041010083,
+            "total": 831.2406988194141
+          },
+          "solve_seconds": 0.21276110224425793,
+          "warm_candidate_cost": 82638.90073358358,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -46.54834771014874
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 812.1389240822748,
+          "objective_parts": {
+            "position": 1.7656554630458385,
+            "speed": 155.62082512783647,
+            "angle": 78.74010827203583,
+            "angular_speed": 80.98173103877008,
+            "terminal": 470.4211543850287,
+            "control": 22.163907600004904,
+            "rate": 2.445542195552947,
+            "total": 812.1389240822748
+          },
+          "solve_seconds": 0.20803356170654297,
+          "warm_candidate_cost": 93910.29976034783,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -37.6071999241695
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 617.4526533467986,
+          "objective_parts": {
+            "position": 0.8656155266026154,
+            "speed": 128.5289557158184,
+            "angle": 119.94072608168986,
+            "angular_speed": 67.20593909333259,
+            "terminal": 176.04908727818898,
+            "control": 106.2165617176679,
+            "rate": 18.645767933498234,
+            "total": 617.4526533467986
+          },
+          "solve_seconds": 0.2112623266875744,
+          "warm_candidate_cost": 42030.06671367047,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -54.78041739250507
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 899.1041114878844,
+          "objective_parts": {
+            "position": 1.134457860953676,
+            "speed": 55.76220588499744,
+            "angle": 268.58198156050054,
+            "angular_speed": 58.30847404998566,
+            "terminal": 449.7482467208056,
+            "control": 56.28079078581659,
+            "rate": 9.287954624824888,
+            "total": 899.1041114878844
+          },
+          "solve_seconds": 0.21080263890326023,
+          "warm_candidate_cost": 193777.56650896033,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 0.6819372061046879
+        }
+      ],
+      "one_start_loss": 1.4400000000000002,
+      "five_start_loss": 1.4400000000000002,
+      "best_attempt": 0
+    },
+    {
+      "state": {
+        "label": "pure_position_+1",
+        "case": "pure_position_+1",
+        "sample": 0,
+        "x": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "warm_kind": "oracle_local_rollout",
+      "initial_warm_cost": 2.105506444510779,
+      "attempts": [
+        {
+          "attempt": 0,
+          "finite": true,
+          "loss": 2.1055064445107794,
+          "objective_parts": {
+            "position": 1.176557707017157,
+            "speed": 0.34709021860080147,
+            "angle": 0.18150069784319395,
+            "angular_speed": 0.020785046528965057,
+            "terminal": 0.3718013381924565,
+            "control": 0.007479020929051858,
+            "rate": 0.00029241539915384466,
+            "total": 2.105506444510779
+          },
+          "solve_seconds": 0.21308117546141148,
+          "warm_candidate_cost": 2.105506444510779,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 4.212408268696531
+        },
+        {
+          "attempt": 1,
+          "finite": true,
+          "loss": 658.0754454675933,
+          "objective_parts": {
+            "position": 2.2742864226055923,
+            "speed": 309.4247193685161,
+            "angle": 177.3271549993179,
+            "angular_speed": 76.75363228223506,
+            "terminal": 13.659905837026397,
+            "control": 68.35796894983592,
+            "rate": 10.277777608056388,
+            "total": 658.0754454675933
+          },
+          "solve_seconds": 0.2125521693378687,
+          "warm_candidate_cost": 82379.67979253382,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -46.2014606220153
+        },
+        {
+          "attempt": 2,
+          "finite": true,
+          "loss": 934.0565872732592,
+          "objective_parts": {
+            "position": 1.8574911056666343,
+            "speed": 232.00729719270566,
+            "angle": 202.13791600839843,
+            "angular_speed": 89.65120314533851,
+            "terminal": 320.97950238422067,
+            "control": 76.19749131343691,
+            "rate": 11.225686123492437,
+            "total": 934.0565872732593
+          },
+          "solve_seconds": 0.21267641335725784,
+          "warm_candidate_cost": 94007.00231576408,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": -85.15294267071899
+        },
+        {
+          "attempt": 3,
+          "finite": true,
+          "loss": 242.22954428405853,
+          "objective_parts": {
+            "position": 1.3672279079176353,
+            "speed": 55.15031203407711,
+            "angle": 22.182878016057415,
+            "angular_speed": 21.87814846798771,
+            "terminal": 120.8593059475387,
+            "control": 18.165031057099657,
+            "rate": 2.6266408533803034,
+            "total": 242.22954428405853
+          },
+          "solve_seconds": 0.21110076270997524,
+          "warm_candidate_cost": 42055.98211883376,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 33.245292696326594
+        },
+        {
+          "attempt": 4,
+          "finite": true,
+          "loss": 461.3700902497652,
+          "objective_parts": {
+            "position": 1.146689142069496,
+            "speed": 53.89451282317932,
+            "angle": 113.16888538146043,
+            "angular_speed": 40.32835542593422,
+            "terminal": 187.29119328052656,
+            "control": 56.18258148962644,
+            "rate": 9.357872706968758,
+            "total": 461.3700902497652
+          },
+          "solve_seconds": 0.21155694499611855,
+          "warm_candidate_cost": 193922.0896062424,
+          "predicted_rail_safe": true,
+          "predicted_angle_safe": true,
+          "first_force_N": 1.578891102655527
+        }
+      ],
+      "one_start_loss": 2.1055064445107794,
+      "five_start_loss": 2.1055064445107794,
+      "best_attempt": 0
+    }
+  ],
+  "incomplete": false,
+  "new_closed_loop_diagnostic_plant_samples": 0,
+  "analysis_wall_seconds": 64.7987513858825
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "saved original physical-state rescoring only; no new simulations",
+  "run": "overnight_runs/20261007T054549.695689Z",
+  "cases": 200,
+  "final_window_s": [
+    17,
+    20
+  ],
+  "counts": {
+    "angular_settled": 147,
+    "angular_and_cart_speed_settled": 67,
+    "all_state_settled": 12,
+    "strict_safe_recovery": 3,
+    "settled_but_earlier_unsafe": 9,
+    "unsafe_at_any_sample": 165
+  },
+  "original_run_checksums_verified": 212,
+  "old_success_labels_match_independent_rescoring": true
+}
