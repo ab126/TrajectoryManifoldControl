@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "device": "NVIDIA L4",
+  "free_bytes": 19992936448,
+  "total_bytes": 23689363456,
+  "GPU_UUID": "GPU-ab0ee8e5-cf5f-5b7b-82dc-1e3f054fa136",
+  "driver": "610.43.02",
+  "NVML_memory_fields": [
+    "3526 MiB",
+    "19067 MiB"
+  ],
+  "native_files_verified": [
+    ".venv-gpu/lib/libstdc++.so.6",
+    ".venv-gpu/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so",
+    ".venv-gpu/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so"
+  ],
+  "oracle_RK4_error": 4.440892098500626e-16,
+  "determinism": {
+    "seed": 20261006,
+    "python": "3.11.9 (main, Apr 19 2024, 16:48:06) [GCC 11.2.0]",
+    "torch": "2.5.1+cu121",
+    "cvxpy_unused_import_workaround": true,
+    "torch_cuda_build": "12.1",
+    "cuda_available": true,
+    "dtype": "float32 learned; float64 plant/reference/oracle",
+    "deterministic_algorithms": true,
+    "TF32_matmul": false,
+    "TF32_cudnn": false,
+    "torch_threads": 1,
+    "interop_threads": 1,
+    "environment": {
+      "PYTHONHASHSEED": "20261006",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "rng": "SHA256(root seed, stream, case, physical sample); CPU-generated CEM tensors",
+    "model_selection": {
+      "requested": "gpt-5.6-terra",
+      "available": false,
+      "configured_model": "inherited session; no model override; precise identifier not exposed",
+      "configured_reasoning_effort": "inherited session; not exposed",
+      "delegated_tasks": 0,
+      "runtime_model_effort": "not exposed; local orchestrator only",
+      "LLM_usage": "token/cost telemetry not exposed"
+    }
+  }
+}

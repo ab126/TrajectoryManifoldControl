@@ -1,0 +1,277 @@
+{
+  "mode": "local",
+  "device": "cpu",
+  "states": [
+    {
+      "label": "case_001_initial",
+      "case": 1,
+      "sample": 0,
+      "x": [
+        -1.2962876437495208,
+        0.3332541881989598,
+        -0.24332591477450713,
+        1.0924123635553142
+      ]
+    },
+    {
+      "label": "case_002_initial",
+      "case": 2,
+      "sample": 0,
+      "x": [
+        -1.3543492220328757,
+        0.993694009149868,
+        0.6266440157741283,
+        -2.0931922432387906
+      ]
+    },
+    {
+      "label": "case_009_initial",
+      "case": 9,
+      "sample": 0,
+      "x": [
+        0.8698521344688275,
+        0.15943403722401772,
+        -0.11122880831981677,
+        0.5750339342462543
+      ]
+    },
+    {
+      "label": "case_000_initial",
+      "case": 0,
+      "sample": 0,
+      "x": [
+        1.1436894822469386,
+        2.0281693031113712,
+        -0.010390363398823576,
+        1.5206873360998614
+      ]
+    },
+    {
+      "label": "case_022_initial",
+      "case": 22,
+      "sample": 0,
+      "x": [
+        -1.3143329720937358,
+        1.0682400501610152,
+        0.2525747916826402,
+        -1.1856880268995165
+      ]
+    },
+    {
+      "label": "case_072_initial",
+      "case": 72,
+      "sample": 0,
+      "x": [
+        -1.262925043011584,
+        1.87127025852326,
+        0.2722811359987268,
+        -2.1071894284504746
+      ]
+    },
+    {
+      "label": "case_089_initial",
+      "case": 89,
+      "sample": 0,
+      "x": [
+        1.0863355589013755,
+        -0.15665016956971145,
+        0.5704717154658555,
+        -1.1732741245961593
+      ]
+    },
+    {
+      "label": "case_003_initial",
+      "case": 3,
+      "sample": 0,
+      "x": [
+        -0.811315867901083,
+        -0.4764719516686772,
+        -0.027008419667867156,
+        -3.4107884887830413
+      ]
+    },
+    {
+      "label": "case_004_initial",
+      "case": 4,
+      "sample": 0,
+      "x": [
+        -1.0985629736751492,
+        0.7791650057888805,
+        -0.12189005757743457,
+        -3.257556367599441
+      ]
+    },
+    {
+      "label": "case_005_initial",
+      "case": 5,
+      "sample": 0,
+      "x": [
+        0.20528568831699268,
+        -0.966236935816982,
+        -0.6919775732681512,
+        1.165666788376106
+      ]
+    },
+    {
+      "label": "case_006_initial",
+      "case": 6,
+      "sample": 0,
+      "x": [
+        -1.3033911899203763,
+        -2.1288024423761467,
+        0.6946798292539458,
+        2.5090720503114934
+      ]
+    },
+    {
+      "label": "case_007_initial",
+      "case": 7,
+      "sample": 0,
+      "x": [
+        1.15196421265907,
+        -0.5751520206479549,
+        0.945838534367401,
+        2.6037694746884434
+      ]
+    },
+    {
+      "label": "case_100_pre_violation_1",
+      "case": 100,
+      "sample": 1,
+      "x": [
+        -0.3055227366245615,
+        1.3645325610176708,
+        1.4103860592119688,
+        2.7505372574419304
+      ]
+    },
+    {
+      "label": "case_112_pre_violation_1",
+      "case": 112,
+      "sample": 1,
+      "x": [
+        0.4360692307564317,
+        1.522633253704935,
+        -1.4372985290720504,
+        -3.3082798249652337
+      ]
+    },
+    {
+      "label": "case_018_pre_violation_2",
+      "case": 18,
+      "sample": 2,
+      "x": [
+        -1.306201984096363,
+        -0.9442368070160496,
+        -1.4401462153796762,
+        -2.5861137369014857
+      ]
+    },
+    {
+      "label": "case_028_pre_violation_2",
+      "case": 28,
+      "sample": 2,
+      "x": [
+        1.248900245392713,
+        -0.3218862913037183,
+        1.4025746382408868,
+        3.121289035476894
+      ]
+    },
+    {
+      "label": "case_152_pre_violation_2",
+      "case": 152,
+      "sample": 2,
+      "x": [
+        0.9789617575804784,
+        -0.08926779863553042,
+        -1.443061966884491,
+        -1.9872419155227503
+      ]
+    },
+    {
+      "label": "case_156_pre_violation_2",
+      "case": 156,
+      "sample": 2,
+      "x": [
+        1.1351154712708902,
+        0.13405756908652283,
+        1.551687365049544,
+        3.1676204747524452
+      ]
+    },
+    {
+      "label": "pure_position_-1",
+      "case": "pure_position_-1",
+      "sample": 0,
+      "x": [
+        -1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "pure_position_+1",
+      "case": "pure_position_+1",
+      "sample": 0,
+      "x": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "local_position_candidate_Qp": 2.0,
+  "candidate_fixed_before_execution": true,
+  "CEM": {
+    "population": 256,
+    "elites": 32,
+    "iterations": 3,
+    "horizon": 60,
+    "starts": [
+      1,
+      5
+    ]
+  },
+  "CEM_warm_starts": [
+    "zeros",
+    "oracle_local_rollout"
+  ],
+  "root_seed": 20261006,
+  "scope": "diagnosis only; no calibration, tuning search, box shrink, H changes or dependent stages",
+  "historical_warm_start_limitation": "full historical plans were not stored; tests start from explicit zero/local-rollout warm starts, not reconstructed historical plans",
+  "dtype": "float64 oracle/plant; original float32 RNG tensors cast to float64 for replay",
+  "determinism": {
+    "seed": 20261006,
+    "python": "3.11.9 (main, Apr 19 2024, 16:48:06) [GCC 11.2.0]",
+    "torch": "2.5.1",
+    "cvxpy_unused_import_workaround": true,
+    "torch_cuda_build": null,
+    "cuda_available": false,
+    "dtype": "float32 learned; float64 plant/reference/oracle",
+    "deterministic_algorithms": true,
+    "TF32_matmul": false,
+    "TF32_cudnn": false,
+    "torch_threads": 1,
+    "interop_threads": 1,
+    "environment": {
+      "PYTHONHASHSEED": "20261006",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "rng": "SHA256(root seed, stream, case, physical sample); CPU-generated CEM tensors",
+    "model_selection": {
+      "requested": "gpt-5.6-terra",
+      "available": false,
+      "configured_model": "inherited session; no model override; precise identifier not exposed",
+      "configured_reasoning_effort": "inherited session; not exposed",
+      "delegated_tasks": 0,
+      "runtime_model_effort": "not exposed; local orchestrator only",
+      "LLM_usage": "token/cost telemetry not exposed"
+    }
+  }
+}

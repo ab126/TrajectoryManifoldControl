@@ -1,0 +1,66 @@
+{"label": "plant_checks supervisor/import overhead", "worker_seconds": 1.1165215615183115, "wall_seconds": 1.1165215615183115, "exit_code": 1}
+{"label": "plant_checks supervisor/import overhead", "worker_seconds": 0.8160118255764246, "wall_seconds": 0.8160118255764246, "exit_code": 1}
+{"label": "plant checks", "worker_seconds": 0.20437905751168728, "process_cpu_seconds": 0.18098823399999997, "peak_rss_MiB": 270.55859375, "passed": true}
+{"label": "plant_checks supervisor/import overhead", "worker_seconds": 7.871432131156325, "wall_seconds": 8.075811188668013, "exit_code": 0}
+{"label": "existing test suite once", "worker_seconds": 8.811618249863386, "process_cpu_seconds": 4.8544692000000005, "peak_rss_MiB": 352.859375, "passed": true}
+{"label": "existing_tests supervisor/import overhead", "worker_seconds": 4.971805738285184, "wall_seconds": 13.78342398814857, "exit_code": 0}
+{"label": "ordinary shooting equivalence", "worker_seconds": 154.30536930263042, "process_cpu_seconds": 153.316542386, "peak_rss_MiB": 288.02734375, "passed": true}
+{"label": "equivalence supervisor/import overhead", "worker_seconds": 5.561919871717691, "wall_seconds": 159.86728917434812, "exit_code": 0}
+{"label": "dev pipeline smoke only", "worker_seconds": 13.74068034440279, "process_cpu_seconds": 12.144882702, "peak_rss_MiB": 356.45703125, "passed": false}
+{"label": "smoke supervisor/import overhead", "worker_seconds": 6.356552606448531, "wall_seconds": 20.09723295085132, "exit_code": 1}
+{"label": "dev pipeline smoke only", "worker_seconds": 16.728848656639457, "process_cpu_seconds": 13.949356639, "peak_rss_MiB": 396.5234375, "passed": true}
+{"label": "smoke supervisor/import overhead", "worker_seconds": 6.519811507314444, "wall_seconds": 23.2486601639539, "exit_code": 0}
+{"label": "performance control cpu members=1", "worker_seconds": 8.13675238005817, "process_cpu_seconds": 8.057357616, "peak_rss_MiB": 287.5078125, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 5.445734944194555, "wall_seconds": 13.582487324252725, "exit_code": 0}
+{"label": "performance control cpu members=5", "worker_seconds": 42.862352361902595, "process_cpu_seconds": 42.594970207, "peak_rss_MiB": 289.26953125, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 5.664772596210241, "wall_seconds": 48.527124958112836, "exit_code": 0}
+{"label": "performance training cpu members=1", "worker_seconds": 6.564000492915511, "process_cpu_seconds": 5.139961237, "peak_rss_MiB": 399.2578125, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 6.468602724373341, "wall_seconds": 13.032603217288852, "exit_code": 0}
+{"label": "performance oracle cpu members=1", "worker_seconds": 1.820326503366232, "process_cpu_seconds": 1.7958261749999997, "peak_rss_MiB": 292.19140625, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 5.654336158186197, "wall_seconds": 7.474662661552429, "exit_code": 0}
+{"label": "failed first concurrency attempt: conservative one-worker plus supervisor charge", "worker_seconds": 180.094584, "wall_seconds_upper_bound": 90.047292, "actual_occupancy_not_available": true, "reason": "63-bit NumPy legacy seed rejected before any solves; aborted barrier wait"}
+{"label": "performance training cpu members=5", "worker_seconds": 14.23469108901918, "process_cpu_seconds": 12.748329281000002, "peak_rss_MiB": 406.84375, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 6.206679543480277, "wall_seconds": 20.441370632499456, "exit_code": 0}
+{"label": "concurrency cpu members=1 workers=1", "worker_seconds": 6.729889890179038, "passed": true}
+{"label": "concurrency cpu members=1 workers=2", "worker_seconds": 14.506935039535165, "passed": true}
+{"label": "concurrency cpu members=1 workers=4", "worker_seconds": 36.738728035241365, "passed": true}
+{"label": "concurrency cpu members=1 workers=8", "worker_seconds": 123.78570732101798, "passed": true}
+{"label": "concurrency cpu members=5 workers=1", "worker_seconds": 9.60726791806519, "passed": true}
+{"label": "concurrency cpu members=5 workers=2", "worker_seconds": 20.229181341826916, "passed": true}
+{"label": "concurrency cpu members=5 workers=4", "worker_seconds": 48.53624665364623, "passed": true}
+{"label": "concurrency cpu members=5 workers=8", "worker_seconds": 144.78713873028755, "passed": true}
+{"label": "concurrency supervisor/import overhead", "worker_seconds": 98.01624293066561, "wall_seconds": 98.01624293066561, "exit_code": 0}
+{"label": "harness contract checks", "worker_seconds": 0.022670963779091835, "process_cpu_seconds": 0.012236259999999888, "peak_rss_MiB": 274.625, "passed": true}
+{"label": "harness_checks supervisor/import overhead", "worker_seconds": 5.24901326932013, "wall_seconds": 5.271684233099222, "exit_code": 0}
+{"label": "CUDA probe", "worker_seconds": 7.757391322404146, "passed": false}
+{"label": "gpu_probe supervisor/import overhead", "worker_seconds": 0.7694219946861267, "wall_seconds": 8.526813317090273, "exit_code": 2}
+{"label": "CUDA probe", "worker_seconds": 8.73686864413321, "passed": true}
+{"label": "gpu_probe supervisor/import overhead", "worker_seconds": 0.6920335050672293, "wall_seconds": 9.42890214920044, "exit_code": 0}
+{"label": "ordinary shooting equivalence", "worker_seconds": 150.78980524651706, "process_cpu_seconds": 149.51555251899998, "peak_rss_MiB": 870.96484375, "passed": true}
+{"label": "equivalence supervisor/import overhead", "worker_seconds": 6.138420505449176, "wall_seconds": 156.92822575196624, "exit_code": 0}
+{"label": "dev pipeline smoke only", "worker_seconds": 25.12910658866167, "process_cpu_seconds": 16.948021065, "peak_rss_MiB": 1123.53125, "passed": true}
+{"label": "smoke supervisor/import overhead", "worker_seconds": 6.625430680811405, "wall_seconds": 31.754537269473076, "exit_code": 0}
+{"label": "performance control cuda members=1", "worker_seconds": 9.918064907193184, "process_cpu_seconds": 9.823385445000001, "peak_rss_MiB": 887.5859375, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 6.668934555724263, "wall_seconds": 16.586999462917447, "exit_code": 0}
+{"label": "performance control cuda members=5", "worker_seconds": 52.26791244931519, "process_cpu_seconds": 51.924798988000006, "peak_rss_MiB": 887.96875, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 5.880433149635792, "wall_seconds": 58.14834559895098, "exit_code": 0}
+{"label": "performance training cuda members=1", "worker_seconds": 5.494023451581597, "process_cpu_seconds": 3.6249192839999997, "peak_rss_MiB": 949.22265625, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 6.4374325927346945, "wall_seconds": 11.931456044316292, "exit_code": 0}
+{"label": "performance training cuda members=5", "worker_seconds": 6.8790921829640865, "process_cpu_seconds": 5.352652404999999, "peak_rss_MiB": 953.40234375, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 6.052226323634386, "wall_seconds": 12.931318506598473, "exit_code": 0}
+{"label": "performance oracle cuda members=1", "worker_seconds": 3.771217981353402, "process_cpu_seconds": 3.6146184090000006, "peak_rss_MiB": 876.39453125, "passed": true}
+{"label": "benchmark supervisor/import overhead", "worker_seconds": 5.705347767099738, "wall_seconds": 9.47656574845314, "exit_code": 0}
+{"label": "concurrency cuda members=1 workers=1", "worker_seconds": 7.911118170246482, "passed": true}
+{"label": "concurrency cuda members=1 workers=2", "worker_seconds": 16.655069092288613, "passed": true}
+{"label": "concurrency cuda members=1 workers=4", "worker_seconds": 41.52508647553623, "passed": true}
+{"label": "concurrency cuda members=5 workers=1", "worker_seconds": 9.940210457891226, "passed": true}
+{"label": "concurrency cuda members=5 workers=2", "worker_seconds": 20.710861856117845, "passed": true}
+{"label": "concurrency cuda members=5 workers=4", "worker_seconds": 49.38017722591758, "passed": true}
+{"label": "concurrency supervisor/import overhead", "worker_seconds": 65.25141406618059, "wall_seconds": 65.25141406618059, "exit_code": 0}
+{"label": "CUDA probe", "worker_seconds": 5.914611453190446, "passed": true}
+{"label": "gpu_probe supervisor/import overhead", "worker_seconds": 0.7584067992866039, "wall_seconds": 6.67301825247705, "exit_code": 0}
+{"label": "ordinary shooting equivalence", "worker_seconds": 151.0110053587705, "process_cpu_seconds": 150.203128588, "peak_rss_MiB": 881.859375, "passed": true}
+{"label": "overnight lifecycle/audit synthetic-fixture tests", "worker_seconds": 0.7499271761626005, "process_cpu_seconds": 0.12193153300000015, "peak_rss_MiB": 284.94140625, "passed": true}
+{"label": "overnight_tests supervisor/import overhead", "worker_seconds": 5.272378455847502, "wall_seconds": 6.022305632010102, "exit_code": 0}
+{"label": "overnight lifecycle/audit synthetic-fixture tests", "worker_seconds": 0.8107853084802628, "process_cpu_seconds": 0.17002397000000036, "peak_rss_MiB": 284.40625, "passed": true}
+{"label": "overnight_tests supervisor/import overhead", "worker_seconds": 5.813143519684672, "wall_seconds": 6.623928828164935, "exit_code": 0}

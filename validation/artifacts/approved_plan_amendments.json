@@ -1,0 +1,17 @@
+{
+  "authorized_by": "User: update the plan to use the gpu and make sure/figure out how to use the gpu",
+  "timestamp_utc": "2026-10-07T02:37:17.731347+00:00",
+  "changes": {
+    "review/stress_test_plan.md": {
+      "before_SHA256": "336ad55c639086b8df8e2a9dd0772d822d40f61c2da681d0bda47c921c6bccd1",
+      "after_SHA256": "d37029400589082eb09fc1a0879fa3ff9923898198416216252f891cab160674"
+    }
+  },
+  "controller_files_modified": false,
+  "other_plan_files_modified": false,
+  "scientific_campaign_executed": false,
+  "measurement_status_update_utc": "2026-10-07T03:00:30.434617+00:00",
+  "measurement_status_note": "User host readiness completed; GPU measurements and Gate A cap blocker recorded, no calibration executed",
+  "overnight_queue_preparation_authorization": "User requested a copyable overnight queue for morning review",
+  "allocation_override_effective": "Only on explicit user invocation --execute --stage0-cap-hours 15; no calibration launched by agent"
+}

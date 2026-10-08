@@ -1,0 +1,568 @@
+{
+  "local": [
+    {
+      "label": "pure_p_-1",
+      "recipe": "submitted_weights",
+      "strict_physical_success": false,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        0.2703840421585264,
+        0.02189050643349744,
+        0.00018074042419880033,
+        1.4642464579435035e-05
+      ],
+      "gain": [
+        [
+          -0.42939941576926915,
+          -17.742495407076213,
+          -47.50443395130801,
+          -30.594933787869046
+        ]
+      ],
+      "poles": [
+        [
+          0.3319246105128658,
+          0.0
+        ],
+        [
+          0.8595787361877163,
+          0.0
+        ],
+        [
+          0.9983820938925555,
+          0.0
+        ],
+        [
+          0.9709397004733523,
+          0.0
+        ]
+      ],
+      "slow_mode_time_constant_s": 12.351654079764295,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "pure_p_-0.5",
+      "recipe": "submitted_weights",
+      "strict_physical_success": false,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        0.13519217984516727,
+        0.010945266078381291,
+        9.037031922754964e-05,
+        7.321241135772154e-06
+      ],
+      "gain": [
+        [
+          -0.42939941576926915,
+          -17.742495407076213,
+          -47.50443395130801,
+          -30.594933787869046
+        ]
+      ],
+      "poles": [
+        [
+          0.3319246105128658,
+          0.0
+        ],
+        [
+          0.8595787361877163,
+          0.0
+        ],
+        [
+          0.9983820938925555,
+          0.0
+        ],
+        [
+          0.9709397004733523,
+          0.0
+        ]
+      ],
+      "slow_mode_time_constant_s": 12.351654079764295,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "pure_p_+0.5",
+      "recipe": "submitted_weights",
+      "strict_physical_success": false,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        0.13519217984516727,
+        0.010945266078381291,
+        9.037031922754964e-05,
+        7.321241135772154e-06
+      ],
+      "gain": [
+        [
+          -0.42939941576926915,
+          -17.742495407076213,
+          -47.50443395130801,
+          -30.594933787869046
+        ]
+      ],
+      "poles": [
+        [
+          0.3319246105128658,
+          0.0
+        ],
+        [
+          0.8595787361877163,
+          0.0
+        ],
+        [
+          0.9983820938925555,
+          0.0
+        ],
+        [
+          0.9709397004733523,
+          0.0
+        ]
+      ],
+      "slow_mode_time_constant_s": 12.351654079764295,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "pure_p_+1",
+      "recipe": "submitted_weights",
+      "strict_physical_success": false,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        0.2703840421585264,
+        0.02189050643349744,
+        0.00018074042419880033,
+        1.4642464579435035e-05
+      ],
+      "gain": [
+        [
+          -0.42939941576926915,
+          -17.742495407076213,
+          -47.50443395130801,
+          -30.594933787869046
+        ]
+      ],
+      "poles": [
+        [
+          0.3319246105128658,
+          0.0
+        ],
+        [
+          0.8595787361877163,
+          0.0
+        ],
+        [
+          0.9983820938925555,
+          0.0
+        ],
+        [
+          0.9709397004733523,
+          0.0
+        ]
+      ],
+      "slow_mode_time_constant_s": 12.351654079764295,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "case_001_initial",
+      "recipe": "submitted_weights",
+      "strict_physical_success": false,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        0.3177494757557647,
+        0.02572524944180935,
+        0.00021240222678441537,
+        1.7207495904515605e-05
+      ],
+      "gain": [
+        [
+          -0.42939941576926915,
+          -17.742495407076213,
+          -47.50443395130801,
+          -30.594933787869046
+        ]
+      ],
+      "poles": [
+        [
+          0.3319246105128658,
+          0.0
+        ],
+        [
+          0.8595787361877163,
+          0.0
+        ],
+        [
+          0.9983820938925555,
+          0.0
+        ],
+        [
+          0.9709397004733523,
+          0.0
+        ]
+      ],
+      "slow_mode_time_constant_s": 12.351654079764295,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "case_002_initial",
+      "recipe": "submitted_weights",
+      "strict_physical_success": false,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        0.4919065311132099,
+        0.03982514267767989,
+        0.00032881892988979026,
+        2.6638858417949853e-05
+      ],
+      "gain": [
+        [
+          -0.42939941576926915,
+          -17.742495407076213,
+          -47.50443395130801,
+          -30.594933787869046
+        ]
+      ],
+      "poles": [
+        [
+          0.3319246105128658,
+          0.0
+        ],
+        [
+          0.8595787361877163,
+          0.0
+        ],
+        [
+          0.9983820938925555,
+          0.0
+        ],
+        [
+          0.9709397004733523,
+          0.0
+        ]
+      ],
+      "slow_mode_time_constant_s": 12.351654079764295,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "case_009_initial",
+      "recipe": "submitted_weights",
+      "strict_physical_success": false,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        0.5768662708412607,
+        0.04670355049008162,
+        0.00038561095224262084,
+        3.123979113536668e-05
+      ],
+      "gain": [
+        [
+          -0.42939941576926915,
+          -17.742495407076213,
+          -47.50443395130801,
+          -30.594933787869046
+        ]
+      ],
+      "poles": [
+        [
+          0.3319246105128658,
+          0.0
+        ],
+        [
+          0.8595787361877163,
+          0.0
+        ],
+        [
+          0.9983820938925555,
+          0.0
+        ],
+        [
+          0.9709397004733523,
+          0.0
+        ]
+      ],
+      "slow_mode_time_constant_s": 12.351654079764295,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "pure_p_-1",
+      "recipe": "fixed_position_candidate",
+      "strict_physical_success": true,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        1.029387917344664e-07,
+        1.1535200457698029e-07,
+        1.4201117735020396e-08,
+        1.5594743673428882e-08
+      ],
+      "gain": [
+        [
+          -4.267101768904367,
+          -26.540276191107033,
+          -53.533584744835494,
+          -36.645634211810645
+        ]
+      ],
+      "poles": [
+        [
+          0.3319495466486587,
+          0.0
+        ],
+        [
+          0.8593300617500995,
+          0.0
+        ],
+        [
+          0.9785017961832223,
+          0.0020597292026368593
+        ],
+        [
+          0.9785017961832223,
+          -0.0020597292026368593
+        ]
+      ],
+      "slow_mode_time_constant_s": 0.9203678827785232,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "pure_p_-0.5",
+      "recipe": "fixed_position_candidate",
+      "strict_physical_success": true,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        5.1526969772519454e-08,
+        5.7740261642590375e-08,
+        7.108434334949497e-09,
+        7.80598767531397e-09
+      ],
+      "gain": [
+        [
+          -4.267101768904367,
+          -26.540276191107033,
+          -53.533584744835494,
+          -36.645634211810645
+        ]
+      ],
+      "poles": [
+        [
+          0.3319495466486587,
+          0.0
+        ],
+        [
+          0.8593300617500995,
+          0.0
+        ],
+        [
+          0.9785017961832223,
+          0.0020597292026368593
+        ],
+        [
+          0.9785017961832223,
+          -0.0020597292026368593
+        ]
+      ],
+      "slow_mode_time_constant_s": 0.9203678827785232,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "pure_p_+0.5",
+      "recipe": "fixed_position_candidate",
+      "strict_physical_success": true,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        5.1526969772519454e-08,
+        5.7740261642590375e-08,
+        7.108434334949497e-09,
+        7.80598767531397e-09
+      ],
+      "gain": [
+        [
+          -4.267101768904367,
+          -26.540276191107033,
+          -53.533584744835494,
+          -36.645634211810645
+        ]
+      ],
+      "poles": [
+        [
+          0.3319495466486587,
+          0.0
+        ],
+        [
+          0.8593300617500995,
+          0.0
+        ],
+        [
+          0.9785017961832223,
+          0.0020597292026368593
+        ],
+        [
+          0.9785017961832223,
+          -0.0020597292026368593
+        ]
+      ],
+      "slow_mode_time_constant_s": 0.9203678827785232,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "pure_p_+1",
+      "recipe": "fixed_position_candidate",
+      "strict_physical_success": true,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        1.029387917344664e-07,
+        1.1535200457698029e-07,
+        1.4201117735020396e-08,
+        1.5594743673428882e-08
+      ],
+      "gain": [
+        [
+          -4.267101768904367,
+          -26.540276191107033,
+          -53.533584744835494,
+          -36.645634211810645
+        ]
+      ],
+      "poles": [
+        [
+          0.3319495466486587,
+          0.0
+        ],
+        [
+          0.8593300617500995,
+          0.0
+        ],
+        [
+          0.9785017961832223,
+          0.0020597292026368593
+        ],
+        [
+          0.9785017961832223,
+          -0.0020597292026368593
+        ]
+      ],
+      "slow_mode_time_constant_s": 0.9203678827785232,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "case_001_initial",
+      "recipe": "fixed_position_candidate",
+      "strict_physical_success": true,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        1.9349480113168474e-07,
+        2.1372113102116212e-07,
+        2.588186657063845e-08,
+        2.8029483819205947e-08
+      ],
+      "gain": [
+        [
+          -4.267101768904367,
+          -26.540276191107033,
+          -53.533584744835494,
+          -36.645634211810645
+        ]
+      ],
+      "poles": [
+        [
+          0.3319495466486587,
+          0.0
+        ],
+        [
+          0.8593300617500995,
+          0.0
+        ],
+        [
+          0.9785017961832223,
+          0.0020597292026368593
+        ],
+        [
+          0.9785017961832223,
+          -0.0020597292026368593
+        ]
+      ],
+      "slow_mode_time_constant_s": 0.9203678827785232,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "case_002_initial",
+      "recipe": "fixed_position_candidate",
+      "strict_physical_success": true,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        2.2624838578848973e-07,
+        2.523513184115928e-07,
+        3.0904105909534457e-08,
+        3.378788615472332e-08
+      ],
+      "gain": [
+        [
+          -4.267101768904367,
+          -26.540276191107033,
+          -53.533584744835494,
+          -36.645634211810645
+        ]
+      ],
+      "poles": [
+        [
+          0.3319495466486587,
+          0.0
+        ],
+        [
+          0.8593300617500995,
+          0.0
+        ],
+        [
+          0.9785017961832223,
+          0.0020597292026368593
+        ],
+        [
+          0.9785017961832223,
+          -0.0020597292026368593
+        ]
+      ],
+      "slow_mode_time_constant_s": 0.9203678827785232,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    },
+    {
+      "label": "case_009_initial",
+      "recipe": "fixed_position_candidate",
+      "strict_physical_success": true,
+      "safety_passed": true,
+      "terminal_max_abs_physical": [
+        2.5747364754499146e-07,
+        2.86915711013882e-07,
+        3.510042769749307e-08,
+        3.834218960301888e-08
+      ],
+      "gain": [
+        [
+          -4.267101768904367,
+          -26.540276191107033,
+          -53.533584744835494,
+          -36.645634211810645
+        ]
+      ],
+      "poles": [
+        [
+          0.3319495466486587,
+          0.0
+        ],
+        [
+          0.8593300617500995,
+          0.0
+        ],
+        [
+          0.9785017961832223,
+          0.0020597292026368593
+        ],
+        [
+          0.9785017961832223,
+          -0.0020597292026368593
+        ]
+      ],
+      "slow_mode_time_constant_s": 0.9203678827785232,
+      "note": "local-only diagnostic; local gain applied even outside the original switch region; not a hybrid success estimate"
+    }
+  ],
+  "cem": [],
+  "incomplete": false,
+  "new_closed_loop_diagnostic_plant_samples": 14000,
+  "analysis_wall_seconds": 0.979705510661006
+}

@@ -1,0 +1,312 @@
+[
+  {
+    "device": "cuda",
+    "members": 1,
+    "workers": 1,
+    "aggregate_solves_per_s": 14.894987633650137,
+    "steady_wall_s": 1.6112802904099226,
+    "worker_seconds_including_startup": 7.911118170246482,
+    "sum_peak_RSS_MiB": 883.734375,
+    "workers_detail": [
+      {
+        "index": 0,
+        "steady_start": 11349448.75986703,
+        "steady_end": 11349450.37114732,
+        "completed": 24,
+        "latency": {
+          "n": 24,
+          "median_s": 0.06592302117496729,
+          "p95_s": 0.072929213847965,
+          "p99_s": 0.07349880216643215,
+          "mean_s": 0.06689342157915235,
+          "max_s": 0.07365809939801693
+        },
+        "peak_rss_MiB": 883.734375,
+        "peak_allocated_VRAM_MiB": 33.984375,
+        "peak_reserved_VRAM_MiB": 36.0
+      }
+    ],
+    "scope": "solver-only scaling; validate end-to-end deadlines separately under chosen concurrency"
+  },
+  {
+    "device": "cuda",
+    "members": 1,
+    "workers": 2,
+    "aggregate_solves_per_s": 29.35805292465373,
+    "steady_wall_s": 1.634985812008381,
+    "worker_seconds_including_startup": 16.655069092288613,
+    "sum_peak_RSS_MiB": 1774.38671875,
+    "workers_detail": [
+      {
+        "index": 0,
+        "steady_start": 11349457.289813723,
+        "steady_end": 11349458.87384604,
+        "completed": 24,
+        "latency": {
+          "n": 24,
+          "median_s": 0.0645172605291009,
+          "p95_s": 0.07226281370967626,
+          "p99_s": 0.07327127780765295,
+          "mean_s": 0.06565357224705319,
+          "max_s": 0.07346978597342968
+        },
+        "peak_rss_MiB": 887.87109375,
+        "peak_allocated_VRAM_MiB": 33.984375,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 1,
+        "steady_start": 11349457.289850391,
+        "steady_end": 11349458.924799535,
+        "completed": 24,
+        "latency": {
+          "n": 24,
+          "median_s": 0.0672796480357647,
+          "p95_s": 0.07166954148560761,
+          "p99_s": 0.07312508814036846,
+          "mean_s": 0.06775503054571648,
+          "max_s": 0.07344780303537846
+        },
+        "peak_rss_MiB": 886.515625,
+        "peak_allocated_VRAM_MiB": 33.984375,
+        "peak_reserved_VRAM_MiB": 36.0
+      }
+    ],
+    "scope": "solver-only scaling; validate end-to-end deadlines separately under chosen concurrency"
+  },
+  {
+    "device": "cuda",
+    "members": 1,
+    "workers": 4,
+    "aggregate_solves_per_s": 56.89440538182519,
+    "steady_wall_s": 1.687336379662156,
+    "worker_seconds_including_startup": 41.52508647553623,
+    "sum_peak_RSS_MiB": 3540.27734375,
+    "workers_detail": [
+      {
+        "index": 0,
+        "steady_start": 11349467.484831491,
+        "steady_end": 11349469.10404907,
+        "completed": 24,
+        "latency": {
+          "n": 24,
+          "median_s": 0.06555258389562368,
+          "p95_s": 0.0753140479326248,
+          "p99_s": 0.07666488956660032,
+          "mean_s": 0.06683544302359223,
+          "max_s": 0.07679522596299648
+        },
+        "peak_rss_MiB": 886.7421875,
+        "peak_allocated_VRAM_MiB": 33.984375,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 3,
+        "steady_start": 11349467.484897977,
+        "steady_end": 11349469.134787824,
+        "completed": 24,
+        "latency": {
+          "n": 24,
+          "median_s": 0.06680839043110609,
+          "p95_s": 0.07542008887976408,
+          "p99_s": 0.07669318363070488,
+          "mean_s": 0.06800000734316806,
+          "max_s": 0.07694743201136589
+        },
+        "peak_rss_MiB": 886.23828125,
+        "peak_allocated_VRAM_MiB": 33.984375,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 2,
+        "steady_start": 11349467.484781668,
+        "steady_end": 11349469.154733468,
+        "completed": 24,
+        "latency": {
+          "n": 24,
+          "median_s": 0.06759198568761349,
+          "p95_s": 0.07640521628782153,
+          "p99_s": 0.07671870632097125,
+          "mean_s": 0.06883646850474179,
+          "max_s": 0.07673056423664093
+        },
+        "peak_rss_MiB": 882.75390625,
+        "peak_allocated_VRAM_MiB": 33.984375,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 1,
+        "steady_start": 11349467.484759877,
+        "steady_end": 11349469.172096256,
+        "completed": 24,
+        "latency": {
+          "n": 24,
+          "median_s": 0.06784099154174328,
+          "p95_s": 0.07715396182611585,
+          "p99_s": 0.07744649672880768,
+          "mean_s": 0.06955666436503331,
+          "max_s": 0.07748742215335369
+        },
+        "peak_rss_MiB": 884.54296875,
+        "peak_allocated_VRAM_MiB": 33.984375,
+        "peak_reserved_VRAM_MiB": 36.0
+      }
+    ],
+    "scope": "solver-only scaling; validate end-to-end deadlines separately under chosen concurrency"
+  },
+  {
+    "device": "cuda",
+    "members": 5,
+    "workers": 1,
+    "aggregate_solves_per_s": 3.859431551754844,
+    "steady_wall_s": 3.1092661805450916,
+    "worker_seconds_including_startup": 9.940210457891226,
+    "sum_peak_RSS_MiB": 887.08203125,
+    "workers_detail": [
+      {
+        "index": 0,
+        "steady_start": 11349476.288315287,
+        "steady_end": 11349479.397581467,
+        "completed": 12,
+        "latency": {
+          "n": 12,
+          "median_s": 0.25804280303418636,
+          "p95_s": 0.26304254597052934,
+          "p99_s": 0.2635486422292888,
+          "mean_s": 0.25885534721116227,
+          "max_s": 0.2636751662939787
+        },
+        "peak_rss_MiB": 887.08203125,
+        "peak_allocated_VRAM_MiB": 35.283203125,
+        "peak_reserved_VRAM_MiB": 36.0
+      }
+    ],
+    "scope": "solver-only scaling; validate end-to-end deadlines separately under chosen concurrency"
+  },
+  {
+    "device": "cuda",
+    "members": 5,
+    "workers": 2,
+    "aggregate_solves_per_s": 7.624878171597551,
+    "steady_wall_s": 3.1475912742316723,
+    "worker_seconds_including_startup": 20.710861856117845,
+    "sum_peak_RSS_MiB": 1770.96484375,
+    "workers_detail": [
+      {
+        "index": 0,
+        "steady_start": 11349486.664761283,
+        "steady_end": 11349489.77819858,
+        "completed": 12,
+        "latency": {
+          "n": 12,
+          "median_s": 0.2594413133338094,
+          "p95_s": 0.2611864197999239,
+          "p99_s": 0.26140426971018316,
+          "mean_s": 0.25934179763620097,
+          "max_s": 0.26145873218774796
+        },
+        "peak_rss_MiB": 884.74609375,
+        "peak_allocated_VRAM_MiB": 35.283203125,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 1,
+        "steady_start": 11349486.664761262,
+        "steady_end": 11349489.812352536,
+        "completed": 12,
+        "latency": {
+          "n": 12,
+          "median_s": 0.26162694953382015,
+          "p95_s": 0.26733726616948844,
+          "p99_s": 0.2675331763550639,
+          "mean_s": 0.2621730165556073,
+          "max_s": 0.2675821539014578
+        },
+        "peak_rss_MiB": 886.21875,
+        "peak_allocated_VRAM_MiB": 35.283203125,
+        "peak_reserved_VRAM_MiB": 36.0
+      }
+    ],
+    "scope": "solver-only scaling; validate end-to-end deadlines separately under chosen concurrency"
+  },
+  {
+    "device": "cuda",
+    "members": 5,
+    "workers": 4,
+    "aggregate_solves_per_s": 14.80781521548352,
+    "steady_wall_s": 3.2415315359830856,
+    "worker_seconds_including_startup": 49.38017722591758,
+    "sum_peak_RSS_MiB": 3541.26953125,
+    "workers_detail": [
+      {
+        "index": 0,
+        "steady_start": 11349498.93307357,
+        "steady_end": 11349502.107429603,
+        "completed": 12,
+        "latency": {
+          "n": 12,
+          "median_s": 0.2637975560501218,
+          "p95_s": 0.26668648505583403,
+          "p99_s": 0.2669483529217541,
+          "mean_s": 0.2641914444975555,
+          "max_s": 0.26701381988823414
+        },
+        "peak_rss_MiB": 886.07421875,
+        "peak_allocated_VRAM_MiB": 35.283203125,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 1,
+        "steady_start": 11349498.933086764,
+        "steady_end": 11349502.12798416,
+        "completed": 12,
+        "latency": {
+          "n": 12,
+          "median_s": 0.26553919445723295,
+          "p95_s": 0.2684809166006744,
+          "p99_s": 0.26889504140242937,
+          "mean_s": 0.2659016371083756,
+          "max_s": 0.2689985726028681
+        },
+        "peak_rss_MiB": 886.51953125,
+        "peak_allocated_VRAM_MiB": 35.283203125,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 3,
+        "steady_start": 11349498.933062308,
+        "steady_end": 11349502.15735402,
+        "completed": 12,
+        "latency": {
+          "n": 12,
+          "median_s": 0.2667888617143035,
+          "p95_s": 0.27377249505370854,
+          "p99_s": 0.27606878023594617,
+          "mean_s": 0.2680811760947108,
+          "max_s": 0.2766428515315056
+        },
+        "peak_rss_MiB": 883.91796875,
+        "peak_allocated_VRAM_MiB": 35.283203125,
+        "peak_reserved_VRAM_MiB": 36.0
+      },
+      {
+        "index": 2,
+        "steady_start": 11349498.933101192,
+        "steady_end": 11349502.174593844,
+        "completed": 12,
+        "latency": {
+          "n": 12,
+          "median_s": 0.26917712204158306,
+          "p95_s": 0.27409511981531975,
+          "p99_s": 0.27498809283599257,
+          "mean_s": 0.26951511204242706,
+          "max_s": 0.2752113360911608
+        },
+        "peak_rss_MiB": 884.7578125,
+        "peak_allocated_VRAM_MiB": 35.283203125,
+        "peak_reserved_VRAM_MiB": 36.0
+      }
+    ],
+    "scope": "solver-only scaling; validate end-to-end deadlines separately under chosen concurrency"
+  }
+]

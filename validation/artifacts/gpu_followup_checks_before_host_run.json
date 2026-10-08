@@ -1,0 +1,14 @@
+{
+  "private_cuda_environment_imports": true,
+  "pip_check_passed": true,
+  "CUDA_allocation_verified": false,
+  "observed_failure": "managed session private /dev has no NVIDIA nodes",
+  "fail_fast_pipeline_verified": true,
+  "downstream_GPU_experiments_launched": false,
+  "Gate_A_executed": false,
+  "all_submitted_controller_source_unchanged": true,
+  "authorized_plan_amendment_only": true,
+  "syntax_checked": true,
+  "CPU_Gate_A_preflight": "passed; execute=false; same CPU reservation",
+  "GPU_positive_execution_tests": "pending host context; no claim of GPU correctness or acceleration"
+}

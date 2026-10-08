@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "scope": "all six actual test modules; once",
+  "excluded": "test_lqr_dd.py is a top-level 100-episode plotting experiment, not unit tests",
+  "cvxpy_unused_import_workaround": true
+}

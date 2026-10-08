@@ -1,0 +1,74 @@
+{
+  "created_utc": "2026-10-07T18:19:41.957901+00:00",
+  "HEAD": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "original_run_unmodified": true,
+  "submitted_controller_diff_empty": true,
+  "new_experimental_jobs": [
+    {
+      "mode": "local",
+      "worker_seconds": 7.076881527900696,
+      "new_diagnostic_plant_samples": 14000
+    }
+  ],
+  "CEM_diagnostic_executed": false,
+  "total_stage0_worker_hours": 1.365402047309373,
+  "read_only_figure_export_wall_seconds": 519.3647601492703,
+  "visualization_compute_note": "descriptive saved-data export/verification, separate from experimental occupancy; rendering used one process",
+  "checks": {
+    "trajectory_media_checks.json": {
+      "all_200_case_exports_verified": true,
+      "png_cases": 200,
+      "pdf_cases": 200,
+      "animations": 8,
+      "original_run_integrity_passed": true,
+      "submitted_sources_unchanged": true,
+      "derived_physical_force_and_energy_consistency_passed": true,
+      "wall_seconds": 2.595603074878454,
+      "generated_artifacts_checked": 629
+    },
+    "notebook_checks.json": {
+      "nbformat_schema_passed": true,
+      "code_cells_executed_offline": 20,
+      "display_objects_captured": 20,
+      "kernel_server_started": false,
+      "GPU_required": false,
+      "wall_seconds": 0.9072548523545265,
+      "verification_display_environment": {
+        "numpy": "2.4.6",
+        "matplotlib": "3.10.8",
+        "IPython": "9.14.1",
+        "ipykernel": "7.2.0",
+        "nbformat": "5.10.4"
+      },
+      "python": "3.12.0",
+      "scope": "all Python cells ran with IPython display objects captured; embedded JS is checked separately"
+    },
+    "animation_ui_checks.json": {
+      "javascript_compiled": true,
+      "playback_slider_reset_passed": true,
+      "draw_calls": 15616,
+      "method": "V8 runtime with mocked canvas/DOM; actual browser rendering not tested"
+    }
+  },
+  "LLM_usage": "not exposed",
+  "files_SHA256": {
+    "trajectory_media.py": "39fe271a4d304eb6a1c3057e148f4ab8218431923a1765770ac1eaf5579649d7",
+    "finalize_trajectory_media.py": "1596a52ead6ac2fc642160d6ac9c15bda96dd0d9d143eb2b41453804d225a516",
+    "oracle_diagnostics.py": "7ebf8e3e2df2e30c40748a2e1d48d433bcdfdee2250d50e71c6768625dd74fe8",
+    "diagnostic_supervisor.py": "81745958d8381c217bcc0ae2d2663cd8c138cee372569875f8ba404f7e6b4053",
+    "run_diagnostics.sh": "769aaad88e3c6c0a1616fc8aee5b43713232b2586216f25ee9881ff2328279ed",
+    "oracle_diagnostic_spec.md": "52235a456a99000479ffa1b1e8a36db72a9e6af8e5cc5a14687e87209b790846",
+    "oracle_amendment_proposal.md": "e8822fa40948603480e8fd4b910f5935ccaa853702c0a0a206cd2fddf1d3da6b",
+    "notebooks/open_notebook.sh": "6a8bd89956817927d9a81a88e80adf2326cadd616a04c8e6ce580720952873da",
+    "notebooks/README.md": "3085df98e137c4b60b8f3ffbb016820e8ebe009a37649744baa5cd5d1de15633",
+    "overnight_queue.py": "52bae309a7f5ad43873d6fd70e7f3fb123b48d3b44829c7241c8bcf4ad238081",
+    "README.md": "ac39e2d728fcffce370406c48fcbb0e27125d18473afa8361a107d2bdc6f8556",
+    "server_readiness.md": "0d597331d934e7d0d33088d92ce9067722943d682a053377b20ad2fc19d8b3c1",
+    ".gitignore": "7fb8adcf276d034303bf173308f57301efc1968b9bf4874961c883bb6a943272",
+    "notebooks/display-environment-freeze.txt": "77a5f58927dfd5bad22e19b89684e65a36fa2cbb5650bf69ff8134ad54991b76",
+    "notebooks/gate_a_examples.ipynb": "008a3a9e12700f3b04820ec9db2e7d7b2910b728a8653d4de1c984123bd25c63",
+    "notebooks/kernels/trajectory-visualization/kernel.json": "025268c047ffd1d9559882539649195053566a912f30db6eb3631532556919b2",
+    "reviews/20261007T054549.695689Z/visualizations/source_changes.patch": "e580dff01acfa65fa798d0eb5690ac79400f7c15166006a705eb6ca3dbec66a2",
+    "reviews/20261007T054549.695689Z/visualizations/commands.sh": "1dfa2afd7d7af0d6d41dc9d89f9b2fb65957729d443fe6e37d4db7b622f694e7"
+  }
+}

@@ -1,0 +1,79 @@
+# Keep harness source, reports, plans, dependency locks/freezes, compact JSON
+# results/configs, usage ledgers, and source/data hashes in Git. Raw/generated
+# artifacts stay on the lab server or in a separately preserved run archive.
+
+# Isolated installations and caches (dependency locks are intentionally kept).
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+/artifacts/mpl/
+/artifacts/pytest_tmp/
+/smoke_pipeline*/
+
+# Trajectories, checkpoints, tensors, native libraries, and archive bundles.
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.pickle
+*.joblib
+*.safetensors
+*.h5
+*.hdf5
+*.parquet
+*.bin
+*.so
+*.so.*
+*.a
+*.o
+*.zip
+*.tar
+*.tar.*
+*.tgz
+*.gz
+*.xz
+
+# Generated plots/media. Keep figure README/manifests/case indexes, rather than
+# individual dashboards, numerical exports, or standalone rendered animations.
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.gif
+*.mp4
+*.webm
+*.html
+
+# Raw stdout/progress and duplicate working-tree diffs; retain command history
+# and the explicitly authorized plan amendment as small reproducibility records.
+*.log
+!/artifacts/commands.log
+*.patch
+!/artifacts/gpu_plan_amendment.patch
+/artifacts/process_status.txt
+latest.json
+heartbeat.json
+progress.json
+campaign.lock
+queue.lock
+*.pid
+*.tmp
+*.partial
+
+# Jupyter runtime state, secrets, and machine-specific generated kernel specs.
+/notebooks/.jupyter-data/
+/notebooks/.jupyter-runtime/
+/notebooks/.ipython/
+/notebooks/kernels/
+
+# The populated notebook contains embedded plots/animations. Commit its
+# output-free *_source.ipynb companion and the media generators instead.
+/notebooks/gate_a_examples.ipynb

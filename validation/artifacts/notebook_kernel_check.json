@@ -1,0 +1,46 @@
+{
+  "kernelspecs": {
+    "trajectory-visualization": {
+      "resource_dir": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/notebooks/kernels/trajectory-visualization",
+      "spec": {
+        "argv": [
+          "/home/ap60/miniconda3/envs/overseeg/bin/python",
+          "-m",
+          "ipykernel_launcher",
+          "-f",
+          "{connection_file}"
+        ],
+        "env": {
+          "MPLCONFIGDIR": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/artifacts/mpl",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "display_name": "Trajectory visuals \u2014 saved data",
+        "language": "python",
+        "interrupt_mode": "signal",
+        "metadata": {},
+        "kernel_protocol_version": ""
+      }
+    },
+    "python3": {
+      "resource_dir": "/home/ap60/.local/share/jupyter/kernels/python3",
+      "spec": {
+        "argv": [
+          "python",
+          "-m",
+          "ipykernel_launcher",
+          "-f",
+          "{connection_file}"
+        ],
+        "env": {},
+        "display_name": "Python 3 (ipykernel)",
+        "language": "python",
+        "interrupt_mode": "signal",
+        "metadata": {
+          "debugger": true
+        },
+        "kernel_protocol_version": "5.5"
+      }
+    }
+  }
+}

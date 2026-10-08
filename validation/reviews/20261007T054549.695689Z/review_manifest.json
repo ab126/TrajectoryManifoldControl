@@ -1,0 +1,20 @@
+{
+  "reviewed_utc": "2026-10-07T17:16:58.315885+00:00",
+  "HEAD": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "git_status": "?? validation/\n",
+  "submitted_tracked_diff_empty": true,
+  "original_run_artifacts_modified": false,
+  "new_experimental_jobs": 0,
+  "scope": "saved-data analysis and local-controller linear algebra; no new solves/training/plant acquisition",
+  "readiness_and_calibration_usage": "separate historical ledgers; final run.json is authoritative",
+  "LLM_token_usage": "not exposed",
+  "files_SHA256": {
+    "TrajectoryManifoldControl/validation/review_gate_a.py": "7a297e926fdebb1302c98f09ae8abefb4b26ff2e1a3292593bff3afa64fb6c01",
+    "TrajectoryManifoldControl/validation/gate_a_review.md": "c5463fc1cbf90f336e788eca9f77b75ffed01b64acf5dd2c3c0a5505760757ba",
+    "TrajectoryManifoldControl/validation/README.md": "13ed833a01e107855876cacf3475e2992a005be748797c865cc7b7f3f4bae2f0",
+    "TrajectoryManifoldControl/validation/server_readiness.md": "8fa9446c3021424cd532334120a856af285ad77b8863c16d95d75de4e177dde8",
+    "TrajectoryManifoldControl/validation/reviews/20261007T054549.695689Z/trace_review.json": "8f9deb6a4f33d93796669d379caf7bd9597290af66551f9253688c1f42e10a28",
+    "TrajectoryManifoldControl/validation/reviews/20261007T054549.695689Z/review_changes.patch": "06b83f4b72bc649c47891965c34daaf80f6487518fdde6c8c50b6a3dcb4c379e",
+    "TrajectoryManifoldControl/validation/reviews/20261007T054549.695689Z/commands.sh": "ce61dc32a798e220ea92dc093ecb32f4e47aa9c5b7dda89126c2c15eb0e74e39"
+  }
+}

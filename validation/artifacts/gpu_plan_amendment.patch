@@ -1,0 +1,122 @@
+--- review/stress_test_plan.md (original)
++++ review/stress_test_plan.md (current)
+@@ -1,6 +1,6 @@
+ # Executable stress-test protocol: TrajectoryManifoldControl
+ 
+-Revised October 6, 2026. No benchmark run. Lock amendments before final evaluation; experiments cannot prove guarantees.
++Revised October 6, 2026. CPU/CUDA readiness measured. No scientific validation campaign run. Lock amendments before final evaluation; experiments cannot prove guarantees.
+ 
+ ## Repository, scope, and claims
+ 
+@@ -98,6 +98,95 @@
+ 
+ ## Compute contract and cut order
+ 
++### GPU execution amendment — October 6, 2026
++
++The intended device for H/E training and CEM prediction, and Gate A oracle
++prediction, is **CUDA on the host NVIDIA L4 (24 GiB, approximately 3 GiB used
++according to the user's host nvidia-smi reading)**. This is a host observation,
++not a completed GPU benchmark. The submitted NumPy plant and local LQR remain
++on CPU; never replace the plant or change oracle float64 to fit a device.
++Use one CPU thread per worker, float32 learned models, deterministic PyTorch
++algorithms, and TF32 off. Freeze GPU UUID, driver, CUDA wheel/runtime, software
++hashes and concurrency before development comparisons and confirmation.
++
++The current managed execution session has a private /dev mount without NVIDIA
++device nodes; its nvidia-smi/CUDA failure does not contradict host availability.
++Use the host terminal in which nvidia-smi succeeds. A private offline CUDA venv
++is prepared under validation/.venv-gpu (PyTorch 2.5.1+cu121, bundled CUDA 12.1);
++no driver/toolkit reinstall is justified by the session-visibility failure.
++The launcher must successfully allocate/synchronize CUDA tensors and validate
++oracle RK4 numerics; no silent CPU fallback. In a managed execution context,
++GPU device exposure must be supplied by that environment's administrator.
++
++Run from the workspace root:
++
++```bash
++bash TrajectoryManifoldControl/validation/run_gpu.sh probe
++bash TrajectoryManifoldControl/validation/run_gpu.sh readiness
++```
++
++Readiness stops on failed GPU equivalence (50 cases, same 1e-5 tolerances and
++branch/queue requirements) before smoke or downstream benchmarks. It shares
++the existing **one-worker-hour readiness ledger**, including the completed CPU
++work; if the remaining reservation is insufficient, report skipped jobs rather
++than reset usage. It performs only tiny smoke and performance measurements,
++not oracle calibration, tuning, confirmation, or transfer. Save synchronized
++H/E latency quantiles including switch/LQR, queue and transfers; N=60 float64
++oracle cost; full-size 84000-transition training throughput; RAM/VRAM; and
++1/2/4 workers on the same GPU with CPU threads=1. Start with **one GPU worker**;
++choose concurrency from measured aggregate throughput and memory headroom,
++then verify end-to-end deadline behavior under that concurrency before lock.
++Do not infer free VRAM from the earlier approximately 3 GiB observation.
++
++Replace CPU forecasts with device-specific measured tau_H/tau_E/tau_oracle
++and GPU-smoke replan rate. Report BOTH the s=1 reservation and projected
++runtime versus unchanged stage caps, plus wall-time from aggregate solves/s;
++concurrency does not reduce worker-hours. The CPU readiness estimates are
++reference only (Stage 2: approximately 2601/526 worker-hours, cap 48).
++Host GPU readiness has now completed: mean tau_H/tau_E/tau_oracle are
++**0.074332/0.399123/0.214193 s**; H/E planning p99 **0.10133/0.43733 s** misses
++the 0.1 s deadline. Training is faster, planning is slower than CPU in these
++performance workloads. Four GPU workers achieve **56.89/14.81 H/E solves/s**;
++end-to-end deadlines under contention remain unmeasured. Readiness used
++**0.42929 worker-hours** total. CUDA Stage 2 is approximately **3158/633
++worker-hours** worst/projected versus cap 48. No cap feasibility is inferred.
++Detailed measurements and both-device stage tables are in
++[server_readiness.md](../TrajectoryManifoldControl/validation/server_readiness.md).
++Performance-only results are not scientific validation. Deadline misses still
++count as strict failures under the current endpoint; the proposed timing-agnostic
++primary amendment remains pending, so device choice can change primary outcomes.
++
++An unattended Gate A queue is prepared in
++[validation/overnight.md](../TrajectoryManifoldControl/validation/overnight.md).
++It checks runtime/source provenance, calibrates 200 cases with one start, audits
++saved true-plant traces and writes a morning report. No Stage 1, tuning,
++confirmation, extra starts, box shrink or transfer is queued. The default Stage-0
++cap remains 8 h. A launch explicitly requesting **--stage0-cap-hours 15** is a
++reviewable allocation override for this Gate-A-only queue, effective only when
++the user executes it. Prior readiness/queue occupancy is included; calibration
++is capped internally at 14.4 h (process slot 14.42 h). A failed/incomplete gate
++stops experiments; a passed gate also waits for morning review before Stage 1.
++
++After GPU readiness and allocation review, preflight Gate A on CUDA:
++
++```bash
++bash TrajectoryManifoldControl/validation/run_gpu.sh gate_a \
++  --cases 200 --starts 1 --box-scale 1 --max-worker-hours 7
++```
++
++This command does not execute calibration. Its cap is a conservative initial
++proposal; compute the available Stage-0 allocation as 8 hours minus actual
++readiness usage and any other Stage-0 work. The CUDA timing file is required;
++never use CPU timings to reserve GPU work. **One-start CUDA Gate A needs 11.90
++planning hours, or 14.28 hours with 20% overhead**, exceeding this proposal and
++the entire 8-hour Stage-0 cap. The preflight was run without --execute; do not
++launch until an explicit allocation/device amendment resolves this. A CPU
++oracle alternative would require an explicit device-rule amendment and a
++review of its 7.65-hour reservation against the 7.57-hour Stage-0 remainder. Keep one start initially (within
++up-to-five allowance); allow extra starts only after a new measured reservation
++fits. Add --execute only for the separately authorized calibration allocation.
++
++
+ For stage j, approximate CEM solves by
+ 
+     solves_j = sum over (method,budget,bundle,case) ceil(steps_j / s_method)
+@@ -114,7 +203,7 @@
+ | 3 | maximum 3 stresses×50 cases×3 bundles×2 CEM arms×200=180000, plus optional diagnostics | 8 h |
+ | 4 | no committed solves | 0 h until Gate C approval |
+ 
+-With `tau_H = [pilot seconds]`, `tau_E = [pilot seconds]`, default Stage 2 planning takes 4.8 million×(tau_H+tau_E)/3600 hours plus training/collection/statistics. Example only:0.005/0.015 s yields 26.7 h. Worst-case48 million solves. Caps bound feasibility work; check before launch. No execution yet.
++With `tau_H = [measured CUDA pilot seconds]`, `tau_E = [measured CUDA pilot seconds]`, default Stage 2 planning takes 4.8 million×(tau_H+tau_E)/3600 hours plus training/collection/statistics. Example only:0.005/0.015 s yields 26.7 h. Worst-case48 million solves. Caps bound feasibility work; check before launch. CPU performance readiness completed; CUDA campaign execution remains pending.
+ 
+ If capped: cut optional GP/SINDy/Koopman training and sweeps first, then single-NN diagnostics, then Stage 3/transfer, then curve refinement/coarse budgets far from crossings (minimum four common budgets bracketing targets). Never cut L/E, replace E with a weaker baseline, reduce the power-selected full-budget primary design, or discard failures to fit. If mandatory tuning or the primary design alone exceeds cap, stop and request an explicit revised compute allocation. Statistical analysis retains its own reservation before simulation starts.
+ 
+@@ -140,4 +229,6 @@
+ 
+ **Efficiency/inference:** monotone logit spline,5000 crossed seed/case bootstraps,≤4 finer budgets; tuning overhead 31500/method. Gated secondary ratio upper≤0.80 plus reliability/sensitivity meets our 20% criterion; otherwise exploratory/inconclusive. Shared episodes/cases/indexed CEM-noise streams;10/35splits8/2,28/7. No extrapolation/dropped censoring.
+ 
++**Device:** CUDA on the host L4 for learned/oracle prediction and training; original NumPy plant/local LQR on CPU. Complete GPU readiness and freeze measured concurrency/software before launch; no CPU fallback or assumed GPU speedup.
++
+ **Power/compute:** simulate 8–24 bundles×100–400 cases: 80% power at 10-point gain,80% target attainment at true 97%, conservative variance/type-I checks. Default 12×200×10:9.6 million solves;4.8 million×(tau_H+tau_E)/3600h plus overhead,48 million worst-case. Caps0/1/2/3=8/12/48/8 worker-hours; transfer 0. Cut optional arms/stresses/nonessential budgets first; preserve powered H/L/E or stop insufficient-power.

@@ -1,0 +1,9 @@
+{
+  "source_cuda_environment": "/home/ap60/venvs/mtbi-torch-cu12",
+  "common_dependency_source": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv",
+  "system_site_packages": false,
+  "torch_expected": "2.5.1+cu121",
+  "CUDA_build_expected": "12.1",
+  "method": "private copies of installed wheel/runtime dependencies; no network or source-env modifications",
+  "runtime_check_pending": "CUDA allocation requires NVIDIA device nodes in execution context"
+}

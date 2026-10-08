@@ -1,0 +1,15 @@
+{
+  "private_cuda_environment_imports": true,
+  "pip_check_passed": true,
+  "CUDA_allocation_verified": true,
+  "observed_failure": "historical sandbox probe only; host context verified",
+  "fail_fast_pipeline_verified": true,
+  "downstream_GPU_experiments_launched": true,
+  "Gate_A_executed": false,
+  "all_submitted_controller_source_unchanged": true,
+  "authorized_plan_amendment_only": true,
+  "syntax_checked": true,
+  "CPU_Gate_A_preflight": "passed; execute=false; same CPU reservation",
+  "GPU_positive_execution_tests": "host probe, full equivalence, smoke and performance/scaling passed",
+  "host_execution_verified": true
+}

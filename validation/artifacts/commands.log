@@ -1,0 +1,40 @@
+2026-10-07T01:53:51Z plant_checks 
+2026-10-07T01:54:19Z plant_checks 
+2026-10-07T01:54:45Z plant_checks 
+2026-10-07T01:55:03Z existing_tests 
+2026-10-07T01:55:20Z equivalence 
+2026-10-07T01:58:08Z smoke 
+2026-10-07T01:59:14Z smoke 
+2026-10-07T01:59:42Z benchmark --kind control --members 1 --repeats 120 
+2026-10-07T02:00:04Z benchmark --kind control --members 5 --repeats 120 
+2026-10-07T02:01:11Z benchmark --kind training 
+2026-10-07T02:02:04Z benchmark --kind oracle 
+2026-10-07T02:02:27Z concurrency 
+2026-10-07T02:03:57Z benchmark --kind training --members 5 
+2026-10-07T02:04:26Z concurrency 
+2026-10-07T02:06:17Z gate_a --cases 200 --starts 1 --max-worker-hours 7.7 
+2026-10-07T02:07:13Z harness_checks 
+2026-10-07T02:38:52Z gate_a --cases 200 --starts 1 --max-worker-hours 7.7 
+2026-10-07T02:41:24Z gpu readiness 
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "gpu_probe"], "charged_seconds_before": 1018.3668057403352}
+2026-10-07T02:50:42Z gpu readiness 
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "gpu_probe"], "charged_seconds_before": 1026.8936190574254}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "equivalence", "--device", "cuda", "--cases", "50", "--samples", "100"], "charged_seconds_before": 1036.3225212066259}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "smoke", "--device", "cuda"], "charged_seconds_before": 1193.2507469585921}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "benchmark", "--device", "cuda", "--kind", "control", "--members", "1"], "charged_seconds_before": 1225.0052842280652}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "benchmark", "--device", "cuda", "--kind", "control", "--members", "5"], "charged_seconds_before": 1241.5922836909826}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "benchmark", "--device", "cuda", "--kind", "training", "--members", "1"], "charged_seconds_before": 1299.7406292899336}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "benchmark", "--device", "cuda", "--kind", "training", "--members", "5"], "charged_seconds_before": 1311.67208533425}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "benchmark", "--device", "cuda", "--kind", "oracle"], "charged_seconds_before": 1324.6034038408484}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "concurrency", "--device", "cuda", "--workers", "1", "2", "4"], "charged_seconds_before": 1334.0799695893015}
+2026-10-07T02:57:56Z gpu gate_a --cases 200 --starts 1 --box-scale 1 --max-worker-hours 7 
+2026-10-07T03:11:32Z gpu readiness 
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "gpu_probe"], "charged_seconds_before": 1545.45390693348}
+{"GPU_readiness_command": ["/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python", "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/launch.py", "equivalence", "--device", "cuda", "--cases", "50", "--samples", "100"], "charged_seconds_before": 1552.1269251859571}
+2026-10-07T03:12:15Z gpu gate_a --cases 200 --starts 1 --box-scale 1 --max-worker-hours 7 
+2026-10-07T03:22:05Z overnight_tests 
+2026-10-07T03:25:38Z overnight_tests 
+2026-10-07T03:27:40Z overnight --stage0-cap-hours 15 
+2026-10-07T03:31:17Z overnight --stage0-cap-hours 15 
+2026-10-07T05:45:12Z overnight   
+2026-10-07T05:45:48Z overnight --execute --stage0-cap-hours 15 

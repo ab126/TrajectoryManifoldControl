@@ -1,0 +1,23 @@
+{
+  "device": "cuda",
+  "members": 1,
+  "T_train": 84000,
+  "epochs_per_member": 3,
+  "batch_size": 2048,
+  "architecture": [
+    192,
+    192,
+    192
+  ],
+  "wall_s": 0.4270555954426527,
+  "epochs_per_s": 7.024846488407283,
+  "epoch_seconds": 0.1423518651475509,
+  "ensemble_epochs_per_s": 7.024846488407283,
+  "training_schedule": "serial members; original train_transition for each member",
+  "T_validation": 21000,
+  "timing_scope": "original train_transition end-to-end; includes full 21000-row validation/checkpoint",
+  "dataset": "repeat smoke training episodes, performance only",
+  "peak_rss_MiB": 949.22265625,
+  "peak_allocated_VRAM_MiB": 104.34521484375,
+  "peak_reserved_VRAM_MiB": 106.0
+}

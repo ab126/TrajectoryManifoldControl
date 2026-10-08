@@ -1,0 +1,17 @@
+{
+  "CPU_smoke_attempts": 2,
+  "CUDA_smoke_attempts": 1,
+  "collected_episodes_per_attempt": 120,
+  "collection_steps_per_episode": 30,
+  "raw_smoke_collection_plant_steps": 10800,
+  "distinct_collection_seed_configurations": 1,
+  "original_angle_evaluation_steps_per_attempt": 600,
+  "raw_smoke_evaluation_plant_steps": 1800,
+  "timing_training_dataset": "repeated/bootstrap smoke triples; no new plant acquisition",
+  "equivalence": "scripted observations; neural model rollouts only",
+  "oracle_performance": "true-model prediction rollouts only; no closed-loop calibration cases",
+  "contract_checks": "separate numerical integration/RHS calls; not a learned-method acquisition budget",
+  "scientific_calibration_tuning_confirmation_transfer_cases": 0,
+  "overnight_preparation_fixture_plant_steps": 2,
+  "overnight_fixture_note": "two charged lifecycle-test executions; one zero-input fixture step each; no calibration campaign launched"
+}

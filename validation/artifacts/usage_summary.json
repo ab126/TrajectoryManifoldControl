@@ -1,0 +1,9 @@
+{
+  "charged_worker_seconds": 1715.7841650049027,
+  "charged_worker_hours": 0.47660671250136183,
+  "cap_seconds": 3600,
+  "measured_worker_seconds": 1535.6895810049027,
+  "conservative_failed_attempt_charge_seconds": 180.094584,
+  "excluded": "environment installation/copying, read-only hardware/source inspection, code editing, artifact hashing, LLM work",
+  "scope": "includes warm-up, experiments, process/import overhead, failed smoke/import attempts; concurrency sums worker occupancy plus supervisor wall time"
+}

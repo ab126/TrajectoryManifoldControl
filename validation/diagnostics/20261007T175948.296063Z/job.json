@@ -1,0 +1,25 @@
+{
+  "mode": "local",
+  "command": [
+    "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv/bin/python",
+    "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/oracle_diagnostics.py",
+    "--mode",
+    "local",
+    "--device",
+    "cpu",
+    "--run-dir",
+    "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/overnight_runs/20261007T054549.695689Z",
+    "--output-dir",
+    "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/diagnostics/20261007T175948.296063Z"
+  ],
+  "status": "finished",
+  "stage0_prior_seconds": 4908.370488785842,
+  "source_SHA256": {
+    "oracle_diagnostics.py": "60b6de59d9b0745fe489b82cdea0a3f6715028a169259d6bfd7faf9c10bb7a17",
+    "diagnostic_supervisor.py": "1ff510c13d3989b5654e61959c2b935f76d885cb1fa103c99a965d5120c4b1da",
+    "run_diagnostics.sh": "769aaad88e3c6c0a1616fc8aee5b43713232b2586216f25ee9881ff2328279ed"
+  },
+  "scope": "development diagnosis; no H modifications or Gate A pass inference",
+  "returncode": 0,
+  "worker_seconds": 7.076881527900696
+}

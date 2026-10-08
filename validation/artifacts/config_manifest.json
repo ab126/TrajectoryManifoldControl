@@ -1,0 +1,79 @@
+{
+  "SUT": "scripts/run_inverted_pendulum_mc.py + src/manifold_control.py",
+  "HEAD": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "architecture": [
+    192,
+    192,
+    192
+  ],
+  "activation": "SiLU",
+  "learned_dtype": "float32",
+  "horizon": 30,
+  "CEM": {
+    "population": 256,
+    "elite": 32,
+    "iterations": 3,
+    "smoothing": 0.15,
+    "rate_weight": 0.002
+  },
+  "Q_diagonal": [
+    0.02,
+    30,
+    100,
+    10
+  ],
+  "R": 0.03,
+  "terminal_multiplier": 12,
+  "input_bounds": [
+    -10,
+    10
+  ],
+  "local_switch_tracking_cost": 0.75,
+  "replan_interval": 5,
+  "warm_start": "cat(previous[5:], previous[-5:]); preserved through local visits",
+  "physical_dt": 0.02,
+  "normalized_dt": 0.0626418390534633,
+  "mass_ratio": 2,
+  "physical_interpretation": {
+    "cart_mass_kg": 2,
+    "rod_mass_kg": 1,
+    "full_rod_length_m": 1,
+    "g": 9.81,
+    "force_bound_N": 98.1
+  },
+  "smoke": {
+    "horizon": 30,
+    "dt": 0.0626418390534633,
+    "episodes": 120,
+    "epochs": 3,
+    "batch_size": 2048,
+    "hidden_dims": [
+      192,
+      192,
+      192
+    ],
+    "umax": 10.0,
+    "seed": 234,
+    "simulation_seconds": 2.0,
+    "controller_iterations": 60,
+    "controller_lr": 0.06,
+    "device": "cpu"
+  },
+  "oracle": {
+    "horizon": 60,
+    "dtype": "float64",
+    "few_performance_solves_only": 12,
+    "calibration_executed": false
+  },
+  "benchmark_cpu_threads": 1,
+  "CPU_concurrency_workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "GPU_benchmarks": "verified host execution; agent session device nodes unavailable",
+  "intended_campaign_device": "CUDA on host NVIDIA L4; CPU original plant/local LQR",
+  "GPU_environment": ".venv-gpu; private PyTorch 2.5.1+cu121 and CUDA 12.1",
+  "GPU_readiness_command": "bash TrajectoryManifoldControl/validation/run_gpu.sh readiness"
+}

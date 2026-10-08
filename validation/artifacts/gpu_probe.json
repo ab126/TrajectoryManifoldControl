@@ -1,0 +1,83 @@
+{
+  "torch": "2.5.1+cu121",
+  "torch_build_cuda": "12.1",
+  "python_executable": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python",
+  "system_site_packages": false,
+  "device_nodes": [
+    "/dev/nvidia-uvm-tools",
+    "/dev/nvidia-uvm",
+    "/dev/nvidia-caps",
+    "/dev/nvidia-modeset",
+    "/dev/nvidia0",
+    "/dev/nvidiactl"
+  ],
+  "dev_mounts": [
+    "24 100 0:6 / /dev rw,nosuid shared:23 - devtmpfs devtmpfs rw,seclabel,size=528177764k,nr_inodes=132044441,mode=755"
+  ],
+  "nvidia_smi": {
+    "argv": [
+      "nvidia-smi",
+      "--query-gpu=name,uuid,memory.total,memory.used,memory.free,driver_version",
+      "--format=csv"
+    ],
+    "returncode": 0,
+    "stdout": "name, uuid, memory.total [MiB], memory.used [MiB], memory.free [MiB], driver_version\nNVIDIA L4, GPU-ab0ee8e5-cf5f-5b7b-82dc-1e3f054fa136, 23034 MiB, 3335 MiB, 19258 MiB, 610.43.02\n",
+    "stderr": ""
+  },
+  "nvidia_smi_header": {
+    "argv": [
+      "nvidia-smi"
+    ],
+    "returncode": 0,
+    "stdout": "Tue Oct  6 22:11:37 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA L4                      On  |   00000000:41:00.0 Off |                    0 |\n| N/A   50C    P0             29W /   72W |    3335MiB /  23034MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A          169838      C   ...67/Donnchadh/.venv/bin/python       3310MiB |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": ""
+  },
+  "user_report": {
+    "provenance": "user host shell, not independently verified in sandbox",
+    "VRAM_total_GiB": 24,
+    "VRAM_used_GiB_approx": 3
+  },
+  "determinism": {
+    "seed": 20261006,
+    "python": "3.11.9 (main, Apr 19 2024, 16:48:06) [GCC 11.2.0]",
+    "torch": "2.5.1+cu121",
+    "cvxpy_unused_import_workaround": true,
+    "torch_cuda_build": "12.1",
+    "cuda_available": true,
+    "dtype": "float32 learned; float64 plant/reference/oracle",
+    "deterministic_algorithms": true,
+    "TF32_matmul": false,
+    "TF32_cudnn": false,
+    "torch_threads": 1,
+    "interop_threads": 1,
+    "environment": {
+      "PYTHONHASHSEED": "20261006",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+    },
+    "rng": "SHA256(root seed, stream, case, physical sample); CPU-generated CEM tensors",
+    "model_selection": {
+      "requested": "gpt-5.6-terra",
+      "available": false,
+      "configured_model": "inherited session; no model override; precise identifier not exposed",
+      "configured_reasoning_effort": "inherited session; not exposed",
+      "delegated_tasks": 0,
+      "runtime_model_effort": "not exposed; local orchestrator only",
+      "LLM_usage": "token/cost telemetry not exposed"
+    }
+  },
+  "passed": true,
+  "device_name": "NVIDIA L4",
+  "compute_capability": [
+    8,
+    9
+  ],
+  "VRAM_total_bytes": 23689363456,
+  "oracle_RK4_gpu_max_abs_error": 4.440892098500626e-16,
+  "free_bytes": 19888078848,
+  "total_bytes": 23689363456,
+  "allocated_peak_bytes": 33574400,
+  "reserved_peak_bytes": 35651584
+}

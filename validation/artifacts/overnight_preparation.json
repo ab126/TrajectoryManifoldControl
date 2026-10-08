@@ -1,0 +1,17 @@
+{
+  "queue_prepared": true,
+  "queue_executed": false,
+  "source_unchanged": true,
+  "plan_default_stage0_cap_h": 8,
+  "offered_explicit_queue_allocation_h": 15,
+  "calibration_internal_cap_h": 14.4,
+  "queue_reserved_slot_hours": 14.511666666666667,
+  "prior_readiness_hours": 0.47660671250136183,
+  "no_downstream_experiments": true,
+  "tests": {
+    "passed": true,
+    "tests": 4,
+    "scope": "synthetic saved traces and process/checkpoint failures; one zero-input original-plant fixture step, no oracle calibration campaign"
+  },
+  "preflight_fits": true
+}

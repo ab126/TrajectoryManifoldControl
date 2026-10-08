@@ -1,0 +1,21 @@
+{
+  "device": "cpu",
+  "members": 5,
+  "T_train": 84000,
+  "epochs_per_member": 3,
+  "batch_size": 2048,
+  "architecture": [
+    192,
+    192,
+    192
+  ],
+  "wall_s": 10.114806778728962,
+  "epochs_per_s": 1.4829744480679954,
+  "epoch_seconds": 0.6743204519152641,
+  "ensemble_epochs_per_s": 0.2965948896135991,
+  "training_schedule": "serial members; original train_transition for each member",
+  "T_validation": 21000,
+  "timing_scope": "original train_transition end-to-end; includes full 21000-row validation/checkpoint",
+  "dataset": "repeat smoke training episodes, performance only",
+  "peak_rss_MiB": 406.84375
+}

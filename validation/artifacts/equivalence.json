@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "cases": 50,
+  "samples_per_case": 100,
+  "version": "full",
+  "solves_per_implementation": 1020,
+  "branch_counts": {
+    "local": 862,
+    "plan": 990,
+    "queue": 3118,
+    "nonfinite": 30
+  },
+  "max_abs_errors": {
+    "action": 0.0,
+    "plan": 0.0,
+    "queue": 0.0,
+    "states": 0.0,
+    "cost": 0.0,
+    "loss": 0.0,
+    "warm_start": 0.0
+  },
+  "atol": 1e-05,
+  "rtol": 1e-05,
+  "identical_flags_and_queue_lengths": true,
+  "device": "cpu",
+  "dtype": "float32",
+  "weights": "synthetic shared dev architecture; not trained success evidence",
+  "independence": "separate implementation; same author, no fresh-context subagent",
+  "nonfinite": "NaN observation induces real nonfinite rollout/cost; comparison includes NaN equality and branch/fallback"
+}

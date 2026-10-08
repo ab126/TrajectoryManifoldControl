@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "physical_rhs_max_abs_error": 1.4210854715202004e-14,
+  "minimum_mass_matrix_eigenvalue": 0.24266604244707807,
+  "pivot_inertia": "m*l^2/3; COM inertia m*l^2/12",
+  "force_10_N": 98.10000000000001,
+  "dt_normalized": 0.0626418390534633,
+  "dt_physical": 0.019999999999999997,
+  "energy_drift_20s": 1.6753678731940003e-05,
+  "energy_drift_threshold": 0.0001,
+  "RK4_errors_50_100_200": [
+    4.4024127108244215e-06,
+    1.971546215173703e-07,
+    9.800116274050197e-09
+  ],
+  "convergence_ratios": [
+    22.329746454543788,
+    20.117579833151318
+  ]
+}

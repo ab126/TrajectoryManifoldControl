@@ -1,0 +1,39 @@
+{
+  "label": "SMOKE ONLY; no scientific validation",
+  "configuration": {
+    "horizon": 30,
+    "dt": 0.0626418390534633,
+    "episodes": 120,
+    "epochs": 3,
+    "batch_size": 2048,
+    "hidden_dims": [
+      192,
+      192,
+      192
+    ],
+    "umax": 10.0,
+    "seed": 234,
+    "simulation_seconds": 2.0,
+    "controller_iterations": 60,
+    "controller_lr": 0.06,
+    "device": "cpu"
+  },
+  "original_modulo_collection": true,
+  "original_70_15_15_split": {
+    "test": 18,
+    "validation": 18,
+    "train": 84
+  },
+  "steps": 600,
+  "solves": 120,
+  "replan_rate": 0.2,
+  "local_steps": 0,
+  "wall_s": 16.726128358393908,
+  "component_seconds": {
+    "collection": 0.20832285843789577,
+    "training": 4.269476115703583,
+    "local_fit": 0.003250470384955406,
+    "simulation": 9.038063684478402
+  },
+  "projection_limit": "120 episodes, 3 epochs, six angle-only cases, 2s each; rate is not a 20s nominal estimate"
+}

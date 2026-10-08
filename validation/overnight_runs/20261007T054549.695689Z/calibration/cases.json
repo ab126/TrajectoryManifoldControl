@@ -1,0 +1,1602 @@
+[
+  {
+    "case": 0,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 1,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 22,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 2,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 12,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 3,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 48,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 4,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 122,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 5,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 11,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 6,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 7,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 136,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 8,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 9,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 11,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 10,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 34,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 11,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 12,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 30,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 13,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 72,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 14,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 14,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 15,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 14,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 16,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 31,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 17,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 25,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 18,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 33,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 19,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 20,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 21,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 53,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 22,
+    "positive_angle": true,
+    "strict_physical_success": true,
+    "planning_calls": 18,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 23,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 29,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 24,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 25,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 45,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 26,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 27,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 28,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 29,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 17,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 30,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 26,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 31,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 28,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 32,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 33,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 35,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 34,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 35,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 18,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 36,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 14,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 37,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 18,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 38,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 22,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 39,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 27,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 40,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 15,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 41,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 42,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 33,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 43,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 24,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 44,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 13,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 45,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 46,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 17,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 47,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 48,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 23,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 49,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 32,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 50,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 16,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 51,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 167,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 52,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 24,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 53,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 31,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 54,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 55,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 39,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 56,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 57,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 77,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 58,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 19,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 59,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 22,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 60,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 32,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 61,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 76,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 62,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 28,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 63,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 64,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 195,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 65,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 15,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 66,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 44,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 67,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 22,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 68,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 69,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 21,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 70,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 64,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 71,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 17,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 72,
+    "positive_angle": true,
+    "strict_physical_success": true,
+    "planning_calls": 7,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 73,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 26,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 74,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 18,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 75,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 7,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 76,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 23,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 77,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 98,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 78,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 201,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 79,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 73,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 80,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 17,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 81,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 18,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 82,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 38,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 83,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 84,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 85,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 20,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 86,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 42,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 87,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 53,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 88,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 58,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 89,
+    "positive_angle": true,
+    "strict_physical_success": true,
+    "planning_calls": 38,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 90,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 17,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 91,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 39,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 92,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 16,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 93,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 94,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 95,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 18,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 96,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 17,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 97,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 28,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 98,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 99,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 13,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 100,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 29,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 101,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 10,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 102,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 54,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 103,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 42,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 104,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 4,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 105,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 98,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 106,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 22,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 107,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 108,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 145,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 109,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 29,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 110,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 37,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 111,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 11,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 112,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 113,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 114,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 25,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 115,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 14,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 116,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 108,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 117,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 118,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 24,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 119,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 201,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 120,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 102,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 121,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 121,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 122,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 123,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 23,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 124,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 20,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 125,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 126,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 39,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 127,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 117,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 128,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 129,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 15,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 130,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 131,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 31,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 132,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 55,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 133,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 52,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 134,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 135,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 21,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 136,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 11,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 137,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 131,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 138,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 139,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 140,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 12,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 141,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 6,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 142,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 16,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 143,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 25,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 144,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 34,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 145,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 23,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 146,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 73,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 147,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 148,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 36,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 149,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 40,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 150,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 8,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 151,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 201,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 152,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 153,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 20,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 154,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 20,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 155,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 156,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 129,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 157,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 158,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 43,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 159,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 36,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 160,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 23,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 161,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 72,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 162,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 41,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 163,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 121,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 164,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 165,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 50,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 166,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 167,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 168,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 169,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 89,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 170,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 36,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 171,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 26,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 172,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 9,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 173,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 17,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 174,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 141,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 175,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 19,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 176,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 28,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 177,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 131,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 178,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 18,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 179,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 22,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 180,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 15,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 181,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 182,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 8,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 183,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 184,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 32,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 185,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 24,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 186,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 32,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 187,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 70,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 188,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 189,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 26,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 190,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 32,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 191,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 58,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 192,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 8,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 193,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 40,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 194,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 15,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 195,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 22,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 196,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 23,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 197,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 51,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 198,
+    "positive_angle": true,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  },
+  {
+    "case": 199,
+    "positive_angle": false,
+    "strict_physical_success": false,
+    "planning_calls": 200,
+    "executed_samples": 1000,
+    "timing_exempt": true
+  }
+]

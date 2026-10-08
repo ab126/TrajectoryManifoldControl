@@ -1,0 +1,308 @@
+{
+  "prepared_utc": "2026-10-08T14:49:45.540051+00:00",
+  "scope": "read-only evidence review, plan/source snapshots, handoff documentation; no new experimental jobs",
+  "git_head": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "git_status_short": "?? validation/\n",
+  "tracked_diff_empty": true,
+  "document": {
+    "path": "validation_handoff.md",
+    "sha256": "012f2e44a4230e87e7385987905f1da2739ccdaa6ce698c9c91a1d69a5444411"
+  },
+  "plan_and_note_snapshots": [
+    {
+      "source": "TrajectoryManifoldControl/validation/artifacts/stress_test_plan_before_gpu.md",
+      "snapshot": "handoff/plans/stress_test_plan_original.md",
+      "sha256": "336ad55c639086b8df8e2a9dd0772d822d40f61c2da681d0bda47c921c6bccd1",
+      "byte_for_byte_equal": true
+    },
+    {
+      "source": "review/stress_test_plan.md",
+      "snapshot": "handoff/plans/stress_test_plan_current.md",
+      "sha256": "d37029400589082eb09fc1a0879fa3ff9923898198416216252f891cab160674",
+      "byte_for_byte_equal": true
+    },
+    {
+      "source": "review/critique_plan.md",
+      "snapshot": "handoff/plans/critique_plan.md",
+      "sha256": "87945c9e2f4df7a05704d6c8a4a2b0bbe35ccaa94cc79bc8d568592e1079aeee",
+      "byte_for_byte_equal": true
+    },
+    {
+      "source": "trajectory_manifold_implementation.tex",
+      "snapshot": "handoff/sources/trajectory_manifold_implementation.tex",
+      "sha256": "87c9beed757b1acdfdc9ff2d07009aad28c14b0595ac8da5076853b905177c0c",
+      "byte_for_byte_equal": true
+    }
+  ],
+  "submitted_source_checks": [
+    {
+      "path": "TrajectoryManifoldControl/src/plotting.py",
+      "sha256": "0b6406b03bf2a6b5203107388c0765be2ca3a2c1d3c34c62f553b17aff671719",
+      "initial_sha256": "0b6406b03bf2a6b5203107388c0765be2ca3a2c1d3c34c62f553b17aff671719",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/src/manifold_control.py",
+      "sha256": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "initial_sha256": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/src/utils.py",
+      "sha256": "35c553a5e44ca2defe5982449adc43b79894f149476cb948b36be7ca2658aeb2",
+      "initial_sha256": "35c553a5e44ca2defe5982449adc43b79894f149476cb948b36be7ca2658aeb2",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/src/mpc.py",
+      "sha256": "043fc51c2d2cfb1730169b680a080998b62a0c79573935fe53ab2d7e15339578",
+      "initial_sha256": "043fc51c2d2cfb1730169b680a080998b62a0c79573935fe53ab2d7e15339578",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/src/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "initial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/src/linear_system.py",
+      "sha256": "48f93e60e182f81da70dfe79765d5c25c03c5493eed5cf50058ac84166dfc29d",
+      "initial_sha256": "48f93e60e182f81da70dfe79765d5c25c03c5493eed5cf50058ac84166dfc29d",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/src/inverted_pendulum.py",
+      "sha256": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "initial_sha256": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/scripts/run_inverted_pendulum_mc.py",
+      "sha256": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "initial_sha256": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/scripts/run_linear_mc.py",
+      "sha256": "c8e312d68acf7157b0d98dd7a0347d4204fa095051a99bdf9c920264ebe081da",
+      "initial_sha256": "c8e312d68acf7157b0d98dd7a0347d4204fa095051a99bdf9c920264ebe081da",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/scripts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "initial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/tests/test_behavior_manifold_solver.py",
+      "sha256": "fafb695d6f4e500a8d9b06fc893f5ebc68ded74c3efcd8adf37485fd0d4f4e01",
+      "initial_sha256": "fafb695d6f4e500a8d9b06fc893f5ebc68ded74c3efcd8adf37485fd0d4f4e01",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/tests/test_canonical_behavior_control.py",
+      "sha256": "902ec03e9e341db15606e6e105e8420ba5efd8986f25d086f505a1a9c699266d",
+      "initial_sha256": "902ec03e9e341db15606e6e105e8420ba5efd8986f25d086f505a1a9c699266d",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/tests/test_behavior_autoencoder.py",
+      "sha256": "7dda1c42d574a83550c5b184c58fdf7f5164a76da8af821986a2957d34d9f744",
+      "initial_sha256": "7dda1c42d574a83550c5b184c58fdf7f5164a76da8af821986a2957d34d9f744",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/tests/test_train_decoder.py",
+      "sha256": "eaf44a61a093a8295222ad8ec507105f60e4e5deb4866e107453bea64036b0ef",
+      "initial_sha256": "eaf44a61a093a8295222ad8ec507105f60e4e5deb4866e107453bea64036b0ef",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/tests/test_inverted_pendulum_units.py",
+      "sha256": "cef332d5fe3e11ed56f4cf42ecf1a3de84e5c37099ccb9a823daabaf2aa28cd7",
+      "initial_sha256": "cef332d5fe3e11ed56f4cf42ecf1a3de84e5c37099ccb9a823daabaf2aa28cd7",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "initial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/tests/test_latent_behavior_mpc.py",
+      "sha256": "9bac8a7f79057734ad1f7a8270896ddc1dda679579b3d320d557f612a142aa2a",
+      "initial_sha256": "9bac8a7f79057734ad1f7a8270896ddc1dda679579b3d320d557f612a142aa2a",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/README.md",
+      "sha256": "ba96c61129f2eb87eece03d10a3a503d80335593dc18ea38d76cf90cefe02ef6",
+      "initial_sha256": "ba96c61129f2eb87eece03d10a3a503d80335593dc18ea38d76cf90cefe02ef6",
+      "unchanged": true
+    },
+    {
+      "path": "TrajectoryManifoldControl/environment.yml",
+      "sha256": "f6958a249d098b662268fac692872ced50adc0268df62ccba7f5b298cbf88b2d",
+      "initial_sha256": "f6958a249d098b662268fac692872ced50adc0268df62ccba7f5b298cbf88b2d",
+      "unchanged": true
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "artifacts/usage_summary.json",
+      "sha256": "588ac13a0f715e20c03ab4d0ca4d56480a091db38ae1487a0882dc6b822f4202"
+    },
+    {
+      "path": "artifacts/determinism.json",
+      "sha256": "1a9a437dc3b7d41091c6f0e5e142b61ec9ab8f02c16c7c27bd2ea6cffe9350cc"
+    },
+    {
+      "path": "artifacts/seed_manifest.json",
+      "sha256": "3bed71809a80797b05befd319671500559908d01d561a1e705202d11c2df8a16"
+    },
+    {
+      "path": "artifacts/interaction_manifest.json",
+      "sha256": "9d02bd41cfc99e9a36d46f630e2174618b5ad06651fd7227eb215b94bd9a6632"
+    },
+    {
+      "path": "artifacts/stage_estimates.json",
+      "sha256": "48c554208c927a9f19b9a6083abe08a7b7922650637a8ce4b8b881d770dea400"
+    },
+    {
+      "path": "artifacts/stage_estimates_cuda.json",
+      "sha256": "9651f690b16e2491e6767a4f4ca0621469b0dbf78952e3ba21e35b84f5f57832"
+    },
+    {
+      "path": "artifacts/plant_checks.json",
+      "sha256": "fd215dbe4b4ff427d3a4f36c44592f3efc615d4407862fc3cfe8972061101c4d"
+    },
+    {
+      "path": "artifacts/equivalence.json",
+      "sha256": "d4f7c126813bec9e129776610bb949c7601ac9f0f9575fe34c51fcf20f6070fc"
+    },
+    {
+      "path": "artifacts/equivalence_cuda.json",
+      "sha256": "9127a499c349fa05169ca8a542fddd46052893be89ea75daa212c3c1ffb94bf0"
+    },
+    {
+      "path": "artifacts/existing_tests.json",
+      "sha256": "9acccfa3ed520ebd1855dd7d2f5baa6516857f45bff243d7df4fb2ce807d106e"
+    },
+    {
+      "path": "artifacts/smoke.json",
+      "sha256": "cb91afbbe7c78463488d3fd1b60a9aa4fc117120017af997c22233dce73c6524"
+    },
+    {
+      "path": "artifacts/smoke_cuda.json",
+      "sha256": "d64a14e7f1363b4dba26eaa1dba3c2f2047c89a1a0f8e4dd0aa254d1eb47a8b0"
+    },
+    {
+      "path": "artifacts/trajectory_media_checks.json",
+      "sha256": "71fdfd640927e2d7bb44a8ef7499ae1c4af331301ef29549f2e630db1fa07b59"
+    },
+    {
+      "path": "artifacts/notebook_checks.json",
+      "sha256": "91bb2b29aa4f6d087c5d201135a72a04058b835c5321cc6a587654278e595405"
+    },
+    {
+      "path": "artifacts/animation_ui_checks.json",
+      "sha256": "8e51a853092621b155da602fa4041d4534310ff2843571f7218b01d424592b34"
+    },
+    {
+      "path": "overnight_runs/20261007T054549.695689Z/run.json",
+      "sha256": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1"
+    },
+    {
+      "path": "reviews/20261007T054549.695689Z/trace_review.json",
+      "sha256": "8f9deb6a4f33d93796669d379caf7bd9597290af66551f9253688c1f42e10a28"
+    },
+    {
+      "path": "diagnostics/latest.json",
+      "sha256": "eb25cf01a8d4cf9579f4d5ad621c9274023a0799ff91a667b6eeb23399608ed0"
+    },
+    {
+      "path": "diagnostics/usage.jsonl",
+      "sha256": "e319a20ab9b51a4e6d5712c2c15565e374f25ac7e4808485219c2c039b9ad064"
+    },
+    {
+      "path": "diagnostics/20261007T175948.296063Z/results.json",
+      "sha256": "f5c98b5487d77a1b7736e46c27c5c78d133ac33355a9f6fb87ee8a4b09c66169"
+    },
+    {
+      "path": "oracle_diagnostic_spec.md",
+      "sha256": "52235a456a99000479ffa1b1e8a36db72a9e6af8e5cc5a14687e87209b790846"
+    },
+    {
+      "path": "oracle_amendment_proposal.md",
+      "sha256": "e8822fa40948603480e8fd4b910f5935ccaa853702c0a0a206cd2fddf1d3da6b"
+    },
+    {
+      "path": "server_readiness.md",
+      "sha256": "0d597331d934e7d0d33088d92ce9067722943d682a053377b20ad2fc19d8b3c1"
+    },
+    {
+      "path": "gate_a_review.md",
+      "sha256": "c5463fc1cbf90f336e788eca9f77b75ffed01b64acf5dd2c3c0a5505760757ba"
+    },
+    {
+      "path": "diagnostics/local_findings.md",
+      "sha256": "c8e3d63506f0d42b84f025bef786580b3ab85b07bbd148593a5854e815c34f95"
+    },
+    {
+      "path": "requirements.lock",
+      "sha256": "730ae671d0fdba0380d353fdcba2983566a9f8320c0d092a5ec958b31fd5488f"
+    },
+    {
+      "path": "gpu-requirements.lock",
+      "sha256": "f87c6f861b12fae621c5a19cca983de50f28fab6acc0fb97bbe7410694853dc1"
+    },
+    {
+      "path": "pip-freeze.txt",
+      "sha256": "94abee80a48270283e3024aa1f8117a4ed2c8fd3912ca4c4e0807f3a9c1246c6"
+    },
+    {
+      "path": "gpu-pip-freeze.txt",
+      "sha256": "1b3326e46e2aa993bb80e447b724bfaef7e10f52b4a5e0c0b785737b2ef65cb8"
+    },
+    {
+      "path": "notebooks/gate_a_examples.ipynb",
+      "sha256": "008a3a9e12700f3b04820ec9db2e7d7b2910b728a8653d4de1c984123bd25c63"
+    },
+    {
+      "path": "figures/20261007T054549.695689Z/manifest.json",
+      "sha256": "fa4368c0ae093dcb522c73ca4140265ac3b6228b57397f023acc044121cc7644"
+    }
+  ],
+  "status": {
+    "gate_a_passed": false,
+    "oracle_successes": 3,
+    "oracle_cases": 200,
+    "overnight_status": "stopped_awaiting_review",
+    "completed_diagnostic_jobs": [
+      "oracle_diagnostic_local"
+    ],
+    "gpu_cem_diagnostic_executed": false,
+    "dependent_stages": "stopped",
+    "oracle_amendment": "proposed, not adopted"
+  },
+  "usage": {
+    "readiness_worker_seconds": 1715.7841650049027,
+    "readiness_cap_seconds": 3600,
+    "overnight_worker_seconds": 3192.586323780939,
+    "diagnostic_worker_seconds": 7.076881527900696,
+    "total_stage0_worker_seconds": 4915.447370313743,
+    "total_stage0_worker_hours": 1.365402047309373,
+    "stage0_user_run_cap_hours": 15.0,
+    "shared_diagnostic_cap_seconds": 900,
+    "new_experimental_worker_seconds_for_handoff": 0,
+    "llm_usage": "not exposed"
+  },
+  "missing_original_pdf_inputs": [
+    "trajectory_manifold_implementation.pdf",
+    "Trajectory_Manifolds_Part_1.pdf"
+  ],
+  "model_and_effort": "inherited settings not exposed; requested Terra unavailable; no subagent used"
+}

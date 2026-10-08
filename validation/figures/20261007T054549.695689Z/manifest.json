@@ -1,0 +1,3968 @@
+{
+  "source_run": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/overnight_runs/20261007T054549.695689Z",
+  "source_checksums_SHA256": "c951147af1bb5a406b9bfa61d5db548c8c5b646cdfa551ca5fdef79ba2077a64",
+  "source_code_SHA256": "39fe271a4d304eb6a1c3057e148f4ab8218431923a1765770ac1eaf5579649d7",
+  "examples": [
+    {
+      "case": 72,
+      "label": "Success 1: initial tracking-cost rank 1/3",
+      "reason": "All three observed successes are included, ranked by initial tracking cost; this is not a broad-box performance claim.",
+      "animation_html": "animations/case_072.html"
+    },
+    {
+      "case": 22,
+      "label": "Success 2: initial tracking-cost rank 2/3",
+      "reason": "All three observed successes are included, ranked by initial tracking cost; this is not a broad-box performance claim.",
+      "animation_html": "animations/case_022.html"
+    },
+    {
+      "case": 89,
+      "label": "Success 3: initial tracking-cost rank 3/3",
+      "reason": "All three observed successes are included, ranked by initial tracking cost; this is not a broad-box performance claim.",
+      "animation_html": "animations/case_089.html"
+    },
+    {
+      "case": 1,
+      "label": "Safe recovery, slow recentering",
+      "reason": "Case 1 passes every condition except terminal position.",
+      "animation_html": "animations/case_001.html"
+    },
+    {
+      "case": 100,
+      "label": "Earliest angle-limit crossing",
+      "reason": "Minimum first angle-crossing sample, with case ID as tie-breaker.",
+      "animation_html": "animations/case_100.html"
+    },
+    {
+      "case": 0,
+      "label": "Early rail violation without angle violation",
+      "reason": "Earliest crossing among rail-only safety failures.",
+      "animation_html": "animations/case_000.html"
+    },
+    {
+      "case": 87,
+      "label": "Rail and angle failure",
+      "reason": "Median first-angle-crossing rank among combined safety failures, with case ID as tie-breaker.",
+      "animation_html": "animations/case_087.html"
+    },
+    {
+      "case": 36,
+      "label": "Safe but position and speed do not settle",
+      "reason": "Lowest case ID among safe position-and-speed failures.",
+      "animation_html": "animations/case_036.html"
+    }
+  ],
+  "cases": [
+    {
+      "case": 0,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.1436894822469386,
+        6.352412752933867,
+        -0.010390363398823576,
+        4.762932567930369
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_000.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_000.pdf",
+      "data_npz": "data/case_000.npz"
+    },
+    {
+      "case": 1,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.2962876437495208,
+        1.0437827610525905,
+        -0.24332591477450713,
+        3.4215359728922716
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_001.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_001.pdf",
+      "data_npz": "data/case_001.npz"
+    },
+    {
+      "case": 2,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.3543492220328757,
+        3.112341009477836,
+        0.6266440157741283,
+        -6.556070580446106
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_002.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_002.pdf",
+      "data_npz": "data/case_002.npz"
+    },
+    {
+      "case": 3,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.811315867901083,
+        -1.492353965495941,
+        -0.027008419667867156,
+        -10.68290317798763
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_003.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_003.pdf",
+      "data_npz": "data/case_003.npz"
+    },
+    {
+      "case": 4,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.0985629736751492,
+        2.440416444435893,
+        -0.12189005757743457,
+        -10.202966084337435
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_004.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_004.pdf",
+      "data_npz": "data/case_004.npz"
+    },
+    {
+      "case": 5,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.20528568831699268,
+        -3.026342931047947,
+        -0.6919775732681512,
+        3.6509755673711752
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_005.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_005.pdf",
+      "data_npz": "data/case_005.npz"
+    },
+    {
+      "case": 6,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.3033911899203763,
+        -6.667604998597309,
+        0.6946798292539458,
+        7.858644377457788
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_006.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_006.pdf",
+      "data_npz": "data/case_006.npz"
+    },
+    {
+      "case": 7,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.15196421265907,
+        -1.8014290154351698,
+        0.945838534367401,
+        8.15524541828771
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_007.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_007.pdf",
+      "data_npz": "data/case_007.npz"
+    },
+    {
+      "case": 8,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.050995617399149,
+        -1.4941814235594177,
+        0.9328217162842407,
+        7.575831058998221
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_008.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_008.pdf",
+      "data_npz": "data/case_008.npz"
+    },
+    {
+      "case": 9,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.8698521344688275,
+        0.4993620649715398,
+        -0.11122880831981677,
+        1.801059157966683
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_009.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_009.pdf",
+      "data_npz": "data/case_009.npz"
+    },
+    {
+      "case": 10,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.5015904157499801,
+        1.838782707659424,
+        0.5005527572901556,
+        -9.493613166914479
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_010.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_010.pdf",
+      "data_npz": "data/case_010.npz"
+    },
+    {
+      "case": 11,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.35951200118622084,
+        -6.886700923692303,
+        0.7405890229320402,
+        6.63987178288853
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_011.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_011.pdf",
+      "data_npz": "data/case_011.npz"
+    },
+    {
+      "case": 12,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.5950239019255888,
+        5.736594429445065,
+        -0.2642799636427455,
+        -1.1906091528703031
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_012.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_012.pdf",
+      "data_npz": "data/case_012.npz"
+    },
+    {
+      "case": 13,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.1348055794320695,
+        -1.4811565167644085,
+        -0.3546566344514333,
+        6.89092124817764
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_013.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_013.pdf",
+      "data_npz": "data/case_013.npz"
+    },
+    {
+      "case": 14,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.9824297284531069,
+        6.483358467647211,
+        0.5247909308535651,
+        -7.693389632714525
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_014.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_014.pdf",
+      "data_npz": "data/case_014.npz"
+    },
+    {
+      "case": 15,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.5964019634623093,
+        -0.6643676401991269,
+        0.9917363835027527,
+        -5.088554475519787
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_015.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_015.pdf",
+      "data_npz": "data/case_015.npz"
+    },
+    {
+      "case": 16,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.09028381079933534,
+        4.1135169095485935,
+        0.5088140339658631,
+        3.964464757479593
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_016.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_016.pdf",
+      "data_npz": "data/case_016.npz"
+    },
+    {
+      "case": 17,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.7572202784218682,
+        0.38563409000090987,
+        -0.3021447950667144,
+        -4.765328513692862
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_017.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_017.pdf",
+      "data_npz": "data/case_017.npz"
+    },
+    {
+      "case": 18,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.19494575493891,
+        -2.7389907676330703,
+        -1.1254879644855709,
+        -7.601203989005586
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_018.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_018.pdf",
+      "data_npz": "data/case_018.npz"
+    },
+    {
+      "case": 19,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.23818221853922195,
+        -7.103794430613472,
+        0.8411164466773133,
+        6.926841701478941
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_019.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_019.pdf",
+      "data_npz": "data/case_019.npz"
+    },
+    {
+      "case": 20,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.5786998747595352,
+        3.235598788338608,
+        -1.243499798131982,
+        8.218976410975298
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_020.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_020.pdf",
+      "data_npz": "data/case_020.npz"
+    },
+    {
+      "case": 21,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.7257235832433525,
+        3.166525254886984,
+        0.38654711750316956,
+        -10.670642563643202
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_021.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_021.pdf",
+      "data_npz": "data/case_021.npz"
+    },
+    {
+      "case": 22,
+      "success": true,
+      "category": "success",
+      "failure_flags": [],
+      "initial_physical": [
+        -1.3143329720937358,
+        3.345826064632494,
+        0.2525747916826402,
+        -3.713683927432899
+      ],
+      "dashboard_png": "cases/success/case_022.png",
+      "dashboard_pdf": "cases/success/case_022.pdf",
+      "data_npz": "data/case_022.npz"
+    },
+    {
+      "case": 23,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.03235952014811494,
+        -3.373844873817819,
+        -0.9791099522914742,
+        -3.1536890906326334
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_023.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_023.pdf",
+      "data_npz": "data/case_023.npz"
+    },
+    {
+      "case": 24,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.1569427503762109,
+        -6.638717615127972,
+        -1.2107802103130376,
+        4.1185724828945265
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_024.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_024.pdf",
+      "data_npz": "data/case_024.npz"
+    },
+    {
+      "case": 25,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.1844918580326758,
+        -0.2973561672552228,
+        -1.2491792534751787,
+        -1.3127918227977764
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_025.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_025.pdf",
+      "data_npz": "data/case_025.npz"
+    },
+    {
+      "case": 26,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.2517924653145983,
+        3.2169303899041326,
+        -0.2861260138529801,
+        7.810220411720885
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_026.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_026.pdf",
+      "data_npz": "data/case_026.npz"
+    },
+    {
+      "case": 27,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.0042602312065303,
+        -7.645084183244884,
+        0.492174711571802,
+        9.888517885028564
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_027.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_027.pdf",
+      "data_npz": "data/case_027.npz"
+    },
+    {
+      "case": 28,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.316825151724081,
+        -2.5789812048147653,
+        1.009945880841104,
+        10.113980261058614
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_028.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_028.pdf",
+      "data_npz": "data/case_028.npz"
+    },
+    {
+      "case": 29,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.0888523524442837,
+        0.924904556230812,
+        0.015643929844141136,
+        3.93292691582745
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_029.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_029.pdf",
+      "data_npz": "data/case_029.npz"
+    },
+    {
+      "case": 30,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.491440655351315,
+        4.0250199726617515,
+        1.0520303623494702,
+        -10.576616427537694
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_030.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_030.pdf",
+      "data_npz": "data/case_030.npz"
+    },
+    {
+      "case": 31,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.4796766467564768,
+        -1.6540358183490185,
+        -0.10494872792659578,
+        -0.7540142901302059
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_031.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_031.pdf",
+      "data_npz": "data/case_031.npz"
+    },
+    {
+      "case": 32,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.4136562635015346,
+        -4.771736506219032,
+        -0.9438591518321895,
+        0.764457403641433
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_032.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_032.pdf",
+      "data_npz": "data/case_032.npz"
+    },
+    {
+      "case": 33,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.322494586898593,
+        -7.6908266877709455,
+        0.6937650329214354,
+        -10.361902519844927
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_033.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_033.pdf",
+      "data_npz": "data/case_033.npz"
+    },
+    {
+      "case": 34,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.015578891090398006,
+        -3.5272736594990595,
+        -0.5524636949354356,
+        -0.7118419843897925
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_034.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_034.pdf",
+      "data_npz": "data/case_034.npz"
+    },
+    {
+      "case": 35,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.44146431163993816,
+        1.2113738396929359,
+        -0.2653486685383263,
+        8.122593044540919
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_035.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_035.pdf",
+      "data_npz": "data/case_035.npz"
+    },
+    {
+      "case": 36,
+      "success": false,
+      "category": "failure/settling/position_and_speed",
+      "failure_flags": [
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.8511646571787136,
+        -5.514216048446941,
+        0.1780490822038136,
+        3.186696880853866
+      ],
+      "dashboard_png": "cases/failure/settling/position_and_speed/case_036.png",
+      "dashboard_pdf": "cases/failure/settling/position_and_speed/case_036.pdf",
+      "data_npz": "data/case_036.npz"
+    },
+    {
+      "case": 37,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.138402377242389,
+        5.118026926585538,
+        -0.7276108188470596,
+        4.475652616953543
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_037.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_037.pdf",
+      "data_npz": "data/case_037.npz"
+    },
+    {
+      "case": 38,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        1.2919008165123076,
+        -3.7040495909646154,
+        -0.6579004528213881,
+        10.301079968561679
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_038.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_038.pdf",
+      "data_npz": "data/case_038.npz"
+    },
+    {
+      "case": 39,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.3156254008570706,
+        -1.9959056376670687,
+        -0.16434865638967253,
+        -8.604171798450663
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_039.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_039.pdf",
+      "data_npz": "data/case_039.npz"
+    },
+    {
+      "case": 40,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle"
+      ],
+      "initial_physical": [
+        -0.09100145579707086,
+        1.7919829280289712,
+        0.5893262494409566,
+        9.666008223572069
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_040.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_040.pdf",
+      "data_npz": "data/case_040.npz"
+    },
+    {
+      "case": 41,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.4776194151055563,
+        -7.227067109735849,
+        0.09876932739685983,
+        8.781390402683044
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_041.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_041.pdf",
+      "data_npz": "data/case_041.npz"
+    },
+    {
+      "case": 42,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        1.161404892312079,
+        -7.069419155479376,
+        0.48253181979018567,
+        -9.05383938905685
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_042.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_042.pdf",
+      "data_npz": "data/case_042.npz"
+    },
+    {
+      "case": 43,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.047492914772677,
+        -6.0263466845698135,
+        0.8855292517218272,
+        -2.093174525399557
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_043.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_043.pdf",
+      "data_npz": "data/case_043.npz"
+    },
+    {
+      "case": 44,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        1.3173594306330643,
+        0.21051239299388136,
+        0.9133676175890603,
+        -4.114120721936176
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_044.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_044.pdf",
+      "data_npz": "data/case_044.npz"
+    },
+    {
+      "case": 45,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.2998190502601181,
+        2.1392065631341906,
+        -0.742991862422043,
+        -9.174420991146237
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_045.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_045.pdf",
+      "data_npz": "data/case_045.npz"
+    },
+    {
+      "case": 46,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        1.0111137258142298,
+        2.993811735846422,
+        0.3521353284312548,
+        6.75370029884172
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_046.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_046.pdf",
+      "data_npz": "data/case_046.npz"
+    },
+    {
+      "case": 47,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.123587914387906,
+        7.227615798688281,
+        -1.2745668796595677,
+        8.852244781495303
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_047.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_047.pdf",
+      "data_npz": "data/case_047.npz"
+    },
+    {
+      "case": 48,
+      "success": false,
+      "category": "failure/settling/position_and_speed",
+      "failure_flags": [
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.6092444656160058,
+        6.278826931995304,
+        0.8634910189072998,
+        -7.418758414195399
+      ],
+      "dashboard_png": "cases/failure/settling/position_and_speed/case_048.png",
+      "dashboard_pdf": "cases/failure/settling/position_and_speed/case_048.pdf",
+      "data_npz": "data/case_048.npz"
+    },
+    {
+      "case": 49,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle"
+      ],
+      "initial_physical": [
+        0.8502249349083504,
+        -5.076837175320516,
+        -0.5087015393954369,
+        8.816252287008062
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_049.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_049.pdf",
+      "data_npz": "data/case_049.npz"
+    },
+    {
+      "case": 50,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle"
+      ],
+      "initial_physical": [
+        0.41411180751010335,
+        0.027769438063679038,
+        0.30722161111307866,
+        5.432348974125771
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_050.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_050.pdf",
+      "data_npz": "data/case_050.npz"
+    },
+    {
+      "case": 51,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.029749984067225288,
+        -6.1898767190712,
+        -0.9275302914584023,
+        4.086512143900415
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_051.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_051.pdf",
+      "data_npz": "data/case_051.npz"
+    },
+    {
+      "case": 52,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.7583661292028294,
+        2.5098136098544868,
+        0.028819971933975008,
+        -0.2958158636368096
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_052.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_052.pdf",
+      "data_npz": "data/case_052.npz"
+    },
+    {
+      "case": 53,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle"
+      ],
+      "initial_physical": [
+        1.368343942314475,
+        -3.5235863568677726,
+        0.6116456589697619,
+        2.7918923395121853
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_053.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_053.pdf",
+      "data_npz": "data/case_053.npz"
+    },
+    {
+      "case": 54,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.9137168410805581,
+        3.2421302900900932,
+        0.46942554493971067,
+        1.8490914561029237
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_054.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_054.pdf",
+      "data_npz": "data/case_054.npz"
+    },
+    {
+      "case": 55,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.795554877839935,
+        0.4510869766131749,
+        0.9755427018050907,
+        -6.024000876528387
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_055.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_055.pdf",
+      "data_npz": "data/case_055.npz"
+    },
+    {
+      "case": 56,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.7229353452064843,
+        7.1342318576671655,
+        -0.5954056086135653,
+        -6.18590903680329
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_056.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_056.pdf",
+      "data_npz": "data/case_056.npz"
+    },
+    {
+      "case": 57,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.4887902596549023,
+        2.2089516624311996,
+        -0.16616958435896997,
+        1.9178730220638975
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_057.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_057.pdf",
+      "data_npz": "data/case_057.npz"
+    },
+    {
+      "case": 58,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.1511816196967053,
+        -4.247341678497061,
+        0.42866094115898595,
+        -2.544704021229765
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_058.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_058.pdf",
+      "data_npz": "data/case_058.npz"
+    },
+    {
+      "case": 59,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.11903977625023743,
+        6.570840688533661,
+        -0.2259984450845339,
+        8.19749635164028
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_059.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_059.pdf",
+      "data_npz": "data/case_059.npz"
+    },
+    {
+      "case": 60,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.8213671984805585,
+        -7.311682147024532,
+        0.5346991164709785,
+        -7.888576670982175
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_060.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_060.pdf",
+      "data_npz": "data/case_060.npz"
+    },
+    {
+      "case": 61,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.30284844475565764,
+        -4.495418867327773,
+        0.5988802972310577,
+        8.072791029830379
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_061.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_061.pdf",
+      "data_npz": "data/case_061.npz"
+    },
+    {
+      "case": 62,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.4529322335322408,
+        5.2632605107485775,
+        -0.8562677496089772,
+        -2.770414347544265
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_062.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_062.pdf",
+      "data_npz": "data/case_062.npz"
+    },
+    {
+      "case": 63,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.7299616704009575,
+        7.777935894294385,
+        -0.29329639151667236,
+        3.087759555292707
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_063.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_063.pdf",
+      "data_npz": "data/case_063.npz"
+    },
+    {
+      "case": 64,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.5954076969763616,
+        -0.43946746054696256,
+        1.088414261454007,
+        6.916120461397487
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_064.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_064.pdf",
+      "data_npz": "data/case_064.npz"
+    },
+    {
+      "case": 65,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.1442958397110221,
+        -4.159625232163096,
+        -0.17633268106073183,
+        6.428287430447773
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_065.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_065.pdf",
+      "data_npz": "data/case_065.npz"
+    },
+    {
+      "case": 66,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.5513596009724636,
+        7.597477931353951,
+        0.5655432685934891,
+        9.6733608743789
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_066.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_066.pdf",
+      "data_npz": "data/case_066.npz"
+    },
+    {
+      "case": 67,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.030969337516856,
+        -1.1515232086237024,
+        -1.1697859013756866,
+        10.633138414164991
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_067.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_067.pdf",
+      "data_npz": "data/case_067.npz"
+    },
+    {
+      "case": 68,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.9594509929093976,
+        7.401636165372459,
+        0.4392681334239182,
+        4.231863747666394
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_068.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_068.pdf",
+      "data_npz": "data/case_068.npz"
+    },
+    {
+      "case": 69,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.1234712643361897,
+        -7.089994940911765,
+        0.5997271987250197,
+        -8.220583522136625
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_069.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_069.pdf",
+      "data_npz": "data/case_069.npz"
+    },
+    {
+      "case": 70,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.002452214734610436,
+        -4.249031675392171,
+        0.9042991945261668,
+        -9.676268669554997
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_070.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_070.pdf",
+      "data_npz": "data/case_070.npz"
+    },
+    {
+      "case": 71,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.42579713545585085,
+        4.8339742201961,
+        0.08500444677144174,
+        8.692559052318643
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_071.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_071.pdf",
+      "data_npz": "data/case_071.npz"
+    },
+    {
+      "case": 72,
+      "success": true,
+      "category": "success",
+      "failure_flags": [],
+      "initial_physical": [
+        -1.262925043011584,
+        5.860990517997336,
+        0.2722811359987268,
+        -6.599911051607698
+      ],
+      "dashboard_png": "cases/success/case_072.png",
+      "dashboard_pdf": "cases/success/case_072.pdf",
+      "data_npz": "data/case_072.npz"
+    },
+    {
+      "case": 73,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.1713492440005335,
+        -2.3485277571727927,
+        -0.816619002240695,
+        -8.81792898625004
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_073.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_073.pdf",
+      "data_npz": "data/case_073.npz"
+    },
+    {
+      "case": 74,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        1.4318580121022912,
+        -2.6300643885186736,
+        -1.067001944607874,
+        4.210605796954269
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_074.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_074.pdf",
+      "data_npz": "data/case_074.npz"
+    },
+    {
+      "case": 75,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        1.2531079442533035,
+        7.2492736937928814,
+        0.72010234277901,
+        -9.91864422095599
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_075.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_075.pdf",
+      "data_npz": "data/case_075.npz"
+    },
+    {
+      "case": 76,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.38229244541954865,
+        -0.282018281904409,
+        -0.8314359330298049,
+        6.435744986809617
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_076.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_076.pdf",
+      "data_npz": "data/case_076.npz"
+    },
+    {
+      "case": 77,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.99659404810911,
+        2.8919765782794755,
+        0.2131050736522437,
+        -1.744467655561843
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_077.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_077.pdf",
+      "data_npz": "data/case_077.npz"
+    },
+    {
+      "case": 78,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.552512949657633,
+        -1.2909139159645981,
+        -0.4950057557590485,
+        0.5291049929342507
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_078.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_078.pdf",
+      "data_npz": "data/case_078.npz"
+    },
+    {
+      "case": 79,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.18126099408168472,
+        1.9841659418428774,
+        -0.18591954020230314,
+        3.721385222024485
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_079.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_079.pdf",
+      "data_npz": "data/case_079.npz"
+    },
+    {
+      "case": 80,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.3586540476159822,
+        2.751385849619948,
+        -0.7204820015859653,
+        9.26795759482694
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_080.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_080.pdf",
+      "data_npz": "data/case_080.npz"
+    },
+    {
+      "case": 81,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.27236202969420575,
+        1.0947812966538235,
+        0.19932608971143795,
+        0.03301672243380151
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_081.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_081.pdf",
+      "data_npz": "data/case_081.npz"
+    },
+    {
+      "case": 82,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.9918895005530212,
+        -4.626307146842514,
+        -0.9247003533752858,
+        4.3169744178014975
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_082.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_082.pdf",
+      "data_npz": "data/case_082.npz"
+    },
+    {
+      "case": 83,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.29217606100162785,
+        4.961761205636261,
+        -0.13023468686043965,
+        4.775906675905597
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_083.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_083.pdf",
+      "data_npz": "data/case_083.npz"
+    },
+    {
+      "case": 84,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.4786686801452895,
+        -2.102879891595911,
+        0.11753595238973387,
+        5.59782811182721
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_084.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_084.pdf",
+      "data_npz": "data/case_084.npz"
+    },
+    {
+      "case": 85,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.039291327843835155,
+        -2.3308247508150606,
+        0.1284911890934571,
+        6.0545554425673
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_085.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_085.pdf",
+      "data_npz": "data/case_085.npz"
+    },
+    {
+      "case": 86,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.002748787098643679,
+        -4.102693110257765,
+        -0.6258280684810001,
+        -10.941362520792966
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_086.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_086.pdf",
+      "data_npz": "data/case_086.npz"
+    },
+    {
+      "case": 87,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.1196130385327936,
+        -1.3842998181525876,
+        -1.2181691686894562,
+        -0.39927156542291037
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_087.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_087.pdf",
+      "data_npz": "data/case_087.npz"
+    },
+    {
+      "case": 88,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.15128835432451238,
+        -5.977940111925543,
+        -0.3962769139008769,
+        4.953966568158502
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_088.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_088.pdf",
+      "data_npz": "data/case_088.npz"
+    },
+    {
+      "case": 89,
+      "success": true,
+      "category": "success",
+      "failure_flags": [],
+      "initial_physical": [
+        1.0863355589013755,
+        -0.49064273549417997,
+        0.5704717154658555,
+        -3.674802443927283
+      ],
+      "dashboard_png": "cases/success/case_089.png",
+      "dashboard_pdf": "cases/success/case_089.pdf",
+      "data_npz": "data/case_089.npz"
+    },
+    {
+      "case": 90,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.3619794388951757,
+        -2.7655765929051364,
+        0.4276792189587641,
+        1.8142157163099892
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_090.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_090.pdf",
+      "data_npz": "data/case_090.npz"
+    },
+    {
+      "case": 91,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.0143178536798536,
+        -0.0780185993883715,
+        -1.0418807014614415,
+        7.003949934984705
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_091.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_091.pdf",
+      "data_npz": "data/case_091.npz"
+    },
+    {
+      "case": 92,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.4809765543333828,
+        0.37352966207303734,
+        0.22384057826487588,
+        -5.20196210296565
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_092.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_092.pdf",
+      "data_npz": "data/case_092.npz"
+    },
+    {
+      "case": 93,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.0314034968533794,
+        -6.352167399855836,
+        0.28836201897891806,
+        -0.8544491412267544
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_093.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_093.pdf",
+      "data_npz": "data/case_093.npz"
+    },
+    {
+      "case": 94,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.02658992614540623,
+        5.746501314023062,
+        0.4168096032665912,
+        2.498218761119462
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_094.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_094.pdf",
+      "data_npz": "data/case_094.npz"
+    },
+    {
+      "case": 95,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.7496079594873732,
+        5.824958701037842,
+        0.2103544485405798,
+        6.118618076443596
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_095.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_095.pdf",
+      "data_npz": "data/case_095.npz"
+    },
+    {
+      "case": 96,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.8946181472647513,
+        6.086135787934027,
+        -0.5033934404069207,
+        -1.8161521243823557
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_096.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_096.pdf",
+      "data_npz": "data/case_096.npz"
+    },
+    {
+      "case": 97,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.5718181099729432,
+        4.759880638421325,
+        0.48001959559350565,
+        -6.147856980776613
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_097.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_097.pdf",
+      "data_npz": "data/case_097.npz"
+    },
+    {
+      "case": 98,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.45026506987165493,
+        2.4742335310904124,
+        -0.6840608811061311,
+        3.8080117440712566
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_098.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_098.pdf",
+      "data_npz": "data/case_098.npz"
+    },
+    {
+      "case": 99,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.46452022119365466,
+        2.9744950155049907,
+        0.8150424598789904,
+        -6.705853798040406
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_099.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_099.pdf",
+      "data_npz": "data/case_099.npz"
+    },
+    {
+      "case": 100,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.38204460726046396,
+        3.377874868657033,
+        1.2380597124382036,
+        8.65747797757017
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_100.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_100.pdf",
+      "data_npz": "data/case_100.npz"
+    },
+    {
+      "case": 101,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.0463708834763511,
+        -2.8943682850598558,
+        -0.9358037288196419,
+        5.085549485975278
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_101.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_101.pdf",
+      "data_npz": "data/case_101.npz"
+    },
+    {
+      "case": 102,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.3831579158434366,
+        2.3048550017301515,
+        0.1328563591591035,
+        2.62385549098899
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_102.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_102.pdf",
+      "data_npz": "data/case_102.npz"
+    },
+    {
+      "case": 103,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.7117463838561082,
+        -2.5628360684359373,
+        -1.2435058437904283,
+        1.0140765048685918
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_103.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_103.pdf",
+      "data_npz": "data/case_103.npz"
+    },
+    {
+      "case": 104,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.2324310610264244,
+        -2.3421543255799566,
+        0.5911606117960486,
+        0.9990220263644427
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_104.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_104.pdf",
+      "data_npz": "data/case_104.npz"
+    },
+    {
+      "case": 105,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.733866454379196,
+        2.4575639735328805,
+        -0.47750502751766705,
+        -8.993892891771058
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_105.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_105.pdf",
+      "data_npz": "data/case_105.npz"
+    },
+    {
+      "case": 106,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.8227526017093643,
+        3.6626675960887245,
+        -1.2039921548212715,
+        -0.1103631563167219
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_106.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_106.pdf",
+      "data_npz": "data/case_106.npz"
+    },
+    {
+      "case": 107,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.8310443692565039,
+        7.07609086635669,
+        -0.8663156828899072,
+        -7.508765393568593
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_107.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_107.pdf",
+      "data_npz": "data/case_107.npz"
+    },
+    {
+      "case": 108,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.068491547294483,
+        -2.484805985550849,
+        -1.0605899199050288,
+        1.3718462609210405
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_108.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_108.pdf",
+      "data_npz": "data/case_108.npz"
+    },
+    {
+      "case": 109,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.0840885288518325,
+        7.520202223094351,
+        -0.02954316123827283,
+        8.74703066609681
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_109.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_109.pdf",
+      "data_npz": "data/case_109.npz"
+    },
+    {
+      "case": 110,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.29687350794494394,
+        2.3794198234913138,
+        -0.8859424618363353,
+        10.30282901598442
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_110.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_110.pdf",
+      "data_npz": "data/case_110.npz"
+    },
+    {
+      "case": 111,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.1548708562223662,
+        6.4183781667782265,
+        1.0409063674961783,
+        -8.366628075986224
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_111.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_111.pdf",
+      "data_npz": "data/case_111.npz"
+    },
+    {
+      "case": 112,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.33345917170253603,
+        5.490041218934331,
+        -1.2307672244530223,
+        -10.329250475062965
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_112.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_112.pdf",
+      "data_npz": "data/case_112.npz"
+    },
+    {
+      "case": 113,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.23597038886594623,
+        -6.681440669191275,
+        0.7267096673277504,
+        -4.624447584836758
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_113.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_113.pdf",
+      "data_npz": "data/case_113.npz"
+    },
+    {
+      "case": 114,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle"
+      ],
+      "initial_physical": [
+        0.31129722792158354,
+        -0.8615039776264174,
+        -0.524354423727655,
+        -5.402733116494083
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_114.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_114.pdf",
+      "data_npz": "data/case_114.npz"
+    },
+    {
+      "case": 115,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.2779107226493125,
+        5.563593459487817,
+        0.5697898008077407,
+        9.952522400109055
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_115.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_115.pdf",
+      "data_npz": "data/case_115.npz"
+    },
+    {
+      "case": 116,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.7101381832858462,
+        5.9865513226687606,
+        -0.8729856482137197,
+        1.4752873092653198
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_116.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_116.pdf",
+      "data_npz": "data/case_116.npz"
+    },
+    {
+      "case": 117,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.7674412815459121,
+        2.871487843610645,
+        -0.7841802822885515,
+        6.575746063342853
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_117.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_117.pdf",
+      "data_npz": "data/case_117.npz"
+    },
+    {
+      "case": 118,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.5151559328958498,
+        0.5891803170695421,
+        1.2019053442705785,
+        1.5552860921172762
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_118.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_118.pdf",
+      "data_npz": "data/case_118.npz"
+    },
+    {
+      "case": 119,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.5123571824497798,
+        3.2130521799600444,
+        -0.20952288181459894,
+        6.032344492263812
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_119.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_119.pdf",
+      "data_npz": "data/case_119.npz"
+    },
+    {
+      "case": 120,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.205573686723484,
+        5.8351533092410675,
+        0.8155036831304007,
+        -5.66681763154174
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_120.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_120.pdf",
+      "data_npz": "data/case_120.npz"
+    },
+    {
+      "case": 121,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.9034727040804418,
+        -6.547488233908676,
+        -0.4759373649978133,
+        -10.6291876517913
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_121.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_121.pdf",
+      "data_npz": "data/case_121.npz"
+    },
+    {
+      "case": 122,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.684271609919591,
+        -5.105704964400375,
+        0.4251331018450693,
+        -6.725722184997105
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_122.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_122.pdf",
+      "data_npz": "data/case_122.npz"
+    },
+    {
+      "case": 123,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle"
+      ],
+      "initial_physical": [
+        -1.42426592151398,
+        1.834726552120743,
+        -1.1972088954417146,
+        0.5737570623762307
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_123.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_123.pdf",
+      "data_npz": "data/case_123.npz"
+    },
+    {
+      "case": 124,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.188690664562082,
+        -3.7984673874194694,
+        -0.5960429692542822,
+        2.0508150442580044
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_124.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_124.pdf",
+      "data_npz": "data/case_124.npz"
+    },
+    {
+      "case": 125,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.175918403383886,
+        6.48733699694141,
+        0.49012556062950335,
+        2.2573858169636565
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_125.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_125.pdf",
+      "data_npz": "data/case_125.npz"
+    },
+    {
+      "case": 126,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.1070202737513869,
+        -3.249395713143072,
+        -0.20375413768185613,
+        1.1014240148196905
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_126.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_126.pdf",
+      "data_npz": "data/case_126.npz"
+    },
+    {
+      "case": 127,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.1940325207838025,
+        -3.118355641930853,
+        1.131203431812341,
+        -4.47571603944537
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_127.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_127.pdf",
+      "data_npz": "data/case_127.npz"
+    },
+    {
+      "case": 128,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.4033805338787043,
+        -6.607253161136639,
+        0.7029045868483763,
+        -5.715046048959117
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_128.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_128.pdf",
+      "data_npz": "data/case_128.npz"
+    },
+    {
+      "case": 129,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.17442292997473408,
+        0.3179545803252596,
+        0.861393796909886,
+        -3.9340948318826787
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_129.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_129.pdf",
+      "data_npz": "data/case_129.npz"
+    },
+    {
+      "case": 130,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.6805044768047033,
+        -7.636372719167311,
+        1.1244431735581988,
+        3.4039406618661507
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_130.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_130.pdf",
+      "data_npz": "data/case_130.npz"
+    },
+    {
+      "case": 131,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.0196506178627043,
+        -5.172899828519316,
+        1.2389256998828662,
+        -0.42333392016653676
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_131.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_131.pdf",
+      "data_npz": "data/case_131.npz"
+    },
+    {
+      "case": 132,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        1.1312843772380257,
+        2.379294512163158,
+        -0.47150996819946417,
+        9.01503161673628
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_132.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_132.pdf",
+      "data_npz": "data/case_132.npz"
+    },
+    {
+      "case": 133,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.18186647578392845,
+        4.151494948570635,
+        0.24364350465247794,
+        6.944002431964505
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_133.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_133.pdf",
+      "data_npz": "data/case_133.npz"
+    },
+    {
+      "case": 134,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.35075776439507755,
+        -5.031563683307917,
+        0.725655272983651,
+        -6.312934299981114
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_134.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_134.pdf",
+      "data_npz": "data/case_134.npz"
+    },
+    {
+      "case": 135,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.12353050787743436,
+        -4.883141938418563,
+        -1.0764108447265803,
+        -8.094546769547767
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_135.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_135.pdf",
+      "data_npz": "data/case_135.npz"
+    },
+    {
+      "case": 136,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.4851793199245358,
+        -1.4694870415361625,
+        -0.2774485825536089,
+        -0.3921308793941207
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_136.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_136.pdf",
+      "data_npz": "data/case_136.npz"
+    },
+    {
+      "case": 137,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.42379681804227864,
+        5.337060451621052,
+        0.02514972797404087,
+        -10.421207472662495
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_137.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_137.pdf",
+      "data_npz": "data/case_137.npz"
+    },
+    {
+      "case": 138,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.9460614751850323,
+        5.651085253343286,
+        -0.3800274792445744,
+        -9.589431432668578
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_138.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_138.pdf",
+      "data_npz": "data/case_138.npz"
+    },
+    {
+      "case": 139,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.4689079690519085,
+        6.540030200631052,
+        -0.7571005980157549,
+        -7.036629645143828
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_139.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_139.pdf",
+      "data_npz": "data/case_139.npz"
+    },
+    {
+      "case": 140,
+      "success": false,
+      "category": "failure/settling/position_and_speed",
+      "failure_flags": [
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.2852516528207395,
+        -5.18268555260096,
+        0.7862215122138194,
+        -0.4910586629235329
+      ],
+      "dashboard_png": "cases/failure/settling/position_and_speed/case_140.png",
+      "dashboard_pdf": "cases/failure/settling/position_and_speed/case_140.pdf",
+      "data_npz": "data/case_140.npz"
+    },
+    {
+      "case": 141,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.03191828236573213,
+        -0.38435174232681574,
+        -0.3821352711004171,
+        1.5260410848902846
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_141.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_141.pdf",
+      "data_npz": "data/case_141.npz"
+    },
+    {
+      "case": 142,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.14097905709453495,
+        -1.075252361885125,
+        -0.5625391705733279,
+        -5.054515083188554
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_142.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_142.pdf",
+      "data_npz": "data/case_142.npz"
+    },
+    {
+      "case": 143,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.3030299801060177,
+        -3.5755120098333153,
+        -0.8459734687352192,
+        -1.3357885683828103
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_143.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_143.pdf",
+      "data_npz": "data/case_143.npz"
+    },
+    {
+      "case": 144,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.1164273260022135,
+        4.593777146860904,
+        1.1349722490710323,
+        0.03798137260213651
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_144.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_144.pdf",
+      "data_npz": "data/case_144.npz"
+    },
+    {
+      "case": 145,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle"
+      ],
+      "initial_physical": [
+        0.9316688337684051,
+        -3.4651347338992005,
+        -0.42545350191190845,
+        -5.283105274432715
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_145.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_145.pdf",
+      "data_npz": "data/case_145.npz"
+    },
+    {
+      "case": 146,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.7132144250246935,
+        -0.9064569929365414,
+        -0.3881168842869131,
+        -8.836407387563154
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_146.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_146.pdf",
+      "data_npz": "data/case_146.npz"
+    },
+    {
+      "case": 147,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.3433581613704346,
+        5.068738750145693,
+        -0.2182178149980321,
+        4.963478225702891
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_147.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_147.pdf",
+      "data_npz": "data/case_147.npz"
+    },
+    {
+      "case": 148,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.3531540210568274,
+        2.026875659655499,
+        -0.715585500505274,
+        -3.6052503075362163
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_148.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_148.pdf",
+      "data_npz": "data/case_148.npz"
+    },
+    {
+      "case": 149,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.3356110841342583,
+        -0.3028252691024092,
+        1.071507509918614,
+        -4.316862369494592
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_149.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_149.pdf",
+      "data_npz": "data/case_149.npz"
+    },
+    {
+      "case": 150,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.2074342407940213,
+        4.561316577122094,
+        0.7235583601884047,
+        -8.192612030982074
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_150.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_150.pdf",
+      "data_npz": "data/case_150.npz"
+    },
+    {
+      "case": 151,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.09391254971955021,
+        -3.074868162609003,
+        1.2811273047990035,
+        -8.444692044055705
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_151.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_151.pdf",
+      "data_npz": "data/case_151.npz"
+    },
+    {
+      "case": 152,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.9821423608371941,
+        -0.3395359870330753,
+        -1.2041716673197138,
+        -5.552905793766725
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_152.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_152.pdf",
+      "data_npz": "data/case_152.npz"
+    },
+    {
+      "case": 153,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.0005160469183500549,
+        1.8823979399704944,
+        0.32525123876161266,
+        6.266957634393993
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_153.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_153.pdf",
+      "data_npz": "data/case_153.npz"
+    },
+    {
+      "case": 154,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.7708743775083766,
+        -1.7606280060142383,
+        0.2290011366615657,
+        2.96936136752926
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_154.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_154.pdf",
+      "data_npz": "data/case_154.npz"
+    },
+    {
+      "case": 155,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.2744451138328574,
+        1.0645510152496607,
+        -0.688026828389911,
+        -7.6835963661344895
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_155.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_155.pdf",
+      "data_npz": "data/case_155.npz"
+    },
+    {
+      "case": 156,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.1308404371608798,
+        -0.1585045611660324,
+        1.1638198245876012,
+        9.519672994808147
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_156.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_156.pdf",
+      "data_npz": "data/case_156.npz"
+    },
+    {
+      "case": 157,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.00878705917219369,
+        4.949754749624012,
+        -1.2927210320669646,
+        5.733252180883251
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_157.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_157.pdf",
+      "data_npz": "data/case_157.npz"
+    },
+    {
+      "case": 158,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.15142815615028093,
+        5.5046550346510275,
+        -1.167154529605481,
+        10.097242315779424
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_158.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_158.pdf",
+      "data_npz": "data/case_158.npz"
+    },
+    {
+      "case": 159,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.39093047704867767,
+        -7.791382480729528,
+        -1.2148596261419304,
+        -4.827910732774068
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_159.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_159.pdf",
+      "data_npz": "data/case_159.npz"
+    },
+    {
+      "case": 160,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.3510170081128314,
+        5.051531779367878,
+        0.10515294647325742,
+        -0.31481628098522535
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_160.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_160.pdf",
+      "data_npz": "data/case_160.npz"
+    },
+    {
+      "case": 161,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.635729208019849,
+        5.69557737652892,
+        -1.103154534150608,
+        -0.8457902032211015
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_161.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_161.pdf",
+      "data_npz": "data/case_161.npz"
+    },
+    {
+      "case": 162,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.9187935674901776,
+        6.776675118980971,
+        0.811298500826642,
+        2.6263345485660565
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_162.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_162.pdf",
+      "data_npz": "data/case_162.npz"
+    },
+    {
+      "case": 163,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.3882185641200657,
+        -6.157942532355789,
+        0.9744495760617201,
+        4.9699303989926085
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_163.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_163.pdf",
+      "data_npz": "data/case_163.npz"
+    },
+    {
+      "case": 164,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.1468948316299319,
+        -5.71622638597384,
+        1.0764446524884954,
+        2.907243255796037
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_164.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_164.pdf",
+      "data_npz": "data/case_164.npz"
+    },
+    {
+      "case": 165,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.425649593420489,
+        -2.1843139061400607,
+        1.2289080973050583,
+        0.13381240173226558
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_165.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_165.pdf",
+      "data_npz": "data/case_165.npz"
+    },
+    {
+      "case": 166,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        1.2824190084422566,
+        3.4394440405098767,
+        1.0295275099047563,
+        -1.8022136530131416
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_166.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_166.pdf",
+      "data_npz": "data/case_166.npz"
+    },
+    {
+      "case": 167,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.368827175665957,
+        2.830706856451977,
+        0.0641038073183463,
+        5.590732882651903
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_167.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_167.pdf",
+      "data_npz": "data/case_167.npz"
+    },
+    {
+      "case": 168,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.9784839554687402,
+        -6.580164252700761,
+        0.4253949128378119,
+        10.083564411906718
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_168.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_168.pdf",
+      "data_npz": "data/case_168.npz"
+    },
+    {
+      "case": 169,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.6873879358421552,
+        -5.674668048457535,
+        0.8283774889503815,
+        3.5032446756475353
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_169.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_169.pdf",
+      "data_npz": "data/case_169.npz"
+    },
+    {
+      "case": 170,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.9407917309472827,
+        4.858704328740519,
+        0.9088004759588978,
+        7.220373458474908
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_170.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_170.pdf",
+      "data_npz": "data/case_170.npz"
+    },
+    {
+      "case": 171,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle"
+      ],
+      "initial_physical": [
+        -0.9826518658107599,
+        2.63726412537018,
+        -1.1581983632874895,
+        -0.8324712411850402
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_171.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_171.pdf",
+      "data_npz": "data/case_171.npz"
+    },
+    {
+      "case": 172,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.07947736148162265,
+        -1.1124029721510604,
+        0.7399582094434333,
+        -1.5269492122269184
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_172.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_172.pdf",
+      "data_npz": "data/case_172.npz"
+    },
+    {
+      "case": 173,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.6464991980490591,
+        -1.2517660121554848,
+        0.25631112828671737,
+        6.280554066523626
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_173.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_173.pdf",
+      "data_npz": "data/case_173.npz"
+    },
+    {
+      "case": 174,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.40316483116243507,
+        -6.252687141645145,
+        0.17583790176481778,
+        1.2274866403615794
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_174.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_174.pdf",
+      "data_npz": "data/case_174.npz"
+    },
+    {
+      "case": 175,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.5573674102005578,
+        -2.883730189464058,
+        -1.1866409877992299,
+        -3.460206924990704
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_175.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_175.pdf",
+      "data_npz": "data/case_175.npz"
+    },
+    {
+      "case": 176,
+      "success": false,
+      "category": "failure/settling/position_and_speed",
+      "failure_flags": [
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.6567222713890682,
+        -3.4109985539886445,
+        -1.2855328071623149,
+        9.347264046802824
+      ],
+      "dashboard_png": "cases/failure/settling/position_and_speed/case_176.png",
+      "dashboard_pdf": "cases/failure/settling/position_and_speed/case_176.pdf",
+      "data_npz": "data/case_176.npz"
+    },
+    {
+      "case": 177,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.7287138639369002,
+        3.2751531600065125,
+        -0.17598587355944462,
+        1.3275261070295605
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_177.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_177.pdf",
+      "data_npz": "data/case_177.npz"
+    },
+    {
+      "case": 178,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.8444395242733551,
+        -0.7557475725821219,
+        1.1705937156256094,
+        -5.284743697999246
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_178.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_178.pdf",
+      "data_npz": "data/case_178.npz"
+    },
+    {
+      "case": 179,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.7400902687498148,
+        3.567888647026996,
+        0.8288007115050484,
+        -7.947838418470236
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_179.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_179.pdf",
+      "data_npz": "data/case_179.npz"
+    },
+    {
+      "case": 180,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.5007259586309243,
+        -0.5420776386073191,
+        1.1981823064985497,
+        1.6625991293292646
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_180.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_180.pdf",
+      "data_npz": "data/case_180.npz"
+    },
+    {
+      "case": 181,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.5297308800901569,
+        2.961625732720802,
+        0.5654953393599349,
+        1.4410769383779705
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_181.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_181.pdf",
+      "data_npz": "data/case_181.npz"
+    },
+    {
+      "case": 182,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.0513528503218017,
+        6.692893420795846,
+        0.8464016862729646,
+        -7.845083988017269
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_182.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_182.pdf",
+      "data_npz": "data/case_182.npz"
+    },
+    {
+      "case": 183,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -0.8301412409874959,
+        6.765289177997344,
+        0.22978147107945246,
+        2.592581529703457
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_183.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_183.pdf",
+      "data_npz": "data/case_183.npz"
+    },
+    {
+      "case": 184,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.864730708389015,
+        7.8043509490567375,
+        1.1216218127245918,
+        -1.0385501144512617
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_184.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_184.pdf",
+      "data_npz": "data/case_184.npz"
+    },
+    {
+      "case": 185,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.3882723756618299,
+        -3.84344773476415,
+        -0.33005805692146134,
+        -7.6369771287969765
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_185.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_185.pdf",
+      "data_npz": "data/case_185.npz"
+    },
+    {
+      "case": 186,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.3388367446029673,
+        -2.258738094613192,
+        -1.0516276657466683,
+        6.530249337514652
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_186.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_186.pdf",
+      "data_npz": "data/case_186.npz"
+    },
+    {
+      "case": 187,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        1.2829725161291372,
+        0.9589795361009269,
+        -0.2940565849500914,
+        10.27982915815597
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_187.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_187.pdf",
+      "data_npz": "data/case_187.npz"
+    },
+    {
+      "case": 188,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        -1.0863242838669709,
+        -1.995732094149634,
+        1.0102438228710284,
+        -9.07266201839048
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_188.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_188.pdf",
+      "data_npz": "data/case_188.npz"
+    },
+    {
+      "case": 189,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.548588640564063,
+        -3.40376609947814,
+        -0.2655169783415481,
+        -6.107980829115456
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_189.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_189.pdf",
+      "data_npz": "data/case_189.npz"
+    },
+    {
+      "case": 190,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -1.4473270419659083,
+        -0.07643911250091687,
+        0.2325976448048965,
+        -8.419322473424046
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_190.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_190.pdf",
+      "data_npz": "data/case_190.npz"
+    },
+    {
+      "case": 191,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.4115590547373982,
+        3.3208383322168227,
+        0.08794401471372186,
+        -9.076285328362514
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_191.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_191.pdf",
+      "data_npz": "data/case_191.npz"
+    },
+    {
+      "case": 192,
+      "success": false,
+      "category": "failure/settling/position_and_speed",
+      "failure_flags": [
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -1.332995206111931,
+        -2.1236195457159175,
+        -0.06624423032979691,
+        1.4713918313642755
+      ],
+      "dashboard_png": "cases/failure/settling/position_and_speed/case_192.png",
+      "dashboard_pdf": "cases/failure/settling/position_and_speed/case_192.pdf",
+      "data_npz": "data/case_192.npz"
+    },
+    {
+      "case": 193,
+      "success": false,
+      "category": "failure/settling/position_only",
+      "failure_flags": [
+        "terminal_position"
+      ],
+      "initial_physical": [
+        0.6403806185374962,
+        -1.36808109953987,
+        -0.28231977713482653,
+        -0.6440000674087704
+      ],
+      "dashboard_png": "cases/failure/settling/position_only/case_193.png",
+      "dashboard_pdf": "cases/failure/settling/position_only/case_193.pdf",
+      "data_npz": "data/case_193.npz"
+    },
+    {
+      "case": 194,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position"
+      ],
+      "initial_physical": [
+        -0.1425514720182739,
+        2.2234862872074643,
+        0.898430946916706,
+        1.7341301707109953
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_194.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_194.pdf",
+      "data_npz": "data/case_194.npz"
+    },
+    {
+      "case": 195,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        -0.1407172075566584,
+        -3.661820040487334,
+        -1.0487940408322347,
+        -0.1408250994666
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_195.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_195.pdf",
+      "data_npz": "data/case_195.npz"
+    },
+    {
+      "case": 196,
+      "success": false,
+      "category": "failure/safety/angle",
+      "failure_flags": [
+        "angle"
+      ],
+      "initial_physical": [
+        -0.8526020195983426,
+        6.44776132892036,
+        0.5633861958870525,
+        4.795307970319764
+      ],
+      "dashboard_png": "cases/failure/safety/angle/case_196.png",
+      "dashboard_pdf": "cases/failure/safety/angle/case_196.pdf",
+      "data_npz": "data/case_196.npz"
+    },
+    {
+      "case": 197,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed"
+      ],
+      "initial_physical": [
+        0.5444761993394832,
+        -4.12768054102094,
+        0.11425584186561409,
+        10.684305352244643
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_197.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_197.pdf",
+      "data_npz": "data/case_197.npz"
+    },
+    {
+      "case": 198,
+      "success": false,
+      "category": "failure/safety/rail_and_angle",
+      "failure_flags": [
+        "rail",
+        "angle",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.9049533109406349,
+        -5.316029737651673,
+        1.0056372075985376,
+        10.400172384393885
+      ],
+      "dashboard_png": "cases/failure/safety/rail_and_angle/case_198.png",
+      "dashboard_pdf": "cases/failure/safety/rail_and_angle/case_198.pdf",
+      "data_npz": "data/case_198.npz"
+    },
+    {
+      "case": 199,
+      "success": false,
+      "category": "failure/safety/rail",
+      "failure_flags": [
+        "rail",
+        "terminal_position",
+        "terminal_cart_speed",
+        "terminal_angle",
+        "terminal_angular_speed"
+      ],
+      "initial_physical": [
+        0.5149479929107591,
+        3.623044291129679,
+        -0.20990522130213035,
+        5.342997783190906
+      ],
+      "dashboard_png": "cases/failure/safety/rail/case_199.png",
+      "dashboard_pdf": "cases/failure/safety/rail/case_199.pdf",
+      "data_npz": "data/case_199.npz"
+    }
+  ],
+  "group_counts": {
+    "failure/safety/rail": 62,
+    "failure/settling/position_only": 27,
+    "failure/safety/rail_and_angle": 83,
+    "success": 3,
+    "failure/settling/position_and_speed": 5,
+    "failure/safety/angle": 20
+  },
+  "definitions": {
+    "time_s": "physical seconds, dt=0.02",
+    "physical_state_order": [
+      "p m",
+      "v m/s",
+      "theta rad",
+      "omega rad/s"
+    ],
+    "normalized_action": "u=F/(m*g), m=1 kg, g=9.81 m/s2",
+    "energy": "uniform rod, full length 1m, mass 1kg, cart 2kg; potential zero at pivot height",
+    "work_J": "cumulative F[k]*(p[k+1]-p[k]); exact held-force work along saved displacement",
+    "derived_not_sensor_measurements": true,
+    "interval_acceleration": "finite interval velocity difference / 0.02 s, not instantaneous model acceleration"
+  },
+  "new_experimental_jobs": 0,
+  "render_wall_seconds": 519.3647601492703,
+  "render_peak_RSS_MiB": 229.19140625,
+  "packages": {
+    "numpy": "2.2.6",
+    "matplotlib": "3.10.8"
+  },
+  "render_source_code_SHA256": "cdb20979fd8e284684764dba41d2a9e091d4eefb8f0eafd8218926d8351a9045",
+  "local_diagnostic": {
+    "directory": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/diagnostics/20261007T175948.296063Z",
+    "original_successes": 0,
+    "candidate_successes": 7,
+    "probes": 7,
+    "plant_transitions": 14000,
+    "worker_seconds": 7.076881527900696,
+    "calibration": false
+  },
+  "notebook_SHA256": "008a3a9e12700f3b04820ec9db2e7d7b2910b728a8653d4de1c984123bd25c63"
+}

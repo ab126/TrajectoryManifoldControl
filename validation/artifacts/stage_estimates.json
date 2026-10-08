@@ -1,0 +1,74 @@
+{
+  "device": "cpu",
+  "performance_only": true,
+  "tau_H_s": 0.06184817062069972,
+  "tau_E_s": 0.3272447591492285,
+  "tau_oracle_single_start_s": 0.1147867189720273,
+  "full_epoch_s": 0.7164017166942358,
+  "ensemble_member_epoch_s": 0.6743204519152641,
+  "H_smoke_replans_per_sample": 0.2,
+  "E_replans_per_sample": 0.2,
+  "stage1_mandatory_tuning_training_s_model": 1168.8221166531243,
+  "rows": [
+    {
+      "stage": 0,
+      "cap_worker_h": 8,
+      "worst_planning_h": 31.88519971445203,
+      "projected_planning_h": 6.377039942890406,
+      "completed_readiness_h": 0.42929275192596666,
+      "worst_modeled_h": 32.31449246637799,
+      "projected_modeled_h": 6.806332694816373,
+      "worst_exceeds_cap": true,
+      "projected_exceeds_cap": false,
+      "unmeasured_overhead": "calibration plant, local feedback, logging; oracle rate may differ"
+    },
+    {
+      "stage": 1,
+      "bundle_case_budget_cells": 450,
+      "cap_worker_h": 12,
+      "worst_planning_h": 48.636616221241034,
+      "projected_planning_h": 9.727323244248206,
+      "modeled_training_collection_h": 0.7089398953856477,
+      "worst_modeled_h": 49.34555611662668,
+      "projected_modeled_h": 10.436263139633853,
+      "worst_exceeds_cap": true,
+      "projected_exceeds_cap": false,
+      "unmeasured_overhead": "LQR evaluation, plant/scoring/logging, statistics; totals are lower bounds"
+    },
+    {
+      "stage": 2,
+      "bundle_case_budget_cells": 24000,
+      "cap_worker_h": 48,
+      "worst_planning_h": 2593.952865132855,
+      "projected_planning_h": 518.790573026571,
+      "modeled_training_collection_h": 7.505313101485778,
+      "worst_modeled_h": 2601.4581782343407,
+      "projected_modeled_h": 526.2958861280567,
+      "worst_exceeds_cap": true,
+      "projected_exceeds_cap": true,
+      "unmeasured_overhead": "LQR evaluation, plant/scoring/logging, statistics; totals are lower bounds"
+    },
+    {
+      "stage": 3,
+      "bundle_case_budget_cells": 450,
+      "cap_worker_h": 8,
+      "worst_planning_h": 48.636616221241034,
+      "projected_planning_h": 9.727323244248206,
+      "modeled_training_collection_h": 0.0,
+      "worst_modeled_h": 48.636616221241034,
+      "projected_modeled_h": 9.727323244248206,
+      "worst_exceeds_cap": true,
+      "projected_exceeds_cap": true,
+      "unmeasured_overhead": "LQR evaluation, plant/scoring/logging, statistics; totals are lower bounds"
+    },
+    {
+      "stage": 4,
+      "cap_worker_h": 0,
+      "status": "not authorized; no committed workload"
+    }
+  ],
+  "projection_warning": "2s smoke on tiny training is a proxy, not a measured nominal 20s replan rate; E has no switch and replans every five samples",
+  "reservation_warning": "s=1 solve COUNT bound times measured mean latency is not a guaranteed runtime bound; reserve margins and meter actual worker time",
+  "training_warning": "linear scaling with T and width squared; epoch overhead/other widths unmeasured, future E recipe not frozen",
+  "wall_clock_conversion": "prefer aggregate solves/s from concurrency.json for CPU or concurrency_cuda.json for GPU; divide total solves by throughput, not worker-hours by all 64 cores"
+}
