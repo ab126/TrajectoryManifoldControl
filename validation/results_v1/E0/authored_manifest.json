@@ -1,0 +1,28 @@
+{
+  "git_commit": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "config": {
+    "horizon": 30,
+    "dt": 0.0626418390534633,
+    "episodes": 3500,
+    "epochs": 100,
+    "batch_size": 2048,
+    "hidden_dims": [
+      192,
+      192,
+      192
+    ],
+    "umax": 10.0,
+    "seed": 234,
+    "simulation_seconds": 14.0,
+    "controller_iterations": 60,
+    "controller_lr": 0.06,
+    "device": "cuda"
+  },
+  "seeds": [
+    234
+  ],
+  "device": "cuda",
+  "cvxpy_unused_import_workaround": true,
+  "status": "DONE",
+  "wall_seconds": 200.35632061958313
+}

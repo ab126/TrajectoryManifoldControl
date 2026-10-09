@@ -136,3 +136,5 @@ The reusable learning and controller components operate on generic state and inp
 6. Evaluate prediction error and closed-loop performance on untouched episodes and initial conditions.
 
 Keep plant-specific simulation or hardware access behind the collection and evaluation interface. The decoder and online controller should consume only measured states, candidate inputs, fitted scaling statistics, and learned model parameters.
+
+The earlier OA-1/I01–I05 oracle, gating, queue and archive campaign is parked; validation now follows `validation/codex_handoff_from_claude_v1.md`.

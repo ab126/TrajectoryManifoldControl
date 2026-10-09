@@ -1,0 +1,12 @@
+.mpl/
+**/raw/
+**/*.npz
+**/*.npy
+**/*.pt
+**/run.log
+**/authored.log
+codex_exec.log
+supervisor.log
+.supervisor_state.json
+models/**/data.npz
+models/**/transition.pt

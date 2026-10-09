@@ -1,0 +1,79 @@
+{
+  "git_commit": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "config": {
+    "preflight": {
+      "device": "cuda",
+      "timing_source": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/artifacts/benchmark_oracle_cuda_1.json",
+      "cases": 200,
+      "starts": 1,
+      "N": 60,
+      "physical_seconds": 20,
+      "worst_case_planning_worker_hours": 11.899587172256025,
+      "cap_worker_hours": 14.4,
+      "reservation_with_20pct_overhead_h": 14.27950460670723,
+      "reservation_fits": true,
+      "note": "planning floor only; reserve extra plant/scoring/logging overhead",
+      "requested_box_scale": 1.0,
+      "execute": true
+    },
+    "root_seed": 20261006,
+    "box_half_widths_normalized": [
+      1.5,
+      2.5,
+      1.3,
+      3.5
+    ],
+    "case_seed": 5964656356239730327,
+    "dtype": "float64",
+    "dt_physical": 0.02,
+    "dt_normalized": 0.0626418390534633,
+    "cost_Q": [
+      [
+        0.02,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        30.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        10.0
+      ]
+    ],
+    "cost_R": [
+      [
+        0.03
+      ]
+    ],
+    "LQR_gain": [
+      [
+        -0.42939941576926915,
+        -17.742495407076213,
+        -47.50443395130801,
+        -30.594933787869046
+      ]
+    ],
+    "timing_exempt": true
+  },
+  "seeds": [
+    20261006
+  ],
+  "device": "CPU postprocessing of prior CUDA trajectories",
+  "wall_seconds": 1.0913457050919533,
+  "source": "validation/overnight_runs/20261007T054549.695689Z/calibration",
+  "status": "DONE",
+  "note": "N=60, 20 s, historical diagnostic; not matched to new N=30, 14 s arms"
+}

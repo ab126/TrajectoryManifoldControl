@@ -1,0 +1,233 @@
+% Editable transcription of trajectory_manifold_implementation.pdf.
+% Prepared 2026-10-06. Original claims and equation numbers are preserved.
+% Typography is reconstructed; this is not the author's original TeX source.
+% Source-page comments identify the five original PDF pages.
+% Add inline annotations with \review{your comment}; remove or redefine the macro to hide them.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,xcolor}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\col}{\operatorname{col}}
+\newcommand{\clip}{\operatorname{clip}}
+\newcommand{\review}[1]{\par\noindent\textcolor{red!70!black}{\textbf{Review:} #1}\par}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\title{Trajectory-Manifold Identification and Control\\\large Current Implementation Specification}
+\author{}
+\date{Implementation snapshot: September 24, 2026}
+\begin{document}
+\maketitle
+\review{\textbf{Validation review, October 9, 2026.} This separate annotated transcription preserves source prose and equations. Comments identify notation, missing specification details and limitations. Experiments and the paper audit are linked from validation/results_v1/RESULTS.md.}
+
+% SOURCE PDF PAGE 1
+This note specifies the active computation path in \code{scripts/run_inverted_pendulum_mc.py} and
+\code{src/manifold_control.py}. It uses the notation of \emph{Trajectory Manifolds for Nonlinear Data-Enabled Predictive Control, Part I: Existence, Smoothness, and Intrinsic Dimension}~\cite{bayer}.
+The implementation combines a learned rollout decoder, sampled predictive optimization, and a separately identified local feedback law. No consistency, optimizer convergence, or closed-loop stability claim is made here.
+\review{\textbf{R01 (CLAIM SCOPE).} This specification explicitly disclaims consistency, optimizer convergence and closed-loop stability guarantees. Their absence is not a false claim. Assess its fidelity to the implementation separately from the foundational paper's mathematical claims and from demonstrated practical benefit.}
+
+
+\section{System, behavior, and coordinates}
+Consider a deterministic, fully measured, discrete-time system
+\begin{equation}\label{eq:system}
+x_{k+1}=f(x_k,u_k),\qquad x_k\in\mathbb R^n,\quad u_k\in\mathbb R^m.
+\end{equation}
+In the behavioral notation of Part I, $\Sigma=(\mathbb Z_{\geq0},\mathbb W,\mathcal B)$ with $w(k)=\col(u_k,x_k)$ and $\mathbb W=\mathbb R^{m+n}$. For a horizon $N$, let
+\begin{align}
+\mathbf u&=\col(u_0,\ldots,u_{N-1}),\qquad \mathbf x=\col(x_0,\ldots,x_N),\label{eq:sequences}\\
+w&=\col(\mathbf u,\mathbf x),\qquad q=\col(x_0,\mathbf u).\label{eq:coordinates}
+\end{align}
+The terminal-state-augmented behavior is
+\begin{equation}\label{eq:behavior}
+\mathcal B_N^+=\{w\in\mathbb R^{Nm+(N+1)n}:x_{k+1}=f(x_k,u_k),\ 0\leq k<N\}.
+\end{equation}
+The exact rollout map $\Phi_N:\mathcal D_N\to\mathcal B_N^+$ and coordinate projection $\pi(w)=\col(x_0,\mathbf u)$ are those of Part I. Its canonical exact encoder and decoder are $E^\star=\pi|_{\mathcal B_N^+}$ and $D^\star=\Phi_N$.
+\review{\textbf{R02 (MATHEMATICAL QUALIFICATION).} The pinned Part I graph proof is correct on an open admissible coordinate domain. The closed input box gives boundaries/corners; arbitrary state constraints need extra regularity. This note imports $\mathcal D_N$ without defining its admissibility conditions locally.}
+ Below, $\vartheta$ denotes network parameters;
+\review{\textbf{R17 (NOTATION).} Use distinct symbols for episode count $D$ and decoder $D^\star$, dataset $\mathcal D$ and domain $\mathcal D_N$, transition index $j$ and CEM iteration $j$, network $h_\vartheta$ and hold integer $h$, position $p$ and candidate index $p$, activation argument $a$ and lower input bound $a$, and length $l$ versus cost $\ell_{QR}$. Subscripts disambiguate the several $\mu$ values, but a notation table would help.}
+ $\theta$ is reserved for the pendulum angle. The implementation's horizon corresponds to $N$.
+
+\section{Trajectory data and transition identification}
+The learning input is a collection of episodes
+\begin{equation}\label{eq:episodes}
+\mathcal D=\{(x_0^{(i)},\ldots,x_N^{(i)};u_0^{(i)},\ldots,u_{N-1}^{(i)})\}_{i=1}^D.
+\end{equation}
+Complete episodes are randomly assigned to training, validation, and test sets in proportions 70\%, 15\%, and 15\%, before extracting transitions.
+\review{\textbf{R03 (CODE CORRESPONDENCE / DATA LIMIT).} The runner splits complete episodes before flattening transitions and fits scaling and local regression on training data. That prevents this particular train/test leakage. Within-episode dependence, state-action coverage and closed-loop distribution shift still need assessment; transition count is not an independent-sample count.}
+ The training triples $(x_j,u_j,x_j^+)$, $j=1,\ldots,L$, are obtained by flattening consecutive transitions within the training episodes. Set $z_j=\col(x_j,u_j)$ and $d_j=x_j^+-x_j$.
+
+% SOURCE PDF PAGE 2
+Let $\mu_z,\mu_d$ be training means, and let $S_z,S_d$ be diagonal matrices of training sample standard deviations, with each entry floored at $10^{-6}$. \code{DataDrivenTransition} implements
+\begin{equation}\label{eq:transition}
+\widehat f_\vartheta(x,u)=x+\mu_d+S_d h_\vartheta\bigl(S_z^{-1}(\col(x,u)-\mu_z)\bigr).
+\end{equation}
+Here $h_\vartheta:\mathbb R^{n+m}\to\mathbb R^n$ is a fully connected neural network. Each hidden layer uses $\operatorname{SiLU}(a)=a/(1+e^{-a})$ componentwise; the output layer is affine. The same network predicts every state component; no equations of motion, kinematic identities, or plant-specific features are inserted into it. The identity term in (6)
+\review{\textbf{R19 (CROSS REFERENCES).} Replace hard-coded equation numbers such as (6) and (13) with \texttt{\string\eqref} using the existing equation labels, so subsequent edits do not break references.}
+ is a generic residual parameterization, not a prescribed physical transition.
+\review{\textbf{R04 (CODE CORRESPONDENCE).} The active transition class implements this standardized residual SiLU network without inserting pendulum dynamics or kinematic identities. Plant-specific units and simulation still enter the data/evaluation harness. The generic architecture and the plant-specific harness should be distinguished.}
+
+
+The empirical training loss is
+\begin{equation}\label{eq:loss}
+\mathcal L_{\rm tr}(\vartheta)=\frac1{Ln}\sum_{j=1}^L\left\|S_d^{-1}\bigl(\widehat f_\vartheta(x_j,u_j)-x_j^+\bigr)\right\|_2^2.
+\end{equation}
+Training uses AdamW with learning rate $10^{-3}$, decoupled weight decay $10^{-6}$, shuffled minibatches, and a cosine learning-rate schedule ending at zero over the configured epoch count.
+\review{\textbf{R20 (SCHEDULE QUALIFICATION).} The scheduler steps after each epoch with $T_{\max}=\text{epochs}$. It reaches zero after the final optimizer epoch; the last epoch itself trains at a small positive learning rate. Thus an endpoint of zero describes the scheduler state, not the last training updates.}
+ The checkpoint with the smallest validation loss of the same form is retained. Scaling is fitted exclusively on training transitions. Training is one-step supervised regression: neither a multistep rollout loss nor a curvature penalty is currently included. The learned map is not explicitly constrained to satisfy $\widehat f_\vartheta(0,0)=0$.
+\review{\textbf{R05 (ACCURATE LIMITATION / EVIDENCE NEEDED).} The active loss, optimizer, checkpoint selection and absent equilibrium constraint agree with the description. One-step loss does not establish free-run accuracy, equilibrium fidelity or derivative fidelity. Held-out rollout errors and trained-controller comparisons remain needed; no comparative performance conclusion is available from this correspondence check.}
+
+
+\section{Canonical learned trajectory decoder}
+For $q=\col(x_0,\mathbf u)$, define
+\begin{align}
+\widehat x_0(q)&=x_0,\label{eq:initial}\\
+\widehat x_{k+1}(q)&=\widehat f_\vartheta(\widehat x_k(q),u_k),\qquad 0\leq k<N,\label{eq:rollout}\\
+\widehat\Phi_{N,\vartheta}(q)&=\col(u_0,\ldots,u_{N-1},\widehat x_0(q),\ldots,\widehat x_N(q)).\label{eq:decoder}
+\end{align}
+This is \code{CanonicalBehaviorDecoder}. Its coordinate dimension is $n+Nm$ and its output dimension is $Nm+(N+1)n$. The same transition parameters are shared at every prediction step. Initial state and inputs pass through exactly, so
+\begin{equation}\label{eq:projection}
+\pi\bigl(\widehat\Phi_{N,\vartheta}(q)\bigr)=q.
+\end{equation}
+Thus encoding is coordinate extraction, with no trained encoder or independent latent table. The learned trajectory set is $\widehat{\mathcal B}_{N,\vartheta}^+=\operatorname{im}(\widehat\Phi_{N,\vartheta})$
+\review{\textbf{R27 (MANIFOLD TERMINOLOGY).} The image is a smooth graph on an open coordinate domain; a closed input box gives a manifold with corners. The dimension 34 at $N=30$ follows from retaining the coordinates, even for an inaccurate network. It is not an empirical dimension estimate of measured trajectories or a certificate that the learned graph equals the true behavior.}
+ on the chosen coordinate domain. At a measured state $\bar x$, the controller searches its fixed-state slice through $q=\col(\bar x,\mathbf u)$. Future-state predictions are causal: $\widehat x_k$ uses only $x_0,u_0,\ldots,u_{k-1}$. This construction encodes ordered trajectories; no additional time parameterization is learned.
+\review{\textbf{R06 (STRUCTURAL CONSEQUENCE / POSSIBLE UNDERSTATEMENT).} Copying all inputs and the initial state makes the decoder injective independently of model accuracy. On an open smooth domain its Jacobian contains an identity block and has full column rank; projection is a continuous inverse on its graph. At $N=30$ the full chart has dimension 34 and the fixed-state input search dimension 30. These identities should be separated from compression, fidelity and empirical data efficiency. Comparison with ordinary single shooting is a literature-review question, not a novelty verdict established here.}
+
+
+\section{Predictive objective and numerical optimizer}
+For fixed references $x_{\rm ref},u_{\rm ref}$, define
+\review{\textbf{R18 (REFERENCE / NORMALIZATION).} The runner uses $x_{\rm ref}=0$ and $u_{\rm ref}=0$. $Q,R,Q_f$ weight the normalized coordinates of \eqref{eq:units}; they are not weights directly on physical velocities and force. The switch $x^\top Qx$ assumes the same zero reference. $Q$ is defined separately for local fitting and CEM in the runner; the current values agree.}
+
+\begin{equation}\label{eq:stage}
+\ell_{QR}(x,u)=(x-x_{\rm ref})^\top Q(x-x_{\rm ref})+(u-u_{\rm ref})^\top R(u-u_{\rm ref}).
+\end{equation}
+% SOURCE PDF PAGE 3
+With the decoder frozen, the implemented predictive problem is
+\begin{equation}\label{eq:mpc}
+\begin{aligned}
+\min_{\mathbf u\in\mathcal U^N}\ J_N(\bar x,\mathbf u)
+&=\sum_{k=0}^{N-1}\ell_{QR}(\widehat x_k,u_k)
+ +(\widehat x_N-x_{\rm ref})^\top Q_f(\widehat x_N-x_{\rm ref})\\
+&\quad+\lambda_{\Delta u}\sum_{k=0}^{N-2}\|u_{k+1}-u_k\|_2^2,\\
+\widehat x_0&=\bar x,\qquad \widehat x_{k+1}=\widehat f_\vartheta(\widehat x_k,u_k),
+\end{aligned}
+\end{equation}
+where $\mathcal U=[a,b]^m$ is the input box. Equivalently, $w=\widehat\Phi_{N,\vartheta}(\col(\bar x,\mathbf u))$. There are no state constraints or terminal-set constraints. The input-rate term couples only inputs within the candidate plan, not its first input to the previously applied input.
+\review{\textbf{R07 (CODE CORRESPONDENCE / CONSTRAINT SCOPE).} The objective and adjacent-input rate indexing agree with the active cost. The submitted input bounds are normalized $[-10,10]$, corresponding to $\pm98.1$ N for the specified plant. State penalties are soft costs; the method does not promise hard rail limits or a cart-recentering deadline. Such additional requirements must be identified as external evaluation choices.}
+
+
+\code{DataDrivenCEMSolver} approximately solves (13) by the cross-entropy method (CEM). Its proposal is a diagonal Gaussian over all $Nm$ input coordinates, followed by componentwise clipping to $[a,b]$. Let $\mu^{(0)}$ be a warm-start input sequence and let $S_x$ contain the first $n$ diagonal entries of $S_z$. At each new solve, set
+\begin{align}
+r(\bar x)&=\sqrt{\frac1n\left\|S_x^{-1}(\bar x-x_{\rm ref})\right\|_2^2},\label{eq:radius}\\
+\sigma^{(0)}&=(b-a)\bigl[0.05+0.45\clip(2r(\bar x),0,1)\bigr]\mathbf1_{Nm}.\label{eq:std}
+\end{align}
+For each CEM iteration $j$, sample a population of $P_c$ candidates
+\begin{equation}\label{eq:candidates}
+\mathbf u^{(p)}=\clip\bigl(\mu^{(j)}+\sigma^{(j)}\odot\epsilon^{(p)},a,b\bigr),\qquad
+\epsilon^{(p)}\sim\mathcal N(0,I_{Nm}).
+\end{equation}
+The first candidate is replaced by the clipped current mean. Evaluate all candidates using only the learned decoder and retain the $E_c$ lowest-cost candidates. If $\bar\mu^{(j)}$ and $\bar\sigma^{(j)}$ are their coordinatewise mean and sample standard deviation, update
+\begin{align}
+\mu^{(j+1)}&=\beta\mu^{(j)}+(1-\beta)\bar\mu^{(j)},\label{eq:cemmean}\\
+\sigma^{(j+1)}&=\beta\sigma^{(j)}+(1-\beta)\max(\bar\sigma^{(j)},0.02).\label{eq:cemstd}
+\end{align}
+The returned plan is the best sampled candidate across all iterations, not necessarily the final proposal mean or a global minimizer. Gradients are not used in this active optimizer.
+\review{\textbf{R08 (CODE CORRESPONDENCE / FINITE SEARCH).} The active optimizer uses cost-ranked elites, sample standard deviation, smoothing, clipping and the best sampled incumbent. Its finite population and three iterations do not certify a global optimum or physical recoverability. The text accurately distinguishes the numerical search result from the minimizer in (13). Search adequacy and model error need separate empirical assessment.}
+
+
+\section{Data-identified local feedback and switching}
+A separate linear model is fitted from training triples near the origin. Let $S_{\rm loc}$ contain the population standard deviations of all training states, floored at $10^{-6}$. Select the $\min(6000,L)$ triples with the smallest $\|S_{\rm loc}^{-1}x_j\|_2$. Selection uses state distance only; inputs are not required to be small. Form matrices $Z$ and $Y$ whose rows are $\col(x_j,u_j)^\top$ and $(x_j^+)^\top$ for the selected triples. Fit
+\begin{equation}\label{eq:ridge}
+C=(Z^\top Z+10^{-6}I_{n+m})^{-1}Z^\top Y,\qquad [\widehat A\ \widehat B]=C^\top.
+\end{equation}
+This ridge regression has no intercept.
+\review{\textbf{R09 (CODE CORRESPONDENCE / IDENTIFICATION QUESTION).} The nearest-6000 rule selects by standardized state distance only. Inputs remain unrestricted, and it uses all training triples when $L\leq6000$. The selected radius and fit RMSE are measured in E0/E2. This is a neighborhood regression, not necessarily the derivative at upright.}
+ For the zero reference used by the runner, a discrete Riccati equation is solved numerically:
+\begin{align}
+P&=Q+\widehat A^\top P\widehat A-\widehat A^\top P\widehat B(R+\widehat B^\top P\widehat B)^{-1}\widehat B^\top P\widehat A,\label{eq:dare}\\
+K&=(R+\widehat B^\top P\widehat B)^{-1}\widehat B^\top P\widehat A,\qquad
+\kappa_{\rm loc}(x)=\clip(-Kx,a,b).\label{eq:local}
+\end{align}
+% SOURCE PDF PAGE 4
+The local law depends only on the fitted matrices and specified cost weights. Its Riccati matrix $P$ is not the predictive terminal weight: the active MPC independently uses $Q_f=12Q$.
+\review{\textbf{R10 (CODE CORRESPONDENCE / STABILITY SCOPE).} The Riccati matrix and predictive terminal weight are correctly distinguished. A stabilizing DARE solution for a fitted linear model does not by itself certify the nonlinear saturated or switched controller. Neither an invariant switching region nor such a certificate is claimed here. The complete hybrid, including its identified local law, must be evaluated when attributing performance.}
+
+
+At every plant sample, the wrapper follows this ordering:
+\begin{enumerate}
+\item If $x^\top Qx<0.75$, discard queued inputs and apply $\kappa_{\rm loc}(x)$.
+\item Otherwise, if an input queue is nonempty, apply its next entry.
+\item Otherwise, solve (13) at the measured state, store the new plan, and queue its first $s=5$ inputs. Apply the first queued input.
+\end{enumerate}
+Thus five successive inputs are normally applied between predictive solves; the local-feedback test can interrupt that sequence at any sample. There is no switching hysteresis or certified invariant switching region.
+\review{\textbf{R22 (SWITCH GEOMETRY / PRECISION).} The axis intercepts are $|p|<6.12$ m, physical $|\dot p|<0.495$ m/s, $|\theta|<0.0866$ rad, and physical $|\dot\theta|<0.858$ rad/s, each with the other coordinates zero. They are not independent rectangular bounds. Position can exceed the initial collection box. $Q$ is stored in float32; the NumPy switch with float64 simulated state promotes the product to float64, while local fitting/DARE is float64 and CEM is float32.}
+ A nonfinite reported CEM cost causes a zero input and resets the stored plan to zero.
+\review{\textbf{R23 (NONFINITE CEM EDGE).} The implementation applies argmin to costs without first masking NaNs. A NaN-selected index can hide a finite candidate for that iteration. If no finite incumbent is accepted, the best plan remains the warm-start mean and reported finite is false. The wrapper then applies the disclosed zero-input fallback.}
+
+\review{\textbf{R11 (SWITCHING QUESTION).} The quadratic switch and queue ordering match the active wrapper. For pure cart displacement the stated weights allow $|p|<\sqrt{.75/.02}\simeq6.12$ m into local control. Thus this test is not a uniformly small physical-state neighborhood. The relevant question is observed local recovery and saturation across the declared operating domain; no nonlinear invariant region follows from this threshold.}
+
+
+For a stored plan $\mathbf v=\col(v_0,\ldots,v_{N-1})$, the next warm start is
+\begin{equation}\label{eq:warmstart}
+\mu^{(0)}=\col(v_s,\ldots,v_{N-1},v_{N-s},\ldots,v_{N-1}).
+\end{equation}
+The initial stored plan is zero. The wrapper always shifts by $s$, including after leaving local feedback; the stored plan is not updated during local feedback. This describes the current queue implementation exactly.
+\review{\textbf{R12 (IMPLEMENTATION CONCERN / EFFECT UNMEASURED).} The stored plan is retained across local-control intervals and always shifted by five rather than by elapsed plant samples. That can produce a stale warm start after an interruption. The specification accurately reports this behavior; its quantitative effect on performance has not been isolated.}
+
+
+\section{Active experimental configuration and software scope}
+The current \code{dev} profile uses the following settings.
+\review{\textbf{R24 (EVALUATION OMISSION).} The authored evaluation is six angles $\pm15,\pm30,\pm60$ degrees, all other initial states zero, for 14 physical seconds. Angles are not wrapped. Balanced uses the last 3 seconds and physical angular velocity; it does not itself check falls during the transient. Each new controller reseeds CEM with the configured seed (234 in the authored run).}
+
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+Quantity & Value\\\midrule
+State/input dimensions; horizon & $n=4$, $m=1$, $N=30$\\
+Decoder coordinates/output & 34 / 154\\
+Episodes; transitions per episode & 3500; 30\\
+Training/validation/test episodes & 2450 / 525 / 525\\
+Hidden widths; training epochs; batch size & $(192,192,192)$; 100; 2048\\
+Input bounds & $a=-10$, $b=10$\\
+Tracking weights & $Q=\operatorname{diag}(0.02,30,100,10)$, $R=[0.03]$\\
+Terminal weight; input-rate weight & $Q_f=12Q$; $\lambda_{\Delta u}=0.002$\\
+CEM population; elites; iterations & $P_c=256$; $E_c=32$; 3\\
+CEM smoothing; plan application length & $\beta=0.15$; $s=5$\\
+Random seed; numerical precision & 234; neural computations in float32\\\bottomrule
+\end{tabular}
+\end{center}
+The local regression and Riccati computation use double precision.
+\review{\textbf{R25 (REPRODUCIBILITY).} A fixed seed does not by itself guarantee CUDA bitwise reproducibility; the runner does not request deterministic algorithms. The reuse-data flag loads saved arrays without validating their stored configuration. The new validation manifest records configuration and seeds without treating old outputs as interchangeable.}
+ The CEM iteration count is $\max(3,\lfloor\code{controller_iterations}/20\rfloor)$; \code{controller_lr} is unused by the active CEM path.
+\review{\textbf{R13 (CONFIGURATION SCOPE / REPRODUCTION OPEN).} The configuration agrees with the active runner. A fresh unchanged seed-234 dev run reproduces angular balance at all six authored initial angles. Multi-seed comparisons are saved under validation/results_v1/E0. This establishes a demonstration, not a guaranteed operating region.}
+
+
+For the pendulum harness, let $p$ denote cart position, $m_p$ pendulum mass, $M_c$ cart mass, $l$ rod length, and $g$ gravitational acceleration. The arrays supplied to learning and control are in the coordinates
+\begin{equation}\label{eq:units}
+x=\col\left(p/l,\dot p/\sqrt{lg},\theta,\dot\theta/\sqrt{g/l}\right),\qquad u=F/(m_p g).
+\end{equation}
+Here $M_c=2$, $m_p=1$, $l=1$, $g=9.81$, and physical sampling time is $\Delta=0.02$ seconds. The simulator uses a held-input RK4 update
+\review{\textbf{R26 (PLANT / UNIT OMISSION).} The implemented pendulum is a uniform rod with center of mass $l/2$ and pivot inertia $m_p l^2/3$, rather than a point mass. The hard-coded normalized step uses $1/\sqrt{9.81}$; its stated dimensional formula assumes $l=1$. A length-mismatch experiment must keep the nominal measurement coordinates fixed and change the physical plant, rather than silently renormalizing the learned inputs.}
+ with normalized step $\Delta/\sqrt{l/g}$ and mass ratio $M_c/m_p=2$. The prediction horizon is 0.6 physical seconds, with nominal replanning every 0.1 seconds.
+
+% SOURCE PDF PAGE 5
+These units and simulation parameters belong to the experimental harness; the neural architecture, regression loss, and CEM optimizer contain no pendulum equations.
+
+Initial collection states are sampled uniformly from $[-1.5,1.5]\times[-2.5,2.5]\times[-1.30,1.30]\times[-3.5,3.5]$. Each episode initializes $u\sim\operatorname{Unif}[-10,10]$ and an integer $h\sim\operatorname{Unif}\{1,\ldots,5\}$. At index $k$, if $k\bmod h=0$, odd-indexed episodes redraw $u$ uniformly, while even-indexed episodes set $u\leftarrow\clip(0.75u+\eta,-10,10)$ with $\eta\sim\mathcal N(0,3^2)$; then $h$ is redrawn. Otherwise $u$ is retained. This is the actual modulo-based update rule, rather than a countdown hold schedule.
+\review{\textbf{R21 (COLLECTION DEAD DRAW).} At $k=0$, $0\bmod h=0$ for every sampled positive $h$: the initially drawn hold is overwritten before use. The initial input affects even episodes through the noisy update; odd episodes redraw it before any plant step. The unused hold draw still advances the RNG and therefore cannot simply be removed in a reproduction.}
+ Episodes are not truncated at state limits; the initial sampling box does not constrain later states.
+\review{\textbf{R14 (OPERATING-RANGE QUESTION).} The initial sampling box and absence of state truncation agree with the runner. A collection distribution does not establish a recoverable operating domain. Report tested initial conditions, transient excursions and settling separately. Neither finite trajectories nor a failed sampled search certifies the maximum recoverable set or physical impossibility of recovery.}
+
+
+The generic model classes accept $n,m$, but the current runner hard-codes four states, one input, the collection box, zero references, and pendulum unit conversions. Applying the method to another plant requires replacing that harness and configuring dimensions, coordinates, input limits, and costs.
+
+\paragraph{Implementation boundaries.}
+The active learned predictor is the transition-composed decoder specified above. The older unrestricted \code{BehaviorDecoder}, autoencoder training, latent MPC, and Adam-based \code{DataDrivenMPCSolver} remain in the module but are not used by this runner. The implemented closed loop is a hybrid of manifold MPC and data-identified linear feedback. The latter is a switched controller, not a terminal constraint inside (13). Neither the fitted transition nor the fitted linear model queries the simulator during control. There is no online parameter adaptation.
+\review{\textbf{R15 (ACTIVE METHOD / ATTRIBUTION).} The active computation combines a transition-composed learned rollout, sampled input optimization and switched data-identified linear feedback. Legacy latent/autoencoder/curvature routines are inactive. Computational correspondence to learned-dynamics shooting does not settle the value or novelty of the geometric formulation. Attribute empirical gains to the complete method unless component comparisons establish more.}
+
+
+
+\review{\textbf{R16 (FOUNDATIONAL PAPER / REVIEW COMPLETED).} Part I Theorem 3.3, Corollaries 4.1/4.3/4.4 and the sampled-map construction pass the bounded proof audit under their stated smoothness/domain assumptions. They establish a graph and coordinate dimension, not learned-model accuracy or closed-loop performance. The complete audit and primary-source comparison are in validation/results_v1/reviews/paper_review_v1. No equation/code contradiction was found; the additional comments identify specification omissions and qualifications.}
+\begin{thebibliography}{1}
+\bibitem{bayer} Arda Bayer. ``Trajectory Manifolds for Nonlinear Data-Enabled Predictive Control''. In: \emph{arXiv preprint arXiv:2609.19079} (2026).
+\end{thebibliography}
+\end{document}

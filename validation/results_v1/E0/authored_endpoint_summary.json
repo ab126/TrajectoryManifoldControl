@@ -1,0 +1,23 @@
+{
+  "n": 6,
+  "primary_successes": 6,
+  "balanced": 6,
+  "cart_rest": 4,
+  "no_fall": 6,
+  "local_fraction_range": [
+    0.43142857142857144,
+    0.9671428571428572
+  ],
+  "cem_solves_range": [
+    6,
+    81
+  ],
+  "max_cart_excursion_range": [
+    0.41314775384677566,
+    7.858092721246615
+  ],
+  "wilson95": [
+    0.6096657120978346,
+    1.0
+  ]
+}
