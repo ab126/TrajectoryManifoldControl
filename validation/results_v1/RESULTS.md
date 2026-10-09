@@ -2,7 +2,7 @@
 
 ## Q1 — Does it work as claimed?
 
-**The authored seed-234 run reproduces all six angle/no-fall successes, but the hybrid is sensitive to seed and its local-feedback ablation is stronger on the authored cases.** The fresh unchanged `--profile dev` run is saved in [E0/authored_summary.json](E0/authored_summary.json); expanded endpoints and ten-seed ablations are complete. Nine focused [metric and arm tests](E0/metric_arm_tests.txt) passed. The authored notebook already contains a development-profile demonstration: all six initial angles (±15°, ±30°, ±60° from rest, 14 s) have `balanced=True`; three also have `cart_rest=True`. Local feedback supplies 50–97% of steps, with 6–70 CEM solves per case. This is authored evidence, not yet an independent reproduction. Source: [notebook](../../manifold_control.ipynb), cells 10 and 12.
+**The authored seed-234 run reproduces all six angle/no-fall successes, but the hybrid is sensitive to seed and its local-feedback ablation is stronger on the authored cases.** The fresh unchanged `--profile dev` run is saved in [E0/authored_summary.json](E0/authored_summary.json); expanded endpoints and ten-seed ablations are complete. Nine focused [metric and arm tests](E0/metric_arm_tests.txt) passed. The authored notebook already contains a development-profile demonstration: all six initial angles (±15°, ±30°, ±60° from rest, 14 s) have `balanced=True`; three also have `cart_rest=True`. Local feedback supplies 50–97% of steps, with 6–70 CEM solves per case. The notebook is the authored baseline; the fresh independent reproduction is reported below. Source: [notebook](../../manifold_control.ipynb), cells 10 and 12.
 
 The primary endpoint is the runner's `balanced` metric (|θ|≤0.02 rad and physical |θ̇|≤0.05 rad/s in the last 3 s) **and no fall** (|θ|<π/2 throughout). Cart excursion, drift, settling, final position, input saturation and local feedback use are reported separately. There is no rail limit, recentering deadline or acceptance gate.
 
@@ -20,7 +20,7 @@ On IC-A at 14 s, H succeeds in 4–5/6 cases per seed, while L succeeds in 6/6 f
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.
 
-**Review in progress.** The prior [v2 annotations](../reviews/implementation_tex_v2/annotations.json) checked equation/code correspondence but leave notation, normalization, collection details and evaluation omissions. The superseding handoff identifies these; v3 will annotate them without changing the labmate's source text.
+**Review complete: no equation/code contradiction found, but the note needs 27 qualifications and clarifications.** The [v3 annotated copy](reviews/implementation_tex_v3/trajectory_manifold_implementation_reviewed_v3.tex) preserves the labmate's text and flags notation overloads, implicit normalized costs, collection details, switch geometry, numerical fallback and evaluation omissions. The [comment ledger](reviews/implementation_tex_v3/annotations.json) records each issue. The selected local-fit neighborhood is substantially broader than the handoff estimate; see the measured E0 diagnostics above.
 
 ## Q3 — Comparison and contribution
 
@@ -44,7 +44,7 @@ The bounded [paper ledger and proof audit](reviews/paper_review_v1/proof_audit.m
 
 E1 long-horizon subsets are fixed before evaluation: IC-B −60°, 0°, +60°; IC-C indices 0–2; IC-D indices 20, 840, 1660 (θ0=−85°, 0°, +85°, zero angular velocity). All five arms are evaluated for 60 s on these subsets.
 
-Prepared for the post-checkpoint stages: `parallel_campaign.py E2 --workers 8`, then `e2_distribution.py`, then `e3_robustness.py`. The E2 collection adapters and E3 nominal/length/noise wiring have passed three checks each ([collection](collection_variant_tests.txt), [robustness](robustness_wiring_tests.txt)). They have not yet run as scientific experiments. E3 robustness uses H and L; novel-system runs and DeePC remain to be implemented/executed.
+Prepared for the post-checkpoint stages: `parallel_campaign.py E2 --workers 8`, then `e2_distribution.py`, then `e3_robustness.py`. The E2 collection adapters and E3 nominal/length/noise wiring have passed three checks each ([collection](collection_variant_tests.txt), [robustness](robustness_wiring_tests.txt)). They have not yet run as scientific experiments. E3 robustness uses H and L. Novel-system code is now prepared for a four-state LTI and a uniform-rod acrobot; ten [scientific adapter, dynamics, endpoint and optimal-cost checks](novel_plant_tests.txt) pass. These runs remain pending E2. DeePC is still being prepared.
 
 <!-- E0_AUTO_START -->
 
@@ -118,3 +118,5 @@ The detached E1 job is PID 679000; its completion watcher is recorded in `ADVANC
 E0 horizon follow-up uses saved 60 s trajectories: score a 20 s prefix only for H/H* cases that were not balanced but had no fall at 14 s. This is a post hoc horizon-limitation diagnostic, not a new random sample ([selection and counts](E0/horizon_followup.json), [20 s prefix endpoints](E0/horizon_limited_20s.csv)). No extra simulation or altered controller was used.
 
 The 20 s prefix check finds 2 successes among 11 selected H cases and 0 among 20 selected H* cases. Most misses are not resolved by adding only six seconds. This selection excludes cases that already succeeded or fell at 14 s and is not a population success estimate.
+
+Prepared novel-system choices: the LTI has discrete A=diag(1.06, 1.02, 0.96, 0.90), B=(0.2, 0.2, 0.1, 0.1)^T and identity Q. Acrobot uses two unit uniform rods, normalized elbow torque limited to ±1, and the authored 100-per-angle/10-per-rate weight rule. All arms share costs and data within a plant. The [harness](../experiments/e3_novel.py) records units, dynamics, integration, ICs and plant-specific endpoints in each manifest. No novel-system performance claim is available yet.
