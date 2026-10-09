@@ -50,6 +50,8 @@ def save_report(experiment):
 def commit(experiment):
     paths=[f'validation/results_v1/{experiment}','validation/results_v1/models','validation/results_v1/RESULTS.md','validation/results_v1/STATUS','validation/results_v1/.gitignore','validation/experiments']
     subprocess.run(['git','add',*paths],cwd=ROOT,check=True)
+    figures=sorted(str(path.relative_to(ROOT)) for path in (OUT/experiment).glob('*.png'))
+    if figures:subprocess.run(['git','add','-f',*figures],cwd=ROOT,check=True)
     subprocess.run(['git','commit','-m',f'Complete {experiment} matched controller validation'],cwd=ROOT,check=True)
 
 
