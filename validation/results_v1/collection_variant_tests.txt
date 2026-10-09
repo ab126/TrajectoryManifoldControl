@@ -1,0 +1,13 @@
+test_half_box_changes_initial_states_exactly (__main__.CollectionVariants.test_half_box_changes_initial_states_exactly) ... Collecting trajectories:   0%|          | 0/10 [00:00<?, ?it/s]Collecting trajectories: 100%|██████████| 10/10 [00:00<00:00, 3764.41it/s]
+Collecting trajectories:   0%|          | 0/10 [00:00<?, ?it/s]Collecting trajectories: 100%|██████████| 10/10 [00:00<00:00, 4545.69it/s]
+ok
+test_identity_parameterization_matches_submitted_data (__main__.CollectionVariants.test_identity_parameterization_matches_submitted_data) ... Collecting trajectories:   0%|          | 0/10 [00:00<?, ?it/s]Collecting trajectories: 100%|██████████| 10/10 [00:00<00:00, 4707.41it/s]
+Collecting trajectories:   0%|          | 0/10 [00:00<?, ?it/s]Collecting trajectories: 100%|██████████| 10/10 [00:00<00:00, 4629.99it/s]
+ok
+test_uniform_branch_ignores_normal_draws (__main__.CollectionVariants.test_uniform_branch_ignores_normal_draws) ... Collecting trajectories:   0%|          | 0/10 [00:00<?, ?it/s]Collecting trajectories: 100%|██████████| 10/10 [00:00<00:00, 4776.57it/s]
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.038s
+
+OK

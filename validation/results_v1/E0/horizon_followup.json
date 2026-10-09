@@ -1,0 +1,16 @@
+{
+  "selection": "H/Hstar IC-A cases with balanced=False and no_fall=True at 14 s",
+  "method": "Prefix of independently simulated same-seed 60 s run; no fresh CEM solve",
+  "selected_cases": 31,
+  "primary_successes_at_20s": 2,
+  "by_arm": {
+    "H": {
+      "selected": 11,
+      "successes": 2
+    },
+    "Hstar": {
+      "selected": 20,
+      "successes": 0
+    }
+  }
+}

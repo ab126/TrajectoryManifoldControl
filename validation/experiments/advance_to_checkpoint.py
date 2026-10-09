@@ -74,16 +74,23 @@ def main(e0_pid):
     cmd=['timeout',str(timeout),*cmd]
     with (e1/'run.log').open('a') as log:
         process=subprocess.Popen(cmd,cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True)
-    with (e1/'JOB').open('a') as f:f.write(f'PID {process.pid}\nCOMMAND {shlex.join(cmd)}\nESTIMATED_WALL_SECONDS {estimate:.1f}\nTIMEOUT_SECONDS {timeout}\n')
+    display_command=' '.join(shlex.quote(part) for part in cmd)
+    with (e1/'JOB').open('a') as f:f.write(f'PID {process.pid}\nCOMMAND {display_command}\nESTIMATED_WALL_SECONDS {estimate:.1f}\nTIMEOUT_SECONDS {timeout}\n')
     (OUT/'STATUS').write_text('RUNNING\nE0 completed; E1 matched IC-B/C/D and 60 s subsets are detached.\nNext: E0+E1 user checkpoint, then E2 data efficiency.\n')
-    manifest=wait_finished('E1',process.pid)
+    finish_checkpoint(process.pid)
+
+
+def finish_checkpoint(e1_pid):
+    manifest=wait_finished('E1',e1_pid)
     save_report('E1')
     (OUT/'STATUS').write_text('CHECKPOINT_USER\nE0 and E1 completed; see RESULTS.md for reproduction, L attribution and operating-region maps.\nNext: report this checkpoint, then resume E2–E4 under the superseding handoff.\n')
     commit('E1')
     print('E0 and E1 complete; CHECKPOINT_USER written.',flush=True)
 
 if __name__=='__main__':
-    try:main(int(sys.argv[1]))
+    try:
+        if len(sys.argv)>2 and sys.argv[1]=='--attach-e1':finish_checkpoint(int(sys.argv[2]))
+        else:main(int(sys.argv[1]))
     except BaseException as error:
         with (OUT/'RESULTS.md').open('a') as f:f.write(f'\nDetached continuation needs inspection: {error!r}. Saved cases remain resumable.\n')
         raise

@@ -1,0 +1,3 @@
+PID 679000
+COMMAND timeout 142753 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/parallel_campaign.py E1 --workers 8
+NOTE Eight workers, all fixed IC-B/C/D, three whole-run seeds, plus the recorded 60 s subsets. Timeout is bounded by the remaining 40-hour cap and three times projected cost.

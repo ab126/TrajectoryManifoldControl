@@ -14,3 +14,6 @@ COMMAND validation/.venv-gpu/bin/python validation/experiments/restate_evidence.
 
 PID 678885
 COMMAND validation/.venv-gpu/bin/python validation/experiments/authored_figure.py
+
+PID 680108
+COMMAND validation/.venv-gpu/bin/python validation/experiments/horizon_followup.py
