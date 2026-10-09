@@ -234,7 +234,7 @@ def summarize(out,rows=None):
     comparisons=[]
     for key in sorted({k[:-1] for k in groups}):
         h={r['ic_index']:r for r in groups.get((*key,'H'),[])}
-        for arm in ('L','M','M1','Hstar'):
+        for arm in sorted({k[-1] for k in groups if k[:-1]==key}-{'H'}):
             a={r['ic_index']:r for r in groups.get((*key,arm),[])}
             shared=sorted(h.keys()&a.keys())
             if not shared:continue

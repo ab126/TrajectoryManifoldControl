@@ -24,7 +24,18 @@ The reviewed transcription is [trajectory_manifold_implementation.tex](../../../
 
 ## Q3 — Comparison and contribution
 
-**Empirical verdict unresolved.** H combines a full-state one-step transition network, CEM shooting MPC, five-step queues and a data-identified local LQR catch. Model, optimizer and switch contributions will be separated by matched initial conditions and ablations. Paper and literature deliverables will distinguish the full-state rollout graph theorem from the unexplored output-only/noisy extension.
+**H is a full-state learned-dynamics shooting controller; its empirical advantage over the comparison methods remains unresolved.** It combines one-step transition regression, CEM planning, five-step queues and a ridge/DARE local catch. E0 supports the catch's importance on the authored cases. The graph theorem supplies explicit trajectory coordinates but does not constrain prediction error or guarantee closed-loop success; see the [proof audit](reviews/paper_review_v1/proof_audit.md).
+
+| Comparison | What differs from H | What this campaign can establish |
+|---|---|---|
+| DeePC | Input/output trajectory spanning and a convex QP; exact LTI representation requires excitation and observability assumptions. | Matched nonlinear cart-pole performance and regularization sensitivity; the LTI theorem does not guarantee this nonlinear baseline. |
+| Lusch Deep Koopman | Autonomous state embedding trained with multi-step and linearity losses; no implemented controller. | Prose/model comparison, not an invented Lusch control baseline. |
+| DFINE | Unforced noisy partial observations, latent factors and linear dynamics with Kalman inference. | Observation and uncertainty differences; no DFINE controller is constructed. |
+| Baek deep RL | Model-free SAC, symmetry augmentation, triple pendulum and hardware demonstrations. | Qualitative budget/task comparison; its 0.8–2 million steps cannot establish a matched sample-efficiency advantage for H. |
+
+The [verified primary-source matrix](reviews/paper_review_v1/literature_matrix.csv) supports these distinctions. Nagabandi neural shooting MPC and single-model variants of PETS are the closest algorithmic antecedents. H's training and online controller do not use plant equations. Its limitations include full-state measurement, deterministic one-step learning, no uncertainty estimate, open-loop queues, a hard switch and no stability guarantee. Benefits beyond the measured E0 local catch remain pending E1–E4.
+
+A plausible research gap is nonlinear input/output data-enabled prediction with explicit identifiability, noise and approximation conditions. Part I flags the output injectivity issue and defers learning/control; the current full-state implementation does not exercise that extension. The [15-row claim ledger](reviews/paper_review_v1/claim_ledger.csv) separates correct graph/rank results from these unsupported extensions.
 
 ## Protocol and resume
 
@@ -120,3 +131,7 @@ E0 horizon follow-up uses saved 60 s trajectories: score a 20 s prefix only for 
 The 20 s prefix check finds 2 successes among 11 selected H cases and 0 among 20 selected H* cases. Most misses are not resolved by adding only six seconds. This selection excludes cases that already succeeded or fell at 14 s and is not a population success estimate.
 
 Prepared novel-system choices: the LTI has discrete A=diag(1.06, 1.02, 0.96, 0.90), B=(0.2, 0.2, 0.1, 0.1)^T and identity Q. Acrobot uses two unit uniform rods, normalized elbow torque limited to ±1, and the authored 100-per-angle/10-per-rate weight rule. All arms share costs and data within a plant. The [harness](../experiments/e3_novel.py) records units, dynamics, integration, ICs and plant-specific endpoints in each manifest. No novel-system performance claim is available yet.
+
+2026-10-09: Prepared E4 compares H, L, M1 and full-state/output-only regularized DeePC on IC-A plus the same fixed 50 IC-C subset used in E2, with three seeds. To fit a two-sample observed past and N=30 future without joining episodes, collection uses 3281 × 32 steps (104992 transitions, compared with authored 105000). All E4 arms share this new collection/split; H keeps N=30 and the submitted training/control algorithm. IO DeePC receives only (p, theta), starts with two actual zero-input samples, and uses finite-difference velocities in its cost; this cost difference is disclosed. Three prespecified coefficient penalties are all reported, without selection on test ICs. The [baseline code](../experiments/e4_deepc.py) records those choices and QP residual/failure diagnostics. Six [hand-computed DeePC checks](deepc_tests.txt) and ten [endpoint/arm/paired-statistic checks](reported_number_tests.txt) pass. Scientific E4 runs remain pending E0–E3.
+
+E1 plotting now explicitly excludes the 60 s subsets from 14 s maps and includes descriptive cart-excursion maps and overlapping failure-category counts. Switch-toggle counts are reported without inventing a chatter cutoff. The completion watcher will regenerate figures using this corrected plotting code before the E0+E1 checkpoint.

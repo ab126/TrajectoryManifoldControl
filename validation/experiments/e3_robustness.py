@@ -86,7 +86,7 @@ def main():
         process_training='Add independent per-step noise during data collection; nominal initial collection states',
         physical_mismatch='Mass ratio changed; length changed while nominal measurement/time/force coordinates remain fixed',
         delay='One input sample, 0.02 physical seconds, initial applied input zero'))
-    start=time.perf_counter()
+    prior_wall=manifest.get('wall_seconds',0.);start=time.perf_counter()
     try:
         sets=ic_sets();tasks=[]
         for seed in range(3):
@@ -110,9 +110,9 @@ def main():
                 row=future.result();saved[row['case']]=row
                 if time.perf_counter()-last>60:
                     summarize(out,list(saved.values()));last=time.perf_counter()
-                    manifest['wall_seconds']=time.perf_counter()-start;dump(out/'manifest.json',manifest)
+                    manifest['wall_seconds']=prior_wall+time.perf_counter()-start;dump(out/'manifest.json',manifest)
         figures('E3');manifest['status']='DONE'
     except BaseException as error:manifest.update(status='ERROR',error=repr(error));raise
-    finally:manifest['wall_seconds']=time.perf_counter()-start;dump(out/'manifest.json',manifest)
+    finally:manifest['wall_seconds']=prior_wall+time.perf_counter()-start;dump(out/'manifest.json',manifest)
 
 if __name__=='__main__':init();main()

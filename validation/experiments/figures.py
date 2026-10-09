@@ -54,9 +54,19 @@ def figures(experiment):
         ax.set(xlabel='Prediction horizon [physical s]',ylabel='RMSE, normalized states',title='Held-out free-running predictions')
         ax.legend(ncol=2,fontsize=8);fig.tight_layout();fig.savefig(out/'prediction_rmse.png',dpi=150);plt.close(fig)
     if experiment=='E1':
+        categories=[]
+        for rate in rates:
+            items=[r for r in rows if all(r[k]==rate[k] for k in ('seed','arm','ic_set','seconds'))]
+            toggles=[r['switch_toggles'] for r in items]
+            categories.append(dict(seed=rate['seed'],arm=rate['arm'],ic_set=rate['ic_set'],seconds=rate['seconds'],n=len(items),
+                primary_failures=sum(not r['primary_success'] for r in items),
+                **{field:sum(bool(r[field]) for r in items) for field in ('fell','never_entered_switch','balanced_with_cart_drift','nonfinite_cem','fell_within_1s_of_switch_exit')},
+                cases_with_switch_toggles=sum(v>0 for v in toggles),switch_toggles_median=float(np.median(toggles)),
+                switch_toggles_p95=float(np.quantile(toggles,.95)),switch_toggles_max=max(toggles)))
+        csv_write(out/'failure_categories.csv',categories)
         for seed in sorted({r['seed'] for r in rows}):
             for name in ('B','D'):
-                items=[r for r in rows if r['ic_set']==name and r['seed']==seed]
+                items=[r for r in rows if r['ic_set']==name and r['seed']==seed and r['seconds']==14.]
                 if not items:continue
                 fig,axes=plt.subplots(1,len(arms),figsize=(3*len(arms),3.2),squeeze=False)
                 for ax,arm in zip(axes[0],arms):
@@ -72,6 +82,22 @@ def figures(experiment):
                     ax.set_title(arm)
                 fig.suptitle(f'IC-{name}, seed {seed}; green=success, red=failure')
                 fig.tight_layout();fig.savefig(out/f'map_{name}_seed{seed}.png',dpi=150);plt.close(fig)
+        # Descriptive cart-excursion maps use 14 s cases only, with no rail cutoff.
+        for seed in sorted({r['seed'] for r in rows}):
+            fig,axes=plt.subplots(1,len(arms),figsize=(3*len(arms),3.2),squeeze=False)
+            from matplotlib.colors import SymLogNorm
+            values=[r['max_abs_p'] for r in rows if r['ic_set']=='D' and r['seed']==seed and r['seconds']==14. and r['max_abs_p'] is not None]
+            if not values:plt.close(fig);continue
+            norm=SymLogNorm(linthresh=1.,vmin=0.,vmax=max(1.,max(values)))
+            for ax,arm in zip(axes[0],arms):
+                items=[r for r in rows if r['ic_set']=='D' and r['seed']==seed and r['seconds']==14. and r['arm']==arm and r['max_abs_p'] is not None]
+                dots=ax.scatter([np.rad2deg(r['initial_state'][2]) for r in items],
+                    [r['initial_state'][3]*np.sqrt(9.81) for r in items],c=[r['max_abs_p'] for r in items],norm=norm,cmap='viridis',s=10)
+                ax.set(title=arm,xlabel='θ0 [degrees]',ylabel='θdot0 [physical rad/s]')
+            fig.colorbar(dots,ax=list(axes[0]),label='Max |p| [m]',shrink=.8)
+            fig.suptitle(f'IC-D cart excursion, seed {seed}; descriptive, no rail limit')
+            fig.subplots_adjust(top=.8,bottom=.2,wspace=.4,right=.85)
+            fig.savefig(out/f'cart_excursion_D_seed{seed}.png',dpi=150);plt.close(fig)
         # Five failures spread across arms. Replay inputs in the true plant to compare
         # the predicted horizon against the same candidate input sequence.
         failures=[r for r in rows if not r['primary_success'] and r['arm']!='L']

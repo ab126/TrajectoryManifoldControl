@@ -49,6 +49,20 @@ class ReportedNumbers(unittest.TestCase):
         low,high=wilson(10,10)
         self.assertAlmostEqual(low,.7224672001371108)
         self.assertAlmostEqual(high,1.)
+    def test_paired_comparison_includes_new_baseline_and_matches_ICs(self):
+        import tempfile
+        t,X,U=self.trajectory();base=metrics(t,X,U,[False]*700);rows=[]
+        for arm,successes in [('H',[True,True,True,False]),('DeePC_state_0.01',[False,False,False,True])]:
+            for i,success in enumerate(successes):
+                rows.append(dict(base,case=arm+str(i),episodes=3500,seed=0,ic_set='A',seconds=14.,arm=arm,
+                                 ic_index=i,primary_success=success))
+        with tempfile.TemporaryDirectory() as temp:
+            summarize(Path(temp),rows)
+            with (Path(temp)/'paired_comparisons.csv').open() as file:paired=list(csv.DictReader(file))
+        self.assertEqual(len(paired),1);row=paired[0]
+        self.assertEqual(row['n_paired'],'4');self.assertEqual(row['H_only'],'3');self.assertEqual(row['arm_only'],'1')
+        self.assertAlmostEqual(float(row['success_rate_difference']),.5)
+        self.assertAlmostEqual(float(row['exact_mcnemar_p']),.625)
     def test_ic_counts_and_bounds(self):
         sets=ic_sets()
         self.assertEqual([len(sets[k]) for k in ('A','B','C','D')],[6,171,200,1681])

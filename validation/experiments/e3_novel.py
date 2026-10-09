@@ -140,7 +140,7 @@ def main(name):
         coordinates=['q1 from upright','q2 relative','q1_dot/sqrt(g)','q2_dot/sqrt(g)'],input='torque/(m2*g*l2), limit ±1',
         integration='Eight RK4 substeps per 0.02 physical sample; no angle wrapping or velocity clipping',
         source='Uniform-rod Lagrange mass matrix; same equation structure as https://raw.githubusercontent.com/Farama-Foundation/Gymnasium/main/gymnasium/envs/classic_control/acrobot.py, with explicit inertia and coordinate changes')
-    manifest=start_manifest(out,'E3_'+name,[0,1,2],choices);start=time.perf_counter()
+    manifest=start_manifest(out,'E3_'+name,[0,1,2],choices);prior_wall=manifest.get('wall_seconds',0.);start=time.perf_counter()
     try:
         sets=initial_conditions(out,plant);tasks=[]
         for seed in range(3):
@@ -157,7 +157,7 @@ def main(name):
                 row=future.result();saved[row['case']]=row
                 if time.perf_counter()-last>60:
                     summarize_novel(out,list(saved.values()));last=time.perf_counter()
-                    manifest['wall_seconds']=time.perf_counter()-start;dump(out/'manifest.json',manifest)
+                    manifest['wall_seconds']=prior_wall+time.perf_counter()-start;dump(out/'manifest.json',manifest)
         rates=summarize_novel(out,list(saved.values()))
         fig,axes=plt.subplots(1,2,figsize=(9,4))
         for ax,ic_set in zip(axes,('A','C50')):
@@ -168,7 +168,7 @@ def main(name):
         fig.suptitle(name+'; plant-specific endpoints');fig.tight_layout();fig.savefig(out/'success_rates.png',dpi=150);plt.close(fig)
         manifest['status']='DONE'
     except BaseException as error:manifest.update(status='ERROR',error=repr(error));raise
-    finally:manifest['wall_seconds']=time.perf_counter()-start;dump(out/'manifest.json',manifest)
+    finally:manifest['wall_seconds']=prior_wall+time.perf_counter()-start;dump(out/'manifest.json',manifest)
 
 if __name__=='__main__':
     import sys

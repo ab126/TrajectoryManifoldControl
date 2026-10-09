@@ -1,0 +1,11 @@
+test_active_input_bound_in_hand_scalar_case (__main__.DeePCChecks.test_active_input_bound_in_hand_scalar_case) ... ok
+test_nonfinite_observation_is_recorded_as_failed_solve (__main__.DeePCChecks.test_nonfinite_observation_is_recorded_as_failed_solve) ... ok
+test_output_only_history_startup_and_linear_trajectory (__main__.DeePCChecks.test_output_only_history_startup_and_linear_trajectory) ... ok
+test_svd_preserves_minimum_g_regularization (__main__.DeePCChecks.test_svd_preserves_minimum_g_regularization) ... ok
+test_time_channel_order_and_episode_boundaries (__main__.DeePCChecks.test_time_channel_order_and_episode_boundaries) ... ok
+test_unconstrained_scalar_mpc_equals_hand_riccati_solution (__main__.DeePCChecks.test_unconstrained_scalar_mpc_equals_hand_riccati_solution) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.011s
+
+OK
