@@ -138,8 +138,8 @@ def prediction_rmse(decoder, data):
         rmse_by_step_and_state=np.sqrt(np.mean(e**2,axis=0)).tolist())
 
 
-def train_model(seed, episodes=3500):
-    path=OUT/'models'/f'episodes{episodes}_seed{seed}'
+def train_model(seed, episodes=3500, data_root=None, collect=None):
+    path=(OUT/'models' if data_root is None else Path(data_root))/f'episodes{episodes}_seed{seed}'
     path.mkdir(parents=True,exist_ok=True)
     config=runner.make_config('dev',seed=seed,episodes=episodes,device='cuda')
     np.random.seed(seed); torch.manual_seed(seed)
@@ -147,7 +147,7 @@ def train_model(seed, episodes=3500):
     if data_path.exists():
         data=np.load(data_path); X,U=data['X'],data['U']
     else:
-        X,U=runner.collect_trajectory_data(config)
+        X,U=(runner.collect_trajectory_data if collect is None else collect)(config)
         np.savez_compressed(data_path,X=X,U=U)
     splits=runner.split_episodes(X,U,seed)
     checkpoint=path/'transition.pt'
@@ -163,7 +163,7 @@ def train_model(seed, episodes=3500):
     return decoder,gain,config
 
 
-def run_case(out, decoder, gain, config, arm, set_name, index, state, seconds=14.):
+def run_case(out, decoder, gain, config, arm, set_name, index, state, seconds=14., observe=None):
     key=f'seed{config.seed}_{arm}_{set_name}_{index:04d}_{seconds:g}s'
     if out.name=='E2':key=f'episodes{config.episodes}_'+key
     path=out/'cases'/f'{key}.json'
@@ -183,7 +183,7 @@ def run_case(out, decoder, gain, config, arm, set_name, index, state, seconds=14
         solver.solve=record_solve
     def measured(k,state):
         before=len(ctl.diagnostics['loss'])
-        u=ctl(k,state)
+        u=ctl(k,state if observe is None else observe(k,state))
         if len(ctl.diagnostics['loss'])>before:
             solve_steps.append(k)
         return u
@@ -213,8 +213,9 @@ def wilson(successes,n):
     return (float(mid-spread),float(mid+spread))
 
 
-def summarize(out):
-    rows=[json.loads(p.read_text()) for p in sorted((out/'cases').glob('*.json'))]
+def summarize(out,rows=None):
+    if rows is None:rows=[json.loads(p.read_text()) for p in sorted((out/'cases').glob('*.json'))]
+    rows=sorted(rows,key=lambda row:row['case'])
     csv_write(out/'summary.csv',rows)
     groups={}
     for row in rows:

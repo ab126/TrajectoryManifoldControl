@@ -65,13 +65,14 @@ def main(experiment,workers,sets):
                             tasks.append((experiment,episodes,seed,arm,'A',index,state,60.))
         # Case identifiers include budget for E2, whose seeds repeat across budgets.
         completed=0
+        saved_rows={r['case']:r for r in [json.loads(p.read_text()) for p in (out/'cases').glob('*.json')]}
         with concurrent.futures.ProcessPoolExecutor(workers,mp_context=multiprocessing.get_context('spawn'),initializer=initialize) as pool:
             futures=[pool.submit(evaluate,task) for task in tasks]
             for future in concurrent.futures.as_completed(futures):
-                future.result();completed+=1
+                result=future.result();saved_rows[result['case']]=result;completed+=1
                 now=time.perf_counter()
                 if now-last_update>=60 or completed==len(tasks):
-                    summarize(out)
+                    summarize(out,list(saved_rows.values()))
                     manifest['wall_seconds']+=now-start;start=now;last_update=now
                     manifest.update(completed_cases=completed,total_cases=len(tasks))
                     dump(out/'manifest.json',manifest)

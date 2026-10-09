@@ -10,3 +10,7 @@ supervisor.log
 .supervisor_state.json
 models/**/data.npz
 models/**/transition.pt
+**/run_parallel.log
+**/evidence_postprocess.log
+advance.log
+**/authored_figure.log

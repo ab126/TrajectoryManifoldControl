@@ -115,8 +115,9 @@ def figures(experiment):
                 subset=[r for r in rates if r['arm']==arm and r['ic_set']==name]
                 budgets=sorted({r['episodes'] for r in subset})
                 med=[np.mean([r['rate'] for r in subset if r['episodes']==b]) for b in budgets]
-                ax.plot([b*30 for b in budgets],med,'o-',label=f'{arm}, IC-{name}')
-        ax.set(xscale='log',xlabel='Collected training-source transitions (70% used for fitting)',ylabel='Mean primary success rate across training seeds')
+                fit_counts=[json.loads((OUT/'models'/f'episodes{b}_seed0/diagnostics.json').read_text())['local']['training_transitions'] for b in budgets]
+                ax.plot(fit_counts,med,'o-',label=f'{arm}, IC-{name}')
+        ax.set(xscale='log',xlabel='Fitted training transitions (whole-episode split)',ylabel='Mean primary success rate across training seeds')
         ax.legend(fontsize=8);fig.tight_layout();fig.savefig(out/'data_efficiency.png',dpi=150);plt.close(fig)
 
 if __name__=='__main__':

@@ -1,0 +1,16 @@
+PID 673473
+COMMAND env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONUNBUFFERED=1 LD_LIBRARY_PATH=validation/.venv-gpu/lib LD_PRELOAD=validation/.venv-gpu/lib/libstdc++.so.6 validation/.venv-gpu/bin/python validation/experiments/authored_dev.py
+
+PID 674434
+COMMAND env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONUNBUFFERED=1 LD_LIBRARY_PATH=validation/.venv-gpu/lib LD_PRELOAD=validation/.venv-gpu/lib/libstdc++.so.6 timeout 14400 validation/.venv-gpu/bin/python validation/experiments/campaign.py E0
+NOTE Nine reported-number and arm tests passed. E0 estimate 4800 seconds; timeout is three times estimate.
+
+PID 675632
+COMMAND env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONUNBUFFERED=1 LD_LIBRARY_PATH=validation/.venv-gpu/lib LD_PRELOAD=validation/.venv-gpu/lib/libstdc++.so.6 timeout 14400 validation/.venv-gpu/bin/python validation/experiments/parallel_campaign.py E0 --workers 8
+NOTE Replaces serial PID 674436. Finished cases and trained seed-0 model are reused; independent cases use separate CEM generators.
+
+PID 675976
+COMMAND validation/.venv-gpu/bin/python validation/experiments/restate_evidence.py
+
+PID 678885
+COMMAND validation/.venv-gpu/bin/python validation/experiments/authored_figure.py

@@ -6,7 +6,7 @@
 
 The primary endpoint is the runner's `balanced` metric (|θ|≤0.02 rad and physical |θ̇|≤0.05 rad/s in the last 3 s) **and no fall** (|θ|<π/2 throughout). Cart excursion, drift, settling, final position, input saturation and local feedback use are reported separately. There is no rail limit, recentering deadline or acceptance gate.
 
-The fresh authored reproduction gives **6/6 primary successes** (Wilson 95% interval 0.610–1.000), with cart rest in 4/6 rather than the notebook's 3/6. Local feedback supplies 43.1–96.7% of steps and CEM solves range from 6 to 81. Maximum cart excursions span 0.413–7.858 m. These differences from the saved notebook should be retained as reproduction variability, not overwritten. The authored local-fit selection reaches |θ|=1.775 rad (101.7°), with standardized radius 0.809 and inputs spanning the full ±10 limit. Sources: [authored endpoints](E0/authored_cases.csv), [model diagnostics](E0/authored_model_diagnostics.json).
+The fresh authored reproduction gives **6/6 primary successes** (Wilson 95% interval 0.610–1.000), with cart rest in 4/6 rather than the notebook's 3/6. Local feedback supplies 43.1–96.7% of steps and CEM solves range from 6 to 81. Maximum cart excursions span 0.413–7.858 m. These differences from the saved notebook should be retained as reproduction variability, not overwritten. The authored local-fit selection reaches |θ|=1.775 rad (101.7°), with standardized radius 0.809 and inputs spanning the full ±10 limit. Sources: [authored endpoints](E0/authored_cases.csv), [angle/cart/input figure](E0/authored_excursions.png), [model diagnostics](E0/authored_model_diagnostics.json).
 
 ## Q1.1 — Failure region, data needs, novel systems
 
@@ -41,3 +41,70 @@ The bounded [paper ledger and proof audit](reviews/paper_review_v1/proof_audit.m
 2026-10-09: E0 was restarted with eight independent GPU workers after measuring 9% serial GPU utilization. Saved cases/models were reused. Only progress-bar display was suppressed; each case still calls the submitted runner/class implementation. E1 runtime projection will be checked against the cap using measured parallel throughput.
 
 E1 long-horizon subsets are fixed before evaluation: IC-B −60°, 0°, +60°; IC-C indices 0–2; IC-D indices 20, 840, 1660 (θ0=−85°, 0°, +85°, zero angular velocity). All five arms are evaluated for 60 s on these subsets.
+
+Prepared for the post-checkpoint stages: `parallel_campaign.py E2 --workers 8`, then `e2_distribution.py`, then `e3_robustness.py`. The E2 collection adapters and E3 nominal/length/noise wiring have passed three checks each ([collection](collection_variant_tests.txt), [robustness](robustness_wiring_tests.txt)). They have not yet run as scientific experiments. E3 robustness uses H and L; novel-system runs and DeePC remain to be implemented/executed.
+
+<!-- E0_AUTO_START -->
+
+### E0 measured results
+
+Sources: [E0 rates](E0/rates.csv), [matched comparisons](E0/paired_comparisons.csv), [case metrics](E0/summary.csv), [distributions](E0/distributions.csv), [success figure](E0/success_rates.png), [manifest](E0/manifest.json).
+
+| Seed | IC set | Arm | Successes/n (14 s, no fall) | Wilson 95% CI |
+|---|---|---|---|---|
+| 0 | A | H | 4/6 | 0.300–0.903 |
+| 0 | A | Hstar | 4/6 | 0.300–0.903 |
+| 0 | A | L | 6/6 | 0.610–1.000 |
+| 0 | A | M1 | 0/6 | 0.000–0.390 |
+| 0 | A | M | 0/6 | 0.000–0.390 |
+| 1 | A | H | 4/6 | 0.300–0.903 |
+| 1 | A | Hstar | 4/6 | 0.300–0.903 |
+| 1 | A | L | 6/6 | 0.610–1.000 |
+| 1 | A | M1 | 0/6 | 0.000–0.390 |
+| 1 | A | M | 0/6 | 0.000–0.390 |
+| 2 | A | H | 4/6 | 0.300–0.903 |
+| 2 | A | Hstar | 4/6 | 0.300–0.903 |
+| 2 | A | L | 6/6 | 0.610–1.000 |
+| 2 | A | M1 | 0/6 | 0.000–0.390 |
+| 2 | A | M | 0/6 | 0.000–0.390 |
+| 3 | A | H | 5/6 | 0.436–0.970 |
+| 3 | A | Hstar | 4/6 | 0.300–0.903 |
+| 3 | A | L | 6/6 | 0.610–1.000 |
+| 3 | A | M1 | 0/6 | 0.000–0.390 |
+| 3 | A | M | 0/6 | 0.000–0.390 |
+| 4 | A | H | 5/6 | 0.436–0.970 |
+| 4 | A | Hstar | 4/6 | 0.300–0.903 |
+| 4 | A | L | 6/6 | 0.610–1.000 |
+| 4 | A | M1 | 0/6 | 0.000–0.390 |
+| 4 | A | M | 0/6 | 0.000–0.390 |
+| 5 | A | H | 4/6 | 0.300–0.903 |
+| 5 | A | Hstar | 4/6 | 0.300–0.903 |
+| 5 | A | L | 6/6 | 0.610–1.000 |
+| 5 | A | M1 | 0/6 | 0.000–0.390 |
+| 5 | A | M | 0/6 | 0.000–0.390 |
+| 6 | A | H | 4/6 | 0.300–0.903 |
+| 6 | A | Hstar | 4/6 | 0.300–0.903 |
+| 6 | A | L | 6/6 | 0.610–1.000 |
+| 6 | A | M1 | 0/6 | 0.000–0.390 |
+| 6 | A | M | 0/6 | 0.000–0.390 |
+| 7 | A | H | 5/6 | 0.436–0.970 |
+| 7 | A | Hstar | 4/6 | 0.300–0.903 |
+| 7 | A | L | 6/6 | 0.610–1.000 |
+| 7 | A | M1 | 0/6 | 0.000–0.390 |
+| 7 | A | M | 0/6 | 0.000–0.390 |
+| 8 | A | H | 4/6 | 0.300–0.903 |
+| 8 | A | Hstar | 4/6 | 0.300–0.903 |
+| 8 | A | L | 6/6 | 0.610–1.000 |
+| 8 | A | M1 | 0/6 | 0.000–0.390 |
+| 8 | A | M | 0/6 | 0.000–0.390 |
+| 9 | A | H | 5/6 | 0.436–0.970 |
+| 9 | A | Hstar | 4/6 | 0.300–0.903 |
+| 9 | A | L | 6/6 | 0.610–1.000 |
+| 9 | A | M1 | 0/6 | 0.000–0.390 |
+| 9 | A | M | 0/6 | 0.000–0.390 |
+
+Settling, excursion, input saturation and local fractions are distributions, not extra acceptance criteria. The 60 s runs remain separate in the CSVs.
+
+Across the ten whole-run seeds, authored-set primary successes per six cases: H 4–5/6, Hstar 4–4/6, L 6–6/6, M 0–0/6, M1 0–0/6. These are repeated fixed ICs; the per-seed counts, not a pooled population interval, are the reproducibility evidence.
+
+<!-- E0_AUTO_END -->

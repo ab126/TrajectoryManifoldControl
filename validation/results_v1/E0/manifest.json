@@ -1,0 +1,43 @@
+{
+  "experiment": "E0",
+  "git_commit": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "config": {
+    "profile": "dev",
+    "episodes": [
+      3500
+    ],
+    "arms": [
+      "H",
+      "L",
+      "M",
+      "M1",
+      "Hstar"
+    ],
+    "ic_sets": [
+      "A"
+    ],
+    "workers": 8
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "device": "cuda",
+  "wall_seconds": 1044.9908900465816,
+  "status": "DONE",
+  "cvxpy_unused_import_workaround": true,
+  "initial_conditions": "validation/results_v1/initial_conditions.json",
+  "oracle_exploration_scaling": "learned training scaling; plant replaced only",
+  "full_stabilization_position_rate_m_s": 0.01,
+  "oracle_equivalence_max_abs_error": 4.440892098500626e-16,
+  "completed_cases": 480,
+  "total_cases": 480
+}
