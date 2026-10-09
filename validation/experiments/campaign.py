@@ -211,7 +211,7 @@ def wilson(successes,n):
     if not n:return (None,None)
     z=1.959963984540054; p=successes/n; den=1+z*z/n
     mid=(p+z*z/(2*n))/den; spread=z*np.sqrt(p*(1-p)/n+z*z/(4*n*n))/den
-    return (float(mid-spread),float(mid+spread))
+    return (max(0.,float(mid-spread)),min(1.,float(mid+spread)))
 
 
 def summarize(out,rows=None):

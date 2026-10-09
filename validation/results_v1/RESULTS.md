@@ -20,6 +20,8 @@ A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) ex
 
 `run_inverted_pendulum_mc.log`, `inverted_pendulum_mc_debug.ipynb`, and `linear_system_mc.ipynb` contain historical latent-MPC outputs. They are not evidence about the active CEM controller.
 
+For the completed seed-0 E1 subsets at 14 s, H has 83/171 primary successes from rest and 48/200 in the random collection box; L has 137/171 and 122/200, and H* has 85/171 and 42/200. M and M1 each have zero primary successes in both sets. These are complete matched subsets for one seed. Sources: [per-seed counts and Wilson intervals](E1/rates.csv), [matched comparisons](E1/paired_comparisons.csv).
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.
