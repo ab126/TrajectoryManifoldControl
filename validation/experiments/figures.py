@@ -100,12 +100,8 @@ def figures(experiment):
             fig.savefig(out/f'cart_excursion_D_seed{seed}.png',dpi=150);plt.close(fig)
         # Five failures spread across arms. Replay inputs in the true plant to compare
         # the predicted horizon against the same candidate input sequence.
-        failures=[r for r in rows if not r['primary_success'] and r['arm']!='L']
-        chosen=[]
-        for arm in ('H','M','M1','Hstar'):
-            candidates=[r for r in failures if r['arm']==arm]
-            if candidates:chosen.append(candidates[0])
-        chosen.extend(r for r in failures if r not in chosen and len(chosen)<5)
+        from failure_diagnostics import witness,select_representative_failures
+        chosen=select_representative_failures(rows)
         for i,row in enumerate(chosen[:5]):
             data=np.load(ROOT/row['raw_path']);t,X,U=data['t'],data['X'],data['U']
             steps=data['solve_steps'];pred=data['predictions']
@@ -125,16 +121,60 @@ def figures(experiment):
                     actual=np.asarray(actual);prediction=pred[j]
                     error=prediction-actual
                     axes[1].plot(np.arange(len(error))*.02,error[:,2],label=f'At t={steps[j]*.02:g}s')
-                    matched.append(dict(planning_step=int(steps[j]),rmse_by_state=[float(v) if np.isfinite(v) else None for v in np.sqrt(np.mean(error**2,axis=0))],
+                    matched.append(dict(planning_step=int(steps[j]),optimizer_and_model_witness=witness(row['seed'],row['arm'],X[int(steps[j])],data['plan_inputs'][j],prediction,data['loss'][j]),rmse_by_state=[float(v) if np.isfinite(v) else None for v in np.sqrt(np.mean(error**2,axis=0))],
                                         final_error_by_state=[float(v) if np.isfinite(v) else None for v in error[-1]]))
-            dump(out/f'failure_{i+1}_prediction_errors.json',dict(case=row['case'],matched_input_replays=matched))
+            dump(out/f'failure_{i+1}_prediction_errors.json',dict(case=row['case'],matched_input_replays=matched,
+                switch_exit_times_seconds=((np.flatnonzero(data['local'][:-1]&~data['local'][1:])+1)*.02).tolist(),
+                fell_within_1s_of_switch_exit=row['fell_within_1s_of_switch_exit']))
             axes[1].set(xlabel='Matched plan horizon [s]',ylabel='Predicted minus true θ [rad]');axes[1].legend(fontsize=8)
             axes[2].plot(t,X[:,0]);axes[2].set_ylabel('p [m]')
             axes[3].step(t[:-1],U[:,0]);axes[3].set_ylabel('u');axes[3].set_xlabel('Physical time [s]')
-            fig.suptitle(row['case']+'; matched-input replay separates model error')
+            fig.suptitle(row['case']+'\n'+row['diagnostic_selection']+'; matched-input replay')
             fig.tight_layout();fig.savefig(out/f'failure_{i+1}.png',dpi=150);plt.close(fig)
         dump(out/'representative_failures.json',chosen[:5])
+    if experiment=='E3':
+        fig,axes=plt.subplots(1,3,figsize=(15,4),sharey=True)
+        modes=[('measurement',['measurement_0.01','measurement_0.03','measurement_0.1']),
+               ('process',['process_0.01','process_0.03','process_0.1']),
+               ('mismatch/delay',['mass_minus25','mass_plus25','length_minus25','length_plus25','input_delay'])]
+        for ax,(mode,conditions) in zip(axes,modes):
+            for a,arm in enumerate(('H','L')):
+                for j,name in enumerate(('A','C50')):
+                    for seed in (0,1,2):
+                        subset=[r for r in rates if r['arm']==arm and r['seed']==seed and r['ic_set'] in [condition+'_'+name for condition in conditions]]
+                        subset=sorted(subset,key=lambda r:conditions.index(r['ic_set'].rsplit('_',1)[0]))
+                        positions=[conditions.index(r['ic_set'].rsplit('_',1)[0])+.04*(seed-1)+.15*(a-.5) for r in subset]
+                        ax.plot(positions,[r['rate'] for r in subset],marker='o' if j==0 else 'x',color=f'C{a}',alpha=.55,
+                                label=arm+', '+name if seed==0 else None)
+            ax.set(xticks=range(len(conditions)),xticklabels=[c.split('_',1)[-1] for c in conditions],title=mode,ylim=(-.03,1.03))
+            ax.tick_params(axis='x',rotation=30)
+        axes[0].set_ylabel('Primary success rate; seeds shown separately');axes[-1].legend(fontsize=8)
+        fig.tight_layout();fig.savefig(out/'robustness_conditions.png',dpi=150);plt.close(fig)
     if experiment=='E2':
+        diagnostics=[]
+        budgets=sorted({r['episodes'] for r in rates})
+        for budget in budgets:
+            for seed in sorted({r['seed'] for r in rates if r['episodes']==budget}):
+                item=json.loads((OUT/'models'/f'episodes{budget}_seed{seed}/diagnostics.json').read_text())
+                local=item['local'];pred=item['prediction']
+                row=dict(episodes=budget,seed=seed,**{k:v for k,v in local.items() if k not in ('A','B','gain','fit_rmse')})
+                for name in ('one_step_rmse_by_state','N_step_rmse_by_state'):
+                    row.update({f'{name}_{state}':value for state,value in zip(('p','v','theta','omega'),pred[name])})
+                row.update({f'local_rmse_{state}':value for state,value in zip(('p','v','theta','omega'),local['fit_rmse'])})
+                diagnostics.append(row)
+        csv_write(out/'model_diagnostics.csv',diagnostics)
+        fig,axes=plt.subplots(1,3,figsize=(13,4))
+        for ax,prefix,title in zip(axes[:2],('N_step_rmse_by_state','local_rmse'),('Held-out 30-step RMSE','Local linear fit RMSE')):
+            for i,state in enumerate(('p','v','theta','omega')):
+                for seed in sorted({r['seed'] for r in diagnostics}):
+                    items=sorted([r for r in diagnostics if r['seed']==seed],key=lambda r:r['training_transitions'])
+                    ax.plot([r['training_transitions'] for r in items],[r[prefix+'_'+state] for r in items],'.-',alpha=.5,color=f'C{i}',label=state if seed==0 else None)
+            ax.set(xscale='log',yscale='log',title=title,xlabel='Fitted training transitions',ylabel='RMSE in stored state units');ax.legend(fontsize=8)
+        for seed in sorted({r['seed'] for r in diagnostics}):
+            items=sorted([r for r in diagnostics if r['seed']==seed],key=lambda r:r['training_transitions'])
+            axes[2].plot([r['training_transitions'] for r in items],[np.rad2deg(r['max_abs_theta']) for r in items],'.-',label=f'seed {seed}')
+        axes[2].set(xscale='log',title='6000-nearest neighborhood',xlabel='Fitted training transitions',ylabel='Max |θ| in selected fit [degrees]');axes[2].legend(fontsize=8)
+        fig.tight_layout();fig.savefig(out/'model_quality_vs_data.png',dpi=150);plt.close(fig)
         fig,ax=plt.subplots(figsize=(8,4))
         for arm in arms:
             for name in ('A','C50'):

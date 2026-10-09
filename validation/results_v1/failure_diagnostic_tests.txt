@@ -1,0 +1,9 @@
+test_candidate_is_feasible_and_uses_same_opaque_plant (__main__.ObjectiveChecks.test_candidate_is_feasible_and_uses_same_opaque_plant) ... ok
+test_cost_witnesses_do_not_invent_missing_true_plan_costs (__main__.ObjectiveChecks.test_cost_witnesses_do_not_invent_missing_true_plan_costs) ... ok
+test_hand_cost_includes_terminal_and_only_within_plan_input_differences (__main__.ObjectiveChecks.test_hand_cost_includes_terminal_and_only_within_plan_input_differences) ... ok
+test_representative_contrasts_match_seed_and_IC (__main__.ObjectiveChecks.test_representative_contrasts_match_seed_and_IC) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.019s
+
+OK

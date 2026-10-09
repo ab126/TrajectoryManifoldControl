@@ -1,0 +1,58 @@
+{
+  "selection": "Last saved plan of three illustrative seed-0 cases; not a random sample",
+  "wall_seconds": 0.4091401882469654,
+  "cases": [
+    {
+      "case": "seed0_M1_A_0002_14s",
+      "planning_time_seconds": 13.98,
+      "chosen_model_cost": 13.734889030456543,
+      "chosen_true_cost": null,
+      "local_candidate_model_cost": 75.03105437911357,
+      "local_candidate_true_cost": 21.275774080506153,
+      "recorded_cem_loss": 13.734889030456543,
+      "chosen_plan_inputs_available": false,
+      "local_candidate_inputs_bounded": true,
+      "feasible_better_model_cost": false,
+      "model_cost_gap_over_feasible_alternative": -61.29616534865703,
+      "model_preference_reversal": null,
+      "comparison_tolerance": 0.0007503105437911357,
+      "planner_transition": "learned transition, CUDA float32",
+      "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+    },
+    {
+      "case": "seed0_H_A_0005_14s",
+      "planning_time_seconds": 13.92,
+      "chosen_model_cost": 47.293678283691406,
+      "chosen_true_cost": null,
+      "local_candidate_model_cost": 71.18365114962896,
+      "local_candidate_true_cost": 38.23478069557277,
+      "recorded_cem_loss": 47.293678283691406,
+      "chosen_plan_inputs_available": false,
+      "local_candidate_inputs_bounded": true,
+      "feasible_better_model_cost": false,
+      "model_cost_gap_over_feasible_alternative": -23.88997286593755,
+      "model_preference_reversal": null,
+      "comparison_tolerance": 0.0007118365114962896,
+      "planner_transition": "learned transition, CUDA float32",
+      "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+    },
+    {
+      "case": "seed0_Hstar_A_0005_14s",
+      "planning_time_seconds": 13.9,
+      "chosen_model_cost": 72.00439169581054,
+      "chosen_true_cost": 72.004391384858,
+      "local_candidate_model_cost": 322.2958694403669,
+      "local_candidate_true_cost": 322.2960481575573,
+      "recorded_cem_loss": 72.00437927246094,
+      "chosen_plan_inputs_available": true,
+      "local_candidate_inputs_bounded": true,
+      "feasible_better_model_cost": false,
+      "model_cost_gap_over_feasible_alternative": -250.29147774455637,
+      "model_preference_reversal": false,
+      "comparison_tolerance": 0.0032229586944036693,
+      "true_cost_tolerance": 0.0032229604815755737,
+      "planner_transition": "true RK4 in float32",
+      "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+    }
+  ]
+}

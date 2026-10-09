@@ -10,14 +10,16 @@ import concurrent.futures
 import multiprocessing
 from figures import figures
 import osqp
+from ensemble_baseline import train_members,load_members,make_ensemble_controller
 
 CACHE={}
 REGULARIZERS=(.001,.01,.1)
-ARMS_E4=['H','L','M1']+[f'DeePC_{kind}_{value:g}' for kind in ('state','output') for value in REGULARIZERS]
+ARMS_E4=['H','L','M1','E5']+[f'DeePC_{kind}_{value:g}' for kind in ('state','output') for value in REGULARIZERS]
 
 
-def initialize():
+def initialize(include_ensemble=True):
     torch.set_num_threads(1);runner.tqdm=lambda it,**kw:it
+    if not include_ensemble and 'E5' in ARMS_E4:ARMS_E4.remove('E5')
 
 
 def save_basis(path,basis):
@@ -45,6 +47,7 @@ def fit(seed):
     splits=runner.split_episodes(X,U,seed)
     if (path/'transition.pt').exists():model,_=runner.load_transition(path/'transition.pt','cuda')
     else:model,_=runner.train_transition(splits['train'],splits['validation'],collection,path/'transition.pt')
+    if 'E5' in ARMS_E4:train_members(path,splits['train'],splits['validation'],collection)
     decoder=CanonicalBehaviorDecoder(model,30).to('cuda').eval()
     gain,local=runner.fit_local_feedback(splits['train'],Q,R)
     for kind,tini,indices in [('state',0,None),('output',2,[0,2])]:
@@ -64,7 +67,8 @@ def load(seed):
     config=runner.ExperimentConfig(**{**payload['config'],'horizon':30,'hidden_dims':tuple(payload['config']['hidden_dims'])})
     decoder=CanonicalBehaviorDecoder(model,30).to('cuda').eval()
     gain=np.asarray(json.loads((path/'diagnostics.json').read_text())['local']['gain'])
-    return decoder,gain,config,{kind:load_basis(path/(kind+'_basis')) for kind in ('state','output')}
+    members=load_members(path,'cuda') if 'E5' in ARMS_E4 else None
+    return decoder,gain,config,{kind:load_basis(path/(kind+'_basis')) for kind in ('state','output')},members
 
 
 def evaluate(task):
@@ -72,8 +76,9 @@ def evaluate(task):
     key=f'seed{seed}_{arm}_{name}_{index:04d}_{seconds:g}s';path=out/'cases'/(key+'.json')
     if path.exists():return json.loads(path.read_text())
     if seed not in CACHE:CACHE[seed]=load(seed)
-    decoder,gain,config,bases=CACHE[seed]
+    decoder,gain,config,bases,members=CACHE[seed]
     if arm in ('H','L','M1'):return run_case(out,decoder,gain,config,arm,name,index,state,seconds)
+    if arm=='E5':return run_case(out,decoder,gain,config,arm,name,index,state,seconds,control=make_ensemble_controller(members,config))
     _,kind,regularization=arm.split('_')
     ctl=DeePC(bases[kind],Q,R,lambda_per_column=float(regularization),dt=config.dt)
     # The IO controller sees only p and theta; simulation still records all states
@@ -121,6 +126,7 @@ def main():
         common_cost=dict(Q=Q.tolist(),R=R.tolist(),terminal_factor=12.,input_rate_weight=.002),input_bounds=[-10,10],
         solver='OSQP '+osqp.__version__,sources=['https://arxiv.org/pdf/1811.05890','https://osqp.org/docs/interfaces/python.html'],
         neighbor_code_audit='pe.hankel_matrix flattens multichannel data; dataset.py has different units/plant/collection, so neither reused',
+        ensemble='Optional E5: five episode-bootstrap deterministic models, mean member cost, first-action feedback; PETS-lite, not full PETS',
         limitations='Mosaic trajectory span is exact only for adequately excited LTI data; regularization here does not make it exact for nonlinear cart-pole')
     manifest=start_manifest(out,'E4',[0,1,2],config);prior_wall=manifest.get('wall_seconds',0.);start=time.perf_counter()
     try:
@@ -133,7 +139,7 @@ def main():
             for index in (0,2,5):
                 for arm in ARMS_E4:tasks.append((seed,arm,'A',index,sets['A'][index],60.))
         saved={r['case']:r for r in [json.loads(p.read_text()) for p in (out/'cases').glob('*.json')]};last=time.perf_counter()
-        with concurrent.futures.ProcessPoolExecutor(8,mp_context=multiprocessing.get_context('spawn'),initializer=initialize) as pool:
+        with concurrent.futures.ProcessPoolExecutor(8,mp_context=multiprocessing.get_context('spawn'),initializer=initialize,initargs=('E5' in ARMS_E4,)) as pool:
             futures=[pool.submit(evaluate,task) for task in tasks]
             for future in concurrent.futures.as_completed(futures):
                 row=future.result();saved[row['case']]=row
@@ -145,4 +151,8 @@ def main():
     except BaseException as error:manifest.update(status='ERROR',error=repr(error));raise
     finally:manifest['wall_seconds']=prior_wall+time.perf_counter()-start;dump(out/'manifest.json',manifest)
 
-if __name__=='__main__':initialize();main()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--skip-ensemble',action='store_true');args=parser.parse_args()
+    if args.skip_ensemble:ARMS_E4.remove('E5')
+    initialize();main()

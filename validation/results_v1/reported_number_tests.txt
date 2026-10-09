@@ -1,15 +1,5 @@
-test_H_matches_original_factory (__main__.ReportedNumbers.test_H_matches_original_factory) ... ok
-test_M1_replans_every_step_and_M_queues_five (__main__.ReportedNumbers.test_M1_replans_every_step_and_M_queues_five) ... ok
-test_cart_excursion_is_descriptive (__main__.ReportedNumbers.test_cart_excursion_is_descriptive) ... ok
-test_ic_counts_and_bounds (__main__.ReportedNumbers.test_ic_counts_and_bounds) ... ok
-test_local_arm_clips_without_CEM (__main__.ReportedNumbers.test_local_arm_clips_without_CEM) ... ok
-test_paired_comparison_includes_new_baseline_and_matches_ICs (__main__.ReportedNumbers.test_paired_comparison_includes_new_baseline_and_matches_ICs) ... ok
-test_primary_uses_physical_velocity_and_no_fall (__main__.ReportedNumbers.test_primary_uses_physical_velocity_and_no_fall) ... ok
-test_settling_requires_three_seconds_and_last_violation (__main__.ReportedNumbers.test_settling_requires_three_seconds_and_last_violation) ... ok
-test_switch_and_saturation_counts (__main__.ReportedNumbers.test_switch_and_saturation_counts) ... ok
-test_wilson_known_endpoints (__main__.ReportedNumbers.test_wilson_known_endpoints) ... ok
-
+..........
 ----------------------------------------------------------------------
-Ran 10 tests in 0.949s
+Ran 10 tests in 0.782s
 
 OK

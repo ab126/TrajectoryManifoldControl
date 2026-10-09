@@ -85,7 +85,12 @@ def finish_checkpoint(e1_pid):
     # Refresh scientific summaries using the checked code present at completion.
     env=dict(os.environ,OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',
         LD_LIBRARY_PATH=str(ROOT/'validation/.venv-gpu/lib'),LD_PRELOAD=str(ROOT/'validation/.venv-gpu/lib/libstdc++.so.6'))
+    postprocess_start=time.perf_counter()
     subprocess.run([str(ROOT/'validation/.venv-gpu/bin/python'),str(ROOT/'validation/experiments/figures.py'),'E1'],cwd=ROOT,env=env,check=True)
+    postprocess_seconds=time.perf_counter()-postprocess_start
+    manifest['postprocess_wall_seconds']=manifest.get('postprocess_wall_seconds',0.)+postprocess_seconds
+    manifest['wall_seconds']+=postprocess_seconds
+    (OUT/'E1/manifest.json').write_text(json.dumps(manifest,indent=2,allow_nan=False)+'\n')
     save_report('E1')
     (OUT/'STATUS').write_text('CHECKPOINT_USER\nE0 and E1 completed; see RESULTS.md for reproduction, L attribution and operating-region maps.\nNext: report this checkpoint, then resume E2–E4 under the superseding handoff.\n')
     commit('E1')

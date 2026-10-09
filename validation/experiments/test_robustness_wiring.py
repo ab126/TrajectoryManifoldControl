@@ -13,6 +13,10 @@ class RobustnessWiring(unittest.TestCase):
             xn=physical_mismatch_step(x,u,dt,mass=2.,length=length)
             self.assertAlmostEqual(xn[1]/dt,1/2.25,places=8)
             self.assertAlmostEqual(xn[3]/dt,-1.5/(length*2.25),places=8)
+    def test_delay_applied_inputs_preserve_units_and_initial_zero(self):
+        U=np.array([[1.],[10.],[-3.]])
+        np.testing.assert_array_equal(applied_inputs(U),U)
+        np.testing.assert_array_equal(applied_inputs(U,True),[[0.],[1.],[10.]])
     def test_noise_uses_nominal_units_and_is_reproducible(self):
         scale=np.array([1.,2.,3.,4.])
         a=normal_sequence(1,'measurement_0.03',3,20,scale)

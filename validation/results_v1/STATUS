@@ -1,3 +1,3 @@
 RUNNING
-E0 is complete and committed; E1 IC-B/C/D maps and long subsets are detached (PID 679000).
-Next: finish E1 and the user checkpoint, then E2–E4.
+E0 is committed; E1 IC-B/C/D and long subsets remain detached (PID 679000); later-stage code is prepared and checked.
+Next: E1 completion and E0+E1 user checkpoint, then ordered E2–E4 runs.

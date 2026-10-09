@@ -1,0 +1,8 @@
+test_bootstrap_stays_in_training_episodes_and_varies_by_member (__main__.EnsembleChecks.test_bootstrap_stays_in_training_episodes_and_varies_by_member) ... ok
+test_imported_factory_replans_each_sample_without_switch (__main__.EnsembleChecks.test_imported_factory_replans_each_sample_without_switch) ... ok
+test_mean_trajectory_cost_not_cost_of_mean_prediction (__main__.EnsembleChecks.test_mean_trajectory_cost_not_cost_of_mean_prediction) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.045s
+
+OK

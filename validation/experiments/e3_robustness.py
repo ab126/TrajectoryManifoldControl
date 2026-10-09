@@ -34,6 +34,11 @@ def normal_sequence(seed,condition,index,steps,scale):
     return np.random.default_rng(np.random.SeedSequence([20261009,seed,code,index])).standard_normal((steps,4))*scale
 
 
+def applied_inputs(commands,delay=False):
+    commands=np.asarray(commands)
+    return np.concatenate((np.zeros_like(commands[:1]),commands[:-1])) if delay else commands.copy()
+
+
 def init():
     torch.set_num_threads(1);runner.tqdm=lambda it,**kw:it
 
@@ -50,12 +55,11 @@ def evaluate(task):
     decoder,gain,config,std=CACHE[key]
     spec=CONDITIONS[condition]
     noise=normal_sequence(seed,condition,index+(0 if name=='A' else 1000),700,std*spec.get('level',0))
-    observe=None;applied=[];sample=0;last=np.zeros(1)
+    observe=None;sample=0;last=np.zeros(1)
     def plant(x,u,dt):
         nonlocal sample,last
         value=np.asarray(u).copy()
         if spec['mode']=='delay':value,last=last,value
-        applied.append(value.copy())
         xn=physical_mismatch_step(x,value,dt,spec['mass'],spec['length']) if spec['mode']=='mismatch' else NOMINAL_STEP(x,value,dt)
         if spec['mode']=='process':xn=xn+noise[sample]
         sample+=1
@@ -64,17 +68,21 @@ def evaluate(task):
     runner._plant_step=plant
     try:row=run_case(OUT/'E3',decoder,gain,config,arm,condition+'_'+name,index,state,observe=observe)
     finally:runner._plant_step=NOMINAL_STEP
-    if applied:
-        raw=ROOT/row['raw_path'];data=np.load(raw);arrays={k:data[k] for k in data.files};data.close()
-        arrays['U_applied']=np.asarray(applied)
-        if spec['mode']=='measurement':arrays['observation_noise']=noise
-        if spec['mode']=='process':arrays['process_noise']=noise
-        np.savez_compressed(raw,**arrays)
-        row.update(max_command_u=row['max_abs_u'],command_input_limit_seconds=row['input_limit_seconds'],
-                   max_abs_u=float(np.max(np.abs(arrays['U_applied']))) if np.isfinite(arrays['U_applied']).all() else None,
-                   input_limit_seconds=float(np.sum(np.abs(arrays['U_applied'][:,0])>=10-1e-6)*.02),
-                   controller_never_used_local=bool(not np.any(arrays['local'])))
-        dump(OUT/'E3/cases'/f"{row['case']}.json",row)
+    # Derive applied inputs from saved commands even after a pause between the
+    # generic case save and these robustness-specific diagnostics.
+    raw=ROOT/row['raw_path'];data=np.load(raw);arrays={k:data[k] for k in data.files};data.close()
+    arrays['U_applied']=applied_inputs(arrays['U'],spec['mode']=='delay')
+    if spec['mode']=='measurement':arrays['observation_noise']=noise
+    if spec['mode']=='process':arrays['process_noise']=noise
+    temporary=raw.with_suffix('.tmp.npz');np.savez_compressed(temporary,**arrays);temporary.replace(raw)
+    observed=arrays['X'][:-1]+noise if spec['mode']=='measurement' else arrays['X'][:-1]
+    observed_cost=np.einsum('bi,ij,bj->b',observed,Q,observed)
+    def maximum(values):return float(np.max(np.abs(values))) if np.isfinite(values).all() else None
+    row.update(max_command_u=maximum(arrays['U']),command_input_limit_seconds=float(np.sum(np.abs(arrays['U'][:,0])>=10-1e-6)*.02),
+               max_abs_u=maximum(arrays['U_applied']),input_limit_seconds=float(np.sum(np.abs(arrays['U_applied'][:,0])>=10-1e-6)*.02),
+               controller_never_used_local=bool(not np.any(arrays['local'])),never_entered_switch=bool(not np.any(observed_cost<.75)),
+               noise_std_by_state=(std*spec['level']).tolist() if 'level' in spec else None)
+    dump(OUT/'E3/cases'/f"{row['case']}.json",row)
     return row
 
 
@@ -92,6 +100,7 @@ def main():
         for seed in range(3):
             train_model(seed)
             std=nominal_scale(seed)
+            manifest.setdefault('nominal_state_std_by_seed',{})[str(seed)]=std.tolist()
             for condition,spec in CONDITIONS.items():
                 if spec['mode']=='process':
                     rng=np.random.default_rng(np.random.SeedSequence([20261009,seed,list(CONDITIONS).index(condition),987654]))

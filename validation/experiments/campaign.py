@@ -163,13 +163,13 @@ def train_model(seed, episodes=3500, data_root=None, collect=None):
     return decoder,gain,config
 
 
-def run_case(out, decoder, gain, config, arm, set_name, index, state, seconds=14., observe=None):
+def run_case(out, decoder, gain, config, arm, set_name, index, state, seconds=14., observe=None, control=None):
     key=f'seed{config.seed}_{arm}_{set_name}_{index:04d}_{seconds:g}s'
     if out.name=='E2':key=f'episodes{config.episodes}_'+key
     path=out/'cases'/f'{key}.json'
     if path.exists():
         return json.loads(path.read_text())
-    ctl=controller(decoder,config,gain,arm)
+    ctl=controller(decoder,config,gain,arm) if control is None else control
     solve_steps=[]
     plan_inputs=[]
     cells=dict(zip(ctl.__code__.co_freevars,ctl.__closure__ or ()))
