@@ -26,7 +26,7 @@ def save_basis(path,basis):
     np.savez_compressed(path.with_suffix('.npz'),B=basis.B,singular_values=basis.singular_values,scale=basis.scale)
     dump(path.with_suffix('.json'),dict(columns=basis.columns,rank=basis.B.shape[1],rows=basis.B.shape[0],
         horizon=basis.horizon,inputs=basis.inputs,tini=basis.tini,layout={key:[value.start,value.stop] for key,value in basis.layout.items()},
-        relative_svd_tolerance=1e-8,coefficient_transform='Zg=B alpha; min ||g||²=||alpha||²/columns',
+        relative_svd_tolerance=1e-8,coefficient_transform='Within the retained SVD subspace: Zg=B alpha; min ||g||²=||alpha||²/columns',
         retained_singular_values=basis.singular_values.tolist()))
 
 
@@ -127,7 +127,7 @@ def main():
         solver='OSQP '+osqp.__version__,sources=['https://arxiv.org/pdf/1811.05890','https://osqp.org/docs/interfaces/python.html'],
         neighbor_code_audit='pe.hankel_matrix flattens multichannel data; dataset.py has different units/plant/collection, so neither reused',
         ensemble='Optional E5: five episode-bootstrap deterministic models, mean member cost, first-action feedback; PETS-lite, not full PETS',
-        limitations='Mosaic trajectory span is exact only for adequately excited LTI data; regularization here does not make it exact for nonlinear cart-pole')
+        limitations='Mosaic trajectory span is exact only for adequately excited LTI data; regularization does not make it exact for nonlinear cart-pole. The relative SVD cutoff discards numerically small nonzero directions as well as exact null directions.')
     manifest=start_manifest(out,'E4',[0,1,2],config);prior_wall=manifest.get('wall_seconds',0.);start=time.perf_counter()
     try:
         tasks=[];sets=ic_sets()

@@ -1,7 +1,8 @@
 """Regularized mosaic DeePC, with episode boundaries and channel order intact.
 
-The SVD only removes null coordinates of g. It is not a learned dynamics model:
-Z g = B alpha and min ||g||² = ||alpha||² / number_of_columns.
+The SVD removes null and numerically small directions at the stated cutoff.
+Within the retained subspace, Z g = B alpha and the minimum coefficient norm
+is ||g||² = ||alpha||² / number_of_columns. This is not a learned dynamics model.
 """
 from dataclasses import dataclass
 import numpy as np
