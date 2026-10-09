@@ -64,6 +64,15 @@ def figures(experiment):
                 cases_with_switch_toggles=sum(v>0 for v in toggles),switch_toggles_median=float(np.median(toggles)),
                 switch_toggles_p95=float(np.quantile(toggles,.95)),switch_toggles_max=max(toggles)))
         csv_write(out/'failure_categories.csv',categories)
+        from failure_diagnostics import from_rest_spans
+        intervals=[]
+        for seed in sorted({r['seed'] for r in rows}):
+            for arm in arms:
+                items=[r for r in rows if r['seed']==seed and r['arm']==arm and r['ic_set']=='B' and r['seconds']==14.]
+                spans=from_rest_spans(items)
+                for span in spans:intervals.append(dict(seed=seed,arm=arm,**span))
+                if not spans:intervals.append(dict(seed=seed,arm=arm,start_degrees=None,end_degrees=None,tested_points=0))
+        csv_write(out/'from_rest_intervals.csv',intervals)
         for seed in sorted({r['seed'] for r in rows}):
             for name in ('B','D'):
                 items=[r for r in rows if r['ic_set']==name and r['seed']==seed and r['seconds']==14.]
@@ -132,6 +141,8 @@ def figures(experiment):
             fig.suptitle(row['case']+'\n'+row['diagnostic_selection']+'; matched-input replay')
             fig.tight_layout();fig.savefig(out/f'failure_{i+1}.png',dpi=150);plt.close(fig)
         dump(out/'representative_failures.json',chosen[:5])
+        if json.loads((out/'manifest.json').read_text())['status']=='DONE':
+            update_e1_answer(rates)
     if experiment=='E3':
         fig,axes=plt.subplots(1,3,figsize=(15,4),sharey=True)
         modes=[('measurement',['measurement_0.01','measurement_0.03','measurement_0.1']),
@@ -185,6 +196,26 @@ def figures(experiment):
                 ax.plot(fit_counts,med,'o-',label=f'{arm}, IC-{name}')
         ax.set(xscale='log',xlabel='Fitted training transitions (whole-episode split)',ylabel='Mean primary success rate across training seeds')
         ax.legend(fontsize=8);fig.tight_layout();fig.savefig(out/'data_efficiency.png',dpi=150);plt.close(fig)
+
+def update_e1_answer(rates):
+    report=OUT/'RESULTS.md';text=report.read_text()
+    old='**E1 is running; data efficiency and robustness remain unresolved pending E2–E3.**'
+    if old not in text:return
+    answer='**E1 is complete; operating regions are measured for three seeds. Data efficiency and robustness remain unresolved pending E2–E3.**\n\n'
+    answer+='The table gives the range of primary success counts across seeds 0–2, with each seed kept separate in the [rates and Wilson intervals](E1/rates.csv). These are tested ICs, not continuous-domain guarantees.\n\n'
+    answer+='| IC set | H | L | M | M1 | H* |\n|---|---|---|---|---|---|\n'
+    for name,label in [('B','B: from rest'),('C','C: random box'),('D','D: angle/rate grid')]:
+        cells=[]
+        for arm in ('H','L','M','M1','Hstar'):
+            items=[r for r in rates if r['ic_set']==name and r['arm']==arm and r['seconds']==14.]
+            counts=[r['successes'] for r in items];denominators={r['n'] for r in items}
+            if len(items)!=3 or len(denominators)!=1:raise ValueError('Completed E1 requires matched full sets for all three seeds')
+            lo,hi=min(counts),max(counts);n=next(iter(denominators))
+            cells.append(f'{lo}/{n}' if lo==hi else f'{lo}–{hi}/{n}')
+        answer+='| '+label+' | '+' | '.join(cells)+' |\n'
+    answer+='\n[Exact tested success intervals from rest](E1/from_rest_intervals.csv) preserve holes in the 1° grid. The [D map for seed 0](E1/map_D_seed0.png) and [cart-excursion map](E1/cart_excursion_D_seed0.png) have counterparts for seeds 1–2. [Paired comparisons](E1/paired_comparisons.csv), [overlapping failure categories](E1/failure_categories.csv) and [five selected failure diagnoses](E1/representative_failures.json) separate the endpoints, switch associations and model/optimizer witnesses. Cart excursions remain descriptive; no rail criterion is used.\n\n'
+    report.write_text(text.replace(old,answer))
+
 
 if __name__=='__main__':
     import sys

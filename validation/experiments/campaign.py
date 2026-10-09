@@ -124,13 +124,14 @@ def fit_diagnostics(data, local):
 
 def prediction_rmse(decoder, data):
     X,U=data
+    n,m=decoder.x_dim,decoder.u_dim
     errors=[]; one=[]
     with torch.no_grad():
         for start in range(0,len(X),512):
             x=torch.from_numpy(X[start:start+512]).to(next(decoder.parameters()).device)
             u=torch.from_numpy(U[start:start+512]).to(x.device)
             errors.append((decoder.rollout(x[:,0],u)-x).cpu().numpy())
-            one.append((decoder.transition(x[:,:-1].reshape(-1,4),u.reshape(-1,1))-x[:,1:].reshape(-1,4)).cpu().numpy())
+            one.append((decoder.transition(x[:,:-1].reshape(-1,n),u.reshape(-1,m))-x[:,1:].reshape(-1,n)).cpu().numpy())
     e=np.concatenate(errors); a=np.concatenate(one)
     return dict(one_step_rmse_by_state=np.sqrt(np.mean(a*a,axis=0)).tolist(),
         N_step_rmse_by_state=np.sqrt(np.mean(e[:,-1]**2,axis=0)).tolist(),

@@ -17,6 +17,9 @@ class NovelPlantChecks(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             model,_=train(plant,config,data,Path(temp)/'test.pt')
             self.assertEqual(model.x_dim,2);self.assertEqual(model.u_dim,1)
+            errors=prediction_rmse(CanonicalBehaviorDecoder(model,3),data['test'])
+            self.assertEqual(len(errors['one_step_rmse_by_state']),2)
+            self.assertEqual(np.asarray(errors['rmse_by_step_and_state']).shape,(4,2))
     def test_cost_adapter_changes_the_switch_in_the_imported_controller(self):
         config=runner.make_config('smoke',device='cpu')
         from src.manifold_control import DataDrivenTransition

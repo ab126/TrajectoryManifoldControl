@@ -1,0 +1,13 @@
+{
+  "source": "E0/authored_summary.json, solver_diagnostics",
+  "events": 216,
+  "mean_seconds": 0.030764548375305754,
+  "median_seconds": 0.03023398108780384,
+  "p95_seconds": 0.0310001359321177,
+  "max_seconds": 0.13021645694971085,
+  "over_20ms": 216,
+  "over_100ms": 1,
+  "physical_sample_seconds": 0.02,
+  "nominal_five_step_queue_seconds": 0.1,
+  "interpretation": "Simulation advances the plant by one fixed step after controller return; measured computation time is not imposed as physical feedback delay."
+}

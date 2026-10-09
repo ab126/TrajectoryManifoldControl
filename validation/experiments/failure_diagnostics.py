@@ -101,3 +101,18 @@ def select_representative_failures(rows):
         before=len(chosen);pick(lambda r:True,'Additional illustrative failure; contrast unavailable')
         if len(chosen)==before:break
     return chosen[:5]
+
+
+def from_rest_spans(items):
+    """Consecutive successful tested points; never bridge failed or missing ICs."""
+    spans=[];active=None;previous=None
+    for row in sorted(items,key=lambda r:r['ic_index']):
+        if active is not None and (not row['primary_success'] or row['ic_index']!=previous+1):
+            spans.append(active);active=None
+        if row['primary_success']:
+            angle=round(float(np.rad2deg(row['initial_state'][2])),8)
+            if active is None:active=dict(start_degrees=angle,end_degrees=angle,tested_points=1)
+            else:active.update(end_degrees=angle,tested_points=active['tested_points']+1)
+            previous=row['ic_index']
+    if active is not None:spans.append(active)
+    return spans

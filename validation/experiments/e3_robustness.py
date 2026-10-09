@@ -39,6 +39,15 @@ def applied_inputs(commands,delay=False):
     return np.concatenate((np.zeros_like(commands[:1]),commands[:-1])) if delay else commands.copy()
 
 
+def angular_tail(t,X):
+    tail=np.asarray(t)>=t[-1]-3.
+    angle=np.asarray(X)[tail,2];velocity=np.asarray(X)[tail,3]*np.sqrt(9.81)
+    def number(value):return float(value) if np.isfinite(value) else None
+    return dict(tail_angle_rms=number(np.sqrt(np.mean(angle**2))),
+        tail_angular_velocity_rms_physical=number(np.sqrt(np.mean(velocity**2))),
+        tail_max_abs_angle=number(np.max(np.abs(angle))),tail_max_abs_angular_velocity_physical=number(np.max(np.abs(velocity))))
+
+
 def init():
     torch.set_num_threads(1);runner.tqdm=lambda it,**kw:it
 
@@ -78,6 +87,7 @@ def evaluate(task):
     observed=arrays['X'][:-1]+noise if spec['mode']=='measurement' else arrays['X'][:-1]
     observed_cost=np.einsum('bi,ij,bj->b',observed,Q,observed)
     def maximum(values):return float(np.max(np.abs(values))) if np.isfinite(values).all() else None
+    row.update(**angular_tail(arrays['t'],arrays['X']))
     row.update(max_command_u=maximum(arrays['U']),command_input_limit_seconds=float(np.sum(np.abs(arrays['U'][:,0])>=10-1e-6)*.02),
                max_abs_u=maximum(arrays['U_applied']),input_limit_seconds=float(np.sum(np.abs(arrays['U_applied'][:,0])>=10-1e-6)*.02),
                controller_never_used_local=bool(not np.any(arrays['local'])),never_entered_switch=bool(not np.any(observed_cost<.75)),

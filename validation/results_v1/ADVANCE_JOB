@@ -13,3 +13,7 @@ NOTE Active repaired watcher; previous watcher exited during syntax check.
 PID 690534
 COMMAND python3 validation/experiments/advance_to_checkpoint.py --attach-e1 679000
 NOTE Replaces watcher 679880 to regenerate corrected 14 s maps and excursion/category figures before checkpoint; E1 itself is untouched.
+
+PID 695417
+COMMAND python3 validation/experiments/advance_to_checkpoint.py --attach-e1 679000
+NOTE Replaces watcher 690534; accounts for postprocessing and explicitly commits generated figures. E1 scientific job remains PID 679000.

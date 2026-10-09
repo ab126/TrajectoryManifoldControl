@@ -156,3 +156,5 @@ The original unattended Gate-A-only queue completed under the user's explicit
 15-hour Stage-0 allocation; see [overnight.md](overnight.md) for its historical
 command. It stopped after failed Gate A and did not launch Stage 1. Do not reuse
 it for an amended reference without generalizing its configuration and audit.
+
+The earlier OA-1/I01–I05 oracle, gating, queue and archive campaign is parked; the superseding operating plan is [codex_handoff_from_claude_v1.md](codex_handoff_from_claude_v1.md), with current findings in [results_v1/RESULTS.md](results_v1/RESULTS.md).

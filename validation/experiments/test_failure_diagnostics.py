@@ -35,6 +35,13 @@ class ObjectiveChecks(unittest.TestCase):
         self.assertEqual(len(chosen),5);self.assertEqual(len({r['case'] for r in chosen}),5)
         self.assertEqual(chosen[0]['case'],'0H');self.assertEqual(chosen[-1]['case'],'1Hstar')
         self.assertTrue(all(not r['primary_success'] for r in chosen))
+    def test_from_rest_spans_preserve_failed_and_missing_points(self):
+        items=[dict(ic_index=i,primary_success=success,initial_state=[0.,0.,float(np.deg2rad(i)),0.])
+               for i,success in [(0,True),(1,False),(2,True),(3,True),(5,True)]]
+        self.assertEqual(from_rest_spans(items),[
+            dict(start_degrees=0.,end_degrees=0.,tested_points=1),
+            dict(start_degrees=2.,end_degrees=3.,tested_points=2),
+            dict(start_degrees=5.,end_degrees=5.,tested_points=1)])
     def test_candidate_is_feasible_and_uses_same_opaque_plant(self):
         state=np.array([0.,0.,.3,0.]);gain=np.ones((1,4))*100
         X,U=local_candidate(state,gain,30)

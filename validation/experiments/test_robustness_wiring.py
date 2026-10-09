@@ -13,10 +13,23 @@ class RobustnessWiring(unittest.TestCase):
             xn=physical_mismatch_step(x,u,dt,mass=2.,length=length)
             self.assertAlmostEqual(xn[1]/dt,1/2.25,places=8)
             self.assertAlmostEqual(xn[3]/dt,-1.5/(length*2.25),places=8)
+    def test_mass_ratio_changes_match_hand_initial_accelerations(self):
+        dt=1e-5
+        for mass in (1.5,2.5):
+            xn=physical_mismatch_step(np.zeros(4),np.array([1.]),dt,mass=mass)
+            self.assertAlmostEqual(xn[1]/dt,1/(mass+.25),places=8)
+            self.assertAlmostEqual(xn[3]/dt,-1.5/(mass+.25),places=8)
     def test_delay_applied_inputs_preserve_units_and_initial_zero(self):
         U=np.array([[1.],[10.],[-3.]])
         np.testing.assert_array_equal(applied_inputs(U),U)
         np.testing.assert_array_equal(applied_inputs(U,True),[[0.],[1.],[10.]])
+    def test_angular_tail_uses_last_three_seconds_and_physical_velocity(self):
+        t=np.arange(701)*.02;X=np.zeros((701,4));X[:550,2]=1.;X[550,2]=.02
+        X[550:,3]=.05/np.sqrt(9.81)
+        row=angular_tail(t,X)
+        self.assertAlmostEqual(row['tail_angle_rms'],.02/np.sqrt(151))
+        self.assertAlmostEqual(row['tail_angular_velocity_rms_physical'],.05)
+        self.assertAlmostEqual(row['tail_max_abs_angle'],.02)
     def test_noise_uses_nominal_units_and_is_reproducible(self):
         scale=np.array([1.,2.,3.,4.])
         a=normal_sequence(1,'measurement_0.03',3,20,scale)

@@ -37,6 +37,16 @@ def main():
     fig.suptitle('E0: approaching upright can still miss the authored strict settling limits')
     fig.tight_layout();fig.savefig(out/'terminal_behavior.png',dpi=150);plt.close(fig)
 
+def authored_timing():
+    out=OUT/'E0';source=json.loads((out/'authored_summary.json').read_text())
+    times=np.concatenate([item['solve_seconds'] for item in source['solver_diagnostics'].values()])
+    dump(out/'authored_solve_timing.json',dict(source='E0/authored_summary.json, solver_diagnostics',events=len(times),
+        mean_seconds=float(times.mean()),median_seconds=float(np.median(times)),p95_seconds=float(np.quantile(times,.95)),
+        max_seconds=float(times.max()),over_20ms=int(np.sum(times>.02)),over_100ms=int(np.sum(times>.1)),
+        physical_sample_seconds=.02,nominal_five_step_queue_seconds=.1,
+        interpretation='Simulation advances the plant by one fixed step after controller return; measured computation time is not imposed as physical feedback delay.'))
+
+
 def feasible_alternatives():
     from failure_diagnostics import witness
     start=time.perf_counter();results=[];out=OUT/'E0'
@@ -50,4 +60,4 @@ def feasible_alternatives():
     dump(out/'feasible_alternative_diagnostics.json',dict(selection='Last saved plan of three illustrative seed-0 cases; not a random sample',
         wall_seconds=time.perf_counter()-start,cases=results))
 
-if __name__=='__main__':main();feasible_alternatives()
+if __name__=='__main__':main();authored_timing();feasible_alternatives()
