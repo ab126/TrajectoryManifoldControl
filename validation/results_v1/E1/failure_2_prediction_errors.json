@@ -1,0 +1,189 @@
+{
+  "case": "seed0_H_B_0025_14s",
+  "matched_input_replays": [
+    {
+      "planning_step": 0,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 8327.134390177831,
+        "chosen_true_cost": 7652.727408343546,
+        "local_candidate_model_cost": 6821.331595834666,
+        "local_candidate_true_cost": 6681.428626711068,
+        "recorded_cem_loss": 8327.154296875,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": true,
+        "model_cost_gap_over_feasible_alternative": 1505.8027943431653,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.08327134390177832,
+        "true_cost_tolerance": 0.07652727408343546,
+        "planner_transition": "learned transition, CUDA float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        0.01673110766491645,
+        0.011363451593493437,
+        0.05866562295063314,
+        0.0633262643497569
+      ],
+      "final_error_by_state": [
+        0.027293351018448764,
+        -0.003753200511218302,
+        -0.10932646498007248,
+        -0.03273659091018
+      ]
+    },
+    {
+      "planning_step": 145,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 310.0569595294232,
+        "chosen_true_cost": 768.9113633071739,
+        "local_candidate_model_cost": 217.56608977626698,
+        "local_candidate_true_cost": 398.3898664483628,
+        "recorded_cem_loss": 310.0569152832031,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": true,
+        "model_cost_gap_over_feasible_alternative": 92.4908697531562,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.003100569595294232,
+        "true_cost_tolerance": 0.00768911363307174,
+        "planner_transition": "learned transition, CUDA float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        0.3983531500078693,
+        0.37413693625419725,
+        0.2540768639610783,
+        0.33693330707554303
+      ],
+      "final_error_by_state": [
+        -0.8051766272895851,
+        -0.6028363369413958,
+        -0.5955431141835523,
+        -0.7969187107213422
+      ]
+    },
+    {
+      "planning_step": 295,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 58.06524722776179,
+        "chosen_true_cost": 251.54057975517446,
+        "local_candidate_model_cost": 385.9571474882382,
+        "local_candidate_true_cost": 100.56955422458688,
+        "recorded_cem_loss": 58.06517028808594,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": false,
+        "model_cost_gap_over_feasible_alternative": -327.8919002604764,
+        "model_preference_reversal": true,
+        "comparison_tolerance": 0.0038595714748823826,
+        "true_cost_tolerance": 0.0025154057975517448,
+        "planner_transition": "learned transition, CUDA float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        0.10306173995144557,
+        0.09474690759560893,
+        0.11484681380723455,
+        0.23184453764445803
+      ],
+      "final_error_by_state": [
+        -0.21289089264759742,
+        -0.1822032290838191,
+        0.2931384239935804,
+        0.5213738803876173
+      ]
+    },
+    {
+      "planning_step": 431,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 87.08153666039127,
+        "chosen_true_cost": 154.48548494046463,
+        "local_candidate_model_cost": 240.4346925869797,
+        "local_candidate_true_cost": 74.77464478081895,
+        "recorded_cem_loss": 87.08170318603516,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": false,
+        "model_cost_gap_over_feasible_alternative": -153.35315592658844,
+        "model_preference_reversal": true,
+        "comparison_tolerance": 0.0024043469258697974,
+        "true_cost_tolerance": 0.0015448548494046465,
+        "planner_transition": "learned transition, CUDA float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        0.07875027916634829,
+        0.08046789531782568,
+        0.09752424271956628,
+        0.18919343728888172
+      ],
+      "final_error_by_state": [
+        -0.16691051422645664,
+        -0.15735268123223617,
+        0.2487890407643609,
+        0.430629986479481
+      ]
+    },
+    {
+      "planning_step": 633,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 32.22685064317923,
+        "chosen_true_cost": 53.33710158759571,
+        "local_candidate_model_cost": 29.888168359961874,
+        "local_candidate_true_cost": 30.565296066193376,
+        "recorded_cem_loss": 32.227054595947266,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": true,
+        "model_cost_gap_over_feasible_alternative": 2.3386822832173593,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.00032226850643179235,
+        "true_cost_tolerance": 0.0005333710158759572,
+        "planner_transition": "learned transition, CUDA float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        0.029003790358762323,
+        0.026542654956654945,
+        0.024630223983163734,
+        0.0458903168252834
+      ],
+      "final_error_by_state": [
+        -0.05963587518456426,
+        -0.04858534472569659,
+        0.06170768495806794,
+        0.10304173000316513
+      ]
+    }
+  ],
+  "switch_exit_times_seconds": [
+    6.5,
+    6.54,
+    6.62,
+    6.88,
+    6.98,
+    7.68,
+    7.74,
+    7.78,
+    7.9,
+    8.24,
+    8.42,
+    8.88,
+    9.58,
+    9.620000000000001,
+    10.52,
+    10.98,
+    11.02,
+    11.06,
+    11.18,
+    11.22,
+    11.68,
+    11.72,
+    12.44,
+    12.48,
+    12.52,
+    12.56
+  ],
+  "fell_within_1s_of_switch_exit": false
+}

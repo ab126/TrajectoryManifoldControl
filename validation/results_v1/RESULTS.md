@@ -16,7 +16,19 @@ A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) ex
 
 ## Q1.1 — Failure region, data needs, novel systems
 
-**E1 is running; data efficiency and robustness remain unresolved pending E2–E3.** The previous true-model wide-box diagnostic has 147/200 angle-balanced runs, 67/200 also reaching cart rest, and 103/200 crossing π/2. The first two counts omit the newly required no-fall condition; they must not be presented as primary successes. Initial speeds reach 7.8 m/s and angles reach 74°, unlike the authored demonstration. Source: [independent audit](../overnight_runs/20261007T054549.695689Z/calibration/independent_audit.json); recomputation from saved trajectories gives **65/200** angle-balanced with no fall (Wilson 95% interval 0.264–0.393). Cart-excursion median is 3.829 m, 95th percentile 14.196 m and maximum 20.009 m. This historical run used N=60 and 20 s, so it is not a matched comparison with the new N=30, 14 s arms. Sources: [recomputed summary](historical_oracle/endpoint_summary.json), [all cases](historical_oracle/summary.csv), [manifest](historical_oracle/manifest.json).
+**E1 is complete; operating regions are measured for three seeds. Data efficiency and robustness remain unresolved pending E2–E3.**
+
+The table gives the range of primary success counts across seeds 0–2, with each seed kept separate in the [rates and Wilson intervals](E1/rates.csv). These are tested ICs, not continuous-domain guarantees.
+
+| IC set | H | L | M | M1 | H* |
+|---|---|---|---|---|---|
+| B: from rest | 72–107/171 | 137–141/171 | 0/171 | 0/171 | 85–97/171 |
+| C: random box | 31–78/200 | 122–130/200 | 0/200 | 0/200 | 42–53/200 |
+| D: angle/rate grid | 356–717/1681 | 1073–1089/1681 | 0/1681 | 0/1681 | 454–548/1681 |
+
+[Exact tested success intervals from rest](E1/from_rest_intervals.csv) preserve holes in the 1° grid. The [D map for seed 0](E1/map_D_seed0.png) and [cart-excursion map](E1/cart_excursion_D_seed0.png) have counterparts for seeds 1–2. [Paired comparisons](E1/paired_comparisons.csv), [overlapping failure categories](E1/failure_categories.csv) and [five selected failure diagnoses and evidence paths](E1/representative_failures.json) ([example plot](E1/failure_1.png)) separate the endpoints, switch associations and model/optimizer witnesses. Cart excursions remain descriptive; no rail criterion is used.
+
+ The previous true-model wide-box diagnostic has 147/200 angle-balanced runs, 67/200 also reaching cart rest, and 103/200 crossing π/2. The first two counts omit the newly required no-fall condition; they must not be presented as primary successes. Initial speeds reach 7.8 m/s and angles reach 74°, unlike the authored demonstration. Source: [independent audit](../overnight_runs/20261007T054549.695689Z/calibration/independent_audit.json); recomputation from saved trajectories gives **65/200** angle-balanced with no fall (Wilson 95% interval 0.264–0.393). Cart-excursion median is 3.829 m, 95th percentile 14.196 m and maximum 20.009 m. This historical run used N=60 and 20 s, so it is not a matched comparison with the new N=30, 14 s arms. Sources: [recomputed summary](historical_oracle/endpoint_summary.json), [all cases](historical_oracle/summary.csv), [manifest](historical_oracle/manifest.json).
 
 `run_inverted_pendulum_mc.log`, `inverted_pendulum_mc_debug.ipynb`, and `linear_system_mc.ipynb` contain historical latent-MPC outputs. They are not evidence about the active CEM controller.
 
@@ -157,3 +169,61 @@ Optional E5 is now prepared inside E4 on the same base data: five independent tr
 E3 now derives applied-delay inputs and actual measurement-coordinate switch membership from saved arrays, so a pause between a case save and diagnostic augmentation is recoverable. Per-seed nominal state standard deviations and actual noise amplitudes will be recorded. No E2–E4 scientific result is implied by these preparation checks.
 
 E1's completion postprocessing now updates the leading Q1.1 answer and saves exact tested from-rest success intervals without bridging failed or missing grid points. E3 also records final-three-second angular RMS and peak values in physical velocity units, alongside the unchanged primary endpoint, to distinguish noisy fluctuations from loss of the operating region.
+
+<!-- E1_AUTO_START -->
+
+### E1 measured results
+
+Sources: [E1 rates](E1/rates.csv), [matched comparisons](E1/paired_comparisons.csv), [case metrics](E1/summary.csv), [distributions](E1/distributions.csv), [success figure](E1/success_rates.png), [manifest](E1/manifest.json).
+
+| Seed | IC set | Arm | Successes/n (14 s, no fall) | Wilson 95% CI |
+|---|---|---|---|---|
+| 0 | B | H | 83/171 | 0.412–0.560 |
+| 0 | C | H | 48/200 | 0.186–0.304 |
+| 0 | D | H | 412/1681 | 0.225–0.266 |
+| 0 | B | Hstar | 85/171 | 0.423–0.571 |
+| 0 | C | Hstar | 42/200 | 0.159–0.272 |
+| 0 | D | Hstar | 454/1681 | 0.249–0.292 |
+| 0 | B | L | 137/171 | 0.735–0.854 |
+| 0 | C | L | 122/200 | 0.541–0.675 |
+| 0 | D | L | 1073/1681 | 0.615–0.661 |
+| 0 | B | M1 | 0/171 | 0.000–0.022 |
+| 0 | C | M1 | 0/200 | 0.000–0.019 |
+| 0 | D | M1 | 0/1681 | 0.000–0.002 |
+| 0 | B | M | 0/171 | 0.000–0.022 |
+| 0 | C | M | 0/200 | 0.000–0.019 |
+| 0 | D | M | 0/1681 | 0.000–0.002 |
+| 1 | B | H | 72/171 | 0.350–0.496 |
+| 1 | C | H | 31/200 | 0.111–0.212 |
+| 1 | D | H | 356/1681 | 0.193–0.232 |
+| 1 | B | Hstar | 95/171 | 0.481–0.628 |
+| 1 | C | Hstar | 53/200 | 0.209–0.330 |
+| 1 | D | Hstar | 548/1681 | 0.304–0.349 |
+| 1 | B | L | 141/171 | 0.761–0.874 |
+| 1 | C | L | 130/200 | 0.582–0.713 |
+| 1 | D | L | 1089/1681 | 0.625–0.670 |
+| 1 | B | M1 | 0/171 | 0.000–0.022 |
+| 1 | C | M1 | 0/200 | 0.000–0.019 |
+| 1 | D | M1 | 0/1681 | 0.000–0.002 |
+| 1 | B | M | 0/171 | 0.000–0.022 |
+| 1 | C | M | 0/200 | 0.000–0.019 |
+| 1 | D | M | 0/1681 | 0.000–0.002 |
+| 2 | B | H | 107/171 | 0.551–0.695 |
+| 2 | C | H | 78/200 | 0.325–0.459 |
+| 2 | D | H | 717/1681 | 0.403–0.450 |
+| 2 | B | Hstar | 97/171 | 0.492–0.639 |
+| 2 | C | Hstar | 51/200 | 0.200–0.320 |
+| 2 | D | Hstar | 545/1681 | 0.302–0.347 |
+| 2 | B | L | 141/171 | 0.761–0.874 |
+| 2 | C | L | 128/200 | 0.571–0.703 |
+| 2 | D | L | 1085/1681 | 0.622–0.668 |
+| 2 | B | M1 | 0/171 | 0.000–0.022 |
+| 2 | C | M1 | 0/200 | 0.000–0.019 |
+| 2 | D | M1 | 0/1681 | 0.000–0.002 |
+| 2 | B | M | 0/171 | 0.000–0.022 |
+| 2 | C | M | 0/200 | 0.000–0.019 |
+| 2 | D | M | 0/1681 | 0.000–0.002 |
+
+Settling, excursion, input saturation and local fractions are distributions, not extra acceptance criteria. The 60 s runs remain separate in the CSVs.
+
+<!-- E1_AUTO_END -->

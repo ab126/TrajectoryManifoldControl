@@ -1,0 +1,162 @@
+{
+  "case": "seed0_Hstar_B_0025_14s",
+  "matched_input_replays": [
+    {
+      "planning_step": 0,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 7671.793432280721,
+        "chosen_true_cost": 7671.788020891943,
+        "local_candidate_model_cost": 6681.4253047396505,
+        "local_candidate_true_cost": 6681.428626711068,
+        "recorded_cem_loss": 7671.7939453125,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": true,
+        "model_cost_gap_over_feasible_alternative": 990.3681275410709,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.07671793432280723,
+        "true_cost_tolerance": 0.07671788020891944,
+        "planner_transition": "true RK4 in float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        1.439463276877715e-07,
+        7.985056686398767e-08,
+        4.974278099524733e-07,
+        4.364868185391901e-07
+      ],
+      "final_error_by_state": [
+        3.449691186041548e-07,
+        -8.608427437550858e-08,
+        -8.581817732000729e-07,
+        5.2263451788547854e-08
+      ]
+    },
+    {
+      "planning_step": 170,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 110.26439738936443,
+        "chosen_true_cost": 110.26439434948938,
+        "local_candidate_model_cost": 418.03336256194433,
+        "local_candidate_true_cost": 418.0331026617627,
+        "recorded_cem_loss": 110.264404296875,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": false,
+        "model_cost_gap_over_feasible_alternative": -307.7689651725799,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.004180333625619444,
+        "true_cost_tolerance": 0.004180331026617627,
+        "planner_transition": "true RK4 in float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        7.919986642087422e-07,
+        9.347680713077454e-09,
+        1.3330996716842919e-08,
+        1.422551174169049e-08
+      ],
+      "final_error_by_state": [
+        2.289932581334142e-07,
+        5.066281755228275e-09,
+        -2.314584389775942e-08,
+        -3.3701587687229306e-08
+      ]
+    },
+    {
+      "planning_step": 345,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 111.77846588862253,
+        "chosen_true_cost": 111.77843083075953,
+        "local_candidate_model_cost": 475.5383662687895,
+        "local_candidate_true_cost": 475.5385221696932,
+        "recorded_cem_loss": 111.77845764160156,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": false,
+        "model_cost_gap_over_feasible_alternative": -363.759900380167,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.004755383662687895,
+        "true_cost_tolerance": 0.0047553852216969325,
+        "planner_transition": "true RK4 in float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        2.303890530222852e-06,
+        1.1808066474757823e-08,
+        4.610015054022937e-09,
+        1.2291408838278999e-08
+      ],
+      "final_error_by_state": [
+        -2.059759257377891e-06,
+        2.715023414423534e-09,
+        -1.4082090604716768e-08,
+        -2.990946548070417e-08
+      ]
+    },
+    {
+      "planning_step": 520,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 112.40868874143996,
+        "chosen_true_cost": 112.40867341113514,
+        "local_candidate_model_cost": 495.73412685639516,
+        "local_candidate_true_cost": 495.73429097292194,
+        "recorded_cem_loss": 112.40867614746094,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": false,
+        "model_cost_gap_over_feasible_alternative": -383.3254381149552,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.004957341268563952,
+        "true_cost_tolerance": 0.00495734290972922,
+        "planner_transition": "true RK4 in float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        5.745667539570963e-07,
+        2.7643694650408874e-08,
+        1.9842292497692254e-08,
+        4.0310996056100264e-08
+      ],
+      "final_error_by_state": [
+        -5.800307221193179e-07,
+        4.591065781711645e-08,
+        -5.032266636728622e-08,
+        -9.167860594294641e-08
+      ]
+    },
+    {
+      "planning_step": 695,
+      "optimizer_and_model_witness": {
+        "chosen_model_cost": 113.94770240367663,
+        "chosen_true_cost": 113.94766230887188,
+        "local_candidate_model_cost": 511.28686537291,
+        "local_candidate_true_cost": 511.2867617976945,
+        "recorded_cem_loss": 113.94770050048828,
+        "chosen_plan_inputs_available": true,
+        "local_candidate_inputs_bounded": true,
+        "feasible_better_model_cost": false,
+        "model_cost_gap_over_feasible_alternative": -397.33916296923337,
+        "model_preference_reversal": false,
+        "comparison_tolerance": 0.0051128686537291,
+        "true_cost_tolerance": 0.005112867617976946,
+        "planner_transition": "true RK4 in float32",
+        "interpretation": "A lower feasible internal-model cost witnesses optimizer suboptimality; reversed internal/true preference witnesses decision-relevant model error. Neither proves the sole cause of closed-loop failure."
+      },
+      "rmse_by_state": [
+        1.8951376913981532e-06,
+        1.7668059958591735e-08,
+        1.2080280898319836e-08,
+        2.456926857759421e-08
+      ],
+      "final_error_by_state": [
+        -2.0758502259354827e-06,
+        2.0029782797637008e-08,
+        3.399125337449904e-08,
+        5.91057663021366e-08
+      ]
+    }
+  ],
+  "switch_exit_times_seconds": [],
+  "fell_within_1s_of_switch_exit": false
+}
