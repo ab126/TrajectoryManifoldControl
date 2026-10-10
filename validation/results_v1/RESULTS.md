@@ -20,7 +20,9 @@ A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) ex
 
 `run_inverted_pendulum_mc.log`, `inverted_pendulum_mc_debug.ipynb`, and `linear_system_mc.ipynb` contain historical latent-MPC outputs. They are not evidence about the active CEM controller.
 
-For the completed seed-0 E1 subsets at 14 s, H has 83/171 primary successes from rest and 48/200 in the random collection box; L has 137/171 and 122/200, and H* has 85/171 and 42/200. M and M1 each have zero primary successes in both sets. These are complete matched subsets for one seed. Sources: [per-seed counts and Wilson intervals](E1/rates.csv), [matched comparisons](E1/paired_comparisons.csv).
+For completed seed 0 at 14 s, H has 83/171 primary successes from rest, 48/200 in the random collection box and 412/1681 on the angle–angular-speed grid; L has 137/171, 122/200 and 1073/1681, and H* has 85/171, 42/200 and 454/1681. M and M1 each have zero primary successes in all three sets. These are complete matched sets for one seed and do not establish consistency across seeds. Sources: [per-seed counts and Wilson intervals](E1/rates.csv), [matched comparisons](E1/paired_comparisons.csv).
+
+In this seed, every H success from rest or on the angle–angular-speed grid also succeeds under L; L adds 54 and 661 successes respectively. In the random box, H alone succeeds on 3 matched cases, while L alone succeeds on 77. Thus the hybrid adds a few random-box catches but reduces success overall in all three sets for this seed. The [exact tested from-rest spans](E1/seed0_interim_from_rest_intervals.csv) show L succeeding at every tested degree from −68° to +68°; H’s largest uninterrupted span is −36° to +34°, with isolated successful spans elsewhere. These grid spans preserve failed points and do not establish success between tested angles or beyond this seed.
 
 ## Q2 — Errors in the implementation note
 
