@@ -24,6 +24,8 @@ For completed seed 0 at 14 s, H has 83/171 primary successes from rest, 48/200 i
 
 In this seed, every H success from rest or on the angle–angular-speed grid also succeeds under L; L adds 54 and 661 successes respectively. In the random box, H alone succeeds on 3 matched cases, while L alone succeeds on 77. Thus the hybrid adds a few random-box catches but reduces success overall in all three sets for this seed. The [exact tested from-rest spans](E1/seed0_interim_from_rest_intervals.csv) show L succeeding at every tested degree from −68° to +68°; H’s largest uninterrupted span is −36° to +34°, with isolated successful spans elsewhere. These grid spans preserve failed points and do not establish success between tested angles or beyond this seed.
 
+The completed seed-1 from-rest set gives H 72/171, L 141/171 and H* 95/171 primary successes; M and M1 again give 0/171. Every H success also succeeds under L and H*. L adds 69 matched successes and H* adds 23 over H. Replacing the learned transition improves this seed’s from-rest catches, while L still exceeds both hybrids. This is a completed second-seed subset, not the final three-seed operating-region verdict. Sources: [seed-1 IC-B rates and Wilson intervals](E1/rates.csv), [matched comparisons](E1/paired_comparisons.csv).
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.
