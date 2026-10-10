@@ -120,6 +120,9 @@ def figures(experiment):
                 k=int(steps[j]);prediction=pred[j];end=min(len(X),k+len(prediction))
                 axes[0].plot(t[k:end],prediction[:end-k,2],alpha=.6,linestyle='--',label='Predicted continuation' if j==0 else None)
             axes[0].axhline(np.pi/2,color='gray',ls=':');axes[0].axhline(-np.pi/2,color='gray',ls=':')
+            exits=np.flatnonzero(data['local'][:-1]&~data['local'][1:])+1
+            for j,k in enumerate(exits):
+                axes[0].axvline(t[k],color='tab:orange',ls=':',alpha=.45,label='Exit local feedback' if j==0 else None)
             axes[0].set_ylabel('θ [rad]');axes[0].legend(fontsize=8)
             matched=[]
             if 'plan_inputs' in data:
@@ -133,13 +136,15 @@ def figures(experiment):
                     matched.append(dict(planning_step=int(steps[j]),optimizer_and_model_witness=witness(row['seed'],row['arm'],X[int(steps[j])],data['plan_inputs'][j],prediction,data['loss'][j]),rmse_by_state=[float(v) if np.isfinite(v) else None for v in np.sqrt(np.mean(error**2,axis=0))],
                                         final_error_by_state=[float(v) if np.isfinite(v) else None for v in error[-1]]))
             dump(out/f'failure_{i+1}_prediction_errors.json',dict(case=row['case'],matched_input_replays=matched,
-                switch_exit_times_seconds=((np.flatnonzero(data['local'][:-1]&~data['local'][1:])+1)*.02).tolist(),
+                switch_exit_times_seconds=t[exits].tolist(),
                 fell_within_1s_of_switch_exit=row['fell_within_1s_of_switch_exit']))
             axes[1].set(xlabel='Matched plan horizon [s]',ylabel='Predicted minus true θ [rad]');axes[1].legend(fontsize=8)
             axes[2].plot(t,X[:,0]);axes[2].set_ylabel('p [m]')
             axes[3].step(t[:-1],U[:,0]);axes[3].set_ylabel('u');axes[3].set_xlabel('Physical time [s]')
             fig.suptitle(row['case']+'\n'+row['diagnostic_selection']+'; matched-input replay')
             fig.tight_layout();fig.savefig(out/f'failure_{i+1}.png',dpi=150);plt.close(fig)
+            row['diagnostic_figure_path']=str((out/f'failure_{i+1}.png').relative_to(OUT))
+            row['matched_input_replays_path']=str((out/f'failure_{i+1}_prediction_errors.json').relative_to(OUT))
         dump(out/'representative_failures.json',chosen[:5])
         if json.loads((out/'manifest.json').read_text())['status']=='DONE':
             update_e1_answer(rates)
@@ -213,7 +218,7 @@ def update_e1_answer(rates):
             lo,hi=min(counts),max(counts);n=next(iter(denominators))
             cells.append(f'{lo}/{n}' if lo==hi else f'{lo}–{hi}/{n}')
         answer+='| '+label+' | '+' | '.join(cells)+' |\n'
-    answer+='\n[Exact tested success intervals from rest](E1/from_rest_intervals.csv) preserve holes in the 1° grid. The [D map for seed 0](E1/map_D_seed0.png) and [cart-excursion map](E1/cart_excursion_D_seed0.png) have counterparts for seeds 1–2. [Paired comparisons](E1/paired_comparisons.csv), [overlapping failure categories](E1/failure_categories.csv) and [five selected failure diagnoses](E1/representative_failures.json) separate the endpoints, switch associations and model/optimizer witnesses. Cart excursions remain descriptive; no rail criterion is used.\n\n'
+    answer+='\n[Exact tested success intervals from rest](E1/from_rest_intervals.csv) preserve holes in the 1° grid. The [D map for seed 0](E1/map_D_seed0.png) and [cart-excursion map](E1/cart_excursion_D_seed0.png) have counterparts for seeds 1–2. [Paired comparisons](E1/paired_comparisons.csv), [overlapping failure categories](E1/failure_categories.csv) and [five selected failure diagnoses and evidence paths](E1/representative_failures.json) ([example plot](E1/failure_1.png)) separate the endpoints, switch associations and model/optimizer witnesses. Cart excursions remain descriptive; no rail criterion is used.\n\n'
     report.write_text(text.replace(old,answer))
 
 
