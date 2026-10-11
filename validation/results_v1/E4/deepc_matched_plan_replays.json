@@ -1,0 +1,129 @@
+{
+  "selection": "Illustrative saved-case selection: seed 0, IC-A index 2 (\u221215\u00b0), first plan, all six DeePC settings",
+  "interpretation": "True open-loop replay of the saved planned input sequence; subsequent closed-loop inputs may differ",
+  "cases": [
+    {
+      "case": "seed0_DeePC_state_0.001_A_0002_14s",
+      "arm": "DeePC_state_0.001",
+      "planning_step": 0,
+      "initial_observation_max_error": 1.6653345369377348e-16,
+      "first_applied_input_max_error": 0.0,
+      "independent_first_step_max_error": 0.0,
+      "predicted_final_theta": -0.0004394314488665172,
+      "true_same_plan_final_theta": -1.5765370996904877,
+      "theta_RMSE_same_inputs": 0.760015163865805,
+      "true_same_plan_first_fall_seconds": 0.6,
+      "qp_failures_in_closed_loop": 0
+    },
+    {
+      "case": "seed0_DeePC_state_0.01_A_0002_14s",
+      "arm": "DeePC_state_0.01",
+      "planning_step": 0,
+      "initial_observation_max_error": 2.220446049250313e-16,
+      "first_applied_input_max_error": 0.0,
+      "independent_first_step_max_error": 0.0,
+      "predicted_final_theta": -0.0005099616004689505,
+      "true_same_plan_final_theta": -1.5899857242323778,
+      "theta_RMSE_same_inputs": 0.7661500474885847,
+      "true_same_plan_first_fall_seconds": 0.6,
+      "qp_failures_in_closed_loop": 0
+    },
+    {
+      "case": "seed0_DeePC_state_0.1_A_0002_14s",
+      "arm": "DeePC_state_0.1",
+      "planning_step": 0,
+      "initial_observation_max_error": 2.0544062881677365e-16,
+      "first_applied_input_max_error": 0.0,
+      "independent_first_step_max_error": 0.0,
+      "predicted_final_theta": -0.0006221434108702186,
+      "true_same_plan_final_theta": -1.6580908461394983,
+      "theta_RMSE_same_inputs": 0.7961866655211872,
+      "true_same_plan_first_fall_seconds": 0.6,
+      "qp_failures_in_closed_loop": 0
+    },
+    {
+      "case": "seed0_DeePC_output_0.001_A_0002_14s",
+      "arm": "DeePC_output_0.001",
+      "planning_step": 2,
+      "initial_observation_max_error": 1.1102230246251565e-16,
+      "first_applied_input_max_error": 0.0,
+      "independent_first_step_max_error": 0.0,
+      "predicted_final_theta": -0.0005078969661552035,
+      "true_same_plan_final_theta": -1.7381062406686771,
+      "theta_RMSE_same_inputs": 0.8426762082540628,
+      "true_same_plan_first_fall_seconds": 0.58,
+      "qp_failures_in_closed_loop": 0
+    },
+    {
+      "case": "seed0_DeePC_output_0.01_A_0002_14s",
+      "arm": "DeePC_output_0.01",
+      "planning_step": 2,
+      "initial_observation_max_error": 1.6653345369377348e-16,
+      "first_applied_input_max_error": 0.0,
+      "independent_first_step_max_error": 0.0,
+      "predicted_final_theta": -0.0005416851862445586,
+      "true_same_plan_final_theta": -1.72044529411572,
+      "theta_RMSE_same_inputs": 0.8358878480446914,
+      "true_same_plan_first_fall_seconds": 0.58,
+      "qp_failures_in_closed_loop": 0
+    },
+    {
+      "case": "seed0_DeePC_output_0.1_A_0002_14s",
+      "arm": "DeePC_output_0.1",
+      "planning_step": 2,
+      "initial_observation_max_error": 5.551115123125783e-17,
+      "first_applied_input_max_error": 0.0,
+      "independent_first_step_max_error": 0.0,
+      "predicted_final_theta": -0.0005669928990750483,
+      "true_same_plan_final_theta": -1.5866394093830278,
+      "theta_RMSE_same_inputs": 0.7738416216304873,
+      "true_same_plan_first_fall_seconds": 0.6,
+      "qp_failures_in_closed_loop": 0
+    }
+  ],
+  "basis_dimensions": [
+    {
+      "seed": "seed0",
+      "kind": "output_basis",
+      "rows": 98,
+      "rank": 98,
+      "columns": 2297
+    },
+    {
+      "seed": "seed0",
+      "kind": "state_basis",
+      "rows": 154,
+      "rank": 154,
+      "columns": 6891
+    },
+    {
+      "seed": "seed1",
+      "kind": "output_basis",
+      "rows": 98,
+      "rank": 98,
+      "columns": 2297
+    },
+    {
+      "seed": "seed1",
+      "kind": "state_basis",
+      "rows": 154,
+      "rank": 154,
+      "columns": 6891
+    },
+    {
+      "seed": "seed2",
+      "kind": "output_basis",
+      "rows": 98,
+      "rank": 98,
+      "columns": 2297
+    },
+    {
+      "seed": "seed2",
+      "kind": "state_basis",
+      "rows": 154,
+      "rank": 154,
+      "columns": 6891
+    }
+  ],
+  "diagnostic_wall_seconds": 0.3165677320212126
+}
