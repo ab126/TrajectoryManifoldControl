@@ -1,0 +1,8 @@
+{
+  "cases": [
+    "seed1_L_A_0002_14s",
+    "seed1_L_A_0002_60s"
+  ],
+  "maximum_abs_prefix_state_difference": 0.0,
+  "interpretation": "The deterministic L trajectories share the same first 14 seconds; the later miss is a horizon effect in this saved witness."
+}

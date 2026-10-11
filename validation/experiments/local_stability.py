@@ -68,4 +68,49 @@ def main():
         print(episodes,values,'locally unstable',sum(v>1 for v in values),flush=True)
     print('Independent analytic/finite-difference and true-DARE reference checks:',verification,flush=True)
 
-if __name__=='__main__':main()
+def collection_diagnostic(experiment):
+    if experiment != 'E4':
+        raise ValueError('Additional collection diagnostic currently supports E4 only')
+    dt=runner.make_config('dev').dt
+    Ad,Bd=nominal_linearization(dt)
+    verification=checks(dt)
+    out=OUT/experiment
+    rows=[]
+    for seed in range(3):
+        local=json.loads((out/'models'/f'seed{seed}/diagnostics.json').read_text())['local']
+        gain=np.asarray(local['gain'])
+        rows.append(dict(seed=seed,training_transitions=local['training_transitions'],
+            fitted_closed_loop_radius=spectral_radius(np.asarray(local['A'])-np.asarray(local['B'])@gain),
+            true_closed_loop_radius=spectral_radius(Ad-Bd@gain)))
+    csv_write(out/'local_stability.csv',rows)
+    dump(out/'local_stability_checks.json',verification)
+    witness_paths=[out/'cases'/f'seed1_L_A_0002_{seconds}s.json' for seconds in (14,60)]
+    if all(path.exists() for path in witness_paths):
+        witness_cases=[json.loads(path.read_text()) for path in witness_paths]
+        with np.load(ROOT/witness_cases[0]['raw_path']) as short, np.load(ROOT/witness_cases[1]['raw_path']) as long:
+            prefix_error=float(np.max(np.abs(short['X']-long['X'][:len(short['X'])])))
+        assert prefix_error<1e-12
+        dump(out/'long_horizon_prefix_check.json',dict(
+            cases=[case['case'] for case in witness_cases],maximum_abs_prefix_state_difference=prefix_error,
+            interpretation='The deterministic L trajectories share the same first 14 seconds; the later miss is a horizon effect in this saved witness.'))
+    fig,ax=plt.subplots(figsize=(7,4))
+    ax.plot([r['seed'] for r in rows],[r['true_closed_loop_radius'] for r in rows],'o-',label='True plant Jacobian')
+    ax.plot([r['seed'] for r in rows],[r['fitted_closed_loop_radius'] for r in rows],'x--',label='Fitted model')
+    ax.axhline(1,color='black',linestyle=':',label='Unit circle')
+    ax.set(xticks=range(3),xlabel='Whole-run seed',ylabel='Spectral radius',
+           title='E4 recorded local gains at upright')
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(out/'local_stability.png',dpi=150)
+    plt.close(fig)
+    print(rows,flush=True)
+    print('Independent analytic/finite-difference checks:',verification,flush=True)
+
+
+if __name__=='__main__':
+    import sys
+    if len(sys.argv)>1:
+        collection_diagnostic(sys.argv[1])
+    else:
+        main()
+
