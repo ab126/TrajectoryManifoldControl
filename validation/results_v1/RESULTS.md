@@ -16,7 +16,7 @@ A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) ex
 
 ## Q1.1 — Failure region, data needs, novel systems
 
-**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection changes alter capture counts; robustness and novel-system performance remain unresolved pending E3.**
+**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection changes alter capture counts. The tested measurement/process noise and one-sample delay give no primary successes, while ±25% mass/length mismatch preserves L's six authored catches. Novel-system performance remains unresolved while those jobs run.**
 
 The table gives the range of primary success counts across seeds 0–2, with each seed kept separate in the [rates and Wilson intervals](E1/rates.csv). These are tested ICs, not continuous-domain guarantees.
 
@@ -117,6 +117,37 @@ Ranges below span five whole-run seeds. M1 scores 0/6 and 0/50 in every seed und
 The half-box collection improves H's IC-C50 count in three seeds, leaves one equal and reduces one; L's count declines in all five. Uniform-only effects are mixed: H improves two seeds and declines three relative to nominal, while L improves two and declines three. Thus the collection distribution matters, but neither tested change makes H consistently stronger than L or resolves M1's settling failure. The narrower model's smaller held-out prediction errors are measured on its own narrower test distribution and do not establish greater accuracy on a common wide-box test. Sources: [all 15 model diagnostics](E2_distribution/model_diagnostics.csv), [nominal counts](E2/rates.csv), [ablation counts](E2_distribution/rates.csv).
 
 In the random subset, the half-box hybrid adds 0–2 catches beyond L per seed, while L adds 8–15; seed 0's exact paired p=0.109, so the count advantage is not uniformly statistically resolved with fifty ICs. Uniform-only gives 0–3 H-only versus 13–26 L-only catches (per-seed p from 2.98×10⁻⁸ to 0.0213). These are prespecified per-condition comparisons, not a pooled or multiplicity-adjusted global conclusion. Sources: [paired comparisons](E2_distribution/paired_comparisons.csv), [cart/settling/input distributions](E2_distribution/distributions.csv), [case metrics](E2_distribution/summary.csv). Both ablations completed all 1,680 runs in 0.81 wall hours ([manifest](E2_distribution/manifest.json)).
+
+### E3 robustness
+
+**All tested measurement-noise, process-noise and one-sample-delay conditions give H and L 0/6 on IC-A and 0/50 on IC-C50 in every seed. Under ±25% mass/length mismatch, L retains 6/6 authored successes and H gives 4–5/6.** The endpoint remains the same pointwise angular limits throughout the last three seconds and no fall. Noise levels are fractions of the nominal collection-state standard deviations, not fractions of the settling thresholds.
+
+Mismatch models remain trained on nominal data. Length changes retain nominal physical measurement, time and force coordinates. Counts below are min–max across seeds 0–2; the [rates](E3/rates.csv) give per-seed counts and Wilson intervals, and the [matched comparisons](E3/paired_comparisons.csv) retain paired ICs.
+
+| Plant mismatch | IC-A H | IC-A L | IC-C50 H | IC-C50 L |
+|---|---|---|---|---|
+| Mass ratio 1.5 (−25%) | 4–5/6 | 6/6 | 6–20/50 | 38/50 |
+| Mass ratio 2.5 (+25%) | 4/6 | 6/6 | 6–19/50 | 29–32/50 |
+| Length 0.75 (−25%) | 4–5/6 | 6/6 | 7–18/50 | 38/50 |
+| Length 1.25 (+25%) | 4/6 | 6/6 | 5–14/50 | 26–29/50 |
+
+The absence of primary successes under noise/delay includes runs that remain upright. The table separates those outcomes, with ranges across three seeds. Measurement noise perturbs controller observations; process noise is applied independently at every plant step and also during model collection. All arms share the same disturbance sequence for an IC/seed/condition. At process level 0.1, every run falls.
+
+| Stress | IC-A runs without a fall, H / 6 | IC-A runs without a fall, L / 6 | IC-C50 falls, H / 50 | IC-C50 falls, L / 50 |
+|---|---|---|---|---|
+| Measurement 0.01 × std | 5–6/6 | 6/6 | 17–30/50 | 15–18/50 |
+| Measurement 0.03 × std | 4–6/6 | 6/6 | 18–30/50 | 16–18/50 |
+| Measurement 0.1 × std | 1–2/6 | 6/6 | 37–46/50 | 18–23/50 |
+| Process 0.01 × std | 0–6/6 | 6/6 | 16–46/50 | 15–17/50 |
+| Process 0.03 × std | 0–3/6 | 4–6/6 | 35–49/50 | 18–19/50 |
+| Process 0.1 × std | 0/6 | 0/6 | 50/50 | 50/50 |
+| One-sample delay (20 ms) | 5–6/6 | 6/6 | 21–30/50 | 21/50 |
+
+The nominal unwrapped collection-angle standard deviation is 2.784–2.812 rad, so the smallest process-noise level adds θ noise with standard deviation 0.0278–0.0281 rad at each 20 ms step, exceeding the 0.02 rad endpoint bound. Continuous disturbances make this pointwise endpoint stringent. The [angular-fluctuation figure](E3/angular_fluctuations.png) and [per-seed tail distributions](E3/angular_tail_distributions.csv) report RMS and peak values for both all runs and runs without a fall; RMS is descriptive and never substitutes for primary success.
+
+For L on IC-A with measurement level 0.01, per-seed median final-window angle RMS is 0.00814–0.00909 rad, while physical angular-velocity RMS is 0.256–0.260 rad/s. All six remain upright in every seed but miss the angular-rate limit. At level 0.1, all six L cases still remain upright, with median angle RMS 0.109–0.157 rad and angular-velocity RMS 1.24–1.42 rad/s; H falls in four or five of six. Thus strict endpoint failure and loss of the upright region are distinct measured outcomes.
+
+The one-sample delay likewise leaves all six L cases upright but gives per-seed median tail angle RMS 0.0211–0.0212 rad and physical angular-velocity RMS 1.110–1.113 rad/s. This isolates sensitivity to a 20 ms input delay; it is separate from E0's measured planner computation times, since those nominal simulations apply commands without computation latency. E3 uses 14-second runs, so its endpoints do not establish eventual behavior beyond that horizon. Sources: [case diagnostics](E3/summary.csv), [angular distributions](E3/angular_tail_distributions.csv), [cart/input/local-use distributions](E3/distributions.csv), [condition figure](E3/robustness_conditions.png), [noise amplitudes and protocol](E3/manifest.json). All 3,696 runs completed in 0.45 wall hours.
 
 <!-- E2_AUTO_START -->
 

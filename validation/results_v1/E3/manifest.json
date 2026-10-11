@@ -74,7 +74,7 @@
     2
   ],
   "device": "cuda",
-  "wall_seconds": 1622.672906704247,
+  "wall_seconds": 1628.3281038496643,
   "status": "DONE",
   "cvxpy_unused_import_workaround": true,
   "initial_conditions": "validation/results_v1/initial_conditions.json",
@@ -99,5 +99,6 @@
       2.801079750061035,
       2.652784585952759
     ]
-  }
+  },
+  "angular_postprocess_wall_seconds": 5.655197145417333
 }
