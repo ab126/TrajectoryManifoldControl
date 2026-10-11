@@ -7,3 +7,6 @@ NOTE Replaces watcher 1028951 to check projected wall time against three times t
 PID 1031018
 COMMAND python3 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/continue_campaign.py 1028284
 NOTE Replaces watcher 1029067; restarting continuation skips already completed/committed experiments. Scientific E2 PID remains 1028284.
+PID 1031155
+COMMAND python3 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/continue_campaign.py 1028284
+NOTE Replaces watcher 1031018; adopts an existing later-stage detached job instead of duplicating it after a resume. E2 PID remains 1028284.

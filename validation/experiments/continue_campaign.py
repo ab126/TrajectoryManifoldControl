@@ -114,6 +114,15 @@ def launch(experiment,args,estimate):
     if path.exists() and json.loads(path.read_text()).get('status')=='DONE':
         if not committed(experiment):report(experiment);commit(experiment)
         return
+    job=OUT/experiment/'JOB'
+    if job.exists():
+        lines=job.read_text().splitlines()
+        pid=int(next(x.split()[1] for x in reversed(lines) if x.startswith('PID ')))
+        if Path(f'/proc/{pid}').exists():
+            original=float(next(x.split()[1] for x in reversed(lines) if x.startswith('ESTIMATED_WALL_SECONDS ')))
+            print(f'Reattaching {experiment} PID {pid}; no duplicate launch.',flush=True)
+            finish(experiment,pid,original,job.stat().st_mtime)
+            return
     available=remaining()
     if estimate>available:raise RuntimeError(f'{experiment} estimate {estimate/3600:.2f} h exceeds remaining compute cap {available/3600:.2f} h; reduce scope at resume')
     out=OUT/experiment;out.mkdir(exist_ok=True)
