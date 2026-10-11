@@ -193,6 +193,64 @@ Counts below are ranges across whole-run seeds; seeds are not pooled. The common
 
 <!-- E2_distribution_AUTO_END -->
 
+
+<!-- E3_AUTO_START -->
+
+### E3 completed measurements
+
+Sources: [per-seed counts and Wilson intervals](E3/rates.csv), [matched comparisons](E3/paired_comparisons.csv), [case metrics](E3/summary.csv), [figure](E3/success_rates.png), [manifest](E3/manifest.json). Raw-array paths are recorded in the case metrics.
+
+Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
+
+| Episodes | IC condition | Seconds | Arm | Success-count range / n |
+|---|---|---|---|---|
+| 3500 | input_delay_A | 14.0 | H | 0/6 |
+| 3500 | input_delay_A | 14.0 | L | 0/6 |
+| 3500 | input_delay_C50 | 14.0 | H | 0/50 |
+| 3500 | input_delay_C50 | 14.0 | L | 0/50 |
+| 3500 | length_minus25_A | 14.0 | H | 4–5/6 |
+| 3500 | length_minus25_A | 14.0 | L | 6/6 |
+| 3500 | length_minus25_C50 | 14.0 | H | 7–18/50 |
+| 3500 | length_minus25_C50 | 14.0 | L | 38/50 |
+| 3500 | length_plus25_A | 14.0 | H | 4/6 |
+| 3500 | length_plus25_A | 14.0 | L | 6/6 |
+| 3500 | length_plus25_C50 | 14.0 | H | 5–14/50 |
+| 3500 | length_plus25_C50 | 14.0 | L | 26–29/50 |
+| 3500 | mass_minus25_A | 14.0 | H | 4–5/6 |
+| 3500 | mass_minus25_A | 14.0 | L | 6/6 |
+| 3500 | mass_minus25_C50 | 14.0 | H | 6–20/50 |
+| 3500 | mass_minus25_C50 | 14.0 | L | 38/50 |
+| 3500 | mass_plus25_A | 14.0 | H | 4/6 |
+| 3500 | mass_plus25_A | 14.0 | L | 6/6 |
+| 3500 | mass_plus25_C50 | 14.0 | H | 6–19/50 |
+| 3500 | mass_plus25_C50 | 14.0 | L | 29–32/50 |
+| 3500 | measurement_0.01_A | 14.0 | H | 0/6 |
+| 3500 | measurement_0.01_A | 14.0 | L | 0/6 |
+| 3500 | measurement_0.01_C50 | 14.0 | H | 0/50 |
+| 3500 | measurement_0.01_C50 | 14.0 | L | 0/50 |
+| 3500 | measurement_0.03_A | 14.0 | H | 0/6 |
+| 3500 | measurement_0.03_A | 14.0 | L | 0/6 |
+| 3500 | measurement_0.03_C50 | 14.0 | H | 0/50 |
+| 3500 | measurement_0.03_C50 | 14.0 | L | 0/50 |
+| 3500 | measurement_0.1_A | 14.0 | H | 0/6 |
+| 3500 | measurement_0.1_A | 14.0 | L | 0/6 |
+| 3500 | measurement_0.1_C50 | 14.0 | H | 0/50 |
+| 3500 | measurement_0.1_C50 | 14.0 | L | 0/50 |
+| 3500 | process_0.01_A | 14.0 | H | 0/6 |
+| 3500 | process_0.01_A | 14.0 | L | 0/6 |
+| 3500 | process_0.01_C50 | 14.0 | H | 0/50 |
+| 3500 | process_0.01_C50 | 14.0 | L | 0/50 |
+| 3500 | process_0.03_A | 14.0 | H | 0/6 |
+| 3500 | process_0.03_A | 14.0 | L | 0/6 |
+| 3500 | process_0.03_C50 | 14.0 | H | 0/50 |
+| 3500 | process_0.03_C50 | 14.0 | L | 0/50 |
+| 3500 | process_0.1_A | 14.0 | H | 0/6 |
+| 3500 | process_0.1_A | 14.0 | L | 0/6 |
+| 3500 | process_0.1_C50 | 14.0 | H | 0/50 |
+| 3500 | process_0.1_C50 | 14.0 | L | 0/50 |
+
+<!-- E3_AUTO_END -->
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.

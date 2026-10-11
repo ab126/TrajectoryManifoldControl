@@ -1,0 +1,103 @@
+{
+  "experiment": "E3",
+  "git_commit": "58b79d7db64217466b3993cb65652564a7e457cc",
+  "config": {
+    "profile": "dev",
+    "episodes": 3500,
+    "conditions": {
+      "measurement_0.01": {
+        "mode": "measurement",
+        "level": 0.01
+      },
+      "measurement_0.03": {
+        "mode": "measurement",
+        "level": 0.03
+      },
+      "measurement_0.1": {
+        "mode": "measurement",
+        "level": 0.1
+      },
+      "process_0.01": {
+        "mode": "process",
+        "level": 0.01
+      },
+      "process_0.03": {
+        "mode": "process",
+        "level": 0.03
+      },
+      "process_0.1": {
+        "mode": "process",
+        "level": 0.1
+      },
+      "mass_minus25": {
+        "mode": "mismatch",
+        "mass": 1.5,
+        "length": 1.0
+      },
+      "mass_plus25": {
+        "mode": "mismatch",
+        "mass": 2.5,
+        "length": 1.0
+      },
+      "length_minus25": {
+        "mode": "mismatch",
+        "mass": 2.0,
+        "length": 0.75
+      },
+      "length_plus25": {
+        "mode": "mismatch",
+        "mass": 2.0,
+        "length": 1.25
+      },
+      "input_delay": {
+        "mode": "delay",
+        "samples": 1
+      }
+    },
+    "arms": [
+      "H",
+      "L"
+    ],
+    "ICs": [
+      "A",
+      "C50"
+    ],
+    "workers": 8,
+    "noise_scale": "Per-state population std of nominal training transitions; same noise arrays per IC/seed across arms",
+    "process_training": "Add independent per-step noise during data collection; nominal initial collection states",
+    "physical_mismatch": "Mass ratio changed; length changed while nominal measurement/time/force coordinates remain fixed",
+    "delay": "One input sample, 0.02 physical seconds, initial applied input zero"
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "device": "cuda",
+  "wall_seconds": 1622.672906704247,
+  "status": "DONE",
+  "cvxpy_unused_import_workaround": true,
+  "initial_conditions": "validation/results_v1/initial_conditions.json",
+  "oracle_exploration_scaling": "learned training scaling; plant replaced only",
+  "full_stabilization_position_rate_m_s": 0.01,
+  "nominal_state_std_by_seed": {
+    "0": [
+      1.9082568883895874,
+      1.7624187469482422,
+      2.7839715480804443,
+      2.627918243408203
+    ],
+    "1": [
+      1.9053964614868164,
+      1.7447245121002197,
+      2.8122076988220215,
+      2.6521291732788086
+    ],
+    "2": [
+      1.9571927785873413,
+      1.8053297996520996,
+      2.801079750061035,
+      2.652784585952759
+    ]
+  }
+}
