@@ -16,7 +16,7 @@ A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) ex
 
 ## Q1.1 — Failure region, data needs, novel systems
 
-**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection-distribution effects, robustness and novel-system performance remain unresolved pending the running E2 ablation and E3.**
+**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection changes alter capture counts; robustness and novel-system performance remain unresolved pending E3.**
 
 The table gives the range of primary success counts across seeds 0–2, with each seed kept separate in the [rates and Wilson intervals](E1/rates.csv). These are tested ICs, not continuous-domain guarantees.
 
@@ -84,7 +84,7 @@ Component attribution depends on the fitted gain and budget. At 1,000 episodes, 
 
 Prediction quality improves substantially at 10,000 episodes, but IC-C50 success declines relative to 3,500 episodes in three of five H seeds and four of five L seeds. The sweep changes the whole collection/training run, not only one model-error parameter. It establishes neither monotone control improvement nor a sufficient data budget for reliable H success on this random box. The [prediction/local-fit figure](E2/model_quality_vs_data.png) and stability diagnostic below show why prediction RMSE alone is insufficient evidence of closed-loop behavior.
 
-Cart excursion remains descriptive. At 10,000 episodes, per-seed median maximum excursion spans 1.82–4.41 m for H and 1.05–2.95 m for L on IC-A; on IC-C50 it spans 7.36–12.01 m and 4.33–11.57 m. These include failed cases. Only 0–2 of six H runs and 0–4 of six L runs per seed record full settling by 14 seconds. Settling times can exist after an earlier fall and do not override the no-fall endpoint. [Distributions](E2/distributions.csv) retain each budget, seed, arm and IC set, with observed-time denominators, final position, saturation and local fraction. E2 finished all 5,040 cases in 3.60 wall hours, including final postprocessing ([manifest](E2/manifest.json)). Collection-distribution ablations are running separately.
+Cart excursion remains descriptive. At 10,000 episodes, per-seed median maximum excursion spans 1.82–4.41 m for H and 1.05–2.95 m for L on IC-A; on IC-C50 it spans 7.36–12.01 m and 4.33–11.57 m. These include failed cases. Only 0–2 of six H runs and 0–4 of six L runs per seed record full settling by 14 seconds. Settling times can exist after an earlier fall and do not override the no-fall endpoint. [Distributions](E2/distributions.csv) retain each budget, seed, arm and IC set, with observed-time denominators, final position, saturation and local fraction. E2 finished all 5,040 cases in 3.60 wall hours, including final postprocessing ([manifest](E2/manifest.json)). The completed collection-distribution ablations are reported below.
 
 ### Local-fit stability diagnostic
 
@@ -101,6 +101,22 @@ The table uses the exact derivative of the submitted sample-and-hold RK4 map wit
 | 3500 | 0.986200–1.000032 | 1/5 |
 | 10000 | 0.990098–1.001227 | 3/5 |
 
+
+### Collection-distribution sensitivity
+
+At the same 3,500-episode budget, the half-box collection scales all four initial-state bounds by 0.5 and retains the nominal input policy. The uniform-only collection retains the original box and uses the odd-episode uniform input policy on every episode, with the existing random input-hold schedule. All arms are evaluated on the same original IC-A and IC-C50, including ICs beyond the narrowed initial collection box; costs, endpoints and fitting/training settings are unchanged. The [adapter](../experiments/distribution_ablation.py) parameterizes the imported submitted collector in memory.
+
+Ranges below span five whole-run seeds. M1 scores 0/6 and 0/50 in every seed under both ablations. The [comparison figure](E2_distribution/collection_comparison.png) shows separate seed traces, and [rates with Wilson intervals](E2_distribution/rates.csv) retain the denominators.
+
+| Collection | IC-A H | IC-A L | IC-C50 H | IC-C50 L | Selected max abs θ [degrees] | Held-out final θ RMSE at 30 steps |
+|---|---|---|---|---|---|---|
+| Nominal | 4–5/6 | 6/6 | 6–19/50 | 30–36/50 | 98.3–103.7 | 0.0496–0.0694 |
+| Half box | 4–5/6 | 6/6 | 16–22/50 | 28–33/50 | 55.6–60.2 | 0.0279–0.0341 |
+| Uniform only | 3–5/6 | 6/6 | 5–20/50 | 29–35/50 | 98.3–103.6 | 0.0473–0.0582 |
+
+The half-box collection improves H's IC-C50 count in three seeds, leaves one equal and reduces one; L's count declines in all five. Uniform-only effects are mixed: H improves two seeds and declines three relative to nominal, while L improves two and declines three. Thus the collection distribution matters, but neither tested change makes H consistently stronger than L or resolves M1's settling failure. The narrower model's smaller held-out prediction errors are measured on its own narrower test distribution and do not establish greater accuracy on a common wide-box test. Sources: [all 15 model diagnostics](E2_distribution/model_diagnostics.csv), [nominal counts](E2/rates.csv), [ablation counts](E2_distribution/rates.csv).
+
+In the random subset, the half-box hybrid adds 0–2 catches beyond L per seed, while L adds 8–15; seed 0's exact paired p=0.109, so the count advantage is not uniformly statistically resolved with fifty ICs. Uniform-only gives 0–3 H-only versus 13–26 L-only catches (per-seed p from 2.98×10⁻⁸ to 0.0213). These are prespecified per-condition comparisons, not a pooled or multiplicity-adjusted global conclusion. Sources: [paired comparisons](E2_distribution/paired_comparisons.csv), [cart/settling/input distributions](E2_distribution/distributions.csv), [case metrics](E2_distribution/summary.csv). Both ablations completed all 1,680 runs in 0.81 wall hours ([manifest](E2_distribution/manifest.json)).
 
 <!-- E2_AUTO_START -->
 
