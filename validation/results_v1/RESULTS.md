@@ -394,6 +394,50 @@ The fresh authored run records 216 CEM solves: median 30.2 ms, 95th percentile 3
 
 A plausible research gap is nonlinear input/output data-enabled prediction with explicit identifiability, noise and approximation conditions. Part I flags the output injectivity issue and defers learning/control; the current full-state implementation does not exercise that extension. The [15-row claim ledger](reviews/paper_review_v1/claim_ledger.csv) separates correct graph/rank results from these unsupported extensions.
 
+
+<!-- E4_AUTO_START -->
+
+### E4 completed measurements
+
+Sources: [per-seed counts and Wilson intervals](E4/rates.csv), [matched comparisons](E4/paired_comparisons.csv), [case metrics](E4/summary.csv), [figure](E4/success_rates.png), [manifest](E4/manifest.json). Raw-array paths are recorded in the case metrics.
+
+Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
+
+| Episodes | IC condition | Seconds | Arm | Success-count range / n |
+|---|---|---|---|---|
+| 3281 | A | 14.0 | DeePC_output_0.001 | 0/6 |
+| 3281 | A | 14.0 | DeePC_output_0.01 | 0/6 |
+| 3281 | A | 14.0 | DeePC_output_0.1 | 0/6 |
+| 3281 | A | 14.0 | DeePC_state_0.001 | 0/6 |
+| 3281 | A | 14.0 | DeePC_state_0.01 | 0/6 |
+| 3281 | A | 14.0 | DeePC_state_0.1 | 0/6 |
+| 3281 | A | 14.0 | E5 | 0/6 |
+| 3281 | A | 14.0 | H | 2–6/6 |
+| 3281 | A | 14.0 | L | 6/6 |
+| 3281 | A | 14.0 | M1 | 0/6 |
+| 3281 | A | 60.0 | DeePC_output_0.001 | 0/3 |
+| 3281 | A | 60.0 | DeePC_output_0.01 | 0/3 |
+| 3281 | A | 60.0 | DeePC_output_0.1 | 0/3 |
+| 3281 | A | 60.0 | DeePC_state_0.001 | 0/3 |
+| 3281 | A | 60.0 | DeePC_state_0.01 | 0/3 |
+| 3281 | A | 60.0 | DeePC_state_0.1 | 0/3 |
+| 3281 | A | 60.0 | E5 | 0/3 |
+| 3281 | A | 60.0 | H | 0–3/3 |
+| 3281 | A | 60.0 | L | 0–3/3 |
+| 3281 | A | 60.0 | M1 | 0/3 |
+| 3281 | C50 | 14.0 | DeePC_output_0.001 | 0/50 |
+| 3281 | C50 | 14.0 | DeePC_output_0.01 | 0/50 |
+| 3281 | C50 | 14.0 | DeePC_output_0.1 | 0/50 |
+| 3281 | C50 | 14.0 | DeePC_state_0.001 | 0/50 |
+| 3281 | C50 | 14.0 | DeePC_state_0.01 | 0/50 |
+| 3281 | C50 | 14.0 | DeePC_state_0.1 | 0/50 |
+| 3281 | C50 | 14.0 | E5 | 0/50 |
+| 3281 | C50 | 14.0 | H | 4–33/50 |
+| 3281 | C50 | 14.0 | L | 33–36/50 |
+| 3281 | C50 | 14.0 | M1 | 0/50 |
+
+<!-- E4_AUTO_END -->
+
 ## Protocol and resume
 
 Operating instructions: [superseding handoff](../codex_handoff_from_claude_v1.md). Jobs longer than two minutes run detached; each experiment's `JOB` records its PID and command. New evaluations save per-case outputs and skip completed cases. The usage supervisor handles account limits; this campaign does not track them.

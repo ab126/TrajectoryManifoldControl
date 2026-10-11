@@ -1,0 +1,17 @@
+{
+  "members": 5,
+  "bootstrap": "Training episodes with replacement; validation/test never bootstrapped",
+  "member_seeds": [
+    10000,
+    10001,
+    10002,
+    10003,
+    10004
+  ],
+  "base_training_episodes": 2297,
+  "member_training_transitions": 73504,
+  "prediction_horizon": 30,
+  "online_replan_interval": 1,
+  "cost": "Mean of member trajectory costs, not cost of the mean trajectory; no local switch",
+  "limitations": "Deterministic ensemble: no aleatoric variance or PETS particle propagation"
+}

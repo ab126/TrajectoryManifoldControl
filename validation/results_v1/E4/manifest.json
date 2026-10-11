@@ -1,0 +1,109 @@
+{
+  "experiment": "E4",
+  "git_commit": "9bc33a35babd4449063c1d18893401e78434aba0",
+  "config": {
+    "arms": [
+      "H",
+      "L",
+      "M1",
+      "E5",
+      "DeePC_state_0.001",
+      "DeePC_state_0.01",
+      "DeePC_state_0.1",
+      "DeePC_output_0.001",
+      "DeePC_output_0.01",
+      "DeePC_output_0.1"
+    ],
+    "ic_sets": [
+      "A",
+      "C50"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "workers": 8,
+    "profile": "dev",
+    "collection_episodes": 3281,
+    "collection_horizon": 32,
+    "collected_transitions": 104992,
+    "control_horizon": 30,
+    "lambda_per_column": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "lambda_g_rule": "number of windows \u00d7 lambda_per_column; all choices reported",
+    "lambda_history": 1000.0,
+    "history_penalty": "squared residual in training-row-standardized past outputs",
+    "full_state_initialization": "exact current measured state",
+    "output_initialization": "two actual zero-input samples, past inputs exact, past outputs soft, current outputs exact",
+    "output_channels": [
+      "p",
+      "theta"
+    ],
+    "output_cost": "position/angle as authored; velocities from forward normalized-time differences; terminal velocity from last difference",
+    "common_cost": {
+      "Q": [
+        [
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          30.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          100.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          10.0
+        ]
+      ],
+      "R": [
+        [
+          0.03
+        ]
+      ],
+      "terminal_factor": 12.0,
+      "input_rate_weight": 0.002
+    },
+    "input_bounds": [
+      -10,
+      10
+    ],
+    "solver": "OSQP 1.1.3",
+    "sources": [
+      "https://arxiv.org/pdf/1811.05890",
+      "https://osqp.org/docs/interfaces/python.html"
+    ],
+    "neighbor_code_audit": "pe.hankel_matrix flattens multichannel data; dataset.py has different units/plant/collection, so neither reused",
+    "ensemble": "Optional E5: five episode-bootstrap deterministic models, mean member cost, first-action feedback; PETS-lite, not full PETS",
+    "limitations": "Mosaic trajectory span is exact only for adequately excited LTI data; regularization does not make it exact for nonlinear cart-pole. The relative SVD cutoff discards numerically small nonzero directions as well as exact null directions."
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "device": "cuda",
+  "wall_seconds": 7268.4485636446625,
+  "status": "DONE",
+  "cvxpy_unused_import_workaround": true,
+  "initial_conditions": "validation/results_v1/initial_conditions.json",
+  "oracle_exploration_scaling": "learned training scaling; plant replaced only",
+  "full_stabilization_position_rate_m_s": 0.01,
+  "completed_cases": 1770,
+  "total_cases": 1770
+}
