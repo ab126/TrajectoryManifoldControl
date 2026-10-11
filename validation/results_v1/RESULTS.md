@@ -55,6 +55,10 @@ The table gives min–max across the five whole-run seeds. RMSE columns use stor
 | 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
 | 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
 
+### First completed E2 budget: 35 episodes
+
+With 1,050 collected transitions and 750 fitted transitions, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs fall. Per-seed Wilson 95% intervals are 0–0.390 for the six authored ICs and 0–0.071 for the 50 random ICs. This establishes that 35 episodes do not suffice for these fixed tests under the submitted collection/fitting/controller protocol; it is not a lower bound for a redesigned learner or controller. The larger budgets remain in progress. Source: [completed matched-group counts and intervals](E2/budget35_interim_rates.csv); [saved case metrics](E2/cases/episodes35_seed0_H_A_0000_14s.json).
+
 ### Local-fit stability diagnostic
 
 Every one of the 30 identified DARE gains stabilizes its fitted linear model (spectral radius 0.9765–0.9984), but that does not ensure stability on the true plant. At 35, 100 and 350 episodes, all five gains give a true upright closed-loop Jacobian with spectral radius greater than one. This diagnoses a limitation of fitting a broadly selected neighborhood as a local linear model. Larger budgets reduce the discrepancy substantially, but the stability result is not monotone with data size.
