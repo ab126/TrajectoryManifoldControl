@@ -55,9 +55,11 @@ The table gives min–max across the five whole-run seeds. RMSE columns use stor
 | 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
 | 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
 
-### Completed E2 small-data budgets: 35 and 100 episodes
+### Completed E2 small-data budgets: 35, 100 and 350 episodes
 
-At both budgets, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs per budget fall. The 35-episode collection has 1,050 transitions, of which 750 are fitted; 100 episodes gives 3,000 collected and 2,100 fitted transitions. Per-seed Wilson 95% intervals are 0–0.390 for the six authored ICs and 0–0.071 for the 50 random ICs. Neither budget suffices for these fixed tests under the submitted collection/fitting/controller protocol; this is not a lower bound for a redesigned learner or controller. Larger budgets remain in progress. Sources: [completed matched-group counts and intervals](E2/interim_completed_budget_rates.csv), [35-episode saved case metrics](E2/cases/episodes35_seed0_H_A_0000_14s.json), [100-episode saved case metrics](E2/cases/episodes100_seed0_H_A_0000_14s.json).
+At all three budgets, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs fall at each of the 35- and 100-episode budgets. At 350 episodes, 736/840 fall; the 104 runs without a fall still miss the angular settling limits at 14 seconds. These totals describe matched cases across five seeds and three arms; they are not pooled population estimates.
+
+The collections contain 1,050, 3,000 and 10,500 transitions, with respectively 750, 2,100 and 7,380 fitted transitions. Per-seed Wilson 95% intervals for the zero primary-success counts are 0–0.390 for the six authored ICs and 0–0.071 for the 50 random ICs. None of these budgets suffices for the fixed tests under the submitted collection/fitting/controller protocol; this is not a lower bound for a redesigned learner or controller. Larger budgets remain in progress. Sources: [completed matched-group counts, falls and intervals](E2/interim_completed_budget_rates.csv), [35-episode case metrics](E2/cases/episodes35_seed0_H_A_0000_14s.json), [100-episode case metrics](E2/cases/episodes100_seed0_H_A_0000_14s.json), [350-episode case metrics](E2/cases/episodes350_seed0_H_A_0000_14s.json).
 
 ### Local-fit stability diagnostic
 
