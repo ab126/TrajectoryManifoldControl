@@ -55,7 +55,7 @@ The table gives min–max across the five whole-run seeds. RMSE columns use stor
 | 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
 | 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
 
-### Completed E2 budgets through 1,000 episodes
+### Completed E2 budgets through 3,500 episodes
 
 At 35, 100 and 350 episodes, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs fall at each of the 35- and 100-episode budgets. At 350 episodes, 736/840 fall; the 104 runs without a fall still miss the angular settling limits at 14 seconds. These totals describe matched cases across five seeds and three arms; they are not pooled population estimates.
 
@@ -69,7 +69,17 @@ At 1,000 episodes (30,000 collected and 21,000 fitted transitions), performance 
 | 3 | 2/6 | 6/6 | 0/6 | 16/50 | 37/50 | 0/50 |
 | 4 | 0/6 | 2/6 | 0/6 | 0/50 | 0/50 | 0/50 |
 
-Per-seed Wilson intervals, falls and descriptive measures are in the [completed-budget rates](E2/interim_completed_budget_rates.csv), with [matched comparisons](E2/interim_completed_budget_pairs.csv). The zero-count intervals at the lower budgets are 0–0.390 for six ICs and 0–0.071 for fifty ICs. These results concern the submitted collection/fitting/controller protocol, not a lower bound for a redesigned method. The 3,500- and 10,000-episode evaluations remain in progress; no final data-sufficiency threshold is established yet.
+At 3,500 episodes (105,000 collected and 73,500 fitted transitions), H scores 4–5/6 on IC-A and 6–19/50 on IC-C50; L scores 6/6 and 30–36/50. M1 again has no primary successes. The table preserves each whole-run seed rather than pooling the repeated ICs.
+
+| Seed at 3,500 episodes | IC-A H | IC-A L | IC-A M1 | IC-C50 H | IC-C50 L | IC-C50 M1 |
+|---|---|---|---|---|---|---|
+| 0 | 4/6 | 6/6 | 0/6 | 11/50 | 33/50 | 0/50 |
+| 1 | 4/6 | 6/6 | 0/6 | 6/50 | 36/50 | 0/50 |
+| 2 | 4/6 | 6/6 | 0/6 | 16/50 | 36/50 | 0/50 |
+| 3 | 5/6 | 6/6 | 0/6 | 19/50 | 30/50 | 0/50 |
+| 4 | 5/6 | 6/6 | 0/6 | 18/50 | 34/50 | 0/50 |
+
+Per-seed Wilson intervals, falls and descriptive measures are in the [completed-budget rates](E2/interim_completed_budget_rates.csv), with [matched comparisons](E2/interim_completed_budget_pairs.csv). The zero-count intervals at the lower budgets are 0–0.390 for six ICs and 0–0.071 for fifty ICs. These results concern the submitted collection/fitting/controller protocol, not a lower bound for a redesigned method. The 10,000-episode evaluations remain in progress; no final data-sufficiency threshold is established yet.
 
 ### Local-fit stability diagnostic
 
