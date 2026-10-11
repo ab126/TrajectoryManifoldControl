@@ -55,9 +55,9 @@ The table gives min–max across the five whole-run seeds. RMSE columns use stor
 | 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
 | 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
 
-### First completed E2 budget: 35 episodes
+### Completed E2 small-data budgets: 35 and 100 episodes
 
-With 1,050 collected transitions and 750 fitted transitions, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs fall. Per-seed Wilson 95% intervals are 0–0.390 for the six authored ICs and 0–0.071 for the 50 random ICs. This establishes that 35 episodes do not suffice for these fixed tests under the submitted collection/fitting/controller protocol; it is not a lower bound for a redesigned learner or controller. The larger budgets remain in progress. Source: [completed matched-group counts and intervals](E2/budget35_interim_rates.csv); [saved case metrics](E2/cases/episodes35_seed0_H_A_0000_14s.json).
+At both budgets, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs per budget fall. The 35-episode collection has 1,050 transitions, of which 750 are fitted; 100 episodes gives 3,000 collected and 2,100 fitted transitions. Per-seed Wilson 95% intervals are 0–0.390 for the six authored ICs and 0–0.071 for the 50 random ICs. Neither budget suffices for these fixed tests under the submitted collection/fitting/controller protocol; this is not a lower bound for a redesigned learner or controller. Larger budgets remain in progress. Sources: [completed matched-group counts and intervals](E2/interim_completed_budget_rates.csv), [35-episode saved case metrics](E2/cases/episodes35_seed0_H_A_0000_14s.json), [100-episode saved case metrics](E2/cases/episodes100_seed0_H_A_0000_14s.json).
 
 ### Local-fit stability diagnostic
 
@@ -110,6 +110,8 @@ Wilson 95% intervals are reported separately per seed/condition. Fixed authored 
 The bounded [paper ledger and proof audit](reviews/paper_review_v1/proof_audit.md) and [primary-source literature matrix](reviews/paper_review_v1/literature_matrix.csv) are available. The graph and rank results are correct under their assumptions. The process-noise extension needs qualification if noise is not retained in the behavior vector. The [v3 annotated implementation copy](reviews/implementation_tex_v3/trajectory_manifold_implementation_reviewed_v3.tex) contains 27 comments and preserves source prose/equations. No equation/code contradiction was identified; normalization, notation, evaluation and collection omissions remain real specification issues.
 
 ## Deviations
+
+2026-10-11 (user request): Queue the same-data SMC and zero-correction feedback baselines automatically after required E2–E4 measurements. The [request](E6_SMC/REQUEST.json) and [research specification](smc_research.md) define CPU-only evaluation on saved models, matched ICs and affordable E3 conditions, with a one-hour CPU/wall allowance inside the original cap. The future E4 entry point and resumed continuation invoke `experiments/queued_smc.py`; active jobs and supervisor guards are unchanged. Inspect `E6_SMC/JOB` and its manifest on resume, and keep STATUS RUNNING until the extension finishes or records a cap deferral. Summarize its [results](E6_SMC/RESULTS.md), paired feedback comparisons and figures before the final verdict; no SMC outcome exists yet.
 
 2026-10-09: E0 was restarted with eight independent GPU workers after measuring 9% serial GPU utilization. Saved cases/models were reused. Only progress-bar display was suppressed; each case still calls the submitted runner/class implementation. E1 runtime projection will be checked against the cap using measured parallel throughput.
 
