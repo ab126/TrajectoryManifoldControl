@@ -1,0 +1,5 @@
+PID 1067478
+COMMAND timeout 15142 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/e2_distribution.py
+ESTIMATED_WALL_SECONDS 5047.4
+TIMEOUT_SECONDS 15142
+NOTE Detached, saved-case resume; estimate based on E1 mean case costs plus model preparation and stated plant/baseline multipliers.

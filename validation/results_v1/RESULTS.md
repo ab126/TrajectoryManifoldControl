@@ -151,6 +151,32 @@ Counts below are ranges across whole-run seeds; seeds are not pooled. The common
 
 <!-- E2_AUTO_END -->
 
+
+<!-- E2_distribution_AUTO_START -->
+
+### E2_distribution completed measurements
+
+Sources: [per-seed counts and Wilson intervals](E2_distribution/rates.csv), [matched comparisons](E2_distribution/paired_comparisons.csv), [case metrics](E2_distribution/summary.csv), [figure](E2_distribution/success_rates.png), [manifest](E2_distribution/manifest.json). Raw-array paths are recorded in the case metrics.
+
+Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
+
+| Episodes | IC condition | Seconds | Arm | Success-count range / n |
+|---|---|---|---|---|
+| 3500 | half_box_A | 14.0 | H | 4–5/6 |
+| 3500 | half_box_A | 14.0 | L | 6/6 |
+| 3500 | half_box_A | 14.0 | M1 | 0/6 |
+| 3500 | half_box_C50 | 14.0 | H | 16–22/50 |
+| 3500 | half_box_C50 | 14.0 | L | 28–33/50 |
+| 3500 | half_box_C50 | 14.0 | M1 | 0/50 |
+| 3500 | uniform_only_A | 14.0 | H | 3–5/6 |
+| 3500 | uniform_only_A | 14.0 | L | 6/6 |
+| 3500 | uniform_only_A | 14.0 | M1 | 0/6 |
+| 3500 | uniform_only_C50 | 14.0 | H | 5–20/50 |
+| 3500 | uniform_only_C50 | 14.0 | L | 29–35/50 |
+| 3500 | uniform_only_C50 | 14.0 | M1 | 0/50 |
+
+<!-- E2_distribution_AUTO_END -->
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.

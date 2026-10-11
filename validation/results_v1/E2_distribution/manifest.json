@@ -1,0 +1,38 @@
+{
+  "experiment": "E2_distribution",
+  "git_commit": "60fd0edd926ec23067b4261f3b13d993987e7eb4",
+  "config": {
+    "profile": "dev",
+    "episodes": 3500,
+    "variants": {
+      "half_box": {
+        "box_scale": 0.5,
+        "uniform_only": false
+      },
+      "uniform_only": {
+        "box_scale": 1.0,
+        "uniform_only": true
+      }
+    },
+    "arms": [
+      "H",
+      "L",
+      "M1"
+    ],
+    "workers": 8
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "device": "cuda",
+  "wall_seconds": 2930.2745049279183,
+  "status": "DONE",
+  "cvxpy_unused_import_workaround": true,
+  "initial_conditions": "validation/results_v1/initial_conditions.json",
+  "oracle_exploration_scaling": "learned training scaling; plant replaced only",
+  "full_stabilization_position_rate_m_s": 0.01
+}
