@@ -55,6 +55,21 @@ The table gives min–max across the five whole-run seeds. RMSE columns use stor
 | 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
 | 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
 
+### Local-fit stability diagnostic
+
+Every one of the 30 identified DARE gains stabilizes its fitted linear model (spectral radius 0.9765–0.9984), but that does not ensure stability on the true plant. At 35, 100 and 350 episodes, all five gains give a true upright closed-loop Jacobian with spectral radius greater than one. This diagnoses a limitation of fitting a broadly selected neighborhood as a local linear model. Larger budgets reduce the discrepancy substantially, but the stability result is not monotone with data size.
+
+The table uses the exact derivative of the submitted sample-and-hold RK4 map with input u=−Kx, before saturation. Independent central differences agree to at most 6.4×10⁻¹²; a gain designed on that true derivative gives radius 0.998382. These are post hoc diagnostics of the recorded gains, with no controller modification or gain selection. A radius above one concerns the full-state upright equilibrium; slowly growing cart modes can still pass a finite-horizon angle endpoint. A radius below one does not establish a capture region for the finite ICs. Sources: [per-model spectral radii](E2/local_stability.csv), [figure, including a zoom near one](E2/local_stability.png), [independent checks](E2/local_stability_checks.json), [calculation](../experiments/local_stability.py).
+
+| Episodes | True local Jacobian radius, min–max across five seeds | Seeds above one |
+|---|---|---|
+| 35 | 1.291198–9.687442 | 5/5 |
+| 100 | 1.123959–5.703622 | 5/5 |
+| 350 | 1.420435–16.854472 | 5/5 |
+| 1000 | 0.999522–1.003937 | 4/5 |
+| 3500 | 0.986200–1.000032 | 1/5 |
+| 10000 | 0.990098–1.001227 | 3/5 |
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.
