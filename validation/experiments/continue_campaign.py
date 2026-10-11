@@ -49,6 +49,11 @@ def report(experiment):
     path.write_text(text)
 
 
+def committed(experiment):
+    result=subprocess.run(['git','show',f'HEAD:validation/results_v1/{experiment}/manifest.json'],cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,universal_newlines=True)
+    return result.returncode==0 and json.loads(result.stdout).get('status')=='DONE'
+
+
 def commit(experiment):
     paths=[str((OUT/experiment).relative_to(ROOT)),'validation/results_v1/RESULTS.md','validation/results_v1/STATUS',
            'validation/results_v1/CONTINUE_JOB','validation/experiments/continue_campaign.py','validation/experiments/figures.py']
@@ -56,7 +61,8 @@ def commit(experiment):
     subprocess.run(['git','add',*paths],cwd=ROOT,check=True)
     figures=sorted(str(p.relative_to(ROOT)) for p in (OUT/experiment).glob('*.png'))
     if figures:subprocess.run(['git','add','-f',*figures],cwd=ROOT,check=True)
-    subprocess.run(['git','commit','-m',f'Complete {experiment} validation measurements'],cwd=ROOT,check=True)
+    if subprocess.run(['git','diff','--cached','--quiet'],cwd=ROOT).returncode:
+        subprocess.run(['git','commit','-m',f'Complete {experiment} validation measurements'],cwd=ROOT,check=True)
 
 
 def finish(experiment,pid,estimate,started,child=None):
@@ -90,12 +96,13 @@ def finish(experiment,pid,estimate,started,child=None):
             os.killpg(pid,signal.SIGTERM)
             raise RuntimeError(f'{experiment} exceeded three times its initial estimate')
         time.sleep(30)
-    if experiment=='E2':
+    if experiment=='E2' and not value.get('postprocess_wall_seconds'):
         # Fresh import includes the per-budget/per-seed distribution correction.
         start=time.perf_counter()
         with (OUT/experiment/'run.log').open('a') as log:
             subprocess.run([str(PYTHON),str(ROOT/'validation/experiments/figures.py'),experiment],cwd=ROOT,env=ENV,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=max(1,int(remaining())))
-        value['wall_seconds']+=time.perf_counter()-start
+        value['postprocess_wall_seconds']=time.perf_counter()-start
+        value['wall_seconds']+=value['postprocess_wall_seconds']
         path.write_text(json.dumps(value,indent=2)+'\n')
     report(experiment)
     (OUT/'STATUS').write_text(f'RUNNING\n{experiment} complete; summaries and figures saved.\nNext: remaining E2–E4 stages, then final interpretation.\n')
@@ -104,7 +111,9 @@ def finish(experiment,pid,estimate,started,child=None):
 
 def launch(experiment,args,estimate):
     path=OUT/experiment/'manifest.json'
-    if path.exists() and json.loads(path.read_text()).get('status')=='DONE':return
+    if path.exists() and json.loads(path.read_text()).get('status')=='DONE':
+        if not committed(experiment):report(experiment);commit(experiment)
+        return
     available=remaining()
     if estimate>available:raise RuntimeError(f'{experiment} estimate {estimate/3600:.2f} h exceeds remaining compute cap {available/3600:.2f} h; reduce scope at resume')
     out=OUT/experiment;out.mkdir(exist_ok=True)
@@ -119,7 +128,7 @@ def main(e2_pid):
     job=(OUT/'E2/JOB').read_text().splitlines()
     estimate=float(next(x.split()[1] for x in job if x.startswith('ESTIMATED_WALL_SECONDS')))
     started=(OUT/'E2/JOB').stat().st_mtime
-    finish('E2',e2_pid,estimate,started)
+    if not committed('E2'):finish('E2',e2_pid,estimate,started)
     rows=list(csv.DictReader((OUT/'E1/summary.csv').open()))
     costs={arm:sum(float(r['wall_seconds']) for r in rows if r['arm']==arm and r['seconds']=='14.0' and r['ic_set']=='C')/600 for arm in ('H','L','M1')}
     total=sum(costs.values())
