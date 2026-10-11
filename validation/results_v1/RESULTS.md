@@ -55,11 +55,21 @@ The table gives min–max across the five whole-run seeds. RMSE columns use stor
 | 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
 | 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
 
-### Completed E2 small-data budgets: 35, 100 and 350 episodes
+### Completed E2 budgets through 1,000 episodes
 
-At all three budgets, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs fall at each of the 35- and 100-episode budgets. At 350 episodes, 736/840 fall; the 104 runs without a fall still miss the angular settling limits at 14 seconds. These totals describe matched cases across five seeds and three arms; they are not pooled population estimates.
+At 35, 100 and 350 episodes, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs fall at each of the 35- and 100-episode budgets. At 350 episodes, 736/840 fall; the 104 runs without a fall still miss the angular settling limits at 14 seconds. These totals describe matched cases across five seeds and three arms; they are not pooled population estimates.
 
-The collections contain 1,050, 3,000 and 10,500 transitions, with respectively 750, 2,100 and 7,380 fitted transitions. Per-seed Wilson 95% intervals for the zero primary-success counts are 0–0.390 for the six authored ICs and 0–0.071 for the 50 random ICs. None of these budgets suffices for the fixed tests under the submitted collection/fitting/controller protocol; this is not a lower bound for a redesigned learner or controller. Larger budgets remain in progress. Sources: [completed matched-group counts, falls and intervals](E2/interim_completed_budget_rates.csv), [35-episode case metrics](E2/cases/episodes35_seed0_H_A_0000_14s.json), [100-episode case metrics](E2/cases/episodes100_seed0_H_A_0000_14s.json), [350-episode case metrics](E2/cases/episodes350_seed0_H_A_0000_14s.json).
+At 1,000 episodes (30,000 collected and 21,000 fitted transitions), performance is highly seed-dependent. H scores 0–4/6 on IC-A and 0–16/50 on IC-C50; L scores 0–6/6 and 0–37/50. M1 has no primary successes. In seed 2, H adds 11 random-subset catches beyond L, while L adds none (exact matched McNemar p=0.000977). Thus component attribution depends on the data budget and fitted gain: the broader E1 conclusion concerns its 3,500-episode configuration, and does not establish that H can never help when L misses.
+
+| Seed at 1,000 episodes | IC-A H | IC-A L | IC-A M1 | IC-C50 H | IC-C50 L | IC-C50 M1 |
+|---|---|---|---|---|---|---|
+| 0 | 3/6 | 4/6 | 0/6 | 15/50 | 25/50 | 0/50 |
+| 1 | 4/6 | 6/6 | 0/6 | 10/50 | 37/50 | 0/50 |
+| 2 | 0/6 | 0/6 | 0/6 | 11/50 | 0/50 | 0/50 |
+| 3 | 2/6 | 6/6 | 0/6 | 16/50 | 37/50 | 0/50 |
+| 4 | 0/6 | 2/6 | 0/6 | 0/50 | 0/50 | 0/50 |
+
+Per-seed Wilson intervals, falls and descriptive measures are in the [completed-budget rates](E2/interim_completed_budget_rates.csv), with [matched comparisons](E2/interim_completed_budget_pairs.csv). The zero-count intervals at the lower budgets are 0–0.390 for six ICs and 0–0.071 for fifty ICs. These results concern the submitted collection/fitting/controller protocol, not a lower bound for a redesigned method. The 3,500- and 10,000-episode evaluations remain in progress; no final data-sufficiency threshold is established yet.
 
 ### Local-fit stability diagnostic
 
