@@ -16,7 +16,7 @@ A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) ex
 
 ## Q1.1 — Failure region, data needs, novel systems
 
-**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection changes alter capture counts. The tested measurement/process noise and one-sample delay give no primary successes, while ±25% mass/length mismatch preserves L's six authored catches. Novel-system performance remains unresolved while those jobs run.**
+**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection changes alter capture counts. The tested measurement/process noise and one-sample delay give no primary successes, while ±25% mass/length mismatch preserves L's six authored catches. On the additional LTI, L and the known-model LQR catch all tested ICs, while H gives 30–31/50 random-box successes. The harder nonlinear-plant test is running.**
 
 The table gives the range of primary success counts across seeds 0–2, with each seed kept separate in the [rates and Wilson intervals](E1/rates.csv). These are tested ICs, not continuous-domain guarantees.
 
@@ -148,6 +148,25 @@ The nominal unwrapped collection-angle standard deviation is 2.784–2.812 rad, 
 For L on IC-A with measurement level 0.01, per-seed median final-window angle RMS is 0.00814–0.00909 rad, while physical angular-velocity RMS is 0.256–0.260 rad/s. All six remain upright in every seed but miss the angular-rate limit. At level 0.1, all six L cases still remain upright, with median angle RMS 0.109–0.157 rad and angular-velocity RMS 1.24–1.42 rad/s; H falls in four or five of six. Thus strict endpoint failure and loss of the upright region are distinct measured outcomes.
 
 The one-sample delay likewise leaves all six L cases upright but gives per-seed median tail angle RMS 0.0211–0.0212 rad and physical angular-velocity RMS 1.110–1.113 rad/s. This isolates sensitivity to a 20 ms input delay; it is separate from E0's measured planner computation times, since those nominal simulations apply commands without computation latency. E3 uses 14-second runs, so its endpoints do not establish eventual behavior beyond that horizon. Sources: [case diagnostics](E3/summary.csv), [angular distributions](E3/angular_tail_distributions.csv), [cart/input/local-use distributions](E3/distributions.csv), [condition figure](E3/robustness_conditions.png), [noise amplitudes and protocol](E3/manifest.json). All 3,696 runs completed in 0.45 wall hours.
+
+### Novel linear system
+
+**The method transfers to this four-state LTI through its identified local law: L and the known-model clipped LQR both succeed on every tested IC. H succeeds on six small diagonal ICs but only 30–31/50 random-box ICs per seed. M1 has no primary successes, including on the 60-second subset.** This is one additional system, not a guarantee over linear or nonlinear plants.
+
+The plant has discrete A=diag(1.06, 1.02, 0.96, 0.90), B=(0.2, 0.2, 0.1, 0.1)^T, Q=I, R=0.03 and inputs limited to ±10, at 20 ms samples. Its primary endpoint requires every state component within ±0.02 throughout the last three seconds. IC-A consists of x0=v(1,1,1,1) for v=±0.125, ±0.25, ±0.5; IC-C50 is uniform in the four-dimensional ±1 box. The 60-second subset uses A indices 0, 2 and 5. These plant-specific ICs and endpoint are separate from the pendulum's angular endpoint. Sources: [protocol](E3_linear/manifest.json), [fixed ICs](E3_linear/initial_conditions.json).
+
+| Arm | IC-A, 14 s | IC-C50, 14 s | IC-A subset, 60 s |
+|---|---|---|---|
+| H | 6/6 in all seeds | 30, 31, 31 / 50 | 3/3 in all seeds |
+| L | 6/6 in all seeds | 50/50 in all seeds | 3/3 in all seeds |
+| Known-model clipped LQR | 6/6 in all seeds | 50/50 in all seeds | 3/3 in all seeds |
+| M1 | 0/6 in all seeds | 0/50 in all seeds | 0/3 in all seeds |
+
+On the random box, L adds 20, 19 and 19 successes beyond H, with no H-only catches (per-seed exact McNemar p=1.91×10⁻⁶, 3.81×10⁻⁶, 3.81×10⁻⁶). H's per-seed median local fraction is 94.9–95.9% there and 100% on IC-A; the largest diagonal ICs do invoke CEM, so that median does not mean every H run uses only L. Sources: [counts and Wilson intervals](E3_linear/rates.csv), [matched comparisons](E3_linear/paired_comparisons.csv), [case metrics](E3_linear/summary.csv), [success figure](E3_linear/success_rates.png).
+
+The local linear fit's per-state RMSE is 1.86×10⁻⁸–6.10×10⁻⁸ across seeds and coordinates. Held-out final 30-step NN errors range across seeds as x0: 0.0465–0.0630, x1: 0.0159–0.0232, x2: 0.00430–0.00601 and x3: 0.00526–0.00574. These are supplied state coordinates. A successful local regression and a usable NN forecast do not make the submitted planner a successful regulator on every tested IC. Sources: [model diagnostics](E3_linear/model_diagnostics.csv), [saved seed-0 diagnostics](E3_linear/models/seed0/diagnostics.json).
+
+For the known LTI, each case records its accumulated stage cost plus the unconstrained optimal continuation x_T^T P x_T, divided by the unconstrained optimal initial cost x_0^T P x_0. This continuation comparison is distinct from a constrained-MPC optimum or a measured infinite future; the simulated LQR reference is clipped. On IC-C50, the per-seed median ratio is approximately 1 for both L and the known-model reference, 1.49–1.89 for H and 212–397 for M1. The largest L/reference ratio is 1.00359 because clipping can add cost. Failed H runs have much larger tails: the maximum recorded state norm reaches 7.22×10⁹. The [cost ratios](E3_linear/linear_cost_ratios.csv), [descriptive distributions](E3_linear/distributions.csv) and [figure](E3_linear/descriptive_comparison.png) retain those failures; the figure shows within-seed 25th–95th percentiles alongside medians. All 708 cases completed in 0.29 wall hours, including postprocessing ([manifest](E3_linear/manifest.json)).
 
 <!-- E2_AUTO_START -->
 
