@@ -40,6 +40,21 @@ The previous true-model wide-box diagnostic has 147/200 angle-balanced runs, 67/
 
 `run_inverted_pendulum_mc.log`, `inverted_pendulum_mc_debug.ipynb`, and `linear_system_mc.ipynb` contain historical latent-MPC outputs. They are not evidence about the active CEM controller.
 
+### E2 model diagnostics (all 30 models complete)
+
+The held-out 30-step prediction errors decrease substantially as the data budget grows. The nearest-6000 local fit uses every training transition at 35 and 100 episodes. Those unwrapped training trajectories reach well beyond a single pendulum revolution; the small-data fit is not local to upright. Even at 3,500 episodes the selected angles reach 98–104°. At 10,000 episodes they reach 78–84°. These are collection-neighborhood diagnostics, not successful closed-loop angles. Sources: [per-model prediction and local-fit diagnostics](E2/model_diagnostics.csv), [saved models' diagnostics](models/episodes35_seed0/diagnostics.json).
+
+The table gives min–max across the five whole-run seeds. RMSE columns use stored normalized state coordinates (physical velocities multiply by √9.81); no aggregate across unlike state units is used. Collected transitions are 30 × episodes; the fitted counts below follow the actual whole-episode split.
+
+| Episodes | Fitted transitions | Local-fit samples | Selected max abs θ [degrees] | N-step p RMSE | N-step v RMSE | N-step θ RMSE | N-step ω RMSE |
+|---|---|---|---|---|---|---|---|
+| 35 | 750 | 750 | 420.6–506.0 | 0.5581–0.7051 | 0.3314–0.8815 | 1.48–2.858 | 1.671–3.086 |
+| 100 | 2100 | 2100 | 445.0–517.9 | 0.4035–0.6097 | 0.4916–0.6615 | 1.561–3.422 | 1.396–3.26 |
+| 350 | 7380 | 6000 | 343.6–372.9 | 0.4318–0.608 | 0.446–0.6766 | 0.5935–1.995 | 0.8578–2.311 |
+| 1000 | 21000 | 6000 | 154.8–196.0 | 0.1224–0.134 | 0.1761–0.2471 | 0.1895–0.2952 | 0.2947–0.4151 |
+| 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
+| 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.

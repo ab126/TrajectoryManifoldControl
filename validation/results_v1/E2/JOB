@@ -1,0 +1,5 @@
+PID 1028284
+COMMAND timeout 42726 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/parallel_campaign.py E2 --workers 8
+ESTIMATED_WALL_SECONDS 14242.273990934622
+TIMEOUT_SECONDS 42726
+NOTE Estimate uses E1 matched IC-C mean case costs, eight workers, plus 1800 seconds training. Budget sweep: six data sizes, five seeds, H/L/M1 on A+C50.

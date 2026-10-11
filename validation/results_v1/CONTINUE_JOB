@@ -1,0 +1,6 @@
+PID 1028951
+COMMAND python3 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/continue_campaign.py 1028284
+NOTE Waits for E2, commits each completed experiment, then launches the authorized distribution, robustness, novel-system and matched-baseline stages within the compute cap.
+PID 1029067
+COMMAND python3 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/continue_campaign.py 1028284
+NOTE Replaces watcher 1028951 to check projected wall time against three times the initial estimate. E2 PID 1028284 is unchanged.

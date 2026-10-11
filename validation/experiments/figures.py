@@ -10,15 +10,16 @@ def figures(experiment):
     rows,rates=summarize(out)
     if not rows:return
     distributions=[]
-    for arm in sorted({r['arm'] for r in rows}):
-        for name in sorted({r['ic_set'] for r in rows}):
-            for seconds in sorted({r['seconds'] for r in rows}):
-                items=[r for r in rows if r['arm']==arm and r['ic_set']==name and r['seconds']==seconds]
-                if not items:continue
-                for field in ('max_abs_p','final_p','angle_settle_seconds','full_settle_seconds','max_abs_u','input_limit_seconds','local_fraction','switch_toggles'):
-                    values=[r[field] for r in items if r[field] is not None]
-                    distributions.append(dict(arm=arm,ic_set=name,seconds=seconds,field=field,n=len(items),n_observed=len(values),
-                        **{f'q{int(q*100):02d}':float(np.quantile(values,q)) if values else None for q in (0,.25,.5,.75,.95,1)}))
+    # Keep the data budget and whole-run seed separate in descriptive tables.
+    groups={}
+    for row in rows:
+        key=tuple(row[k] for k in ('episodes','seed','arm','ic_set','seconds'))
+        groups.setdefault(key,[]).append(row)
+    for key,items in sorted(groups.items()):
+        for field in ('max_abs_p','final_p','angle_settle_seconds','full_settle_seconds','max_abs_u','input_limit_seconds','local_fraction','switch_toggles'):
+            values=[r[field] for r in items if r[field] is not None]
+            distributions.append(dict(zip(('episodes','seed','arm','ic_set','seconds'),key),field=field,n=len(items),n_observed=len(values),
+                **{f'q{int(q*100):02d}':float(np.quantile(values,q)) if values else None for q in (0,.25,.5,.75,.95,1)}))
     csv_write(out/'distributions.csv',distributions)
     chosen=[r for r in rates if r['seconds']==14.]
     arms=sorted({r['arm'] for r in chosen})
