@@ -8,7 +8,7 @@ The primary endpoint is the runner's `balanced` metric (|θ|≤0.02 rad and phys
 
 The fresh authored reproduction gives **6/6 primary successes** (Wilson 95% interval 0.610–1.000), with cart rest in 4/6 rather than the notebook's 3/6. Local feedback supplies 43.1–96.7% of steps and CEM solves range from 6 to 81. Maximum cart excursions span 0.413–7.858 m. These differences from the saved notebook should be retained as reproduction variability, not overwritten. The authored local-fit selection reaches |θ|=1.775 rad (101.7°), with standardized radius 0.809 and inputs spanning the full ±10 limit. Sources: [authored endpoints](E0/authored_cases.csv), [angle/cart/input figure](E0/authored_excursions.png), [model diagnostics](E0/authored_model_diagnostics.json).
 
-On IC-A at 14 s, H succeeds in 4–5/6 cases per seed, while L succeeds in 6/6 for every seed. M and M1 each have 0/6 for every seed; H* has 4/6 for every seed. At 60 s, H improves to 4–6/6, L remains 6/6, and H* gives 4–5/6. This supports the local catch's importance; it does not yet determine whether H adds reach on harder ICs. The true-model failures show that learned-model error is not the only limitation. Sources: [per-seed rates](E0/rates.csv), [paired comparisons](E0/paired_comparisons.csv), [figures](E0/success_rates.png).
+On IC-A at 14 s, H succeeds in 4–5/6 cases per seed, while L succeeds in 6/6 for every seed. M and M1 each have 0/6 for every seed; H* has 4/6 for every seed. At 60 s, H improves to 4–6/6, L remains 6/6, and H* gives 4–5/6. This supports the local catch's importance; the broader E1 comparisons are below. The true-model failures show that learned-model error is not the only limitation. Sources: [per-seed rates](E0/rates.csv), [paired comparisons](E0/paired_comparisons.csv), [figures](E0/success_rates.png).
 
 M and M1 can approach upright while missing the authored settling limits. In the illustrative seed-0 −15° case, M1's final-three-second maximum angle is 0.0388 rad and maximum physical angular speed is 1.047 rad/s; L gives 0.000275 rad and 0.000102 rad/s. The [terminal-window figure](E0/terminal_behavior.png) and [all 300 seeded 14 s terminal summaries](E0/terminal_behavior.csv) show the distinction between approaching upright and meeting the authored settling limits.
 
@@ -16,7 +16,7 @@ A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) ex
 
 ## Q1.1 — Failure region, data needs, novel systems
 
-**E1 is complete. Local feedback alone (L) succeeds more often than H in every tested IC set and seed. Data efficiency and robustness remain unresolved pending E2–E3.**
+**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection-distribution effects, robustness and novel-system performance remain unresolved pending the running E2 ablation and E3.**
 
 The table gives the range of primary success counts across seeds 0–2, with each seed kept separate in the [rates and Wilson intervals](E1/rates.csv). These are tested ICs, not continuous-domain guarantees.
 
@@ -55,31 +55,36 @@ The table gives min–max across the five whole-run seeds. RMSE columns use stor
 | 3500 | 73500 | 6000 | 98.3–103.7 | 0.03114–0.04086 | 0.04457–0.07288 | 0.04959–0.06936 | 0.08783–0.1553 |
 | 10000 | 210000 | 6000 | 78.5–83.5 | 0.01044–0.01186 | 0.01396–0.02541 | 0.0185–0.02189 | 0.02975–0.08188 |
 
-### Completed E2 budgets through 3,500 episodes
+### E2 data efficiency: all six budgets complete
 
-At 35, 100 and 350 episodes, H, L and M1 each score **0/6 on IC-A and 0/50 on IC-C50 in every seed**. All 840 runs fall at each of the 35- and 100-episode budgets. At 350 episodes, 736/840 fall; the 104 runs without a fall still miss the angular settling limits at 14 seconds. These totals describe matched cases across five seeds and three arms; they are not pooled population estimates.
+**No primary successes occur at 35, 100 or 350 episodes. Success appears at 1,000 episodes, with strong seed dependence. At 3,500 and 10,000 episodes L succeeds on every authored IC in all five seeds, while H remains at 4–5/6. M1 has no primary successes at any tested budget.** These are observed results under the submitted collection, split, fitting and controller protocol, not a lower bound for a redesigned method.
 
-At 1,000 episodes (30,000 collected and 21,000 fitted transitions), performance is highly seed-dependent. H scores 0–4/6 on IC-A and 0–16/50 on IC-C50; L scores 0–6/6 and 0–37/50. M1 has no primary successes. In seed 2, H adds 11 random-subset catches beyond L, while L adds none (exact matched McNemar p=0.000977). Thus component attribution depends on the data budget and fitted gain: the broader E1 conclusion concerns its 3,500-episode configuration, and does not establish that H can never help when L misses.
+The table gives success-count ranges across five whole-run seeds. Counts and Wilson intervals remain separate by seed in the [rates](E2/rates.csv); the [data-efficiency figure](E2/data_efficiency.png) shows descriptive means across those seeds against fitted transitions.
 
-| Seed at 1,000 episodes | IC-A H | IC-A L | IC-A M1 | IC-C50 H | IC-C50 L | IC-C50 M1 |
+| Episodes | Collected / fitted transitions | IC-A H | IC-A L | IC-A M1 | IC-C50 H | IC-C50 L | IC-C50 M1 |
+|---|---|---|---|---|---|---|---|
+| 35 | 1050 / 750 | 0/6 | 0/6 | 0/6 | 0/50 | 0/50 | 0/50 |
+| 100 | 3000 / 2100 | 0/6 | 0/6 | 0/6 | 0/50 | 0/50 | 0/50 |
+| 350 | 10500 / 7380 | 0/6 | 0/6 | 0/6 | 0/50 | 0/50 | 0/50 |
+| 1000 | 30000 / 21000 | 0–4/6 | 0–6/6 | 0/6 | 0–16/50 | 0–37/50 | 0/50 |
+| 3500 | 105000 / 73500 | 4–5/6 | 6/6 | 0/6 | 6–19/50 | 30–36/50 | 0/50 |
+| 10000 | 300000 / 210000 | 4–5/6 | 6/6 | 0/6 | 5–20/50 | 29–34/50 | 0/50 |
+
+All 840 matched runs fall at each of the 35- and 100-episode budgets. At 350 episodes, 736/840 fall; the 104 runs without a fall still miss the angular settling limits at 14 seconds. These totals describe five seeds and three arms on fixed ICs, not pooled population estimates. Zero-count Wilson intervals are 0–0.390 for six ICs and 0–0.071 for fifty.
+
+Component attribution depends on the fitted gain and budget. At 1,000 episodes, seed 2 gives H 11/50 random-subset successes and L 0/50: H adds 11 catches and L none (exact matched McNemar p=0.000977). This qualifies the nominal E1 conclusion; H can help when the small-data local law misses. At 3,500 episodes, H adds 0–2 random-subset catches beyond L per seed, while L adds 12–30. At 10,000, those counts are 0–1 and 11–29, with per-seed McNemar p between 3.73×10⁻⁹ and 0.00635. All H successes on IC-A at both larger budgets also succeed under L. Sources: [matched comparisons](E2/paired_comparisons.csv), [case metrics](E2/summary.csv).
+
+| Seed at 10,000 episodes | IC-A H | IC-A L | IC-A M1 | IC-C50 H | IC-C50 L | IC-C50 M1 |
 |---|---|---|---|---|---|---|
-| 0 | 3/6 | 4/6 | 0/6 | 15/50 | 25/50 | 0/50 |
-| 1 | 4/6 | 6/6 | 0/6 | 10/50 | 37/50 | 0/50 |
-| 2 | 0/6 | 0/6 | 0/6 | 11/50 | 0/50 | 0/50 |
-| 3 | 2/6 | 6/6 | 0/6 | 16/50 | 37/50 | 0/50 |
-| 4 | 0/6 | 2/6 | 0/6 | 0/50 | 0/50 | 0/50 |
+| 0 | 5/6 | 6/6 | 0/6 | 18/50 | 34/50 | 0/50 |
+| 1 | 4/6 | 6/6 | 0/6 | 5/50 | 34/50 | 0/50 |
+| 2 | 4/6 | 6/6 | 0/6 | 10/50 | 33/50 | 0/50 |
+| 3 | 4/6 | 6/6 | 0/6 | 8/50 | 29/50 | 0/50 |
+| 4 | 5/6 | 6/6 | 0/6 | 20/50 | 30/50 | 0/50 |
 
-At 3,500 episodes (105,000 collected and 73,500 fitted transitions), H scores 4–5/6 on IC-A and 6–19/50 on IC-C50; L scores 6/6 and 30–36/50. M1 again has no primary successes. The table preserves each whole-run seed rather than pooling the repeated ICs.
+Prediction quality improves substantially at 10,000 episodes, but IC-C50 success declines relative to 3,500 episodes in three of five H seeds and four of five L seeds. The sweep changes the whole collection/training run, not only one model-error parameter. It establishes neither monotone control improvement nor a sufficient data budget for reliable H success on this random box. The [prediction/local-fit figure](E2/model_quality_vs_data.png) and stability diagnostic below show why prediction RMSE alone is insufficient evidence of closed-loop behavior.
 
-| Seed at 3,500 episodes | IC-A H | IC-A L | IC-A M1 | IC-C50 H | IC-C50 L | IC-C50 M1 |
-|---|---|---|---|---|---|---|
-| 0 | 4/6 | 6/6 | 0/6 | 11/50 | 33/50 | 0/50 |
-| 1 | 4/6 | 6/6 | 0/6 | 6/50 | 36/50 | 0/50 |
-| 2 | 4/6 | 6/6 | 0/6 | 16/50 | 36/50 | 0/50 |
-| 3 | 5/6 | 6/6 | 0/6 | 19/50 | 30/50 | 0/50 |
-| 4 | 5/6 | 6/6 | 0/6 | 18/50 | 34/50 | 0/50 |
-
-Per-seed Wilson intervals, falls and descriptive measures are in the [completed-budget rates](E2/interim_completed_budget_rates.csv), with [matched comparisons](E2/interim_completed_budget_pairs.csv). The zero-count intervals at the lower budgets are 0–0.390 for six ICs and 0–0.071 for fifty ICs. These results concern the submitted collection/fitting/controller protocol, not a lower bound for a redesigned method. The 10,000-episode evaluations remain in progress; no final data-sufficiency threshold is established yet.
+Cart excursion remains descriptive. At 10,000 episodes, per-seed median maximum excursion spans 1.82–4.41 m for H and 1.05–2.95 m for L on IC-A; on IC-C50 it spans 7.36–12.01 m and 4.33–11.57 m. These include failed cases. Only 0–2 of six H runs and 0–4 of six L runs per seed record full settling by 14 seconds. Settling times can exist after an earlier fall and do not override the no-fall endpoint. [Distributions](E2/distributions.csv) retain each budget, seed, arm and IC set, with observed-time denominators, final position, saturation and local fraction. E2 finished all 5,040 cases in 3.60 wall hours, including final postprocessing ([manifest](E2/manifest.json)). Collection-distribution ablations are running separately.
 
 ### Local-fit stability diagnostic
 
