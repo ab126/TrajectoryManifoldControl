@@ -327,6 +327,29 @@ Counts below are ranges across whole-run seeds; seeds are not pooled. The common
 
 <!-- E3_linear_AUTO_END -->
 
+
+<!-- E3_acrobot_AUTO_START -->
+
+### E3_acrobot completed measurements
+
+Sources: [per-seed counts and Wilson intervals](E3_acrobot/rates.csv), [matched comparisons](E3_acrobot/paired_comparisons.csv), [case metrics](E3_acrobot/summary.csv), [figure](E3_acrobot/success_rates.png), [manifest](E3_acrobot/manifest.json). Raw-array paths are recorded in the case metrics.
+
+Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
+
+| Episodes | IC condition | Seconds | Arm | Success-count range / n |
+|---|---|---|---|---|
+| 3500 | A | 14.0 | H | 0/6 |
+| 3500 | A | 14.0 | L | 0/6 |
+| 3500 | A | 14.0 | M1 | 0/6 |
+| 3500 | A | 60.0 | H | 0/3 |
+| 3500 | A | 60.0 | L | 0/3 |
+| 3500 | A | 60.0 | M1 | 0/3 |
+| 3500 | C50 | 14.0 | H | 0/50 |
+| 3500 | C50 | 14.0 | L | 0/50 |
+| 3500 | C50 | 14.0 | M1 | 0/50 |
+
+<!-- E3_acrobot_AUTO_END -->
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.

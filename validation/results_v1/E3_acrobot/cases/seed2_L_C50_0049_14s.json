@@ -1,0 +1,32 @@
+{
+  "case": "seed2_L_C50_0049_14s",
+  "plant": "acrobot",
+  "seed": 2,
+  "arm": "L",
+  "ic_set": "C50",
+  "ic_index": 49,
+  "seconds": 14.0,
+  "initial_state": [
+    0.3254551588201462,
+    0.962052993585983,
+    0.6309523105214181,
+    0.3773590651783174
+  ],
+  "wall_seconds": 0.49181827157735825,
+  "primary_success": false,
+  "balanced": false,
+  "no_fall": false,
+  "fell": true,
+  "nonfinite_state": false,
+  "settle_seconds": null,
+  "max_state_norm": 358.36925425676515,
+  "final_state_norm": 358.36925425676515,
+  "max_abs_u": 1.0,
+  "input_limit_seconds": 13.94,
+  "local_fraction": 1.0,
+  "switch_toggles": 0,
+  "accumulated_stage_cost": 2347654027.4520335,
+  "nonfinite_cem": 0,
+  "cem_solves": 0,
+  "raw_path": "validation/results_v1/E3_acrobot/raw/seed2_L_C50_0049_14s.npz"
+}

@@ -1,0 +1,5 @@
+PID 1085354
+COMMAND timeout 14579 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/e3_novel.py acrobot
+ESTIMATED_WALL_SECONDS 4859.8
+TIMEOUT_SECONDS 14579
+NOTE Detached, saved-case resume; estimate based on E1 mean case costs plus model preparation and stated plant/baseline multipliers.

@@ -1,0 +1,106 @@
+{
+  "experiment": "E3_acrobot",
+  "git_commit": "b0d588c25aecfbf0e69d4c6a9a0b2a5ee7d0e4b3",
+  "config": {
+    "n": 4,
+    "m": 1,
+    "box_low": [
+      -1.3,
+      -1.3,
+      -1.0,
+      -1.0
+    ],
+    "box_high": [
+      1.3,
+      1.3,
+      1.0,
+      1.0
+    ],
+    "Q": [
+      [
+        100.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        100.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        10.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        10.0
+      ]
+    ],
+    "R": [
+      [
+        0.03
+      ]
+    ],
+    "umax": 1.0,
+    "arms": [
+      "H",
+      "L",
+      "M1"
+    ],
+    "workers": 8,
+    "profile": "dev",
+    "episodes": 3500,
+    "horizon": 30,
+    "epochs": 100,
+    "simulation_seconds": [
+      14,
+      60
+    ],
+    "cost_rule": "LTI identity Q; acrobot authored 100-per-angle/10-per-rate; R=.03, no per-arm tuning",
+    "endpoint": "LTI all |state components|\u2264.02 in last 3 s; acrobot both absolute angles\u2264.02 and physical angular rates\u2264.05 in last 3 s, no link falls",
+    "masses": [
+      1,
+      1
+    ],
+    "lengths": [
+      1,
+      1
+    ],
+    "COM": [
+      0.5,
+      0.5
+    ],
+    "COM_inertias": [
+      0.08333333333333333,
+      0.08333333333333333
+    ],
+    "gravity": 9.81,
+    "coordinates": [
+      "q1 from upright",
+      "q2 relative",
+      "q1_dot/sqrt(g)",
+      "q2_dot/sqrt(g)"
+    ],
+    "input": "torque/(m2*g*l2), limit \u00b11",
+    "integration": "Eight RK4 substeps per 0.02 physical sample; no angle wrapping or velocity clipping",
+    "source": "Uniform-rod Lagrange mass matrix; same equation structure as https://raw.githubusercontent.com/Farama-Foundation/Gymnasium/main/gymnasium/envs/classic_control/acrobot.py, with explicit inertia and coordinate changes"
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "device": "cuda",
+  "wall_seconds": 1427.3788483254611,
+  "status": "DONE",
+  "cvxpy_unused_import_workaround": true,
+  "initial_conditions": "validation/results_v1/initial_conditions.json",
+  "oracle_exploration_scaling": "learned training scaling; plant replaced only",
+  "full_stabilization_position_rate_m_s": 0.01
+}
