@@ -282,6 +282,32 @@ Counts below are ranges across whole-run seeds; seeds are not pooled. The common
 
 <!-- E3_AUTO_END -->
 
+
+<!-- E3_linear_AUTO_START -->
+
+### E3_linear completed measurements
+
+Sources: [per-seed counts and Wilson intervals](E3_linear/rates.csv), [matched comparisons](E3_linear/paired_comparisons.csv), [case metrics](E3_linear/summary.csv), [figure](E3_linear/success_rates.png), [manifest](E3_linear/manifest.json). Raw-array paths are recorded in the case metrics.
+
+Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
+
+| Episodes | IC condition | Seconds | Arm | Success-count range / n |
+|---|---|---|---|---|
+| 3500 | A | 14.0 | H | 6/6 |
+| 3500 | A | 14.0 | L | 6/6 |
+| 3500 | A | 14.0 | LQR | 6/6 |
+| 3500 | A | 14.0 | M1 | 0/6 |
+| 3500 | A | 60.0 | H | 3/3 |
+| 3500 | A | 60.0 | L | 3/3 |
+| 3500 | A | 60.0 | LQR | 3/3 |
+| 3500 | A | 60.0 | M1 | 0/3 |
+| 3500 | C50 | 14.0 | H | 30–31/50 |
+| 3500 | C50 | 14.0 | L | 50/50 |
+| 3500 | C50 | 14.0 | LQR | 50/50 |
+| 3500 | C50 | 14.0 | M1 | 0/50 |
+
+<!-- E3_linear_AUTO_END -->
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.

@@ -1,0 +1,5 @@
+PID 1081127
+COMMAND timeout 7289 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/e3_novel.py linear
+ESTIMATED_WALL_SECONDS 2429.9
+TIMEOUT_SECONDS 7289
+NOTE Detached, saved-case resume; estimate based on E1 mean case costs plus model preparation and stated plant/baseline multipliers.
