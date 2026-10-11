@@ -94,7 +94,7 @@ The reviewed transcription is [trajectory_manifold_implementation.tex](../../../
 
 ## Q3 — Comparison and contribution
 
-**H is a full-state learned-dynamics shooting controller. E0–E1 favor its local-feedback ablation over H; matched ensemble and DeePC comparisons remain unresolved pending E4.** It combines one-step transition regression, CEM planning, five-step queues and a ridge/DARE local catch. E0–E1 support the catch's importance on the authored and broader tested sets. The graph theorem supplies explicit trajectory coordinates but does not constrain prediction error or guarantee closed-loop success; see the [proof audit](reviews/paper_review_v1/proof_audit.md).
+**H is a full-state learned-dynamics shooting controller. E0–E1 favor its local-feedback ablation over H; matched ensemble, DeePC and SMC comparisons remain unresolved pending E4 and E6.** It combines one-step transition regression, CEM planning, five-step queues and a ridge/DARE local catch. E0–E1 support the catch's importance on the authored and broader tested sets. The graph theorem supplies explicit trajectory coordinates but does not constrain prediction error or guarantee closed-loop success; see the [proof audit](reviews/paper_review_v1/proof_audit.md).
 
 | Comparison | What differs from H | What this campaign can establish |
 |---|---|---|
@@ -102,7 +102,6 @@ The reviewed transcription is [trajectory_manifold_implementation.tex](../../../
 | Lusch Deep Koopman | Autonomous state embedding trained with multi-step and linearity losses; no implemented controller. | Prose/model comparison, not an invented Lusch control baseline. |
 | DFINE | Unforced noisy partial observations, latent factors and linear dynamics with Kalman inference. | Observation and uncertainty differences; no DFINE controller is constructed. |
 | Baek deep RL | Model-free SAC, symmetry augmentation, triple pendulum and hardware demonstrations. | Qualitative budget/task comparison; its 0.8–2 million steps cannot establish a matched sample-efficiency advantage for H. |
-
 | Same-data SMC | Designed scalar sliding variable and a sampled boundary-layer reaching law, using the saved local fit. | E6 compares SMC with its zero-correction control, L and H; nonlinear-plant robustness remains empirical. |
 
 The [verified primary-source matrix](reviews/paper_review_v1/literature_matrix.csv) supports these distinctions. Nagabandi neural shooting MPC and single-model variants of PETS are the closest algorithmic antecedents. H's training and online controller do not use plant equations. Its limitations include full-state measurement, deterministic one-step learning, no uncertainty estimate, open-loop queues, a hard switch and no stability guarantee. So far, the identified local law supplies the strongest control-performance evidence. Data efficiency, robustness, novel systems and the remaining matched baselines are pending E2–E4.
