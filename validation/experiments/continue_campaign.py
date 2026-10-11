@@ -156,7 +156,10 @@ def main(e2_pid):
         args+=['--skip-ensemble'];e4_estimate-=effective*5*costs['M1']/8
         note('Deviation: optional E5 omitted to preserve mandatory matched DeePC within the compute cap.')
     launch('E4',args,e4_estimate)
-    (OUT/'STATUS').write_text('RUNNING\nDetached E2–E4 measurements completed and committed.\nNext: inspect figures, synthesize Q1–Q3, and write the final verdict before DONE.\n')
+    from queued_smc import launch_after_core
+    extension=launch_after_core()
+    print('Post-core SMC:',extension,flush=True)
+    (OUT/'STATUS').write_text('RUNNING\nDetached E2–E4 measurements completed; post-core SMC is queued or running.\nNext: inspect E6_SMC/JOB and manifest, await completion or recorded cap deferral, then synthesize Q1–Q3 before DONE.\n')
     print('Measurements complete; final interpretation remains.',flush=True)
 
 if __name__=='__main__':

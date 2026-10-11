@@ -96,6 +96,56 @@ The table uses the exact derivative of the submitted sample-and-hold RK4 map wit
 | 3500 | 0.986200–1.000032 | 1/5 |
 | 10000 | 0.990098–1.001227 | 3/5 |
 
+
+<!-- E2_AUTO_START -->
+
+### E2 completed measurements
+
+Sources: [per-seed counts and Wilson intervals](E2/rates.csv), [matched comparisons](E2/paired_comparisons.csv), [case metrics](E2/summary.csv), [figure](E2/success_rates.png), [manifest](E2/manifest.json). Raw-array paths are recorded in the case metrics.
+
+Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
+
+| Episodes | IC condition | Seconds | Arm | Success-count range / n |
+|---|---|---|---|---|
+| 100 | A | 14.0 | H | 0/6 |
+| 100 | A | 14.0 | L | 0/6 |
+| 100 | A | 14.0 | M1 | 0/6 |
+| 100 | C50 | 14.0 | H | 0/50 |
+| 100 | C50 | 14.0 | L | 0/50 |
+| 100 | C50 | 14.0 | M1 | 0/50 |
+| 1000 | A | 14.0 | H | 0–4/6 |
+| 1000 | A | 14.0 | L | 0–6/6 |
+| 1000 | A | 14.0 | M1 | 0/6 |
+| 1000 | C50 | 14.0 | H | 0–16/50 |
+| 1000 | C50 | 14.0 | L | 0–37/50 |
+| 1000 | C50 | 14.0 | M1 | 0/50 |
+| 10000 | A | 14.0 | H | 4–5/6 |
+| 10000 | A | 14.0 | L | 6/6 |
+| 10000 | A | 14.0 | M1 | 0/6 |
+| 10000 | C50 | 14.0 | H | 5–20/50 |
+| 10000 | C50 | 14.0 | L | 29–34/50 |
+| 10000 | C50 | 14.0 | M1 | 0/50 |
+| 35 | A | 14.0 | H | 0/6 |
+| 35 | A | 14.0 | L | 0/6 |
+| 35 | A | 14.0 | M1 | 0/6 |
+| 35 | C50 | 14.0 | H | 0/50 |
+| 35 | C50 | 14.0 | L | 0/50 |
+| 35 | C50 | 14.0 | M1 | 0/50 |
+| 350 | A | 14.0 | H | 0/6 |
+| 350 | A | 14.0 | L | 0/6 |
+| 350 | A | 14.0 | M1 | 0/6 |
+| 350 | C50 | 14.0 | H | 0/50 |
+| 350 | C50 | 14.0 | L | 0/50 |
+| 350 | C50 | 14.0 | M1 | 0/50 |
+| 3500 | A | 14.0 | H | 4–5/6 |
+| 3500 | A | 14.0 | L | 6/6 |
+| 3500 | A | 14.0 | M1 | 0/6 |
+| 3500 | C50 | 14.0 | H | 6–19/50 |
+| 3500 | C50 | 14.0 | L | 30–36/50 |
+| 3500 | C50 | 14.0 | M1 | 0/50 |
+
+<!-- E2_AUTO_END -->
+
 ## Q2 — Errors in the implementation note
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.
