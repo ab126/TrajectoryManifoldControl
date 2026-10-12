@@ -1,0 +1,18 @@
+{
+  "batch": "I05",
+  "started_utc": "2026-10-09T19:14:48.828040+00:00",
+  "tests_run": 130,
+  "I01": 32,
+  "I02": 31,
+  "I03": 17,
+  "I04": 20,
+  "I05": 30,
+  "passed": true,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "duration_seconds": 15.538247376680374,
+  "verification_kind": "same-author synthetic CPU fixtures, temporary archives, fake subprocesses/clocks and fixed linear algebra; no original-plant/CUDA/scientific/timing experiment",
+  "experimental_worker_seconds_added": 0,
+  "execution_authorized": false
+}

@@ -1,5 +1,9 @@
 # Proposed oracle amendment — after completed CUDA diagnostic
 
+For the next concrete recipe, see [versioned OA-1 proposal](oracle_amendment_proposal_v1.md)
+and its [evidence assessment](oracle_review_assessment_v1.md). Both remain proposals;
+the earlier open-choice discussion below is preserved.
+
 The existing local-only probes support correcting the reference's slow position
 recovery. They do not establish broad-box attainability or justify changing H.
 The submitted controller/plant and primary statistical rules stay unchanged.

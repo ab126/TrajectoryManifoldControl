@@ -1,0 +1,7 @@
+{
+  "requested_agent": "overseer",
+  "requested_model": "gpt-6-astra",
+  "state": "awaiting_user_routing",
+  "initial_message_result": "live agent path /root/overseer not found",
+  "review_policy": "Concise read-only uncertainty and results packets; no broad duplicate audit."
+}

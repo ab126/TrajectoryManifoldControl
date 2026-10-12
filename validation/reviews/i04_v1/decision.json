@@ -1,0 +1,17 @@
+{
+  "batch": "I04",
+  "specified": true,
+  "implemented": true,
+  "tested": true,
+  "independently_audited": false,
+  "adopted": false,
+  "executed": false,
+  "execution_authorized": false,
+  "oa1_lifecycle": "specified",
+  "limitations": [
+    "unreproducible runtime exceptions unavailable",
+    "independent nonlinear plant/CUDA replay validation pending",
+    "full audit timing/reservation pending",
+    "revised endpoint/reference pending"
+  ]
+}

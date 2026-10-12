@@ -1,5 +1,13 @@
 # Continuation prompt after completed diagnosis
 
+**October 9 update:** use [Claude review handoff v3](claude_review_handoff_v3.md)
+for the requested paper/method review and [implementation plan v3](implementation_plan_v3.md)
+for current engineering work. The earlier prompt below is historical: an oracle
+proposal and I01–I05 now exist (130 engineering tests passed), the user requests a versioned balancing-endpoint
+revision, and independent paper/literature review and trained comparisons remain
+open. Its strict-task language does not establish an authored-method failure.
+No new experimental execution is authorized.
+
 Copy the following into a new agentic session:
 
 ```text

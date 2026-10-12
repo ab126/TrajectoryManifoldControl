@@ -1,0 +1,248 @@
+{
+  "report": {
+    "passed": false,
+    "checks": [
+      {
+        "status": "unavailable",
+        "code": "trusted_request_missing",
+        "field": "request",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "pass",
+        "code": "config_hash",
+        "field": "scientific_sha256",
+        "expected": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+        "observed": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00"
+      },
+      {
+        "status": "pass",
+        "code": "spec_hash",
+        "field": "specification.sha256",
+        "expected": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+        "observed": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee"
+      },
+      {
+        "status": "pass",
+        "code": "terminal_weight",
+        "field": "objective.Qf",
+        "expected": [
+          24.0,
+          360.0,
+          1200.0,
+          120.0
+        ],
+        "observed": [
+          24.0,
+          360.0,
+          1200.0,
+          120.0
+        ]
+      },
+      {
+        "status": "pass",
+        "code": "seed",
+        "field": "cases.case_seed",
+        "expected": 4264006537072803998,
+        "observed": 4264006537072803998
+      },
+      {
+        "status": "pass",
+        "code": "samples",
+        "field": "endpoint.states",
+        "expected": 1001,
+        "observed": 1001
+      },
+      {
+        "status": "pass",
+        "code": "duration",
+        "field": "endpoint.physical_seconds",
+        "expected": 20.0,
+        "observed": 20.0
+      },
+      {
+        "status": "pass",
+        "code": "lifecycle_order",
+        "field": "events",
+        "expected": [
+          "specified"
+        ],
+        "observed": [
+          "specified"
+        ]
+      },
+      {
+        "status": "pass",
+        "code": "specified_required",
+        "field": "events",
+        "expected": true,
+        "observed": true
+      },
+      {
+        "status": "pass",
+        "code": "observed_match",
+        "field": "release.scientific_sha256",
+        "expected": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+        "observed": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00"
+      },
+      {
+        "status": "pass",
+        "code": "observed_match",
+        "field": "release.specification.path",
+        "expected": "validation/oracle_amendment_proposal_v1.md",
+        "observed": "validation/oracle_amendment_proposal_v1.md"
+      },
+      {
+        "status": "pass",
+        "code": "observed_match",
+        "field": "release.specification.sha256",
+        "expected": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+        "observed": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee"
+      },
+      {
+        "status": "pass",
+        "code": "observed_match",
+        "field": "release.submitted.commit",
+        "expected": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+        "observed": "325beae718ab093d3ca48b18a59ae61fd93798a3"
+      },
+      {
+        "status": "pass",
+        "code": "observed_match",
+        "field": "release.submitted.files.scripts/run_inverted_pendulum_mc.py",
+        "expected": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+        "observed": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4"
+      },
+      {
+        "status": "pass",
+        "code": "observed_match",
+        "field": "release.submitted.files.src/inverted_pendulum.py",
+        "expected": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+        "observed": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4"
+      },
+      {
+        "status": "pass",
+        "code": "observed_match",
+        "field": "release.submitted.files.src/manifold_control.py",
+        "expected": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+        "observed": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4"
+      },
+      {
+        "status": "not_checked",
+        "code": "unbound",
+        "field": "release.implementation",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "not_checked",
+        "code": "unbound",
+        "field": "release.environment",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "not_checked",
+        "code": "unbound",
+        "field": "release.runtime",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "not_checked",
+        "code": "unbound",
+        "field": "release.derived_gain",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "not_checked",
+        "code": "unbound",
+        "field": "release.trace_contract",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "pass",
+        "code": "artifact_hash",
+        "field": "specification",
+        "expected": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+        "observed": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee"
+      },
+      {
+        "status": "unavailable",
+        "code": "artifact_unbound",
+        "field": "derived_gain",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "unavailable",
+        "code": "artifact_unbound",
+        "field": "trace_contract",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "unavailable",
+        "code": "artifact_unbound",
+        "field": "timing",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "unavailable",
+        "code": "implementation_unbound",
+        "field": "implementation",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "pass",
+        "code": "artifact_hash",
+        "field": "events.specified",
+        "expected": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+        "observed": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42"
+      },
+      {
+        "status": "fail",
+        "code": "not_adopted",
+        "field": "events",
+        "expected": "adopted",
+        "observed": null
+      },
+      {
+        "status": "fail",
+        "code": "proposed_config",
+        "field": "adoption",
+        "expected": "externally adopted release",
+        "observed": null
+      },
+      {
+        "status": "unavailable",
+        "code": "artifact_unbound",
+        "field": "archive.manifest",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "unavailable",
+        "code": "archive_availability",
+        "field": "archive",
+        "expected": null,
+        "observed": null
+      },
+      {
+        "status": "fail",
+        "code": "allocation_not_adopted",
+        "field": "allocation",
+        "expected": null,
+        "observed": null
+      }
+    ]
+  },
+  "execution_authorized": false,
+  "used_worker_seconds": 4987.3564921418965,
+  "scope": "read-only current proposed release; no runtime/CUDA initialization"
+}

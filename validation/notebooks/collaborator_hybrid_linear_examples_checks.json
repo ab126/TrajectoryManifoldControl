@@ -1,0 +1,43 @@
+{
+  "saved_data_only": true,
+  "illustrated_trajectories": 8,
+  "selection": "smallest seed0 C index in each of four paired outcome categories",
+  "cases": [
+    {
+      "category": "Both succeed",
+      "seed": 0,
+      "ic_set": "C",
+      "index": 1,
+      "H_case": "seed0_H_C_0001_14s",
+      "L_case": "seed0_L_C_0001_14s",
+      "raw_endpoints_match_saved": true
+    },
+    {
+      "category": "L succeeds; H fails",
+      "seed": 0,
+      "ic_set": "C",
+      "index": 0,
+      "H_case": "seed0_H_C_0000_14s",
+      "L_case": "seed0_L_C_0000_14s",
+      "raw_endpoints_match_saved": true
+    },
+    {
+      "category": "H succeeds; L fails",
+      "seed": 0,
+      "ic_set": "C",
+      "index": 34,
+      "H_case": "seed0_H_C_0034_14s",
+      "L_case": "seed0_L_C_0034_14s",
+      "raw_endpoints_match_saved": true
+    },
+    {
+      "category": "Both fail",
+      "seed": 0,
+      "ic_set": "C",
+      "index": 2,
+      "H_case": "seed0_H_C_0002_14s",
+      "L_case": "seed0_L_C_0002_14s",
+      "raw_endpoints_match_saved": true
+    }
+  ]
+}

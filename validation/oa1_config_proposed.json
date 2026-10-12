@@ -1,0 +1,276 @@
+{
+  "schema": "oracle_amendment_specification_v1",
+  "reference_id": "OA-1",
+  "status": "proposed_not_adopted",
+  "executable_by_current_launcher": false,
+  "execution_authorized": false,
+  "reviewed_HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "submitted_commit": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "submitted_source_SHA256": {
+    "scripts/run_inverted_pendulum_mc.py": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+    "src/manifold_control.py": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+    "src/inverted_pendulum.py": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4"
+  },
+  "authority": "oracle_amendment_proposal_v1.md; reviewed external config must be frozen separately from run output",
+  "scope": "oracle reference only; submitted H unchanged",
+  "plant": {
+    "file": "src/inverted_pendulum.py",
+    "mass_ratio": 2,
+    "cart_mass_kg": 2,
+    "rod_mass_kg": 1,
+    "full_rod_length_m": 1,
+    "g": 9.81,
+    "physical_dt_s": 0.02,
+    "normalized_dt_formula": ".02/sqrt(1/9.81)",
+    "evaluation": "original NumPy held-input RK4",
+    "dtype": "float64",
+    "angle_wrapping": false,
+    "normalized_input_bounds": [
+      -10,
+      10
+    ]
+  },
+  "device": {
+    "prediction": "cuda",
+    "hardware": "NVIDIA L4",
+    "GPU_UUID": "GPU-ab0ee8e5-cf5f-5b7b-82dc-1e3f054fa136",
+    "oracle_dtype": "float64",
+    "local": "cpu_float64",
+    "workers": 1,
+    "cpu_threads": 1,
+    "TF32": false,
+    "deterministic_algorithms": true,
+    "cpu_fallback": false,
+    "environment": "validation/.venv-gpu; freeze exact native/runtime/dependency hashes before adoption"
+  },
+  "cases": {
+    "count": 200,
+    "box_half_widths_normalized": [
+      1.5,
+      2.5,
+      1.3,
+      3.5
+    ],
+    "box_scale": 1.0,
+    "root_seed": 20261006,
+    "stream": "gate_a_oracle_v1_cases",
+    "stream_indices": [
+      1.0
+    ],
+    "case_seed": 4264006537072803998,
+    "sampling": "NumPy default_rng(seed).uniform(-1,1,(200,4))*box_half_widths; no redraws",
+    "development_only": true
+  },
+  "endpoint": {
+    "physical_seconds": 20,
+    "transitions": 1000,
+    "states": 1001,
+    "sampled_state_safety": {
+      "p_m": 2.4,
+      "theta_rad_formula": "pi/2"
+    },
+    "final_sample_indices_inclusive": [
+      850,
+      1000
+    ],
+    "final_abs_tolerances_physical": [
+      0.1,
+      0.05,
+      0.02,
+      0.05
+    ],
+    "all_states_finite": true,
+    "exceptions_fail": true,
+    "past_violations_latch": true,
+    "incomplete_cannot_pass": true,
+    "oracle_timing_exempt": true,
+    "overall_successes_min": 196,
+    "sign_half_success_min_formula": "ceil(.95*n_half); both halves nonempty",
+    "timing_agnostic_primary_amendment": "pending; H/L/E current rule unchanged"
+  },
+  "objective": {
+    "Q_diagonal": [
+      2.0,
+      30.0,
+      100.0,
+      10.0
+    ],
+    "R": 0.03,
+    "Qf_diagonal": [
+      24.0,
+      360.0,
+      1200.0,
+      120.0
+    ],
+    "rate_weight": 0.002,
+    "stage_indices": [
+      0,
+      59
+    ],
+    "terminal_index": 60,
+    "rate_pairs": "j=1..59, u_j-u_(j-1)",
+    "dt_multiplier": false,
+    "first_input_vs_last_applied_rate_term": false,
+    "state_reference": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "input_reference": 0,
+    "common_evaluation_cost_changed": false
+  },
+  "gain": {
+    "construction": "exact RK4 derivative plus stabilizing discrete DARE; see proposal section 2",
+    "Q_matches_objective": true,
+    "R_matches_objective": true,
+    "K_reference": [
+      [
+        -4.267101768903849,
+        -26.54027619110535,
+        -53.53358474483455,
+        -36.645634211809444
+      ]
+    ],
+    "P_reference": [
+      [
+        198.5811098462322,
+        371.88541581277286,
+        261.80408806261164,
+        254.8366032590148
+      ],
+      [
+        371.88541581277286,
+        2054.579816063967,
+        1365.2436183082882,
+        1402.4147308369807
+      ],
+      [
+        261.80408806261164,
+        1365.2436183082882,
+        1696.3298997870984,
+        992.182783443936
+      ],
+      [
+        254.8366032590148,
+        1402.4147308369807,
+        992.182783443936,
+        996.0585697476373
+      ]
+    ],
+    "verification_atol": 1e-10,
+    "verification_rtol": 1e-10,
+    "V": "x.T @ P @ x",
+    "local_input": "clip(-K@x,-10,10)",
+    "P_is_terminal_weight": false
+  },
+  "local_switch": {
+    "initial_mode": "planning",
+    "c": "x.T @ Q @ x",
+    "entry_c_max_inclusive": 0.75,
+    "stay_c_max_inclusive": 1.0,
+    "entry_predictive_steps": 60,
+    "entry_all_predicted_nodes_safe": true,
+    "entry_each_transition_decrease": true,
+    "stay_predictive_steps": 1,
+    "decrease_rule": "V(next)-V(x) <= -.5*(x.T@Q@x+.03*u**2)+1e-10*max(1,V(x))",
+    "check_before_queue": true,
+    "entry_exit_clear_queue_and_previous": true,
+    "certified_invariant_region": false
+  },
+  "search": {
+    "horizon": 60,
+    "starts": 1,
+    "population": 256,
+    "elites": 32,
+    "iterations": 3,
+    "smoothing": 0.15,
+    "elite_std_unbiased": true,
+    "std_floor": 0.02,
+    "oracle_state_scale": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "initial_std_formula": "20*(.05+.45*clamp(2*sqrt(mean(x**2)),0,1))",
+    "draws": "common.normals([oracle_v1,case,0],physical_sample,horizon=60); float32 CPU -> float64 CUDA",
+    "deterministic_slots": {
+      "0": "current clipped mean",
+      "1": "zeros",
+      "2": "fresh clipped Qp=2 local-feedback 60-step plan",
+      "3": "original elapsed-shifted warm or zeros"
+    },
+    "random_slots_inclusive": [
+      4,
+      255
+    ],
+    "full_draws_consumed": true,
+    "retain_incumbent_across_iterations": true,
+    "feasible": "finite all states/inputs; |u|<=10; all nodes |p|<=2.4, |theta|<=pi/2",
+    "D": "max_j(max(0,abs(p_j)/2.4-1),max(0,abs(theta_j)/(pi/2)-1))",
+    "W": "sum_j(rail_excess_j**2+angle_excess_j**2)",
+    "elite_and_selection_order": [
+      "infeasible_flag",
+      "D",
+      "W",
+      "J",
+      "first_seen_candidate_index"
+    ],
+    "nonfinite_candidates": "after every finite bounded candidate; excluded from moments",
+    "fewer_than_32_finite_bounded_candidates": "search-error fallback; no moment update; latch exception failure; zero for one sample",
+    "apply_only_full_horizon_feasible_plan": true,
+    "guarantees_global_optimality": false,
+    "guarantees_recursive_feasibility": false
+  },
+  "queue": {
+    "maximum_inputs": 5,
+    "before_each_input": "local-entry predicate, observed/predicted-node consistency, next-node safety check",
+    "prediction_consistency_atol": 1e-10,
+    "prediction_consistency_rtol": 1e-10,
+    "guard_fail": "clear queue, plan once on same sample",
+    "max_planning_calls_per_sample": 1,
+    "warm_shift": "actual physical samples since plan; append final input; all final input for elapsed>=60",
+    "local_or_failure_invalidates_previous": true
+  },
+  "fallback": {
+    "no_feasible_plan": "discard unsafe plan; zero for one sample; clear previous and queue; retry next observation",
+    "zero_next_node_safety_logged": true,
+    "infeasibility_alone_fails_physical_endpoint": false,
+    "safety_guarantee": false,
+    "exception": "zero for one sample when current state finite; clear memory; latch exception failure",
+    "nonfinite_plant": "stop, marked nonfinite suffix",
+    "cap_or_interruption": "checkpoint, whole gate incomplete",
+    "continue_after_finite_safety_violation": true,
+    "late_plan_hold_in_oracle": false
+  },
+  "logging": {
+    "selected_and_warm_full_plans": true,
+    "selected_and_warm_predictions": true,
+    "candidate_rank_components_all_iterations": true,
+    "rng_keys_and_prefix_contract": true,
+    "local_predicate_and_decrease_values": true,
+    "warm_age_shift_queue_invalidation": true,
+    "true_states_actions_branches_timing_fallbacks": true,
+    "source_snapshots_and_config_hash": true,
+    "raw_archive_required": true
+  },
+  "allocation": {
+    "now_experimental_seconds": 0,
+    "current_total_stage0_cap_h": 15,
+    "already_used_h": 1.385376803372749,
+    "proposed_total_stage0_cap_h": 20,
+    "proposed_support_slot_h": 1,
+    "proposed_gate_queue_slot_h": 17,
+    "proposed_gate_queue_fixed_overhead_h": 0.3333333333333333,
+    "proposed_archive_review_slot_h": 0.5,
+    "proposed_unassigned_h": 0.11462319662724951,
+    "acceptance_formula": "200*1000*tau_amended*1.2/3600 + 1/3 <= 17",
+    "tau_amended_max_s": 0.25,
+    "reservation_is_runtime_guarantee": false,
+    "future_measurement_required": true,
+    "proposal_is_authorization": false,
+    "automatic_box_fallback": false,
+    "dependent_stages": "stopped"
+  }
+}

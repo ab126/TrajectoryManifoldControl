@@ -1,0 +1,17 @@
+{
+  "batch": "I04",
+  "started_utc": "2026-10-09T18:51:11.042487+00:00",
+  "tests_run": 99,
+  "I01": 32,
+  "I02": 31,
+  "I03": 17,
+  "I04": 19,
+  "passed": true,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "duration_seconds": 8.062928225845098,
+  "verification_kind": "same-author synthetic CPU engineering fixtures and fixed linear algebra; no original-plant/CUDA/scientific/timing experiment",
+  "experimental_worker_seconds_added": 0,
+  "execution_authorized": false
+}

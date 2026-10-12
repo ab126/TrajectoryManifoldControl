@@ -1,6 +1,82 @@
+# Validation: current results and historical work
+
+The campaign completed on October 11, 2026. Start with the
+[one-page collaborator briefing](results_v1/COLLABORATOR_BRIEF.md), then the
+[full findings](results_v1/RESULTS.md) and
+[completion review and limitations](results_v1/DOCUMENTATION_REVIEW.md).
+The [final status](results_v1/STATUS) is DONE; the
+[completion checks](results_v1/completed_campaign_checks.json) record the completed stages.
+The [superseding handoff](codex_handoff_from_claude_v1.md) defines the agreed goals.
+No experiment or restart is needed to read these results.
+
+## Historical readiness and oracle campaign
+
+The material below preserves earlier status reports and commands. Its references
+to unfinished reviews, active plans, gates and next actions are historical;
+they do not override the completed campaign or authorize new runs.
+
 Readiness harness for the active submitted controller. See `server_readiness.md`
 for measured results, limitations, and next-stage allocation. Performance outputs
 and tiny smoke results are not scientific validation.
+
+Start from the current [Claude handoff](claude_review_handoff_v3.md),
+[implementation plan v3](implementation_plan_v3.md), and
+[collaborator memo v3](collaborator_memo_v3.md). They distinguish method evidence
+from validation history and link the initial plans and [review log](review_log_v1.md).
+Arda's arXiv v1 paper is explicitly in scope for Claude's independent critique;
+the literature review and trained baseline comparison remain unfinished.
+The [annotated TeX v2](reviews/implementation_tex_v2/trajectory_manifold_implementation_reviewed_v2.tex)
+contains method-focused comments and preserves original prose/equations.
+
+**I03 implementation:** [policy source](oracle_policy_v1.py),
+[trace contract](trace_contract_v1.md), [record](reviews/i03_v1/manifest.json).
+The latest combined I01–I05 run passed **130 engineering tests**
+(32 configuration, 31 arithmetic, 17 policy, 20 audit, 30 runner/queue/archive).
+I04 numerical replay and I05 preflight/runner/queue now exist; independent-author
+review and scientific plant/CUDA/guard/timing checks remain pending. This does not adopt OA-1 or authorize experiments.
+The requested balancing endpoint and reference choice require a new version;
+old strict scores/configs/runs remain historical evidence.
+
+**I04/I05 implementation:** [audit contract](oracle_audit_contract_v1.md),
+[launch/archive contract](oracle_launch_contract_v1.md),
+[latest results and source pins](reviews/i05_v1/manifest.json), and
+[actual proposed-release refusal](reviews/i05_v1/proposed_preflight.json).
+No experiments were launched; raw fixture archives used temporary directories.
+The archive format is proposed, with full-step and audit overhead unmeasured.
+
+**I01 implementation:** [decision/status](oa1_decisions.md),
+[typed configuration contract](oracle_config_contract_v1.md), and
+[review records](reviews/i01_v1/decision.json). Configuration support is
+implemented and unit-tested; full OA-1 remains specified and unadopted.
+From the repository root, its offline engineering tests are:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 validation/.venv/bin/python -m unittest discover -s validation/tests -p test_oracle_config.py -v
+```
+
+These tests use only the standard library and synthetic release evidence.
+They do not invoke the experimental launcher or establish controller results.
+
+**I02 implementation:** [arithmetic contract](oracle_math_contract_v1.md),
+[decision record](reviews/i02_v1/decision.json), and
+[verification manifest](reviews/i02_v1/manifest.json). Objective/ranking/local
+arithmetic and the fixed linear gain construction are implemented and tested;
+independent audit, nonlinear guards, CUDA validation and amended timing remain
+open. The CPU unit suite uses the existing offline native-library workaround:
+
+```bash
+env PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 LD_LIBRARY_PATH="$PWD/validation/.venv/lib" LD_PRELOAD="$PWD/validation/.venv/lib/libstdc++.so.6" validation/.venv/bin/python -m unittest discover -s validation/tests -p 'test_oracle*.py' -v
+```
+
+This command is engineering verification only; it does not call `run.sh`,
+initialize CUDA or run scientific cases.
+
+**Oracle review OA-1:** [evidence assessment](oracle_review_assessment_v1.md),
+[concrete versioned proposal](oracle_amendment_proposal_v1.md), and
+[proposed manifest](oa1_config_proposed.json). Reviewed HEAD is `4c9de6d`;
+raw-array rescoring agrees with the failed Gate A and both completed diagnoses.
+OA-1 is not adopted or executable; amended Gate A remains held for independent
+audit/configuration support and an explicit feasible allocation.
 
 **October 8 handoff:** [validation_handoff.md](validation_handoff.md) consolidates
 the original/current plans, completed evidence, remaining control/mathematical/ML

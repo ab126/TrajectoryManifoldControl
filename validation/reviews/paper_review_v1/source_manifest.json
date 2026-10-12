@@ -1,0 +1,11 @@
+{
+  "source": "Arda Bayer, Trajectory Manifolds for Nonlinear Data-Enabled Predictive Control, Part I: Existence, Smoothness, and Intrinsic Dimension",
+  "arxiv_id": "2609.19079v1",
+  "url": "https://arxiv.org/pdf/2609.19079v1",
+  "retrieved_utc": "2026-10-09T19:29:22Z",
+  "retrieved_by": "Claude (curl), during review of claude_review_handoff_v3",
+  "pdf_sha256": "87179e0c63f60950c14d9ece6fdfa860499740df8fffaabc15af92a9f6be08fa",
+  "text_extraction": "pdftotext -layout bayer_v1.pdf bayer_v1.txt (layout text; check equations against the PDF)",
+  "pages": 13,
+  "reference_count": 8
+}

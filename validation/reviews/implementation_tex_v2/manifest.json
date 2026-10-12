@@ -1,0 +1,26 @@
+{
+  "source": "/home/ap60/github/data-driven-control/trajectory_manifold_implementation.tex",
+  "source_sha256": "87c9beed757b1acdfdc9ff2d07009aad28c14b0595ac8da5076853b905177c0c",
+  "source_prose_preserved": true,
+  "comments": 17,
+  "reviewed_HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "submitted_source_sha256": {
+    "scripts/run_inverted_pendulum_mc.py": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+    "src/manifold_control.py": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+    "src/inverted_pendulum.py": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4"
+  },
+  "paper_for_claude": "https://arxiv.org/html/2609.19079v1",
+  "paper_review": "pending; not undertaken by this annotation pass",
+  "review_scope": "same-author bounded active-code correspondence and elementary mathematical qualifications",
+  "literature_review": "incomplete",
+  "trained_baseline_comparison": "not executed",
+  "pdf_compilation": "not performed; pdflatex unavailable",
+  "files": {
+    "annotations.json": "1aefb5ebef17440c769a768bf27f41d1daaf19476e04d653317b8aa6b07af498",
+    "trajectory_manifold_implementation_reviewed_v2.tex": "915c8850ec44a3ff0251ed7a503fc2cb7c07b9085f424a45e435a98232de0133"
+  },
+  "builder_sha256": {
+    "annotate_implementation_v2.py": "eb7229035fa3eebd5550da93022f6aa7bb4a57a1cb856e491dd500c59f102e27",
+    "annotate_implementation_v1.py": "2f7e5682f645bc88b95ca25399b1996bff1ca0b38df8493e6053a6d42893e80a"
+  }
+}

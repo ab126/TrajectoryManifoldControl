@@ -1,0 +1,40 @@
+{
+  "batch": "I03",
+  "created_utc": "2026-10-09T17:31:13.777868+00:00",
+  "git_HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "component_status": "tested",
+  "oa1_lifecycle": "specified",
+  "author_independence": "same-author; independent audit pending",
+  "verification_kind": "synthetic CPU engineering fixtures; no original-plant/CUDA/scientific/timing experiment",
+  "execution_authorized": false,
+  "experimental_worker_seconds_added": 0,
+  "submitted_source_checks": {
+    "scripts/run_inverted_pendulum_mc.py": {
+      "expected": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "observed": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4"
+    },
+    "src/manifold_control.py": {
+      "expected": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "observed": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4"
+    },
+    "src/inverted_pendulum.py": {
+      "expected": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "observed": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4"
+    }
+  },
+  "dependency_sha256": {
+    "validation/oracle_config.py": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+    "validation/oracle_math_v1.py": "5b2450d4bc1c211063fe438d093cb93dd9a36e1815826a557de3025294051bac",
+    "validation/reviews/i02_v1/gain.json": "a0b7e1c67bc6746e8936cdf67959f76a04a1c2403418492e7c5600cc87f81c58"
+  },
+  "files": {
+    "README.md": "11348e76ad72474e63a462a394a3314635952ef02fe85f4469884ce2b7b2b6f4",
+    "decision.json": "25e062dc99891863dff58ccd52920bac4ae25b058bea2ad1347b82f6baa9ef78",
+    "source_snapshots/oracle_implementation_decisions_v1.md": "b0b8a998754f05b31a838c164b945e147a57aa59f1bd47af379f926e34ab2eca",
+    "source_snapshots/oracle_policy_v1.py": "799c2d0c9c36584bae49ca843c378039729103b8f0689c4091a9ee69ef528326",
+    "source_snapshots/test_oracle_policy_v1.py": "8b5ed57f4ce6bc82e0481a30aa65bcb1e51874e3ecc4614af0d6c04da9dd86b2",
+    "source_snapshots/trace_contract_v1.md": "b830458e501fa09c1a444afe1344436468cc01011aedb0bb933b2ebdb9f08ece",
+    "test_results.json": "785f5b5389a332bd7f0e187bf88f34f17903b6849e0c51c13a62f36000fca48b",
+    "unit_tests.txt": "5ac68847f18e78d0e0e7b09976c1742203e1fc49533ffdfd7c07b35b4a06c98e"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "batch": "I05",
+  "created_utc": "2026-10-09T19:14:48.828040+00:00",
+  "git_HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "submitted_source_commit": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "scientific_sha256": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+  "preserved_hash_checks": {
+    "scripts/run_inverted_pendulum_mc.py": {
+      "expected": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "observed": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "status": "pass"
+    },
+    "src/inverted_pendulum.py": {
+      "expected": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "observed": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "status": "pass"
+    },
+    "src/manifold_control.py": {
+      "expected": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "observed": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "status": "pass"
+    },
+    "validation/artifacts/usage.jsonl": {
+      "expected": "3e85a748f99e083efd85181ccacc4641ed1c7deab787d7dbdf0dc415d7f777a2",
+      "observed": "3e85a748f99e083efd85181ccacc4641ed1c7deab787d7dbdf0dc415d7f777a2",
+      "status": "pass"
+    },
+    "validation/diagnostics/usage.jsonl": {
+      "expected": "687bf5f4ce86841b89324ae48b321c0bd8c7d40f600a75d312a35b2200fdafb8",
+      "observed": "687bf5f4ce86841b89324ae48b321c0bd8c7d40f600a75d312a35b2200fdafb8",
+      "status": "pass"
+    },
+    "validation/oa1_config_proposed.json": {
+      "expected": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+      "observed": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+      "status": "pass"
+    },
+    "validation/oa1_decisions.md": {
+      "expected": "0224c905d573a5dde5aeed2c71f9777c7015dd6a62419c651e5039daf658a417",
+      "observed": "0224c905d573a5dde5aeed2c71f9777c7015dd6a62419c651e5039daf658a417",
+      "status": "pass"
+    },
+    "validation/oracle_amendment_proposal_v1.md": {
+      "expected": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+      "observed": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+      "status": "pass"
+    },
+    "validation/oracle_config.py": {
+      "expected": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+      "observed": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+      "status": "pass"
+    },
+    "validation/oracle_config_contract_v1.md": {
+      "expected": "8c99a3ed4fa56612842501ea7a713bdf018712a6634bcdfc471974cea1ae23e3",
+      "observed": "8c99a3ed4fa56612842501ea7a713bdf018712a6634bcdfc471974cea1ae23e3",
+      "status": "pass"
+    },
+    "validation/overnight_runs/20261007T054549.695689Z/run.json": {
+      "expected": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1",
+      "observed": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1",
+      "status": "pass"
+    }
+  },
+  "files": {
+    "decision.json": "e621836d9a560ccc88d15d747064679a3924bc636f05f933cffe1432c13e45c7",
+    "proposed_preflight.json": "0a7aafdd56da918f501a6bb69e8d4e68acfb81b4bcabbed90c5f4c40a24cbd10",
+    "source_snapshots/gate_a_v1.py": "b4a0ac343c9d7af7de5e97f91073288383510b352ea8fda2d754953160bea080",
+    "source_snapshots/oracle_audit_contract_v1.md": "78dfaee5684806d2fbe2b906be6d72f2a52c05236bed8d021bf23df3b7efaca6",
+    "source_snapshots/oracle_audit_v1.py": "d7d4effbbac3ac5b82e81cade8166c6cb10bb1f06d04d300ba42d55938de66fb",
+    "source_snapshots/oracle_config.py": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+    "source_snapshots/oracle_launch_contract_v1.md": "215b1605e979babcd7ddaf88369e429cb175cfd19e7676338f7e67facaee6f54",
+    "source_snapshots/oracle_math_v1.py": "5b2450d4bc1c211063fe438d093cb93dd9a36e1815826a557de3025294051bac",
+    "source_snapshots/oracle_policy_v1.py": "799c2d0c9c36584bae49ca843c378039729103b8f0689c4091a9ee69ef528326",
+    "source_snapshots/oracle_queue_v1.py": "d006722b3d804bf18a2fbd1b8898f6be85ea291693da8c5035f0cbfa0407e080",
+    "source_snapshots/oracle_trace_io_v1.py": "6e5f5fe6d63236cc9f20494fbf713736c5917ad8d014f71deaa7c6131ade72b3",
+    "source_snapshots/test_oracle_audit_v1.py": "203ed20231c5336ce035fe05a8808a5c109cc4430df0bd30927c2dc6fbcd60ba",
+    "source_snapshots/test_oracle_config.py": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad",
+    "source_snapshots/test_oracle_math_v1.py": "780e6ded210dfeb0eed3269420dcf4512c885e79995de8cb4c1af1ab7166da4e",
+    "source_snapshots/test_oracle_policy_v1.py": "8b5ed57f4ce6bc82e0481a30aa65bcb1e51874e3ecc4614af0d6c04da9dd86b2",
+    "source_snapshots/test_oracle_queue_v1.py": "4334cd9bc7029a8d066761d397a2799ae001f2abbfbf1c7e4e9f7b96edc10b6e",
+    "source_snapshots/trace_contract_v1.md": "b830458e501fa09c1a444afe1344436468cc01011aedb0bb933b2ebdb9f08ece",
+    "test_results.json": "22c4fe4280b552c5694e5909e382986664959bc7995063f149985188419c9474",
+    "unit_tests.txt": "d2e2fd4b738c53d965c91ec36b54228b2c7326d9e9d3a1f39ef5fe7d35761b8a"
+  },
+  "experimental_worker_seconds_added": 0
+}

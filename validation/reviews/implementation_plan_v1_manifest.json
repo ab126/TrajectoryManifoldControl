@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "scope": "implementation plan and collaborator memo only; no new experimental execution",
+  "HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "working_tree": "uncommitted validation review/documentation package; prior work preserved",
+  "implementation_status": "planned, not implemented; OA-1 not adopted; dependent experiments stopped",
+  "next_batch": "I01 configuration and provenance support",
+  "checks": {
+    "document_links_exist": 10,
+    "new_docs_no_trailing_whitespace": true,
+    "SUT_hashes_unchanged": true,
+    "usage_ledgers_unchanged": true
+  },
+  "output_SHA256": {
+    "validation/implementation_plan_v1.md": "c42c27b91a27a47997099c73a7ecc6783c8b34eb174efab80f9d23b222f986d5",
+    "validation/collaborator_memo_v1.md": "540aa237699fce813e34db94366a8149cbfd22e6e6d87ce4c342bee4a80d08cd",
+    "validation/README.md": "e670cdfba9f6a1c30c1dcba057285fb90835791eca1334ec8e1ec7461a891747"
+  },
+  "reference_SHA256": {
+    "validation/oracle_amendment_proposal_v1.md": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+    "validation/oracle_review_assessment_v1.md": "7f488e5e6b1b67206215b3852f95c630a5932b66bb93100c08f2e31576b9986f",
+    "validation/validation_handoff.md": "25874c2ac3ad35a387f6f5465606c0324d823895ae2b65870ec765926a660686",
+    "validation/handoff/plans/stress_test_plan_current.md": "d37029400589082eb09fc1a0879fa3ff9923898198416216252f891cab160674",
+    "validation/handoff/plans/critique_plan.md": "87945c9e2f4df7a05704d6c8a4a2b0bbe35ccaa94cc79bc8d568592e1079aeee"
+  },
+  "new_experimental_worker_seconds": 0,
+  "historical_manifests": "preserved as original snapshots; README gained links to these new docs"
+}

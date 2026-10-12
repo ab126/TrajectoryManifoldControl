@@ -1,0 +1,26 @@
+{
+  "batch": "I03",
+  "specified": true,
+  "implemented": true,
+  "tested": true,
+  "independently_audited": false,
+  "adopted": false,
+  "executed": false,
+  "oa1_lifecycle": "specified",
+  "scientific_sha256": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+  "gain_artifact_sha256": "a0b7e1c67bc6746e8936cdf67959f76a04a1c2403418492e7c5600cc87f81c58",
+  "interpretation": "preserved strict-reference proposal plus explicit queue clarification; revised balancing endpoint/reference unresolved",
+  "pending": [
+    "I04 numerical auditor",
+    "I05 runner/queue",
+    "independent-author configuration/math/policy review",
+    "revised endpoint/reference",
+    "nonlinear guards",
+    "amended CUDA/runtime/timing and audit reservation",
+    "archive format/capacity",
+    "adopted allocation",
+    "policy adoption"
+  ],
+  "execution_authorized": false,
+  "experimental_worker_seconds_added": 0
+}

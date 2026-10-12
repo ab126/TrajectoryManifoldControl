@@ -1,0 +1,41 @@
+{
+  "batch": "I02",
+  "specified": true,
+  "implemented": true,
+  "tested": true,
+  "independently_audited": false,
+  "adopted": false,
+  "executed": false,
+  "oa1_lifecycle": "specified",
+  "scientific_sha256": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+  "gain_artifact_sha256": "a0b7e1c67bc6746e8936cdf67959f76a04a1c2403418492e7c5600cc87f81c58",
+  "gain_checks": {
+    "reference_tolerance": {
+      "atol": 1e-10,
+      "rtol": 1e-10
+    },
+    "reference_verified": true,
+    "dare_relative_residual": 4.325192613817816e-15,
+    "spectral_radius": 0.9785039640278318,
+    "interpretation": "fixed linear construction only; no nonlinear/stability/safety certificate"
+  },
+  "numerical_unit_examples": {
+    "static_position_zero_motion_cost": 144.0,
+    "horizon": 60,
+    "elites_required": 32
+  },
+  "pending": [
+    "I03 policy/RNG/queue state machine",
+    "I04 independent numerical trace audit",
+    "I05 preflight/launcher",
+    "independent gain/cost/rank/predicate audit",
+    "nonlinear guards",
+    "CUDA/runtime validation",
+    "amended timing",
+    "raw lab archive contract",
+    "feasible adopted allocation",
+    "OA-1 adoption"
+  ],
+  "execution_authorized": false,
+  "experimental_worker_seconds_added": 0
+}

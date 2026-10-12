@@ -1,0 +1,21 @@
+{
+  "batch": "I01",
+  "component_status": "tested",
+  "oa1_lifecycle": "specified",
+  "started_utc": "2026-10-08T23:38:29.337152+00:00",
+  "python": "3.11.9",
+  "tests_run": 32,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "duration_seconds": 0.18093087896704674,
+  "command": "PYTHONDONTWRITEBYTECODE=1 validation/.venv/bin/python -m unittest discover -s validation/tests -p test_oracle_config.py -v",
+  "verification_kind": "stdlib engineering unit tests; synthetic metadata; no scientific runtime",
+  "author_independence": "same-author; independent audit pending",
+  "execution_authorized": false,
+  "source_sha256": {
+    "validation/oracle_config.py": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+    "validation/tests/test_oracle_config.py": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad"
+  }
+}

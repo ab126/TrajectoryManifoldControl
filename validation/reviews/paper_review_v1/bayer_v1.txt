@@ -1,0 +1,666 @@
+                                           Trajectory Manifolds for Nonlinear Data-Enabled Predictive Control
+                                                               Part I: Existence, Smoothness, and Intrinsic Dimension
+
+                                                                                          Arda Bayer
+
+                                                                                     September 17, 2026
+arXiv:2609.19079v1 [math.OC] 16 Sep 2026
+
+
+
+
+                                                                                            Abstract
+                                                    This note establishes a geometric foundation for trajectory-manifold representations of
+                                                deterministic nonlinear systems in a behavioral setting motivated by data-enabled predictive
+                                                control. For a discrete-time system xk+1 = f (xk , uk ) with measured state and a C r transition
+                                                map, r ≥ 1, we consider the terminal-state-augmented finite-horizon behavior consisting of all
+                                                admissible state-input trajectories over a prediction horizon N . We prove that this behavior is a
+                                                C r embedded submanifold of the ambient trajectory space with intrinsic dimension n + N m,
+                                                where n and m are the state and input dimensions. Moreover, the rollout map from the admissible
+                                                initial-state and input coordinates (x0 , u) is a C r diffeomorphism onto the behavior manifold,
+                                                providing explicit global smooth coordinates. This yields a canonical exact encoder–decoder
+                                                representation and implies that any exact differentiable latent representation of the full behavior
+                                                must have latent dimension at least n + N m. The geometric result does not require controllability,
+                                                stabilizability, or invertibility of the dynamics. Corresponding results are given for zero-order-
+                                                hold sampled continuous-time systems and fixed-step numerical transition maps. These results
+                                                provide the deterministic geometric foundation for subsequent data-driven approximation and
+                                                predictive-control development.
+
+                                           AI Assistance Disclosure. Generative AI assistance, OpenAI GPT-6 Astra, was used in the
+                                           development and editing of portions of the proofs and exposition in this document. I have indepen-
+                                           dently reviewed and verified all mathematical arguments, claims, citations, and text in the final
+                                           manuscript. I accept the final manuscript as my own scholarly work and assume full responsibility
+                                           for its content, including any remaining errors.
+                                           Acknowledgment. I would like to thank the Aazhang Lab at Rice University for stimulating my
+                                           interest in the inverted pendulum as a toy problem for fully data-driven nonlinear control, which
+                                           motivated the broader trajectory-manifold control direction underlying related collaborative work.
+                                           Keywords: behavioral systems; nonlinear control; data-driven control; trajectory manifolds;
+                                           data-enabled predictive control; model predictive control.
+
+
+                                           1    Scope and relation to previous work
+                                           The behavioral approach to dynamical systems, introduced by Willems [1, 2] and subsequently
+                                           developed in, e.g., [3, 4], describes a dynamical system through the collection of signal trajectories
+                                           that are compatible with its laws, rather than through a preferred parametric representation. In
+                                           this framework a dynamical system is represented by a triple (T, W, B) consisting of a time axis, a
+                                           signal space, and a behavior B ⊆ WT .
+                                               Willems et al. [5] later used this behavioral language to establish the finite-data trajectory-
+                                           spanning result now commonly known as Willems’ Fundamental Lemma. DeePC adopts this
+
+                                                                                                1
+framework and uses the Fundamental Lemma to obtain a non-parametric representation of the
+finite-horizon behavior of controllable deterministic LTI systems directly from persistently exciting
+data [6]. In the standard input/output setting, the external signal is written as w = col(u, y).
+    The trajectory-manifold approach considered here keeps the same behavioral viewpoint but
+replaces the linear finite-horizon behavior of an LTI system by the finite-horizon behavior of a
+nonlinear system. The first question is therefore purely geometric:
+
+      Under what conditions is the finite-horizon behavior of a deterministic nonlinear system
+      a smooth finite-dimensional manifold, and what is its dimension?
+
+    This note develops the geometric component of the framework. Data-driven approximation
+of the trajectory manifold and the closed-loop convergence and stability analysis of the resulting
+predictive controller are deferred to Part II.
+
+
+2    Behavioral notation for a nonlinear state-space system
+We adopt Willems’ behavioral-system notation [2, 3]. A dynamical system is described by the triple
+
+                                             Σ = (T, W, B),                                          (1)
+
+where T is the time axis, W is the signal space, and
+
+                                                 B ⊆ WT
+
+is the behavior, i.e., the set of trajectories w : T → W that are compatible with the laws of the system.
+We consider discrete time and therefore take T = Z≥0 . This is the same behavioral framework
+employed in the Fundamental Lemma [5] and subsequently in DeePC [6].
+    We consider the deterministic nonlinear, and discrete-time, state-space system
+                                                           
+                                    x(t + 1) = f x(t), u(t) ,    t ∈ Z≥0 ,                            (2)
+
+where
+                                      x(t) ∈ Rn ,         u(t) ∈ Rm .
+Because the present theory assumes full-state measurement, we choose the behavioral signal to be
+
+                              w(t) = col u(t), x(t) ∈ W := Rm+n .
+                                                   
+                                                                                              (3)
+
+Thus, in the terminology of the behavioral framework, the input and measured state are taken
+as the external variables of interest. This is the full-state analogue of the input/output partition
+w = col(u, y) used in the LTI behavioral formulation and in DeePC [2, 6].
+    For a prediction horizon N ∈ Z>0 , define the stacked input and state sequences
+
+                                 u := col(u0 , u1 , . . . , uN −1 ) ∈ RN m ,                         (4)
+                                 x := col(x0 , x1 , . . . , xN ) ∈ R(N +1)n .                        (5)
+
+The corresponding finite-horizon signal vector is
+
+                                    w := col(u, x) ∈ RN m+(N +1)n .                                  (6)
+
+The input-first ordering in (6) is chosen to remain consistent with the behavioral convention
+w = col(u, y) used in the LTI literature and in DeePC [2, 6]. The particular ordering of the
+
+                                                      2
+coordinates does not affect the results below, since reordering the entries of w does not change the
+trajectory set or its dimension.
+    In the behavioral literature, a finite-horizon or truncated behavior denotes the restriction of
+trajectories in B to a finite time interval [5, 6]. Our control trajectory additionally retains the
+terminal state xN , as is customary in finite-horizon optimal control. We therefore distinguish the
+following terminal-state-augmented finite-horizon behavior from the ordinary restriction of B.
+
+Definition 2.1 (Terminal-state-augmented N -step behavior). The terminal-state-augmented N -step
+state-input behavior of (2) is
+                    n                                                                      o
+             B+N :=   col(u, x) ∈ R N m+(N +1)n
+                                                x k+1 = f (x k , uk ), k = 0, . . . , N − 1  . (7)
+
+When f is not globally defined, B+
+                                 N contains only those trajectories for which every required evaluation
+of f is well-defined.
+
+
+3     Existence of the trajectory manifold
+3.1    Assumptions
+We now establish conditions under which the finite-horizon behavior of (2) admits a finite-dimensional
+smooth manifold representation. The result is stated for a general nonlinear discrete-time system
+and characterizes both the smoothness and the dimension of its finite-horizon behavior.
+
+Assumption 3.1 (Smooth deterministic dynamics). Let
+
+                                              O ⊆ Rn+m
+
+be open, and let
+                                             f : O → Rn                                             (8)
+be of class C r for some integer r ≥ 1.
+
+   The openness of O is the standard setting for differentiable maps. The assumption r ≥ 1 is the
+minimum regularity needed below to obtain a differentiable embedded manifold.
+
+3.2    The admissible free coordinates
+The natural free coordinates of a deterministic finite-horizon trajectory are the initial state and the
+future inputs. Define
+                                q := col(x0 , u0 , . . . , uN −1 ) ∈ Rn+N m .                        (9)
+Not every q must generate a valid N -step trajectory if f is defined only on O. We therefore define
+the admissible parameter domain carefully.
+   For q as in (9), set x0 (q) = x0 . Recursively, whenever the previous states are well-defined, set
+                                                               
+                                        xk+1 (q) = f xk (q), uk .                                 (10)
+
+Let DN ⊆ Rn+N m be the set of all q for which
+                                       
+                             xk (q), uk ∈ O,           k = 0, . . . , N − 1.
+
+
+
+                                                   3
+Lemma 3.2 (Openness and smoothness of the rollout domain). Under Assumption 3.1, the
+admissible rollout domain DN is an open subset of Rn+N m . Moreover, for every k = 0, . . . , N , the
+rollout state
+                                        xk : DN → Rn
+is of class C r .
+
+Proof. Let
+                                 q = col(x0 , u0 , . . . , uN −1 ) ∈ Rn+N m .
+We introduce intermediate admissible sets Ak defined by
+
+               Ak := q ∈ Rn+N m : (xj (q), uj ) ∈ O, j = 0, . . . , k − 1 ,
+                     
+                                                                                k ≥ 1,
+
+and set
+                                              A0 := Rn+N m .
+Thus, q ∈ Ak precisely when the dynamics are well-defined for the first k steps of the rollout. Before
+any state transition is evaluated, no restriction has yet been imposed, so define
+
+                                              A0 := Rn+N m .
+
+The map
+                                                  q 7→ x0
+simply selects the initial-state coordinates of q and is therefore linear, hence C ∞ .
+   We now proceed recursively. Suppose that for some k ∈ {0, . . . , N − 1} the set Ak is open and
+the state xk (q) is well-defined and C r on Ak .
+   Define
+                             Ψk : Ak → Rn+m ,
+                                                                           
+                                                   Ψk (q) := col xk (q), uk .
+The map xk (q) is C r by the induction hypothesis, and uk is obtained by selecting the corresponding
+input coordinates of q. Hence Ψk is C r and therefore continuous.
+   The (k + 1)st state can be evaluated only when the current state-input pair lies in the domain
+O of the dynamics. We therefore define
+
+                             Ak+1 := {q ∈ Ak : Ψk (q) ∈ O} = Ψ−1
+                                                              k (O).                              (11)
+
+For example,
+                                 A1 = q ∈ Rn+N m : (x0 , u0 ) ∈ O ,
+                                     
+
+so the first input u0 is restricted whenever required by O; it is not assumed to range freely over all
+of Rm .
+    Since O is open and Ψk is continuous, Ψ−1  k (O) is open in Ak . Because Ak is open in R
+                                                                                             n+N m , it
+
+follows that Ak+1 is also open in Rn+N m .
+    For every q ∈ Ak+1 , the next state is well-defined and satisfies
+                                                                    
+                                  xk+1 (q) = f xk (q), uk = f Ψk (q) .
+
+Since f is C r on O and Ψk is C r , their composition xk+1 = f ◦ Ψk is C r on Ak+1 .
+   Repeating this argument for k = 0, . . . , N − 1 gives
+
+                     AN = q ∈ Rn+N m : (xk (q), uk ) ∈ O, k = 0, . . . , N − 1 .
+                          
+
+
+                                                      4
+By the definition of the full-horizon admissible rollout domain,
+
+                                                  AN = DN .
+
+Hence DN is open.
+   Moreover, for each k, the map xk is C r on Ak . Since
+
+                                              DN = AN ⊆ Ak ,
+
+the restriction of xk to DN is also C r . Therefore every rollout map
+
+                                   xk : DN → Rn ,            k = 0, . . . , N,
+
+is of class C r .
+
+3.3    Main manifold theorem
+Define the finite-horizon rollout parameterization
+
+                       ΦN : DN −→ RN m+(N +1)n ,
+                                                                                                     (12)
+                               q 7−→ col u0 , . . . , uN −1 , x0 (q), x1 (q), . . . , xN (q) .
+
+By construction,
+                                               im(ΦN ) = B+
+                                                          N.                                          (13)
+
+Theorem 3.3 (Finite-horizon nonlinear behavior is an embedded manifold). Under Assumption 3.1,
+the finite-horizon behavior B+       r
+                             N is a C embedded submanifold of
+
+                                                RN m+(N +1)n .
+
+Its dimension is
+                                            dim B+
+                                                 N = n + N m.                                         (14)
+
+Moreover, ΦN is a C r diffeomorphism from DN onto B+
+                                                   N equipped with its embedded-submanifold
+structure.
+
+Proof. The proof consists of four explicit steps.
+
+Step 1: ΦN is C r . By Lemma 3.2, every map q 7→ xk (q) is C r on DN . The remaining components
+of ΦN are coordinate projections q 7→ uk . Therefore ΦN is C r .
+
+Step 2: ΦN is injective.       Suppose q a , q b ∈ DN satisfy
+
+                                             ΦN (q a ) = ΦN (q b ).
+
+The vector ΦN (q) explicitly contains the initial state x0 and every input u0 , . . . , uN −1 . Equality of
+the two behavior vectors therefore implies
+
+                              xa0 = xb0 ,      uak = ubk    ∀k = 0, . . . , N − 1.
+
+By the definition of q in (9), this gives q a = q b . Thus ΦN is one-to-one.
+
+
+                                                        5
+Step 3: ΦN is an immersion of constant rank n + N m.                           Let
+
+                                                d := n + N m.
+
+There is a fixed permutation matrix P that rearranges the entries of ΦN (q) so that the free
+coordinates q appear first. Hence                    
+                                                  q
+                                   P ΦN (q) =           ,                               (15)
+                                                GN (q)
+where
+                                GN (q) := col x1 (q), . . . , xN (q) ∈ RN n .
+                                                                    
+
+Differentiating (15) gives                                "            #
+                                                                Id
+                                       D(P ΦN )(q) =                       .                              (16)
+                                                              DGN (q)
+The upper block is the d × d identity. Therefore the columns of (16) are linearly independent and
+
+                                          rank D(P ΦN )(q) = d.                                           (17)
+
+Since a permutation matrix is invertible,
+
+                                      rank DΦN (q) = d = n + N m
+
+for every q ∈ DN . Thus ΦN is an immersion.
+
+Step 4: ΦN is a homeomorphism onto its image.                        Define the linear coordinate projection
+
+                                       π : RN m+(N +1)n → Rn+N m                                          (18)
+
+that extracts (x0 , u0 , . . . , uN −1 ) from a behavior vector. By construction,
+
+                                                π ◦ ΦN = IdDN                                             (19)
+
+where IdDN (q) = q denotes the identity map on DN . Because ΦN is injective, the restriction
+
+                                            π   B+
+                                                     : B+
+                                                        N → DN
+                                                 N
+
+
+is the inverse of ΦN . The map π is linear and therefore continuous, so its restriction to B+
+                                                                                            N is
+continuous. Hence ΦN is a homeomorphism between DN and its image B+       N .
+    We have shown that ΦN is a C r immersion and a homeomorphism onto its image. It is therefore
+a C r embedding. A standard result in differential topology states that the image of a smooth
+embedding is an embedded submanifold, with dimension equal to the dimension of the embedding
+domain [7, Chs. 4–5]. Since DN is open in Rd , its dimension is d = n + N m. Thus
+
+                                           dim B+
+                                                N = n + N m.
+
+Finally, the inverse map on the image is the coordinate projection π|B+ ; in the induced embedded-
+                                                                      N
+submanifold structure this inverse is smooth. Consequently ΦN is a C r diffeomorphism from DN
+onto B+ N.
+
+
+
+
+                                                      6
+Remark 3.4. The manifold characterization above does not require controllability, stabilizability,
+stability, or invertibility of the dynamics. These properties become relevant to subsequent questions
+such as reachability and closed-loop control, but are not required for the existence of the finite-horizon
+behavior manifold itself.
+Remark 3.5 (Why controllability is absent). Controllability enters Willems et al.’s finite-data
+trajectory-spanning result—now commonly called the Fundamental Lemma—because that result
+asks when the windows of a measured LTI trajectory span the entire finite-horizon behavior [5].
+It is not an assumption needed for the underlying behavioral definition of a dynamical system.
+Theorem 3.3 asks a different question: what is the geometry of the exact behavior generated by a
+known deterministic recursion? Since (x0 , u) are retained as coordinates of the trajectory itself, no
+controllability assumption is needed to establish the manifold structure.
+
+3.4    Equivalent regular-level-set viewpoint
+The previous proof is constructive and gives an explicit global parameterization. The same dimension
+can also be seen directly from the dynamic constraints.
+   Define                                                                       
+                 ΓN (w) := col x1 − f (x0 , u0 ), . . . , xN − f (xN −1 , uN −1 ) ∈ RN n .      (20)
+On the open subset of signal space where all evaluations of f are valid,
+                                                   −1
+                                             B+
+                                              N = ΓN (0).                                             (21)
+Consider the Jacobian of ΓN with respect to the future-state variables (x1 , . . . , xN ). It has the block
+lower-bidiagonal form
+                                                                                       
+                                           In           0           ···              0
+                                                                   ..               .. 
+                      ∂ΓN            −Dx f (x1 , u1 ) In              .              .
+                                    =                                                  .             (22)
+                                                                                       
+                 ∂(x1 , . . . , xN )                  ..           ..
+                                            0             .            .             0  
+                                            ..
+                                                                                       
+                                                       ..
+                                             .            . −Dx f (xN −1 , uN −1 ) In
+This matrix is block triangular with identity blocks on the diagonal, hence it is nonsingular. Therefore
+                                          rank DΓN (w) = N n
+at every feasible trajectory. Thus 0 is a regular value of ΓN . The regular-level-set theorem then
+yields an embedded submanifold of codimension N n [7, Ch. 5], and hence
+                                dim B+
+                                                            
+                                      N = N m + (N + 1)n − N n                                 (23)
+                                           = n + N m.                                                 (24)
+This gives an independent check of Theorem 3.3.
+
+
+4     Consequences for predictive control coordinates
+4.1    Behavior conditioned on the measured current state
+In a receding-horizon controller, the current state is measured and fixed. For x̄ ∈ Rn , define
+                                   B+                 +
+                                              
+                                     N (x̄) := w ∈ BN : x0 = x̄ .                                     (25)
+Let UN (x̄) ⊆ RN m be the set of future input sequences for which the corresponding N -step rollout
+from x̄ is admissible.
+
+                                                    7
+Corollary 4.1 (Fixed-initial-state behavior). Under Assumption 3.1, if UN (x̄) is nonempty then it
+is open and
+                                              B+
+                                               N (x̄)
+is a C r embedded submanifold parameterized by the future input sequence u. Its dimension is
+
+                                        dim B+
+                                             N (x̄) = N m.                                       (26)
+
+Proof. Fixing x0 = x̄ removes the n free initial-state coordinates from q. The resulting map
+                                                                        
+                                 u 7→ col u, x̄, x1 (u), . . . , xN (u)
+has the same graph form as (15), now with an N m × N m identity block in its Jacobian. The proof
+of Theorem 3.3 therefore applies verbatim with domain dimension N m.
+
+Remark 4.2 (Interpretation for online latent optimization). The full offline behavior has dimension
+n + N m, while the feasible behavior consistent with a measured current state is an N m-dimensional
+slice. An online constraint enforcing x0 = x(t) can therefore be interpreted geometrically as
+restricting the optimizer from the full behavior manifold to this fixed-initial-state submanifold.
+
+4.2    Canonical exact encoder and decoder
+The proof of Theorem 3.3 provides exact global coordinates for the behavior.
+Corollary 4.3 (Canonical behavior coordinates). Define
+                   E⋆ : B+
+                         N → DN ,                     E⋆ (w) := col(x0 , u0 , . . . , uN −1 ),   (27)
+                   D⋆ : DN →   B+
+                                N,                    D⋆ (q) := ΦN (q).                          (28)
+Then
+                               E⋆ ◦ D⋆ = idDN ,        D⋆ ◦ E⋆ = idB+ .                          (29)
+                                                                         N
+
+Hence E⋆ and D⋆ form an exact C r encoder–decoder pair for the deterministic behavior.
+Proof. The first identity is exactly (19). For the second, every w ∈ B+
+                                                                      N is by definition generated
+by a unique pair (x0 , u) because those coordinates are explicitly present in w. Re-rolling the
+deterministic dynamics from those coordinates therefore reproduces the same future states and
+hence the same w.
+
+   The maps in Corollary 4.3 are not proposed as a practical model-free controller because D⋆
+evaluates the unknown dynamics. Their role is theoretical: they show that a smooth finite-
+dimensional decoder exists before any neural-network approximation argument is invoked.
+
+4.3    A lower bound on exact latent dimension
+Corollary 4.4 (Latent dimension required for exact differentiable reconstruction). Let p ∈ Z>0 .
+Suppose there are C 1 maps
+                          E : B+   p
+                               N →R ,        D : A ⊆ Rp → RN m+(N +1)n ,
+with E(B+
+        N ) ⊆ A such that
+                                          D ◦ E = idB+ .                                         (30)
+                                                           N
+
+Then necessarily
+                                           p ≥ n + N m.                                          (31)
+
+                                                  8
+Proof. Fix w ∈ B+                                                  +
+                N . Differentiate (30) along the tangent space Tw BN . By the chain rule,
+
+                                       dDE(w) ◦ dEw = ITw B+ .                                      (32)
+                                                               N
+
+
+The right-hand side has rank
+                                        dim Tw B+
+                                                N = n + N m.
+
+The rank of the composition on the left cannot exceed the dimension p of the intermediate latent
+space. Therefore
+                                          n + N m ≤ p.
+
+
+Remark 4.5. Corollary 4.4 is an exact C 1 reconstruction statement. It does not by itself rule out
+useful lower-dimensional approximate representations over restricted data distributions. It does
+show that a globally exact differentiable autoencoder for the full deterministic behavior cannot have
+latent dimension below the intrinsic behavior dimension.
+
+
+5    Consistency with the LTI behavior used in DeePC
+Consider the LTI special case
+                                          xk+1 = Axk + Buk .                                        (33)
+Then every xk is a linear function of (x0 , u0 , . . . , uk−1 ), so ΦN is a linear map. Since Theorem 3.3
+shows that ΦN is injective,
+                                            B+ N = im(ΦN )                                           (34)
+is a linear subspace with
+                                         dim B+
+                                              N = n + N m.                                          (35)
+Thus the nonlinear theorem reduces to the familiar linear-behavior geometry: the linear subspace
+becomes a smooth nonlinear embedded manifold.
+   The role of the Fundamental Lemma is complementary. For a controllable LTI behavior and
+a persistently exciting measured input, sufficiently long Hankel data span the entire truncated
+behavior [5]. DeePC exploits this fact to replace the model and state estimate by data in the
+predictive-control problem [6]. In the present trajectory-manifold program, the corresponding
+nonlinear objective is to learn a parameterization of B+
+                                                       N from sampled trajectories rather than rely
+on a Hankel-generated linear span.
+Remark 5.1 (Output-only behaviors and the DeePC lag). The clean injectivity argument in Theo-
+rem 3.3 uses the fact that x0 itself is retained in the behavior vector. If only an output y = h(x, u)
+is retained, two distinct internal states may generate the same finite output window. Additional
+observability assumptions are then needed before (x0 , u) can serve as coordinates for an input/output
+behavior.
+    For minimal LTI systems, DeePC handles exactly this issue through the system lag ℓ(B): an
+initial input/output trajectory of length Tini ≥ ℓ(B) fixes the compatible state uniquely [6]. A
+nonlinear output-only extension would require an analogous finite-horizon observability/injectivity
+condition. No such condition is needed in the full-state setting considered in this note.
+
+
+
+
+                                                   9
+6    Sampled continuous-time systems
+Many physical plants are naturally described in continuous time. Consider
+                                                          
+                                      ẋ(t) = F x(t), u(t) ,                                      (36)
+
+with x ∈ Rn and u ∈ Rm . Predictive control uses a finite-dimensional input parameterization, most
+commonly a zero-order hold. Let the control be constant on each interval of length ∆ > 0.
+   For a fixed constant input u, let
+                                            S∆ (x, u)                                         (37)
+denote the state reached after flowing (36) for time ∆ from initial state x while holding u fixed.
+
+Assumption 6.1 (Smooth continuous-time vector field). The vector field F is C r , r ≥ 1, on
+an open state-input domain, and the initial-state/input pairs under consideration admit a unique
+solution over the sampling interval [0, ∆].
+
+Lemma 6.2 (Smooth sampled transition map). Under Assumption 6.1, the sampled transition map
+
+                                      S∆ : (x, u) 7→ x(∆; x, u)
+
+is C r on its domain of definition.
+
+Proof. Treat the held input u as a constant parameter of the ODE. Standard smooth-dependence
+results for ordinary differential equations state that solutions inherit C r dependence on initial
+conditions and parameters from a C r vector field, on the domain where the corresponding solution
+exists [8, Ch. 5]. Equivalently, one may augment the state with u̇ = 0 and apply the standard
+smooth-flow theorem to the augmented vector field. Evaluating this smooth solution map at time ∆
+yields S∆ ∈ C r .
+
+Corollary 6.3 (Trajectory manifold for sampled continuous-time systems). Under Assumption 6.1,
+the zero-order-hold sampled system
+                                       xk+1 = S∆ (xk , uk )                              (38)
+has a finite-horizon behavior that is a C r embedded submanifold of dimension
+
+                                              n + N m.                                            (39)
+
+Proof. Lemma 6.2 provides a C r discrete-time transition map. Theorem 3.3 applies directly with
+f = S∆ .
+
+Remark 6.4 (Numerical one-step maps). If training trajectories are generated by a fixed-step
+numerical integrator such as RK4, one may apply Theorem 3.3 directly to the numerical one-step
+map. For a C r vector field, the classical RK4 update is assembled from finitely many evaluations of
+F , additions, and scalar multiplications, so the resulting discrete update map is itself C r wherever
+those evaluations are defined. The learned behavior is then the trajectory manifold of the discretized
+dynamics actually used to generate the data.
+
+
+
+
+                                                 10
+7     How much smoothness should be assumed?
+The preceding results distinguish the smoothness needed for different goals.
+
+    • C 1 dynamics are sufficient for the manifold theorem. If f ∈ C 1 , then B+    N is a C
+                                                                                             1
+
+      embedded manifold and has well-defined tangent spaces that vary continuously.
+
+    • C 2 dynamics are a natural working assumption for trajectory-manifold control. If
+      f ∈ C 2 , then B+                                                    2
+                       N and the canonical rollout parameterization are C . This is the appropriate
+      baseline if second derivatives of a decoder are to be used as a smoothness or local-nonlinearity
+      regularizer.
+
+    • Higher smoothness is inherited but is not required. If the physical transition law is C r
+      or C ∞ , then the finite-horizon behavior has the same regularity. There is no need to assume
+      C ∞ merely to establish the manifold structure.
+
+   Accordingly, for the broader theoretical development it is reasonable to adopt f ∈ C 2 on the
+operating region while noting that Theorem 3.3 itself only needs C 1 .
+
+
+8     Boundaries, constraints, and noise
+The main theorem concerns the unconstrained deterministic behavior over an open admissible
+domain. Three extensions should be distinguished.
+
+Input constraints. If one restricts the free input coordinates to a closed box, the interior still has
+the manifold structure above. Including the box boundary naturally gives a manifold-with-corners
+structure in the free-coordinate domain, which is carried to the trajectory set by the embedding.
+General nonlinear state constraints can create more complicated boundary geometry and require
+separate regularity conditions.
+
+Process noise.      With process noise
+
+                                         xk+1 = f (xk , uk , ξk ),
+
+the pair (x0 , u) no longer determines a unique trajectory. If the noise realization ξ is treated as an
+additional free coordinate, the same graph argument applies with the intrinsic dimension enlarged by
+the dimension of the noise coordinates. If noise is not included as a coordinate, measured trajectories
+should instead be regarded as lying near a deterministic nominal manifold or as samples from a
+distribution over trajectories.
+
+Measurement noise. Measurement noise does not change the deterministic state behavior itself,
+but observed samples need not lie exactly on it. This is analogous to the motivation for slack-variable
+and regularized formulations of DeePC outside the noiseless LTI setting [6].
+
+
+
+
+                                                    11
+9    What has been established
+For deterministic nonlinear dynamics with measured state, the first theoretical step of trajectory-
+manifold control can be summarized as
+
+                                          f ∈ Cr,     r≥1
+                                                ⇓
+                      B+
+                       N is a C r
+                                  embedded finite-horizon behavior manifold                      (40)
+                                        dim B+
+                                             N   = n + Nm
+                     B+ ∼ r      n+N m
+                      N =C DN ⊂ R              through the coordinates (x0 , u).
+
+    The proof is stronger than an abstract manifold-existence assumption: the manifold possesses
+an explicit global chart given by the initial state and future input sequence. Consequently, the next
+learning-theoretic step can be phrased as approximation of the ordinary finite-dimensional rollout
+map
+                                ΦN : DN ⊂ Rn+N m −→ RN m+(N +1)n
+on a compact operating set, rather than approximation of an arbitrary unknown abstract manifold.
+Data-driven approximation of this rollout map, together with the subsequent predictive-control
+formulation and its closed-loop stability analysis, is deferred to Part II.
+
+
+References
+[1] J. C. Willems, “System theoretic models for the analysis of physical systems,” Ricerche di
+    Automatica, vol. 10, pp. 71–106, 1979.
+
+[2] ——, “From time series to linear system—part i: Finite dimensional linear time
+    invariant systems,” Automatica, vol. 22, no. 5, pp. 561–580, 1986. [Online]. Available:
+    https://doi.org/10.1016/0005-1098(86)90066-X
+
+[3] ——, “Paradigms and puzzles in the theory of dynamical systems,” IEEE Transactions
+    on Automatic Control, vol. 36, no. 3, pp. 259–294, 1991. [Online]. Available:
+    https://doi.org/10.1109/9.73561
+
+[4] I. Markovsky, J. C. Willems, S. Van Huffel, and B. De Moor, Exact and Approximate
+    Modeling of Linear Systems: A Behavioral Approach. SIAM, 2006. [Online]. Available:
+    https://doi.org/10.1137/1.9780898718263
+
+[5] J. C. Willems, P. Rapisarda, I. Markovsky, and B. L. M. De Moor, “A note on persistency of
+    excitation,” Systems & Control Letters, vol. 54, no. 4, pp. 325–329, 2005. [Online]. Available:
+    https://doi.org/10.1016/j.sysconle.2004.09.003
+
+[6] J. Coulson, J. Lygeros, and F. Dörfler, “Data-enabled predictive control: In the shallows of
+    the DeePC,” in 2019 18th European Control Conference (ECC), 2019, pp. 307–312. [Online].
+    Available: https://doi.org/10.23919/ECC.2019.8795639
+
+[7] J. M. Lee, Introduction to Smooth Manifolds, 2nd ed., ser. Graduate Texts in Mathematics.
+    Springer, 2013, vol. 218. [Online]. Available: https://doi.org/10.1007/978-1-4419-9982-5
+
+
+
+                                                 12
+[8] P. Hartman, Ordinary Differential Equations, 2nd ed., ser. Classics in Applied Mathematics.
+    SIAM, 2002, vol. 38, see Chapter 5, “Dependence on Initial Conditions and Parameters”.
+    [Online]. Available: https://doi.org/10.1137/1.9780898719222
+
+
+
+
+                                              13
+

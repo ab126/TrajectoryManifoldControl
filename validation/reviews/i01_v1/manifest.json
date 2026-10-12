@@ -1,0 +1,132 @@
+{
+  "batch": "I01",
+  "created_utc": "2026-10-08T23:39:19.499029+00:00",
+  "git_HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "reviewed_parent_HEAD": "17d42cd83dea810af5b2979e657f0074244f2cc4",
+  "submitted_commit": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "worktree_status": [
+    " M validation/README.md",
+    " M validation/oracle_amendment_proposal.md",
+    "?? validation/collaborator_memo_v1.md",
+    "?? validation/implementation_plan_v1.md",
+    "?? validation/oa1_config_proposed.json",
+    "?? validation/oa1_decisions.md",
+    "?? validation/oracle_amendment_proposal_v1.md",
+    "?? validation/oracle_config.py",
+    "?? validation/oracle_config_contract_v1.md",
+    "?? validation/oracle_review_assessment_v1.md",
+    "?? validation/review_oracle_evidence_v1.py",
+    "?? validation/reviews/i01_v1/",
+    "?? validation/reviews/implementation_plan_v1_manifest.json",
+    "?? validation/reviews/oracle_amendment_v1/",
+    "?? validation/tests/"
+  ],
+  "component_status": "tested",
+  "oa1_lifecycle": "specified",
+  "independent_audit": "pending",
+  "adopted": false,
+  "executed": false,
+  "scientific_worker_seconds_added": 0,
+  "stage0_used_worker_hours": 1.385376803372749,
+  "current_stage0_cap_hours": 15,
+  "proposed_stage0_cap_hours": 20,
+  "proposed_allocation_adopted": false,
+  "token_meter": {
+    "remainingTokens": null,
+    "above_50_percent": "unavailable"
+  },
+  "next_batch": "I02; conditional continuation not established",
+  "preserved_hash_checks": {
+    "validation/artifacts/usage.jsonl": {
+      "expected": "3e85a748f99e083efd85181ccacc4641ed1c7deab787d7dbdf0dc415d7f777a2",
+      "observed": "3e85a748f99e083efd85181ccacc4641ed1c7deab787d7dbdf0dc415d7f777a2",
+      "status": "pass"
+    },
+    "validation/diagnostics/usage.jsonl": {
+      "expected": "687bf5f4ce86841b89324ae48b321c0bd8c7d40f600a75d312a35b2200fdafb8",
+      "observed": "687bf5f4ce86841b89324ae48b321c0bd8c7d40f600a75d312a35b2200fdafb8",
+      "status": "pass"
+    },
+    "validation/overnight_runs/20261007T054549.695689Z/run.json": {
+      "expected": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1",
+      "observed": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1",
+      "status": "pass"
+    },
+    "validation/oa1_config_proposed.json": {
+      "expected": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+      "observed": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+      "status": "pass"
+    },
+    "validation/oracle_amendment_proposal_v1.md": {
+      "expected": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+      "observed": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+      "status": "pass"
+    },
+    "scripts/run_inverted_pendulum_mc.py": {
+      "expected": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "observed": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "status": "pass"
+    },
+    "src/manifold_control.py": {
+      "expected": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "observed": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "status": "pass"
+    },
+    "src/inverted_pendulum.py": {
+      "expected": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "observed": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "status": "pass"
+    }
+  },
+  "files": {
+    "validation/oracle_config.py": {
+      "sha256": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+      "bytes": 29704
+    },
+    "validation/tests/test_oracle_config.py": {
+      "sha256": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad",
+      "bytes": 19171
+    },
+    "validation/oracle_config_contract_v1.md": {
+      "sha256": "8c99a3ed4fa56612842501ea7a713bdf018712a6634bcdfc471974cea1ae23e3",
+      "bytes": 11028
+    },
+    "validation/oa1_decisions.md": {
+      "sha256": "0224c905d573a5dde5aeed2c71f9777c7015dd6a62419c651e5039daf658a417",
+      "bytes": 2817
+    },
+    "validation/README.md": {
+      "sha256": "60a3b3749aae5c02d1c87b691ebeee5df16f2111a4507f3e86d55c861ddd8730",
+      "bytes": 10823
+    },
+    "validation/implementation_plan_v1.md": {
+      "sha256": "269397e2e019b08d7544ffdc071c43026fb16a0525066881d2867f84ef321413",
+      "bytes": 19201
+    },
+    "validation/reviews/i01_v1/decision.json": {
+      "sha256": "4b95e3552d126c75bd82bad4eed5670f1e79748653107f528d59c07403638129",
+      "bytes": 5390
+    },
+    "validation/reviews/i01_v1/mapping.json": {
+      "sha256": "2f354189062bac4070abcb4aa7b8917933e14ea5c951ecaf1fd7d6ca99678168",
+      "bytes": 1565
+    },
+    "validation/reviews/i01_v1/release_metadata.json": {
+      "sha256": "069d0f4c9d7bce70e1db00078f625b8c94f70248ebe6ef5b23bf26745fffb1ab",
+      "bytes": 1269
+    },
+    "validation/reviews/i01_v1/scientific.json": {
+      "sha256": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+      "bytes": 1906
+    },
+    "validation/reviews/i01_v1/test_results.json": {
+      "sha256": "c481836e3f31ad9d17f7aa7dafa00e33dc820a01a024929e9ed6e793cd15187c",
+      "bytes": 868
+    },
+    "validation/reviews/i01_v1/unit_tests.txt": {
+      "sha256": "33304a28dc7ebd28f3f1422fb5154971222d76c3744ff15f00691a7c6ef91393",
+      "bytes": 4733
+    }
+  },
+  "snapshot_note": "Byte hashes bind this uncommitted I01 review; no implementation commit is claimed. Tests are engineering fixtures, not experimental occupancy. Original proposal and historical metadata/ledger pins preserved. Git retains this review; raw lab archive contract remains a later prerequisite."
+}

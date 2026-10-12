@@ -1,0 +1,33 @@
+{
+  "batch": "I02",
+  "component_status": "tested",
+  "oa1_lifecycle": "specified",
+  "started_utc": "2026-10-09T16:49:31.199646+00:00",
+  "tests_run": 63,
+  "i01_tests": 32,
+  "i02_tests": 31,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "duration_seconds": 3.11099074408412,
+  "verification_kind": "engineering unit fixtures and fixed linear algebra; no scientific controller/plant execution",
+  "author_independence": "same-author; independent audit pending",
+  "execution_authorized": false,
+  "environment": {
+    "python": "3.11.9",
+    "numpy": "2.2.6",
+    "scipy": "1.16.0",
+    "torch": "2.5.1",
+    "device": "CPU fixtures only",
+    "torch_threads": 1,
+    "native_workaround": "/home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv/lib/libstdc++.so.6",
+    "scientific_cuda_validation": "not_checked"
+  },
+  "source_sha256": {
+    "validation/oracle_config.py": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+    "validation/tests/test_oracle_config.py": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad",
+    "validation/oracle_math_v1.py": "5b2450d4bc1c211063fe438d093cb93dd9a36e1815826a557de3025294051bac",
+    "validation/tests/test_oracle_math_v1.py": "780e6ded210dfeb0eed3269420dcf4512c885e79995de8cb4c1af1ab7166da4e"
+  }
+}

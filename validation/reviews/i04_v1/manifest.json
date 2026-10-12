@@ -1,0 +1,17 @@
+{
+  "batch": "I04",
+  "files": {
+    "decision.json": "f0475ccec00a55a541052f474af74c4ec6230d8bfe1aa9fb674b8086c0b6914f",
+    "source_snapshots/oracle_audit_contract_v1.md": "78dfaee5684806d2fbe2b906be6d72f2a52c05236bed8d021bf23df3b7efaca6",
+    "source_snapshots/oracle_audit_v1.py": "1e668f259a6ae445a21ba40f3cf1bc5e142b65e3dc8954fa3464914ddcbda217",
+    "source_snapshots/test_oracle_audit_v1.py": "434af355c9e2819b014f2b90d17dcd0f7a9295f4675b24ef606bf91f4de35323",
+    "test_results.json": "8d84c51e7ce210152869b6c6cdc808283a73f09661b9a6ae476857bce410f4e9",
+    "unit_tests.txt": "91ed6f356e45eaab85c08c8d2ef9311a99dcaf5e66e0790d08c99e48b65ef1d3"
+  },
+  "dependency_sha256": {
+    "validation/oracle_config.py": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+    "validation/trace_contract_v1.md": "b830458e501fa09c1a444afe1344436468cc01011aedb0bb933b2ebdb9f08ece",
+    "validation/reviews/i02_v1/gain.json": "a0b7e1c67bc6746e8936cdf67959f76a04a1c2403418492e7c5600cc87f81c58"
+  },
+  "experimental_worker_seconds_added": 0
+}

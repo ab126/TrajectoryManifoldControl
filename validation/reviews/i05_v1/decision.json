@@ -1,0 +1,25 @@
+{
+  "batch": "I05",
+  "specified": true,
+  "implemented": true,
+  "tested": true,
+  "independently_audited": false,
+  "adopted": false,
+  "executed": false,
+  "execution_authorized": false,
+  "oa1_lifecycle": "specified",
+  "I04_current_tests": 20,
+  "I05_tests": 30,
+  "I04_integration_changes": "backend failures classified unavailable; shared archive error semantics; per-case reporting callback; current source pinned in this batch",
+  "scientific_sha256": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+  "stage0_worker_seconds_unchanged": 4987.3564921418965,
+  "pending": [
+    "revised endpoint/reference choice and new profile if aligned",
+    "independent-author review",
+    "original-plant adapter/CUDA equivalence",
+    "nonlinear guard checks",
+    "amended full-step/archive/audit timing",
+    "feasible adopted allocation",
+    "trusted task/adoption/allocation/archive records"
+  ]
+}

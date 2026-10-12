@@ -1,0 +1,98 @@
+[
+  {
+    "id": "R01",
+    "category": "SCOPE / VERIFIED",
+    "anchor": "No consistency, optimizer convergence, or closed-loop stability claim is made here.",
+    "annotation": "The text explicitly disclaims these guarantees. The validation results must not be presented as disproving guarantees the authors did not claim. This review checks code correspondence and elementary structure; a complete proof, citation, and novelty audit remains open."
+  },
+  {
+    "id": "R02",
+    "category": "MATHEMATICAL QUALIFICATION",
+    "anchor": "Its canonical exact encoder and decoder are $E^\\star=\\pi|_{\\mathcal B_N^+}$ and $D^\\star=\\Phi_N$.",
+    "annotation": "The deterministic rollout is a graph over $(x_0,\\mathbf u)$. The chosen coordinate domain and smoothness hypotheses matter for formal manifold statements: an open smooth domain gives the usual graph result; closed input boxes introduce boundaries/corners, and safety-restricted sets need not be manifolds. No theorem about the supplied Part I paper is certified in this bounded review."
+  },
+  {
+    "id": "R03",
+    "category": "VERIFIED / LIMITATION",
+    "anchor": "before extracting transitions.",
+    "annotation": "The runner splits whole episodes before flattening transitions and fits normalization/local regression on training data. This avoids this particular train/test transition leak. It does not establish independent coverage of closed-loop states or an effective sample size equal to the transition count; transitions within episodes are dependent."
+  },
+  {
+    "id": "R04",
+    "category": "VERIFIED",
+    "anchor": "not a prescribed physical transition.",
+    "annotation": "\\code{DataDrivenTransition} matches the residual standardized SiLU construction. No pendulum kinematic equation is inserted into that network. Plant-specific simulator and unit choices still enter collection/evaluation through the runner, so ``system agnostic architecture should not be expanded into ``no plant-specific harness assumptions."
+  },
+  {
+    "id": "R05",
+    "category": "ACCURATE LIMITATION / OPEN TEST",
+    "anchor": "The learned map is not explicitly constrained to satisfy $\\widehat f_\\vartheta(0,0)=0$.",
+    "annotation": "The one-step normalized loss, AdamW schedule, validation checkpointing and absent equilibrium constraint match the active code. Neither free-run accuracy nor equilibrium/derivative fidelity follows from one-step loss alone. Full-budget H/E learning and uncertainty-calibration evidence remains open; oracle Gate A is not that evidence."
+  },
+  {
+    "id": "R06",
+    "category": "VERIFIED / POSSIBLE UNDERSTATEMENT",
+    "anchor": "no additional time parameterization is learned.",
+    "annotation": "Because the output copies every input and $x_0$, projection identity implies injectivity. For a smooth open-domain decoder, its Jacobian contains an identity block and has full column rank, and projection is a continuous inverse on its graph. These structural facts hold even for inaccurate learned dynamics. At $N=30$ the full chart has dimension 34; the fixed-state online search has dimension 30, as in ordinary single shooting. They do not by themselves demonstrate compression, data efficiency or novelty."
+  },
+  {
+    "id": "R07",
+    "category": "VERIFIED / REQUIREMENT DISTINCTION",
+    "anchor": "not its first input to the previously applied input.",
+    "annotation": "The objective and input-rate indexing match \\code{DataDrivenCEMSolver._cost}. The submitted runner specifies normalized input bounds $[-10,10]$; those were not invented by validation. All-time cart rail $\\pm2.4$ m and cart recentering were reviewer-added requirements. A miss under those added requirements is a reviewer-task outcome, not a violation of an authored hard-state constraint."
+  },
+  {
+    "id": "R08",
+    "category": "VERIFIED / FINITE-SEARCH LIMIT",
+    "anchor": "Gradients are not used in this active optimizer.",
+    "annotation": "Cost-only elite selection, unbiased elite standard deviation, smoothing, clipping, current-mean slot and best sampled incumbent match the active path. Three finite iterations do not certify a constrained/global optimum or successful recovery; the text correctly avoids a global-minimizer claim. The completed selected CEM diagnosis improved cost in 22/40 state/warm pairs without changing combined predicted safety (18/40). Those are selected 1.2-second oracle predictions, not a trained-H result or an attainability certificate."
+  },
+  {
+    "id": "R09",
+    "category": "VERIFIED / IDENTIFICATION QUESTION",
+    "anchor": "This ridge regression has no intercept.",
+    "annotation": "Nearest-6000 selection uses population-standardized state distance only, and the fitted linear map has no intercept, as stated. Large selected inputs, finite neighborhood size, excitation/conditioning and nonlinear regression bias still need measurement. This fitted map is not automatically the plant Jacobian at upright. The text makes no such equality claim."
+  },
+  {
+    "id": "R10",
+    "category": "VERIFIED / STABILITY LIMIT",
+    "anchor": "the active MPC independently uses $Q_f=12Q$.",
+    "annotation": "Riccati $P$ is separate from the predictive terminal penalty. DARE stabilizes the fitted linear model under its usual hypotheses; it is not a nonlinear saturated/hybrid stability proof. The original oracle local gain has slow cart centering under $Q_p=.02$, but slow centering is not an authored hard recentering deadline. Selected $Q_p=2$ local-only probes do not certify the proposed hybrid entry region."
+  },
+  {
+    "id": "R11",
+    "category": "VERIFIED / LOCAL-REGION LIMIT",
+    "anchor": "resets the stored plan to zero.",
+    "annotation": "The strict switch $x^TQx<.75$, queue ordering and lack of hysteresis match the submitted wrapper. For a pure cart displacement this switch permits $|p|<\\sqrt{.75/.02}\\simeq6.12$ m. That explains why a reviewer rail/recentering task can disagree with the controller objective; it is not proof of an unsafe design relative to unspecified rails. No nonlinear invariant region is established."
+  },
+  {
+    "id": "R12",
+    "category": "VERIFIED / IMPLEMENTATION CONCERN",
+    "anchor": "This describes the current queue implementation exactly.",
+    "annotation": "The code does retain the old plan across local intervals and always shifts by five, rather than by the actual elapsed physical samples. This is a concrete stale-warm-start concern; the specification accurately reports it. Its quantitative effect on closed-loop performance has not been isolated. OA-1 is a separate proposed oracle amendment and does not repair or change submitted H."
+  },
+  {
+    "id": "R13",
+    "category": "VERIFIED / CONFIGURATION SCOPE",
+    "anchor": "\\code{controller_lr} is unused by the active CEM path.",
+    "annotation": "The dev-profile table and its 30-step/0.6-second horizon match the submitted runner. Completed validation Gate A instead used a true-model 60-step horizon, float64 reference and 20-second development cases. The existing 29 tests and synthetic CPU/CUDA equivalence passed, conditional on the disclosed unused-CVXPY-import workaround; same-author checks do not replace independent author review."
+  },
+  {
+    "id": "R14",
+    "category": "VERIFIED / RANGE REPORTING",
+    "anchor": "the initial sampling box does not constrain later states.",
+    "annotation": "The collection box is in the submitted runner; validation reused it for a different development stress distribution. The modulo hold rule and lack of state truncation are accurately stated. Report observed excursions, settling and tested recovery behavior as conditional diagnostics. Neither a collection box nor finitely many trajectories identifies the maximum recoverable range or the constrained viable set."
+  },
+  {
+    "id": "R15",
+    "category": "VERIFIED / CLAIM BOUNDARY",
+    "anchor": "There is no online parameter adaptation.",
+    "annotation": "The active path uses a transition-composed rollout and a separately data-identified switched linear law; legacy latent/autoencoder/curvature solvers are inactive. This is computationally ordinary learned-dynamics shooting in canonical coordinates. Equivalence alone does not refute geometric interpretation or establish a literature novelty verdict. External claims of superior interpretability/data efficiency should be assessed separately unless actually made in this text."
+  },
+  {
+    "id": "R16",
+    "category": "UNRESOLVED / NOT AN ERROR VERDICT",
+    "anchor": "\\begin{thebibliography}{1}",
+    "annotation": "The supplied PDF transcription, original Part I hypotheses/proofs and bibliography need their own source-by-source review. No literature-backed novelty verdict or confirmed theorem/citation error is asserted here. In this bounded active-code correspondence pass, no confirmed false equation or prose/code mismatch was identified; accurate limitations and open validation needs are marked above."
+  }
+]

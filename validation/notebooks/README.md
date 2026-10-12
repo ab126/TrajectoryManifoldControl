@@ -1,3 +1,33 @@
+# Current hybrid-versus-linear examples
+
+Open [collaborator_hybrid_linear_examples.ipynb](collaborator_hybrid_linear_examples.ipynb)
+for the completed campaign's matched hybrid (H) and linear-feedback (L) examples.
+It contains embedded state/input plots and side-by-side play/pause/scrub animations
+for both-success, L-only, H-only and both-failure cases. Seed-0 random-state cases
+0001, 0000, 0034 and 0002 were selected as the smallest index in each category.
+The full paired-count table covers all 200 random starting states in each of
+three seeds; an editable cell can load any saved B/C/D case.
+
+Reading the embedded static plots does not require the raw archive. Playback
+requires a JavaScript-capable trusted notebook viewer; it has not been checked
+in a real browser during this update. Running cells or rebuilding requires the
+local E1 trajectory archive and a Python kernel with NumPy, Matplotlib and IPython.
+Open Jupyter from the project or notebook directory, then open this notebook;
+no scientific training/controller code is imported or run.
+
+Rebuild using [the saved-data builder](../experiments/build_collaborator_notebook.py)
+with `--project /absolute/path/to/TrajectoryManifoldControl` in a compatible
+plotting environment. This checkout's validation environment additionally needs
+its established libstdc++ preload. The [saved checks](collaborator_hybrid_linear_examples_checks.json)
+record the four matched pairs and independently recomputed endpoints for all eight
+trajectories. Velocities and force are displayed in physical units. Cart rest is
+not part of the primary success criterion.
+
+The older material below describes a historical true-model/oracle diagnostic.
+Its reviewer-added gates and different controller are not the current H/L comparison.
+
+---
+
 # Saved Gate A animations
 
 **October 8:** the GPU diagnosis has now completed; its aggregate review is in

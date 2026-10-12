@@ -1,0 +1,52 @@
+{
+  "review_version": "OA-1",
+  "HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "entry_working_tree": "clean; independently observed before new review work",
+  "final_status_before_delivery_manifest": " M validation/README.md\n M validation/oracle_amendment_proposal.md\n?? validation/oa1_config_proposed.json\n?? validation/oracle_amendment_proposal_v1.md\n?? validation/oracle_review_assessment_v1.md\n?? validation/review_oracle_evidence_v1.py\n?? validation/reviews/oracle_amendment_v1/\n",
+  "new_experimental_worker_seconds": 0,
+  "source_unchanged": {
+    "scripts/run_inverted_pendulum_mc.py": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+    "src/manifold_control.py": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+    "src/inverted_pendulum.py": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4"
+  },
+  "verified": {
+    "existing_raw_arithmetic_and_hashes": "evidence_final.json",
+    "document_links": 25,
+    "proposed_manifest_cost_endpoint_device_and_allocation_consistency": true,
+    "usage_ledgers_unchanged_from_HEAD": [
+      "validation/artifacts/usage.jsonl",
+      "validation/diagnostics/usage.jsonl",
+      "validation/overnight_runs/20261007T054549.695689Z/run.json"
+    ],
+    "python_source_parses": true,
+    "git_diff_check": "passed"
+  },
+  "preserved_runs": [
+    "overnight_runs/20261007T054549.695689Z",
+    "diagnostics/20261007T175948.296063Z",
+    "diagnostics/20261008T190703.853434Z"
+  ],
+  "files_SHA256": {
+    "validation/README.md": "96c7ac54efa13cf46af96b9e805bae266e29eb937dda24690ef7dedbe48b8d51",
+    "validation/oracle_amendment_proposal.md": "4450f39b3b81685f29ebbd3e357dd8d00b75827742a8655d3a6f5c7d70c294d6",
+    "validation/oracle_amendment_proposal_v1.md": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+    "validation/oracle_review_assessment_v1.md": "7f488e5e6b1b67206215b3852f95c630a5932b66bb93100c08f2e31576b9986f",
+    "validation/oa1_config_proposed.json": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+    "validation/review_oracle_evidence_v1.py": "0641f0256a3a6f1dadc6af3ab655de58fb22efc2c31fd4498e350d660b81ce67",
+    "validation/reviews/oracle_amendment_v1/evidence.json": "22a4f6b846e3a4fddaacd29514c49e6abcbd9f94858d4ef14004271150bd5b14",
+    "validation/reviews/oracle_amendment_v1/evidence_final.json": "854b757675ee36eb952e136c5cfdfb6f01a2429c9011e091bc228919e658673e",
+    "validation/reviews/oracle_amendment_v1/evidence_verified.json": "23ae39cceef818fd02e0520c72fed98f9365153e87e0646b511de7d6ce0b1163"
+  },
+  "plan_snapshots_SHA256": {
+    "validation/handoff/plans/critique_plan.md": "87945c9e2f4df7a05704d6c8a4a2b0bbe35ccaa94cc79bc8d568592e1079aeee",
+    "validation/handoff/plans/stress_test_plan_current.md": "d37029400589082eb09fc1a0879fa3ff9923898198416216252f891cab160674",
+    "validation/handoff/plans/stress_test_plan_original.md": "336ad55c639086b8df8e2a9dd0772d822d40f61c2da681d0bda47c921c6bccd1"
+  },
+  "limitations": [
+    "proposal not adopted or executable",
+    "same-author review; independent audit remains required",
+    "no new timing measurement or nonlinear entry-region validation",
+    "current cap does not fit Gate A",
+    "raw artifacts require separate lab archive; none regenerated"
+  ]
+}

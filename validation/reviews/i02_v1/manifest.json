@@ -1,0 +1,212 @@
+{
+  "batch": "I02",
+  "created_utc": "2026-10-09T16:51:24.880645+00:00",
+  "git_HEAD": "4c9de6db91d1c2306c0cb1318c8b309f4da390df",
+  "submitted_commit": "325beae718ab093d3ca48b18a59ae61fd93798a3",
+  "component_status": "tested",
+  "oa1_lifecycle": "specified",
+  "independent_audit": "pending",
+  "adopted": false,
+  "executed": false,
+  "experimental_worker_seconds_added": 0,
+  "stage0_used_worker_hours": 1.385376803372749,
+  "current_stage0_cap_hours": 15,
+  "proposed_stage0_cap_hours": 20,
+  "proposed_allocation_adopted": false,
+  "full_release_metadata": "unchanged; incomplete; proposed",
+  "native_workaround": "existing copied C++ runtime preload; no environment changes",
+  "verification_scope": "63 engineering tests; NumPy/CPU-Torch fixtures and fixed linear DARE only; no plant/CEM/CUDA/timing experiment",
+  "preserved_hash_checks": {
+    "scripts/run_inverted_pendulum_mc.py": {
+      "expected": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "observed": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+      "status": "pass"
+    },
+    "src/inverted_pendulum.py": {
+      "expected": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "observed": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+      "status": "pass"
+    },
+    "src/manifold_control.py": {
+      "expected": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "observed": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+      "status": "pass"
+    },
+    "validation/artifacts/usage.jsonl": {
+      "expected": "3e85a748f99e083efd85181ccacc4641ed1c7deab787d7dbdf0dc415d7f777a2",
+      "observed": "3e85a748f99e083efd85181ccacc4641ed1c7deab787d7dbdf0dc415d7f777a2",
+      "status": "pass"
+    },
+    "validation/diagnostics/usage.jsonl": {
+      "expected": "687bf5f4ce86841b89324ae48b321c0bd8c7d40f600a75d312a35b2200fdafb8",
+      "observed": "687bf5f4ce86841b89324ae48b321c0bd8c7d40f600a75d312a35b2200fdafb8",
+      "status": "pass"
+    },
+    "validation/oa1_config_proposed.json": {
+      "expected": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+      "observed": "6970c76f51624a341746e337f86b61697585bf246c1d98d78217ffebcb6b2b42",
+      "status": "pass"
+    },
+    "validation/oa1_decisions.md": {
+      "expected": "0224c905d573a5dde5aeed2c71f9777c7015dd6a62419c651e5039daf658a417",
+      "observed": "0224c905d573a5dde5aeed2c71f9777c7015dd6a62419c651e5039daf658a417",
+      "status": "pass"
+    },
+    "validation/oracle_amendment_proposal_v1.md": {
+      "expected": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+      "observed": "3c871ffa94aa83c27758503266ba26f8fce9022db05313278be5edc0c2214aee",
+      "status": "pass"
+    },
+    "validation/oracle_config.py": {
+      "expected": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+      "observed": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+      "status": "pass"
+    },
+    "validation/oracle_config_contract_v1.md": {
+      "expected": "8c99a3ed4fa56612842501ea7a713bdf018712a6634bcdfc471974cea1ae23e3",
+      "observed": "8c99a3ed4fa56612842501ea7a713bdf018712a6634bcdfc471974cea1ae23e3",
+      "status": "pass"
+    },
+    "validation/overnight_runs/20261007T054549.695689Z/run.json": {
+      "expected": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1",
+      "observed": "977c2dd621033da96d1a2829974e1e68cea602c982afabac618503e456340dc1",
+      "status": "pass"
+    },
+    "validation/reviews/i01_v1/decision.json": {
+      "expected": "4b95e3552d126c75bd82bad4eed5670f1e79748653107f528d59c07403638129",
+      "observed": "4b95e3552d126c75bd82bad4eed5670f1e79748653107f528d59c07403638129",
+      "status": "pass"
+    },
+    "validation/reviews/i01_v1/manifest.json": {
+      "expected": "1e49ca7500931eecd19de9b5ce838efe0de97c1d3f4b7b3054f1085d91a6e11b",
+      "observed": "1e49ca7500931eecd19de9b5ce838efe0de97c1d3f4b7b3054f1085d91a6e11b",
+      "status": "pass"
+    },
+    "validation/reviews/i01_v1/mapping.json": {
+      "expected": "2f354189062bac4070abcb4aa7b8917933e14ea5c951ecaf1fd7d6ca99678168",
+      "observed": "2f354189062bac4070abcb4aa7b8917933e14ea5c951ecaf1fd7d6ca99678168",
+      "status": "pass"
+    },
+    "validation/reviews/i01_v1/release_metadata.json": {
+      "expected": "069d0f4c9d7bce70e1db00078f625b8c94f70248ebe6ef5b23bf26745fffb1ab",
+      "observed": "069d0f4c9d7bce70e1db00078f625b8c94f70248ebe6ef5b23bf26745fffb1ab",
+      "status": "pass"
+    },
+    "validation/reviews/i01_v1/scientific.json": {
+      "expected": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+      "observed": "38d6c75362c3b333d697844c2bcbff46a5f7c9950e1c6b94d52ae8f076ea4b00",
+      "status": "pass"
+    },
+    "validation/reviews/i01_v1/test_results.json": {
+      "expected": "c481836e3f31ad9d17f7aa7dafa00e33dc820a01a024929e9ed6e793cd15187c",
+      "observed": "c481836e3f31ad9d17f7aa7dafa00e33dc820a01a024929e9ed6e793cd15187c",
+      "status": "pass"
+    },
+    "validation/reviews/i01_v1/unit_tests.txt": {
+      "expected": "33304a28dc7ebd28f3f1422fb5154971222d76c3744ff15f00691a7c6ef91393",
+      "observed": "33304a28dc7ebd28f3f1422fb5154971222d76c3744ff15f00691a7c6ef91393",
+      "status": "pass"
+    },
+    "validation/tests/test_oracle_config.py": {
+      "expected": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad",
+      "observed": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad",
+      "status": "pass"
+    }
+  },
+  "worktree_status": [
+    " M validation/README.md",
+    " M validation/oracle_amendment_proposal.md",
+    "?? validation/collaborator_memo_v1.md",
+    "?? validation/implementation_plan_v1.md",
+    "?? validation/oa1_config_proposed.json",
+    "?? validation/oa1_decisions.md",
+    "?? validation/oracle_amendment_proposal_v1.md",
+    "?? validation/oracle_config.py",
+    "?? validation/oracle_config_contract_v1.md",
+    "?? validation/oracle_math_contract_v1.md",
+    "?? validation/oracle_math_v1.py",
+    "?? validation/oracle_review_assessment_v1.md",
+    "?? validation/review_oracle_evidence_v1.py",
+    "?? validation/reviews/i01_v1/",
+    "?? validation/reviews/i02_v1/",
+    "?? validation/reviews/implementation_plan_v1_manifest.json",
+    "?? validation/reviews/oracle_amendment_v1/",
+    "?? validation/tests/"
+  ],
+  "files": {
+    "validation/README.md": {
+      "sha256": "069104d6eaacbb1034f28d652e6db427439549a3062ddc41f9a2fa1c2a15bc8d",
+      "bytes": 11697
+    },
+    "validation/artifacts/offline_environment.json": {
+      "sha256": "f7e47637c01c7a55b13b003a2cf04b53a1c5491abbd708f85e5ccdd84dcbd6cb",
+      "bytes": 13294
+    },
+    "validation/implementation_plan_v1.md": {
+      "sha256": "a600b6e286b3ead27e3a48a1a46809a763cc82debbaf24d437e15c4ac8eaddee",
+      "bytes": 19269
+    },
+    "validation/oracle_config.py": {
+      "sha256": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+      "bytes": 29704
+    },
+    "validation/oracle_math_contract_v1.md": {
+      "sha256": "6c4fff6013954fd659df2b00e057b7201497c0e1b10dc6283deac22727380a5f",
+      "bytes": 7732
+    },
+    "validation/oracle_math_v1.py": {
+      "sha256": "5b2450d4bc1c211063fe438d093cb93dd9a36e1815826a557de3025294051bac",
+      "bytes": 20799
+    },
+    "validation/requirements.lock": {
+      "sha256": "730ae671d0fdba0380d353fdcba2983566a9f8320c0d092a5ec958b31fd5488f",
+      "bytes": 611
+    },
+    "validation/reviews/i02_v1/README.md": {
+      "sha256": "279ff6688551f160b747dfe653f8f1b00b0ad3b3ec9c2177b6e7e313ae4ef003",
+      "bytes": 1700
+    },
+    "validation/reviews/i02_v1/decision.json": {
+      "sha256": "53402f8879efba97083402cf01a7c6d077a0a4525f7c462fc1c183b5309852bd",
+      "bytes": 1256
+    },
+    "validation/reviews/i02_v1/gain.json": {
+      "sha256": "a0b7e1c67bc6746e8936cdf67959f76a04a1c2403418492e7c5600cc87f81c58",
+      "bytes": 1058
+    },
+    "validation/reviews/i02_v1/source_snapshots/oracle_config.py": {
+      "sha256": "c0b4e87bf88c688d327e07c88f1519744421491f48a5bb1f7951e99ee0d6aaf1",
+      "bytes": 29704
+    },
+    "validation/reviews/i02_v1/source_snapshots/oracle_math_v1.py": {
+      "sha256": "5b2450d4bc1c211063fe438d093cb93dd9a36e1815826a557de3025294051bac",
+      "bytes": 20799
+    },
+    "validation/reviews/i02_v1/source_snapshots/test_oracle_config.py": {
+      "sha256": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad",
+      "bytes": 19171
+    },
+    "validation/reviews/i02_v1/source_snapshots/test_oracle_math_v1.py": {
+      "sha256": "780e6ded210dfeb0eed3269420dcf4512c885e79995de8cb4c1af1ab7166da4e",
+      "bytes": 19726
+    },
+    "validation/reviews/i02_v1/test_results.json": {
+      "sha256": "0f3f377188849858b73319622c2d9f8ebdcb486c55ee152f4713070b45135ccc",
+      "bytes": 1331
+    },
+    "validation/reviews/i02_v1/unit_tests.txt": {
+      "sha256": "f25d5613edcc7d13ff810722e05b5e5ec259b898074b3194bbae7be276d56746",
+      "bytes": 9420
+    },
+    "validation/tests/test_oracle_config.py": {
+      "sha256": "a64eeb0dbc06a19fd407b8ff1167728b8375d373ca4931f7de12b73670486bad",
+      "bytes": 19171
+    },
+    "validation/tests/test_oracle_math_v1.py": {
+      "sha256": "780e6ded210dfeb0eed3269420dcf4512c885e79995de8cb4c1af1ab7166da4e",
+      "bytes": 19726
+    }
+  },
+  "next_batch": "I03; then I04; then I05",
+  "artifact_storage": "compact review/gain/source snapshots in Git; raw scientific archive remains separately required"
+}
