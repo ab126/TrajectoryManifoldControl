@@ -1,0 +1,4202 @@
+[
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.9001937924021252e-10,
+    "dual_residual": 4.697353941203827e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0927653722209429e-10,
+    "dual_residual": 2.361957939230118e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1385264901487734e-16,
+    "dual_residual": 7.806876011624678e-11
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.962103066097684e-16,
+    "dual_residual": 1.215387701605652e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.0655198701194256e-16,
+    "dual_residual": 4.435763562842099e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.20778973522316e-16,
+    "dual_residual": 7.57809531854007e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.4118334029487186e-16,
+    "dual_residual": 9.263159768502139e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.881784197001252e-16,
+    "dual_residual": 4.29075773623571e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.0271731216774875e-16,
+    "dual_residual": 6.258087910510918e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.0436799134129504e-16,
+    "dual_residual": 6.01643691919227e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7763568394002505e-15,
+    "dual_residual": 6.481123571042461e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.440892098500626e-16,
+    "dual_residual": 6.724252443474118e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.881784197001252e-16,
+    "dual_residual": 7.041617794593279e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7763568394002505e-15,
+    "dual_residual": 7.340086325104487e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.881784197001252e-16,
+    "dual_residual": 7.649741157870019e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.881784197001252e-16,
+    "dual_residual": 7.961794788129306e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.440892098500626e-16,
+    "dual_residual": 8.279647644680088e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.220446049250313e-16,
+    "dual_residual": 8.602903616952181e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.1490229787853355e-16,
+    "dual_residual": 8.93233983918441e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.881784197001252e-16,
+    "dual_residual": 9.268377384813654e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.974735377398456e-16,
+    "dual_residual": 9.611549268115981e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.040759682516231e-16,
+    "dual_residual": 9.96236124768876e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7763568394002505e-15,
+    "dual_residual": 1.0321334814194446e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.381281628771603e-06,
+    "dual_residual": 1.3409127266328369e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.5692728762294337e-06,
+    "dual_residual": 1.4303834259266068e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.638463151072301e-06,
+    "dual_residual": 1.4724742731508922e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7118820806748545e-06,
+    "dual_residual": 1.5164875669937405e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7895286400791974e-06,
+    "dual_residual": 1.5625992552670276e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.8716303219766814e-06,
+    "dual_residual": 1.6108811338177986e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.9583844280978155e-06,
+    "dual_residual": 1.6614426152083972e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.0500256720245034e-06,
+    "dual_residual": 1.7143962948162894e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1468134871204256e-06,
+    "dual_residual": 1.769867704948247e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.2490389578754275e-06,
+    "dual_residual": 1.8279946080168585e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.786274855282045e-06,
+    "dual_residual": 1.888954069273474e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1328240862317216e-06,
+    "dual_residual": 1.959060562092829e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.2059882027747335e-06,
+    "dual_residual": 2.027164974938156e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.284819906606117e-06,
+    "dual_residual": 2.097581235843693e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.368322798318445e-06,
+    "dual_residual": 2.1716567107366025e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4570789207700727e-06,
+    "dual_residual": 2.2494727061062036e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.5515052328728416e-06,
+    "dual_residual": 2.331326753923779e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.6521102256538143e-06,
+    "dual_residual": 2.4175255572966847e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1052545708121215e-06,
+    "dual_residual": 2.508422644376118e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.9448483047644913e-06,
+    "dual_residual": 2.606543402228212e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.0737445921857898e-06,
+    "dual_residual": 2.707483887753881e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.2131553560077464e-06,
+    "dual_residual": 2.814198816647462e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.3638614951314594e-06,
+    "dual_residual": 2.9284339995161446e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.5272984817424913e-06,
+    "dual_residual": 3.0499799608119105e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.242849461708829e-09,
+    "dual_residual": 9.911360621117637e-11
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.365563744888277e-09,
+    "dual_residual": 1.0442846587466192e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.496491902093112e-09,
+    "dual_residual": 1.1009504419234872e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.640984320123607e-09,
+    "dual_residual": 1.163549256943952e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7031511962150034e-07,
+    "dual_residual": 9.332755013247152e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.07073346306197e-07,
+    "dual_residual": 1.060110577100204e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.277742237628445e-07,
+    "dual_residual": 1.131555649180882e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.543894253889903e-06,
+    "dual_residual": 1.6872959207603344e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.196432523670637e-06,
+    "dual_residual": 2.1902205205037717e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.78452941929686e-06,
+    "dual_residual": 2.3692031447808404e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.4848356139937096e-09,
+    "dual_residual": 1.7406069474645847e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.606524584005456e-08,
+    "dual_residual": 4.530443444235896e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.750009547331956e-08,
+    "dual_residual": 5.280230466567773e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.614002063225598e-08,
+    "dual_residual": 6.288291105258273e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.0776849391809264e-08,
+    "dual_residual": 7.589699095211208e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.130104151542582e-08,
+    "dual_residual": 9.441282187665353e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.077099522552089e-08,
+    "dual_residual": 1.1935750138991722e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.164789022657715e-08,
+    "dual_residual": 6.396451232480758e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3592876994504147e-07,
+    "dual_residual": 1.454429497486452e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6108364275031175e-07,
+    "dual_residual": 1.4664664830068016e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8915934512677133e-07,
+    "dual_residual": 1.6615105267509962e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2986341019359256e-07,
+    "dual_residual": 9.809980103010199e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3698567968845055e-07,
+    "dual_residual": 1.022748948997787e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1191581441621335e-07,
+    "dual_residual": 7.111666402437322e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.909736155411792e-07,
+    "dual_residual": 3.7190032641021276e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.062360728975591e-07,
+    "dual_residual": 5.1537131735557296e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.719905780812142e-08,
+    "dual_residual": 2.460839709783613e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.828329818768907e-09,
+    "dual_residual": 8.102551685151838e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.774986548638849e-06,
+    "dual_residual": 6.796750361226296e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.386256845365898e-09,
+    "dual_residual": 6.861961310278275e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.5895273805941115e-09,
+    "dual_residual": 1.8099241749780504e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.814726769547587e-09,
+    "dual_residual": 1.8865829254366417e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.6111176824932734e-09,
+    "dual_residual": 2.705975123973303e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.551162184427085e-08,
+    "dual_residual": 1.0875375411334431e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1052651132104074e-06,
+    "dual_residual": 2.6631777143263102e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.426741648520192e-06,
+    "dual_residual": 8.135412624100439e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.396798841455052e-06,
+    "dual_residual": 2.9131139989207674e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.484408648394947e-08,
+    "dual_residual": 4.0482738938862894e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.648895689351635e-08,
+    "dual_residual": 1.1528553445983536e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1352285167096755e-07,
+    "dual_residual": 9.409310261237893e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2504238124932954e-06,
+    "dual_residual": 1.966733382998666e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0561067976778976e-07,
+    "dual_residual": 2.1594440223458652e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.828859113738872e-07,
+    "dual_residual": 2.876292588838422e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.149604534396468e-07,
+    "dual_residual": 0.00014938256690824757
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.60500402420504e-07,
+    "dual_residual": 0.0001840122518793432
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.67895176984257e-06,
+    "dual_residual": 0.00010604315683057201
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1714487904157522e-06,
+    "dual_residual": 2.0666082217097942e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.438555662427234e-06,
+    "dual_residual": 2.6577409600964647e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.554381795112249e-06,
+    "dual_residual": 3.27631621535065e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.7859098469539276e-06,
+    "dual_residual": 3.5771983072213336e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.020359298806397e-06,
+    "dual_residual": 3.7713717760626795e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.307150426541284e-06,
+    "dual_residual": 3.983466303989218e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.000276815854022e-06,
+    "dual_residual": 8.333936091062152e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.450709413741151e-06,
+    "dual_residual": 8.938913886980784e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.223071904149947e-06,
+    "dual_residual": 1.000749114085592e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0940233963196988e-07,
+    "dual_residual": 1.515860085326996e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.196260319057956e-06,
+    "dual_residual": 8.316520860248801e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.349534403289226e-06,
+    "dual_residual": 9.853569435671913e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.343533329848534e-07,
+    "dual_residual": 3.3609930438592705e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.318592602347941e-06,
+    "dual_residual": 2.1163201074395202e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.6098732968140214e-06,
+    "dual_residual": 1.5188800252346818e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8163251223057841e-06,
+    "dual_residual": 2.874915383474746e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4687904000830653e-08,
+    "dual_residual": 4.603208840313398e-11
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.0424623573203235e-09,
+    "dual_residual": 3.1462832339457236e-11
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.578357106765907e-07,
+    "dual_residual": 2.8420708987982966e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.130804663939671e-07,
+    "dual_residual": 3.3999613334992275e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.985471770926855e-07,
+    "dual_residual": 3.592464265008769e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.6089613072353392e-06,
+    "dual_residual": 3.8666590889524266e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.3283333196250595e-06,
+    "dual_residual": 7.566802438565456e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.0344872261806375e-06,
+    "dual_residual": 0.00013948352114785605
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.273858442540359e-06,
+    "dual_residual": 0.00010508066923936507
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.554521640894506e-07,
+    "dual_residual": 1.219903533421478e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6237013973352532e-06,
+    "dual_residual": 0.00019416888222858217
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7050442835397916e-08,
+    "dual_residual": 3.922858657739665e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.759681813575967e-07,
+    "dual_residual": 2.8492936950461916e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.777202467018907e-06,
+    "dual_residual": 0.0001159544512509749
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.054339398989136e-06,
+    "dual_residual": 0.000105726442302508
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.328834595692944e-06,
+    "dual_residual": 7.60965148438425e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1844405928561628e-06,
+    "dual_residual": 2.8232530201089433e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.9132228245259914e-07,
+    "dual_residual": 4.5223064898459406e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.604065833139884e-07,
+    "dual_residual": 4.5844372121367524e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.5589957287123452e-08,
+    "dual_residual": 8.054712452576496e-11
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0203837170763563e-06,
+    "dual_residual": 2.9234295295707268e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.621027965612257e-06,
+    "dual_residual": 5.605164125198048e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.306604646774955e-08,
+    "dual_residual": 1.4099136180886042e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.64491876783768e-06,
+    "dual_residual": 9.40929858836197e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.559417659701694e-06,
+    "dual_residual": 3.8986335511612114e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.933155894963092e-06,
+    "dual_residual": 4.849103775539097e-05
+  },
+  {
+    "accepted": false,
+    "status": "solved",
+    "primal_residual": 1.0462558794444021e-05,
+    "dual_residual": 4.2282731933219484e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.008819171004335e-08,
+    "dual_residual": 1.1211754929011115e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.475659481390949e-07,
+    "dual_residual": 4.76876620984358e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.841804872261605e-06,
+    "dual_residual": 7.308548461372873e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.410445604760881e-07,
+    "dual_residual": 6.0097370774611586e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.521648574958623e-08,
+    "dual_residual": 9.515965870808879e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.565766348856414e-08,
+    "dual_residual": 4.08203051414772e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.858587002329835e-09,
+    "dual_residual": 4.673685392581544e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.2370075973582835e-07,
+    "dual_residual": 7.184363364111982e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.891188993638898e-06,
+    "dual_residual": 0.00017873364688668654
+  },
+  {
+    "accepted": false,
+    "status": "solved",
+    "primal_residual": 1.0913035278470887e-05,
+    "dual_residual": 8.639776817395064e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.414797474401212e-06,
+    "dual_residual": 5.552097621112733e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.5941275227117584e-06,
+    "dual_residual": 8.527239190675484e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.479877604275367e-06,
+    "dual_residual": 8.641452787449184e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6128404081575622e-06,
+    "dual_residual": 8.876017442086342e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4478426351161033e-06,
+    "dual_residual": 9.221731916913416e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.0094220609982144e-08,
+    "dual_residual": 1.211901690112427e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4514898835460246e-06,
+    "dual_residual": 2.6212808262546996e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.16294199879053e-06,
+    "dual_residual": 0.00011256198060901064
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.940469139258373e-08,
+    "dual_residual": 1.9135749485507985e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5575688942259226e-07,
+    "dual_residual": 5.00324565469289e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8038832649835967e-08,
+    "dual_residual": 1.0700337181606869e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.6591528386884316e-06,
+    "dual_residual": 0.00014620375384690438
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8275430450772433e-08,
+    "dual_residual": 3.197787888627651e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7729357536055818e-07,
+    "dual_residual": 1.1704386246585185e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.986257050293688e-06,
+    "dual_residual": 0.0002492402630519451
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.195159364895675e-08,
+    "dual_residual": 1.4333008952007041e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.8658400724124915e-06,
+    "dual_residual": 9.289385801770316e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.352158918166424e-08,
+    "dual_residual": 1.1465351904063663e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3783149912820986e-09,
+    "dual_residual": 1.2539658200694248e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.245229034283461e-08,
+    "dual_residual": 1.2948930816492066e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.988333068418021e-08,
+    "dual_residual": 1.3301360013429075e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.744808487230238e-08,
+    "dual_residual": 1.360831447527744e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.824198875357808e-08,
+    "dual_residual": 1.397211235598661e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.6442199969237862e-09,
+    "dual_residual": 1.4370016288012266e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.75546543266718e-09,
+    "dual_residual": 1.4858869690215215e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.946143279291748e-06,
+    "dual_residual": 3.50864803460027e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.148907702606492e-06,
+    "dual_residual": 0.00012826206449992526
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0916071602196098e-08,
+    "dual_residual": 2.487903216774612e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.404926690025644e-08,
+    "dual_residual": 2.185853818984455e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.9317476035137736e-08,
+    "dual_residual": 1.1099706398062626e-06
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.359875186021327e-08,
+    "dual_residual": 3.9755931879881246e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7335259752463918e-07,
+    "dual_residual": 4.5578323601317826e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.944462724168261e-07,
+    "dual_residual": 0.00010959497207268283
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4867683972852319e-08,
+    "dual_residual": 4.2897134733266284e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6597924723527058e-06,
+    "dual_residual": 5.615252920421199e-07
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.9828228775841126e-10,
+    "dual_residual": 5.511324537491755e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.9028367326257012e-07,
+    "dual_residual": 6.364414240067617e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.609183979984664e-10,
+    "dual_residual": 3.592905899499005e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.305249324763281e-10,
+    "dual_residual": 2.0823100315696146e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1328716570678807e-10,
+    "dual_residual": 1.6757439880166203e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1527668536691635e-10,
+    "dual_residual": 1.74395609064959e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.2887469697252527e-10,
+    "dual_residual": 1.7985257727559656e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.531632882276426e-07,
+    "dual_residual": 0.0002867114908999824
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.89498171820901e-06,
+    "dual_residual": 0.0011989343352994018
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.795034484558983e-08,
+    "dual_residual": 2.3481419475501752e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.8885338565487473e-10,
+    "dual_residual": 2.9360698492723483e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.000195647473447e-10,
+    "dual_residual": 3.1761897980012425e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.100524281762773e-10,
+    "dual_residual": 3.351515474850911e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1949376477768965e-10,
+    "dual_residual": 3.4988906814781684e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.3016434031196695e-10,
+    "dual_residual": 3.699625876711847e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.687118994681441e-07,
+    "dual_residual": 0.0005060759598907319
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.9101308030021755e-09,
+    "dual_residual": 5.431104455055902e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.1380943116564595e-10,
+    "dual_residual": 6.769095697500248e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2638581541324356e-06,
+    "dual_residual": 0.0008662233104878767
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.212150711031427e-10,
+    "dual_residual": 8.994969507939518e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.808313747162174e-10,
+    "dual_residual": 9.373571331861266e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.5293545036220166e-10,
+    "dual_residual": 1.0833822727818188e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0473755196471757e-10,
+    "dual_residual": 9.035624737353935e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0108891501658945e-10,
+    "dual_residual": 8.189487775166403e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.43281008858321e-11,
+    "dual_residual": 6.769095697500248e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.645351101677079e-11,
+    "dual_residual": 5.16575508746922e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.711862985677499e-06,
+    "dual_residual": 0.00135403350974877
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.6468303104820734e-09,
+    "dual_residual": 4.245930521968061e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.869384895300755e-10,
+    "dual_residual": 4.642319008758616e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.088089949367713e-10,
+    "dual_residual": 5.155591280115617e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.294076288464566e-10,
+    "dual_residual": 5.615503562866197e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.47414558127457e-10,
+    "dual_residual": 5.986482531272741e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.629203769785818e-10,
+    "dual_residual": 6.260905329820049e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.754259291279595e-10,
+    "dual_residual": 6.448935765861722e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.858193929952904e-10,
+    "dual_residual": 6.535328128367356e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.951967807504843e-10,
+    "dual_residual": 6.601392876165782e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.084022174945858e-10,
+    "dual_residual": 6.764013793823446e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.368985339122446e-10,
+    "dual_residual": 7.450070790191714e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0416810276581145e-06,
+    "dual_residual": 0.00016976995537730698
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.727137792315261e-09,
+    "dual_residual": 1.1535921346340512e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.359890557585459e-10,
+    "dual_residual": 1.3416225706757247e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.68361382799776e-10,
+    "dual_residual": 1.4386869309026427e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.815597141165199e-10,
+    "dual_residual": 1.4717193048018556e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2231562465103707e-06,
+    "dual_residual": 0.00020904700315335162
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3027516843067133e-09,
+    "dual_residual": 1.4153101739893536e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.439187126896286e-10,
+    "dual_residual": 1.3055410545704307e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.013092411829348e-10,
+    "dual_residual": 1.1383464236036453e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.621459019446775e-10,
+    "dual_residual": 9.777582674167024e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.484466379992227e-10,
+    "dual_residual": 8.979723796909113e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.589004979990932e-10,
+    "dual_residual": 9.045788544707539e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.809646263012837e-10,
+    "dual_residual": 9.472668453558906e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.050342614751571e-10,
+    "dual_residual": 1.0011350243299915e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.27260038249733e-10,
+    "dual_residual": 1.0458557766858491e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.460698808221423e-10,
+    "dual_residual": 1.081429102423463e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.618084024192285e-10,
+    "dual_residual": 1.1048058593367521e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.737828238736256e-10,
+    "dual_residual": 1.1149696666903562e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.824496688930594e-10,
+    "dual_residual": 1.1159860474257165e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.689719543980118e-06,
+    "dual_residual": 0.000481752439810568
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.052434832146901e-09,
+    "dual_residual": 1.1312317584561224e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.905934965407141e-09,
+    "dual_residual": 1.234902593462883e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0413607753889664e-09,
+    "dual_residual": 1.495096061715145e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1540919331309851e-09,
+    "dual_residual": 1.8233870392365531e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2332463938946603e-09,
+    "dual_residual": 2.0551218468987237e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2701200091669307e-09,
+    "dual_residual": 2.1587926819054843e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2818475170206511e-09,
+    "dual_residual": 2.1821694388187734e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.278717576269628e-09,
+    "dual_residual": 2.162858204846926e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2615544164873427e-09,
+    "dual_residual": 2.093744314842419e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2259455672847253e-09,
+    "dual_residual": 1.953483773362684e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0838654915801271e-06,
+    "dual_residual": 0.00020339578558578597
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.0834665548363773e-08,
+    "dual_residual": 3.738467313496585e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7767156634818093e-09,
+    "dual_residual": 1.5398168140710023e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1445173697666178e-09,
+    "dual_residual": 1.5530297636306875e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1700311830509236e-09,
+    "dual_residual": 1.6038488003987073e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1965521906631693e-09,
+    "dual_residual": 1.653651456431367e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2203802413068843e-09,
+    "dual_residual": 1.7034541124640263e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2402381344145397e-09,
+    "dual_residual": 1.7319127730541175e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2558185602529193e-09,
+    "dual_residual": 1.7502076262906046e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2667324966741944e-09,
+    "dual_residual": 1.756305910702767e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.273134486723393e-09,
+    "dual_residual": 1.7420765804077214e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.279055084069114e-09,
+    "dual_residual": 1.7237817271712343e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.299998331205643e-09,
+    "dual_residual": 1.756305910702767e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3670309328972508e-09,
+    "dual_residual": 1.925025112772593e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5017427301700081e-09,
+    "dual_residual": 2.2970204619144983e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6491128462803317e-09,
+    "dual_residual": 2.7137365634122616e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7424888199002453e-09,
+    "dual_residual": 2.9820610775474064e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7813324149074106e-09,
+    "dual_residual": 3.085731912554167e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7896617521273583e-09,
+    "dual_residual": 3.0999612428492127e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7812382679949224e-09,
+    "dual_residual": 3.0613387749055175e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7573142940818798e-09,
+    "dual_residual": 2.9637662243109193e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7135359797748606e-09,
+    "dual_residual": 2.8031780681239764e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.466506643372668e-08,
+    "dual_residual": 4.154241395326608e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5897576588486118e-09,
+    "dual_residual": 2.42914995751135e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6549748238503525e-09,
+    "dual_residual": 2.374265397801889e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6385790502226882e-09,
+    "dual_residual": 2.400691296921259e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.667181948050711e-09,
+    "dual_residual": 2.461674141042883e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6970318483799929e-09,
+    "dual_residual": 2.516558700752344e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7223307224867312e-09,
+    "dual_residual": 2.55721393016676e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.743650557273213e-09,
+    "dual_residual": 2.5917708751690136e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7590089385066676e-09,
+    "dual_residual": 2.599901921051897e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.768118096379112e-09,
+    "dual_residual": 2.5877053522275723e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7714292255277542e-09,
+    "dual_residual": 2.571443260461806e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7774119953628542e-09,
+    "dual_residual": 2.5429845998717147e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8070771545808384e-09,
+    "dual_residual": 2.5938036366397346e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.9076544788276806e-09,
+    "dual_residual": 2.8458660590091134e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.091713469098977e-09,
+    "dual_residual": 3.354056426689312e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.272900090360963e-09,
+    "dual_residual": 3.8581812714280695e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3766926204871197e-09,
+    "dual_residual": 4.154964446153305e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4143353982708504e-09,
+    "dual_residual": 4.252536996747904e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.419495714889308e-09,
+    "dual_residual": 4.252536996747904e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.404885179885241e-09,
+    "dual_residual": 4.187488629684838e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3720581054931245e-09,
+    "dual_residual": 4.069588464383032e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.319175962384179e-09,
+    "dual_residual": 3.866312317310952e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.260401643638943e-09,
+    "dual_residual": 3.6345775096487815e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.22602380972603e-09,
+    "dual_residual": 3.492284206698326e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.2286172907115542e-09,
+    "dual_residual": 3.435366885518144e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.253559117093573e-09,
+    "dual_residual": 3.471956591991118e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.2866739612936726e-09,
+    "dual_residual": 3.5532670508199498e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3193820197775494e-09,
+    "dual_residual": 3.602053326117249e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.346936867070326e-09,
+    "dual_residual": 3.650839601414548e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3682495964294503e-09,
+    "dual_residual": 3.6671016931803144e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3836985718617143e-09,
+    "dual_residual": 3.6752327390631974e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.390802222862476e-09,
+    "dual_residual": 3.6386430325902233e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3922659408981417e-09,
+    "dual_residual": 3.602053326117249e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3975275098564452e-09,
+    "dual_residual": 3.5857912343514826e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4442829982262992e-09,
+    "dual_residual": 3.6671016931803144e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.5887665344725974e-09,
+    "dual_residual": 4.049260849675824e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.8273632324271603e-09,
+    "dual_residual": 4.699744520306479e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.0386129168391562e-09,
+    "dual_residual": 5.281114300932626e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.088683087071331e-09,
+    "dual_residual": 5.581962998599303e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3262326348240094e-08,
+    "dual_residual": 5.67547002625246e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1816540513318614e-09,
+    "dual_residual": 5.6510768886038104e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1602276351350156e-09,
+    "dual_residual": 5.569766429774979e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.118103109045478e-09,
+    "dual_residual": 5.407145512117315e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.0559093033843965e-09,
+    "dual_residual": 5.1754107044551446e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.9953213243061327e-09,
+    "dual_residual": 4.931479327968649e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.9650735200448253e-09,
+    "dual_residual": 4.7973170709010765e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.9749624985697665e-09,
+    "dual_residual": 4.768858410310986e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.0058302513680246e-09,
+    "dual_residual": 4.8135791626668425e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.042437413114385e-09,
+    "dual_residual": 4.878627529729908e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.076992882711238e-09,
+    "dual_residual": 4.927413805027207e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1069298245256505e-09,
+    "dual_residual": 4.976200080324507e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1293012625610572e-09,
+    "dual_residual": 4.9843311262073895e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1436115932592656e-09,
+    "dual_residual": 4.992462172090273e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1474023387545458e-09,
+    "dual_residual": 4.943675896792974e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.146169547108002e-09,
+    "dual_residual": 4.894889621495674e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.156053196562425e-09,
+    "dual_residual": 4.854234392081259e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.2256100013228206e-09,
+    "dual_residual": 5.008724263856039e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.4259599601682567e-09,
+    "dual_residual": 5.545373292126329e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.7242458006403467e-09,
+    "dual_residual": 6.325953696883115e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.959723215984923e-09,
+    "dual_residual": 7.000830505162418e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.069839576459344e-09,
+    "dual_residual": 7.28541711106333e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.100265016404592e-09,
+    "dual_residual": 7.374858615775045e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.093193339826939e-09,
+    "dual_residual": 7.326072340477745e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.063402059273358e-09,
+    "dual_residual": 7.204106652234498e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.0109959797973715e-09,
+    "dual_residual": 7.008961551045302e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.938808390557824e-09,
+    "dual_residual": 6.756899128675923e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.876646559319852e-09,
+    "dual_residual": 6.504836706306544e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.852260732628565e-09,
+    "dual_residual": 6.382871018063296e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.8678535929648206e-09,
+    "dual_residual": 6.374739972180414e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.906174939061202e-09,
+    "dual_residual": 6.399133109829063e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.946666993215331e-09,
+    "dual_residual": 6.52109879807231e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.98511446064731e-09,
+    "dual_residual": 6.545491935720961e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.016172283627384e-09,
+    "dual_residual": 6.578016119252493e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.039566903202285e-09,
+    "dual_residual": 6.618671348666909e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.053251956293025e-09,
+    "dual_residual": 6.56988507336961e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.053287483429813e-09,
+    "dual_residual": 6.512967752189428e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.050484392337239e-09,
+    "dual_residual": 6.4723125227750115e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.065269010311567e-09,
+    "dual_residual": 6.447919385126362e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.170912504264379e-09,
+    "dual_residual": 6.675588669847091e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.437959333358776e-09,
+    "dual_residual": 7.366727569892162e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.793491825694218e-09,
+    "dual_residual": 8.350584121721026e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.045544426707238e-09,
+    "dual_residual": 9.041723021766097e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.1549946533668844e-09,
+    "dual_residual": 9.318178581784125e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.179016326906094e-09,
+    "dual_residual": 9.358833811198541e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.164231708931766e-09,
+    "dual_residual": 9.293785444135475e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.123943935814168e-09,
+    "dual_residual": 9.171819755892228e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.060385888100427e-09,
+    "dual_residual": 8.927888379405732e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.9805546353809405e-09,
+    "dual_residual": 8.66769491115347e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.9187676154360815e-09,
+    "dual_residual": 8.350584121721026e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.901641759147424e-09,
+    "dual_residual": 8.277404708775078e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.925212238049426e-09,
+    "dual_residual": 8.269273662892195e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.967443345549327e-09,
+    "dual_residual": 8.342453075838144e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.014857862306599e-09,
+    "dual_residual": 8.440025626432741e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.056254082091982e-09,
+    "dual_residual": 8.505073993495807e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.089486165843482e-09,
+    "dual_residual": 8.48881190173004e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.1122732713793084e-09,
+    "dual_residual": 8.521336085261572e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.122153368120053e-09,
+    "dual_residual": 8.48881190173004e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.121528090512584e-09,
+    "dual_residual": 8.40750144290121e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.114669576755659e-09,
+    "dual_residual": 8.326190984072377e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.143995451817318e-09,
+    "dual_residual": 8.358715167603909e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.294554128454365e-09,
+    "dual_residual": 8.683957002919238e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 5.639424927039727e-09,
+    "dual_residual": 9.594634141802153e-09
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.04980598950533e-09,
+    "dual_residual": 1.0700456381874266e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.312742328873355e-09,
+    "dual_residual": 1.1448512603099518e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.278296662439061e-08,
+    "dual_residual": 1.1692443979586014e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.310610700666075e-09,
+    "dual_residual": 1.1692443979586014e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2344866462399295e-08,
+    "dual_residual": 1.1627395612522948e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7786778272466108e-08,
+    "dual_residual": 1.1399726327802219e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.362178339713864e-09,
+    "dual_residual": 1.112327076778419e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.19603213181108e-09,
+    "dual_residual": 1.0846815207766162e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.135607577562041e-09,
+    "dual_residual": 1.0619145923045433e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.125794982381194e-09,
+    "dual_residual": 1.0424000821856237e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.157961252029054e-09,
+    "dual_residual": 1.0440262913622004e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.207610425690291e-09,
+    "dual_residual": 1.0602883831279668e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.2587446336692665e-09,
+    "dual_residual": 1.06354080148112e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.302736110797014e-09,
+    "dual_residual": 1.0700456381874266e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.339456959381096e-09,
+    "dual_residual": 1.0700456381874266e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.359185178439475e-09,
+    "dual_residual": 1.0716718473640032e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.369393901195508e-09,
+    "dual_residual": 1.0684194290108499e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.362682825056254e-09,
+    "dual_residual": 1.0586621739513901e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.355683979109017e-09,
+    "dual_residual": 1.0472787097153536e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.402681052009029e-09,
+    "dual_residual": 1.0554097555982369e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 6.615779923890841e-09,
+    "dual_residual": 1.1009436125423826e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.050289241306018e-09,
+    "dual_residual": 1.2164044640793237e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.50566364615679e-09,
+    "dual_residual": 1.3432487798523014e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.773515164899436e-09,
+    "dual_residual": 1.4196806111514034e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.865839535270425e-09,
+    "dual_residual": 1.439195121270323e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.8714830209492e-09,
+    "dual_residual": 1.434316493740593e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.838867333020971e-09,
+    "dual_residual": 1.4261854478577098e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.777586574775341e-09,
+    "dual_residual": 1.4034185193856369e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.690061920584412e-09,
+    "dual_residual": 1.375772963383834e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.595115647518469e-09,
+    "dual_residual": 1.3383701523225715e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.540652546822457e-09,
+    "dual_residual": 1.3107245963207686e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.543036417700932e-09,
+    "dual_residual": 1.3009673412613089e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.580457150879738e-09,
+    "dual_residual": 1.3074721779676154e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.635872378841668e-09,
+    "dual_residual": 1.313977014673922e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.691514980479042e-09,
+    "dual_residual": 1.326986688086535e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.740986518456339e-09,
+    "dual_residual": 1.3286128972631117e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.778403698921466e-09,
+    "dual_residual": 1.3351177339694183e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.7993291824896e-09,
+    "dual_residual": 1.3286128972631117e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.804935364674748e-09,
+    "dual_residual": 1.3204818513802286e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.792721135047032e-09,
+    "dual_residual": 1.3107245963207686e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.788777622863563e-09,
+    "dual_residual": 1.3009673412613089e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.861473250159179e-09,
+    "dual_residual": 1.3172294330270752e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.153264730026422e-09,
+    "dual_residual": 1.3822778000901406e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 8.675808516045436e-09,
+    "dual_residual": 1.5286366259820378e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.17116160792375e-09,
+    "dual_residual": 1.661985778461322e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.436284642561077e-09,
+    "dual_residual": 1.733538982230694e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.516675447684975e-09,
+    "dual_residual": 1.7530534923496137e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.514316445802251e-09,
+    "dual_residual": 1.743296237290154e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.467619577208097e-09,
+    "dual_residual": 1.7367914005838475e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.39359345863977e-09,
+    "dual_residual": 1.7042672170523145e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.294272018678384e-09,
+    "dual_residual": 1.6717430335207818e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.196877925887748e-09,
+    "dual_residual": 1.6327140132829427e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.146635449042151e-09,
+    "dual_residual": 1.6066946664577164e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.15990483463247e-09,
+    "dual_residual": 1.60018982975141e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.20711684671005e-09,
+    "dual_residual": 1.6066946664577164e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.271472478644682e-09,
+    "dual_residual": 1.6197043398703295e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.329244932132497e-09,
+    "dual_residual": 1.622956758223483e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.380366705613596e-09,
+    "dual_residual": 1.6294615949297893e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.417018276280942e-09,
+    "dual_residual": 1.6327140132829427e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.439794723675732e-09,
+    "dual_residual": 1.6294615949297893e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.438430481623072e-09,
+    "dual_residual": 1.622956758223483e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.424876878938448e-09,
+    "dual_residual": 1.6099470848108697e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.426365465969866e-09,
+    "dual_residual": 1.5936849930451032e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.541011536384758e-09,
+    "dual_residual": 1.616451921517176e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 9.922082711000257e-09,
+    "dual_residual": 1.7140244721117746e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0537409167454825e-08,
+    "dual_residual": 1.886402644828898e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.106175773202267e-08,
+    "dual_residual": 2.0262566340144885e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1314941872342388e-08,
+    "dual_residual": 2.0848001643712475e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.138489480467797e-08,
+    "dual_residual": 2.104314674490167e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1370165253765663e-08,
+    "dual_residual": 2.0978098377838606e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.131120441755229e-08,
+    "dual_residual": 2.0750429093117877e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1223628249013018e-08,
+    "dual_residual": 2.0392663074271016e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1110049769058605e-08,
+    "dual_residual": 2.0002372871892625e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1012605938276465e-08,
+    "dual_residual": 1.9579558485982697e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0970687469580298e-08,
+    "dual_residual": 1.944946175185657e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0993717936003122e-08,
+    "dual_residual": 1.9286840834198904e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1054257953446722e-08,
+    "dual_residual": 1.94819859353881e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1119826837102664e-08,
+    "dual_residual": 1.94819859353881e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1184894788129895e-08,
+    "dual_residual": 1.9547034302451167e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1238149966175115e-08,
+    "dual_residual": 1.9677131036577298e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1276316769226469e-08,
+    "dual_residual": 1.970965522010883e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.129455640125343e-08,
+    "dual_residual": 1.9677131036577298e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1289362333855024e-08,
+    "dual_residual": 1.9547034302451167e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1270959276998838e-08,
+    "dual_residual": 1.935188920126197e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1282573098014836e-08,
+    "dual_residual": 1.922179246713584e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1452595316541192e-08,
+    "dual_residual": 1.961208266951423e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1943134481384732e-08,
+    "dual_residual": 2.088052582724401e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2648078140387042e-08,
+    "dual_residual": 2.2766928472072907e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3187385405899477e-08,
+    "dual_residual": 2.426304091452341e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.342574407203756e-08,
+    "dual_residual": 2.4848476218091e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3474299009885726e-08,
+    "dual_residual": 2.4978572952217132e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3450943470161292e-08,
+    "dual_residual": 2.4913524585154065e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3379823471382224e-08,
+    "dual_residual": 2.462080693337027e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.327812704232656e-08,
+    "dual_residual": 2.4230516730991877e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3153577782532011e-08,
+    "dual_residual": 2.3807702345081952e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3051060676616544e-08,
+    "dual_residual": 2.3384887959172027e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3023242928511536e-08,
+    "dual_residual": 2.3157218674451298e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3060173387202667e-08,
+    "dual_residual": 2.3124694490919764e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3122591013825513e-08,
+    "dual_residual": 2.3254791225045896e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.320061571163933e-08,
+    "dual_residual": 2.341741214270356e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3270849308355537e-08,
+    "dual_residual": 2.3384887959172027e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.332669796738628e-08,
+    "dual_residual": 2.3612557243892757e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3366637574563356e-08,
+    "dual_residual": 2.367760561095582e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.337876831541962e-08,
+    "dual_residual": 2.354750887682969e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3368945062097737e-08,
+    "dual_residual": 2.341741214270356e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3350909711107306e-08,
+    "dual_residual": 2.3092170307388234e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3377562169125667e-08,
+    "dual_residual": 2.3027121940325167e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3617441396718277e-08,
+    "dual_residual": 2.354750887682969e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4227117262066713e-08,
+    "dual_residual": 2.5238766420469392e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.501695834349448e-08,
+    "dual_residual": 2.7320314166487486e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.555322803881154e-08,
+    "dual_residual": 2.8816426608937993e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.577483033088356e-08,
+    "dual_residual": 2.940186191250558e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5811195908099762e-08,
+    "dual_residual": 2.940186191250558e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5770943662118952e-08,
+    "dual_residual": 2.927176517837945e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.568736607282517e-08,
+    "dual_residual": 2.8946523343064124e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5570662981190253e-08,
+    "dual_residual": 2.8491184773622666e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5431218969297333e-08,
+    "dual_residual": 2.8035846204181207e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5342685344421625e-08,
+    "dual_residual": 2.758050763473975e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5318478929771118e-08,
+    "dual_residual": 2.751545926767668e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5365994698868235e-08,
+    "dual_residual": 2.7320314166487486e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.544390926255801e-08,
+    "dual_residual": 2.758050763473975e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5528485164395534e-08,
+    "dual_residual": 2.771060436886588e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5602253711222147e-08,
+    "dual_residual": 2.7905749470055076e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5659658458844206e-08,
+    "dual_residual": 2.784070110299201e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5692474875095286e-08,
+    "dual_residual": 2.784070110299201e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.570626650959639e-08,
+    "dual_residual": 2.771060436886588e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5688872423424982e-08,
+    "dual_residual": 2.758050763473975e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5668245367805866e-08,
+    "dual_residual": 2.7320314166487486e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.572670527139053e-08,
+    "dual_residual": 2.7320314166487486e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.605587840458611e-08,
+    "dual_residual": 2.8296039672433467e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.6795009827319518e-08,
+    "dual_residual": 3.01173939501993e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7650751971132195e-08,
+    "dual_residual": 3.265428026565885e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8183261119020244e-08,
+    "dual_residual": 3.395524760692016e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8381307143044978e-08,
+    "dual_residual": 3.434553780929855e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8404723078901952e-08,
+    "dual_residual": 3.4215441075172424e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8347442676258652e-08,
+    "dual_residual": 3.408534434104629e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8248883293381368e-08,
+    "dual_residual": 3.3760102505730966e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.811097760651137e-08,
+    "dual_residual": 3.330476393628951e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.79714998438385e-08,
+    "dual_residual": 3.265428026565885e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.7877056279758108e-08,
+    "dual_residual": 3.245913516446966e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.787846670708859e-08,
+    "dual_residual": 3.232903843034352e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.79379160414328e-08,
+    "dual_residual": 3.2198941696217395e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.802267846073846e-08,
+    "dual_residual": 3.245913516446966e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.811266159279512e-08,
+    "dual_residual": 3.2524183531532725e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.818896322447472e-08,
+    "dual_residual": 3.2589231898595786e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8248000444032186e-08,
+    "dual_residual": 3.2589231898595786e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8281706815059806e-08,
+    "dual_residual": 3.2589231898595786e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.829191198510216e-08,
+    "dual_residual": 3.232903843034352e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8268799806264724e-08,
+    "dual_residual": 3.213389332915433e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.825139861466596e-08,
+    "dual_residual": 3.2068844962091266e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8342699803497453e-08,
+    "dual_residual": 3.2068844962091266e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.8785694777534445e-08,
+    "dual_residual": 3.317466720216338e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.9663017880588995e-08,
+    "dual_residual": 3.5451360049370665e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.0573370562715354e-08,
+    "dual_residual": 3.798824636483022e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1090347246399688e-08,
+    "dual_residual": 3.9354262073154596e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.125720754975191e-08,
+    "dual_residual": 3.993969737672218e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1257553939335594e-08,
+    "dual_residual": 3.9809600642596055e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1187439358527627e-08,
+    "dual_residual": 3.954940717434379e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1073088163348075e-08,
+    "dual_residual": 3.9029020237839266e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.0925261523530025e-08,
+    "dual_residual": 3.850863330133474e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.077191574301196e-08,
+    "dual_residual": 3.7923197997767153e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.069594451370449e-08,
+    "dual_residual": 3.7467859428325695e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.0698156077969543e-08,
+    "dual_residual": 3.759795616245183e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.0774834297299094e-08,
+    "dual_residual": 3.733776269419957e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.086879291596233e-08,
+    "dual_residual": 3.759795616245183e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.0971139491621216e-08,
+    "dual_residual": 3.7858149630704086e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.105281637909684e-08,
+    "dual_residual": 3.7793101263641025e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1110199810436825e-08,
+    "dual_residual": 3.805329473189328e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.114528285801498e-08,
+    "dual_residual": 3.7858149630704086e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1148309770069318e-08,
+    "dual_residual": 3.766300452951489e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.11116955028956e-08,
+    "dual_residual": 3.7467859428325695e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1101055125427592e-08,
+    "dual_residual": 3.733776269419957e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.1248894199743518e-08,
+    "dual_residual": 3.733776269419957e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.181557512415111e-08,
+    "dual_residual": 3.883387513665007e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.2846837310908086e-08,
+    "dual_residual": 4.1500858186235754e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.37851587314708e-08,
+    "dual_residual": 4.4362986337010634e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4270704557238787e-08,
+    "dual_residual": 4.527366347589355e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4416898725121428e-08,
+    "dual_residual": 4.605424388065033e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4397305509182843e-08,
+    "dual_residual": 4.5924147146524205e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4318890012864358e-08,
+    "dual_residual": 4.5533856944145814e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4182053692811678e-08,
+    "dual_residual": 4.5143566741767416e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.401742449364974e-08,
+    "dual_residual": 4.449308307113676e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3863787390610014e-08,
+    "dual_residual": 4.371250266637998e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.379843522248848e-08,
+    "dual_residual": 4.3582405932253845e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3819302086280913e-08,
+    "dual_residual": 4.332221246400159e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.390846454147777e-08,
+    "dual_residual": 4.3582405932253845e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.400869547614093e-08,
+    "dual_residual": 4.3582405932253845e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4112573271395377e-08,
+    "dual_residual": 4.371250266637998e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4195010439598263e-08,
+    "dual_residual": 4.3582405932253845e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4253226982295928e-08,
+    "dual_residual": 4.371250266637998e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4298550727053225e-08,
+    "dual_residual": 4.384259940050611e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.427756840006623e-08,
+    "dual_residual": 4.371250266637998e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4245530028110807e-08,
+    "dual_residual": 4.3192115729875454e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.4248873131682558e-08,
+    "dual_residual": 4.3192115729875454e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.446724067795003e-08,
+    "dual_residual": 4.3452309198127717e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.5188899854811098e-08,
+    "dual_residual": 4.579405041239807e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.633823470432617e-08,
+    "dual_residual": 4.839598509492069e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7303688199253884e-08,
+    "dual_residual": 5.125811324569557e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7754973430660357e-08,
+    "dual_residual": 5.216879038457848e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7873300112446486e-08,
+    "dual_residual": 5.268917732108301e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7826180470924555e-08,
+    "dual_residual": 5.229888711870462e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.771951024271857e-08,
+    "dual_residual": 5.177850018220009e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7570045801894594e-08,
+    "dual_residual": 5.13882099798217e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7397152990715767e-08,
+    "dual_residual": 5.0737726309191047e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7230463217620127e-08,
+    "dual_residual": 5.008724263856039e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7180703909834847e-08,
+    "dual_residual": 4.9957145904434264e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7229493326785814e-08,
+    "dual_residual": 4.9566855702055866e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7326588991627432e-08,
+    "dual_residual": 4.9566855702055866e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7439330807510487e-08,
+    "dual_residual": 5.021733937268652e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7554870385415597e-08,
+    "dual_residual": 5.008724263856039e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7640925992500343e-08,
+    "dual_residual": 5.021733937268652e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7688397352676475e-08,
+    "dual_residual": 5.021733937268652e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7725654661026056e-08,
+    "dual_residual": 5.008724263856039e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7709067040859736e-08,
+    "dual_residual": 4.9306662233803604e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7670385094324956e-08,
+    "dual_residual": 4.9306662233803604e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.7697645066382393e-08,
+    "dual_residual": 4.943675896792974e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.8000007645800906e-08,
+    "dual_residual": 5.008724263856039e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.8895943415818692e-08,
+    "dual_residual": 5.2038693650452355e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.015917116044875e-08,
+    "dual_residual": 5.581149894011015e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.112493551782336e-08,
+    "dual_residual": 5.8153240154380505e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.153727234916914e-08,
+    "dual_residual": 5.9324110761515685e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1626242957827344e-08,
+    "dual_residual": 5.971440096389408e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.156429784212378e-08,
+    "dual_residual": 5.9324110761515685e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.145259697134861e-08,
+    "dual_residual": 5.880372382501116e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1272030298623577e-08,
+    "dual_residual": 5.8023143420254376e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1078776885351544e-08,
+    "dual_residual": 5.7632853217875985e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.0930035421761204e-08,
+    "dual_residual": 5.711246628137146e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.08991161546146e-08,
+    "dual_residual": 5.698236954724533e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.094704936756898e-08,
+    "dual_residual": 5.6592079344866933e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1060356064926964e-08,
+    "dual_residual": 5.6461982610740805e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.117435909416599e-08,
+    "dual_residual": 5.672217607899307e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.130450565436149e-08,
+    "dual_residual": 5.711246628137146e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.138896254029078e-08,
+    "dual_residual": 5.6852272813119196e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.1449800985683396e-08,
+    "dual_residual": 5.698236954724533e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 3.147445504225743e-08,
+    "dual_residual": 5.6852272813119196e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.288715622635664e-07,
+    "dual_residual": 0.035127594409174456
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 7.636558052581677e-11,
+    "dual_residual": 5.060203551232167e-10
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3160012228498894e-10,
+    "dual_residual": 5.6071692408362414e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 2.3551348075857926e-10,
+    "dual_residual": 5.7632853217875985e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 4.157262434745235e-06,
+    "dual_residual": 1.2134545558595278e-05
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0913595360761974e-08,
+    "dual_residual": 6.40075931900564e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1006157762949442e-08,
+    "dual_residual": 6.621923767020062e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.112069725195397e-08,
+    "dual_residual": 6.726001154320968e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1140432576439707e-08,
+    "dual_residual": 6.712991480908354e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1118611809024515e-08,
+    "dual_residual": 6.726001154320968e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1073423067387012e-08,
+    "dual_residual": 6.634933440432676e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1009738898337673e-08,
+    "dual_residual": 6.595904420194835e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0935917060805878e-08,
+    "dual_residual": 6.504836706306545e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.088363532630865e-08,
+    "dual_residual": 6.465807686068705e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0875513822838911e-08,
+    "dual_residual": 6.426778665830865e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.090341683607221e-08,
+    "dual_residual": 6.439788339243479e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0950527595809945e-08,
+    "dual_residual": 6.452798012656092e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.0998505217685306e-08,
+    "dual_residual": 6.452798012656092e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1040407699169918e-08,
+    "dual_residual": 6.478817359481318e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1074353878370857e-08,
+    "dual_residual": 6.491827032893932e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1098254759644988e-08,
+    "dual_residual": 6.491827032893932e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1106958908158049e-08,
+    "dual_residual": 6.439788339243479e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1103427510761321e-08,
+    "dual_residual": 6.413768992418253e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1095115937109767e-08,
+    "dual_residual": 6.348720625355187e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1128499011192616e-08,
+    "dual_residual": 6.413768992418253e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1302534019819177e-08,
+    "dual_residual": 6.543865726544384e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.1689611056908689e-08,
+    "dual_residual": 6.882117235272324e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2130794146969492e-08,
+    "dual_residual": 7.233378417412877e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2406477623017054e-08,
+    "dual_residual": 7.519591232490366e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2507527458183176e-08,
+    "dual_residual": 7.597649272966044e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2518690084561968e-08,
+    "dual_residual": 7.545610579315592e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.248953651611373e-08,
+    "dual_residual": 7.545610579315592e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2437679330901119e-08,
+    "dual_residual": 7.493571885665139e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2365639179279242e-08,
+    "dual_residual": 7.467552538839913e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2288062123388954e-08,
+    "dual_residual": 7.337455804713783e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2238572821843263e-08,
+    "dual_residual": 7.28541711106333e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2238977831202646e-08,
+    "dual_residual": 7.233378417412877e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2274409044721324e-08,
+    "dual_residual": 7.259397764238103e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2324584020007023e-08,
+    "dual_residual": 7.28541711106333e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2375139135656354e-08,
+    "dual_residual": 7.259397764238103e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2420329653650697e-08,
+    "dual_residual": 7.259397764238103e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2455284803536415e-08,
+    "dual_residual": 7.363475151539008e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2477233468644044e-08,
+    "dual_residual": 7.28541711106333e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2485614320212335e-08,
+    "dual_residual": 7.311436457888556e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2478320599029757e-08,
+    "dual_residual": 7.233378417412877e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.247250835945124e-08,
+    "dual_residual": 7.155320376937199e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.252466574896971e-08,
+    "dual_residual": 7.207359070587652e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.2749964639624523e-08,
+    "dual_residual": 7.389494498364234e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3195588621783827e-08,
+    "dual_residual": 7.779784700742628e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3654698705067858e-08,
+    "dual_residual": 8.196094249946246e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3915354202254093e-08,
+    "dual_residual": 8.430268371373282e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4002342396679524e-08,
+    "dual_residual": 8.482307065023734e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4004104542664209e-08,
+    "dual_residual": 8.456287718198507e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3969259526902533e-08,
+    "dual_residual": 8.430268371373282e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3908717733102094e-08,
+    "dual_residual": 8.378229677722829e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3829094314132817e-08,
+    "dual_residual": 8.300171637247151e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3748550742320731e-08,
+    "dual_residual": 8.222113596771473e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3705943047170877e-08,
+    "dual_residual": 8.118036209470567e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3714450020074764e-08,
+    "dual_residual": 8.118036209470567e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3755636629753099e-08,
+    "dual_residual": 8.17007490312102e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3809945187404082e-08,
+    "dual_residual": 8.118036209470567e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3864188019852008e-08,
+    "dual_residual": 8.196094249946246e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.391023829455662e-08,
+    "dual_residual": 8.222113596771473e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3945507859602913e-08,
+    "dual_residual": 8.222113596771473e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3966458212166799e-08,
+    "dual_residual": 8.17007490312102e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3972211831969616e-08,
+    "dual_residual": 8.144055556295793e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.3964120526566148e-08,
+    "dual_residual": 8.144055556295793e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.396121263042005e-08,
+    "dual_residual": 8.065997515820115e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.403700444768674e-08,
+    "dual_residual": 8.118036209470567e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4322505847985667e-08,
+    "dual_residual": 8.352210330897603e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.4827357119884255e-08,
+    "dual_residual": 8.794539226926449e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.529383197862444e-08,
+    "dual_residual": 9.210848776130067e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5536738118271387e-08,
+    "dual_residual": 9.419003550731876e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.560820095392046e-08,
+    "dual_residual": 9.471042244382328e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.560298912295366e-08,
+    "dual_residual": 9.471042244382328e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.556053774720567e-08,
+    "dual_residual": 9.445022897557103e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5492592098098612e-08,
+    "dual_residual": 9.340945510256197e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.540424676704788e-08,
+    "dual_residual": 9.210848776130067e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.532309212848304e-08,
+    "dual_residual": 9.210848776130067e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5286609311715438e-08,
+    "dual_residual": 9.106771388829163e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5301392153332927e-08,
+    "dual_residual": 9.080752042003936e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.535016735942918e-08,
+    "dual_residual": 9.05473269517871e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.540960781198919e-08,
+    "dual_residual": 9.158810082479614e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5465062119801587e-08,
+    "dual_residual": 9.158810082479614e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5515102091967492e-08,
+    "dual_residual": 9.184829429304841e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.555094542027291e-08,
+    "dual_residual": 9.210848776130067e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.557058126877564e-08,
+    "dual_residual": 9.106771388829163e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5573757394804488e-08,
+    "dual_residual": 9.158810082479614e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5562694244408704e-08,
+    "dual_residual": 9.106771388829163e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5566502753472378e-08,
+    "dual_residual": 9.002694001528258e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.5675830411510105e-08,
+    "dual_residual": 9.080752042003936e-08
+  },
+  {
+    "accepted": true,
+    "status": "solved",
+    "primal_residual": 1.602608357131885e-08,
+    "dual_residual": 9.340945510256197e-08
+  }
+]

@@ -1,0 +1,4902 @@
+[
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 13,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 8,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 48,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 46,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 40,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 44,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 32,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 37,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 37,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 47,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 29,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 31,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 34,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 46,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 30,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 31,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 27,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 32,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 37,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 32,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 40,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 27,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 46,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 26,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 44,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 39,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 36,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 37,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 35,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 36,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "iterations": 50,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 35,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 29,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 43,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 41,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 44,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 36,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 27,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 9,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 10,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 13,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 12,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 8,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 2,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": true,
+    "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "iterations": 1,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  },
+  {
+    "accepted": false,
+    "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "iterations": 0,
+    "constraint_residual": 0.0,
+    "gradient": "analytic learned-polynomial sensitivities"
+  }
+]

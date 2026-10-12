@@ -1,0 +1,8 @@
+{
+  "change": "Serial compiled monomial evaluation of unchanged PySINDy coefficients; no refit, grid, search budget, costs, feedback, or model changes",
+  "parity": "kernel_parity.json",
+  "maximum_absolute_parity_error": 5.4e-15,
+  "original_pilot": "source_library_pilot/",
+  "original_cpu_cost_retained": true,
+  "selection_unchanged": true
+}

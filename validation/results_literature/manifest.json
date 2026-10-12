@@ -13,7 +13,7 @@
     8
   ],
   "plan": "validation/LITERATURE_COMPARISON_PLAN.md",
-  "plan_sha256": "60bf073a7731e6d13aea43dd583f2fe227ffb3a9e3492b96eef9a91745e34ea3",
+  "plan_sha256": "1fea3041e15dc9f8aa83f8bfe4d8400953f9c1fb6d542ae327354edb0cde9e2d",
   "cpu_affinity": [
     80,
     81,
@@ -77,9 +77,9 @@
   },
   "implementation_model": "gpt-6.1-sol",
   "sandbox": "workspace-write",
-  "independent_review": "overseer; routing pending",
-  "initial_state": "READY; awaiting host launch",
-  "scientific_jobs_started": 0,
+  "independent_review": "existing overseer only; currently unreachable",
+  "initial_state": "supervised host execution active; usage-interrupted jobs resumable",
+  "scientific_jobs_started": 19,
   "protected_source_hashes": {
     "scripts/run_inverted_pendulum_mc.py": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
     "src/manifold_control.py": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
@@ -97,5 +97,22 @@
     "M\tvalidation/oracle_amendment_proposal.md",
     "M\tvalidation/results_v1/RESULTS.md",
     "M\tvalidation/validation_handoff.md"
-  ]
+  ],
+  "environment_policy": {
+    "supervisor": "/tmp/trajectory-literature-envs/supervisor",
+    "scientific_environments": "dedicated method venvs/conda prefixes under /tmp/trajectory-literature-envs",
+    "external_project_environments": "forbidden, including overseeg",
+    "inherit_system_site_packages": false,
+    "inherit_user_site_packages": false,
+    "reconstruction_records_required": true
+  },
+  "comparison_followup": "validation/results_literature/FOLLOWUP_COMPARISON_MATRIX.md",
+  "parallel_cpu_workers_allowed": true,
+  "current_checkpoint": "EDMD minimum, SINDy pilot, SMC C200 complete; SINDy/PETS matrices and EDMD/Deep Koopman passive jobs active",
+  "review_packets": [
+    "reviews/classical_checkpoint.json",
+    "reviews/smc_C200_checkpoint.json",
+    "reviews/rokdeepc_source_packet.json"
+  ],
+  "last_updated_utc": "2026-10-12T22:14:56.546270+00:00"
 }

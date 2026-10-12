@@ -1,0 +1,31 @@
+{
+  "candidates": [
+    {
+      "latent": 4,
+      "recon_lam": 0.001
+    },
+    {
+      "latent": 4,
+      "recon_lam": 0.01
+    },
+    {
+      "latent": 8,
+      "recon_lam": 0.001
+    },
+    {
+      "latent": 8,
+      "recon_lam": 0.01
+    },
+    {
+      "latent": 16,
+      "recon_lam": 0.001
+    },
+    {
+      "latent": 16,
+      "recon_lam": 0.01
+    }
+  ],
+  "frozen_before_tests": true,
+  "loss_definition": "source reconstruction/prediction/latent consistency + Linf/L2",
+  "state_mean_scale": "training only"
+}

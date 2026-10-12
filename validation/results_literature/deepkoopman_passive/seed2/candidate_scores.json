@@ -1,0 +1,62 @@
+[
+  {
+    "index": 0,
+    "state": "complete",
+    "epochs": 100,
+    "validation_rollout_mse": 0.12298719946012172,
+    "config": {
+      "latent": 4,
+      "recon_lam": 0.001
+    }
+  },
+  {
+    "index": 1,
+    "state": "complete",
+    "epochs": 100,
+    "validation_rollout_mse": 0.05113122720278029,
+    "config": {
+      "latent": 4,
+      "recon_lam": 0.01
+    }
+  },
+  {
+    "index": 2,
+    "state": "complete",
+    "epochs": 100,
+    "validation_rollout_mse": 0.09681778943558894,
+    "config": {
+      "latent": 8,
+      "recon_lam": 0.001
+    }
+  },
+  {
+    "index": 3,
+    "state": "complete",
+    "epochs": 100,
+    "validation_rollout_mse": 0.04264628370935408,
+    "config": {
+      "latent": 8,
+      "recon_lam": 0.01
+    }
+  },
+  {
+    "index": 4,
+    "state": "complete",
+    "epochs": 100,
+    "validation_rollout_mse": 0.041410096201669966,
+    "config": {
+      "latent": 16,
+      "recon_lam": 0.001
+    }
+  },
+  {
+    "index": 5,
+    "state": "complete",
+    "epochs": 100,
+    "validation_rollout_mse": 0.03253742816669019,
+    "config": {
+      "latent": 16,
+      "recon_lam": 0.01
+    }
+  }
+]

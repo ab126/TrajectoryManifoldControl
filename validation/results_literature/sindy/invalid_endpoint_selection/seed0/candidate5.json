@@ -1,0 +1,13 @@
+{
+  "index": 5,
+  "config": {
+    "degree": 2,
+    "trig": true,
+    "threshold": 0.1
+  },
+  "validation_30step_standardized_mse": 0.3406806055483923,
+  "fit_cpu_seconds": 0.16342200000000018,
+  "fit_wall_seconds": 0.1645301803946495,
+  "condition": null,
+  "nonzero_coefficients": 8
+}

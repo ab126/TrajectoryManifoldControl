@@ -1,0 +1,59 @@
+{
+  "identity": {
+    "data_sha256": "24ba2e7060b663071dd664bd7c50ec5f4f005cfb4e99769b7d6318928498c810",
+    "adapter_hashes": {
+      "edmd.py": "8e4944f436cc6b435b7d09f4fa941756f30aaf9663a442e17288d5d73c6fd4d4",
+      "sindy.py": "c5457ffc647b8cf9172149ef3f305af840ab39e63973448de8fc73309127fab5",
+      "run_classical.py": "551486fdacbd3c22c4b4a878ee5677059de0c610081a4c1435e7cd5940174d01",
+      "common.py": "b38561bf9052a0432aab223c6c579e65b08fe900ba7f5343c899607b1989d352",
+      "sindy_kernel.py": "d9e1dd56f860b1f89f6768cbf467c5229898ef76bcd2893845681d66332bfa1c",
+      "run_sindy_compiled.py": "7cf886cf7575dc140d72d67ef3086acd0abb660b697f7aff6926aadb21588c60"
+    },
+    "selected": {
+      "degree": 3,
+      "trig": true,
+      "threshold": 0.1
+    },
+    "case": {
+      "set": "A",
+      "index": 2,
+      "state": [
+        0.0,
+        0.0,
+        -0.2617993877991494,
+        0.0
+      ],
+      "seconds": 60.0
+    },
+    "arm": "CEM+L",
+    "seed": 1
+  },
+  "case": "seed1_CEM+L_A_0002_60s",
+  "seed": 1,
+  "arm": "CEM+L",
+  "set": "A",
+  "seconds": 60.0,
+  "complete": true,
+  "balanced": true,
+  "no_fall": true,
+  "primary_success": true,
+  "cart_rest": true,
+  "nonfinite_state": false,
+  "max_abs_p": 1.2752907562679354,
+  "final_theta": -2.2650370994552185e-05,
+  "max_abs_u": 9.855330241409925,
+  "effort": 35.34346695979797,
+  "input_limit_seconds": 0.0,
+  "local_fraction": 0.979,
+  "switch_toggles": 57,
+  "solver_failures": 0,
+  "solve_count": 63,
+  "solve_latency_quantiles": [
+    0.008361995220184326,
+    0.008502984791994095,
+    0.008701752871274948
+  ],
+  "wall_seconds": 5.5108024738729,
+  "cpu_seconds": 1.9071030000000064,
+  "raw_path": "validation/results_literature/sindy/raw/seed1_CEM+L_A_0002_60s.npz"
+}

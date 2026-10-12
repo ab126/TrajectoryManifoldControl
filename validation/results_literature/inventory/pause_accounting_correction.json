@@ -1,0 +1,21 @@
+{
+  "reason": "GPU checkpoint previously wrote zero before raising usage-pause. Corrected accountant writes CPU/GPU time before checking guard; charge conservative elapsed watchdog intervals for prior PETS checks/fitting. No model/config change.",
+  "pets_gpu_seconds_charged": 82.04753303527832,
+  "identity_updates": [
+    {
+      "path": "validation/results_literature/pets/seed1/identity.json",
+      "old": "06b0e37096f479a67df8cffb729677381146e8fba536c0c9ec3418db8ed1d4cf",
+      "new": "95a0b662b9b30e4510312e58800b88ed0996de3222df0389c8101e33bdb82c34"
+    },
+    {
+      "path": "validation/results_literature/pets/seed2/identity.json",
+      "old": "06b0e37096f479a67df8cffb729677381146e8fba536c0c9ec3418db8ed1d4cf",
+      "new": "95a0b662b9b30e4510312e58800b88ed0996de3222df0389c8101e33bdb82c34"
+    },
+    {
+      "path": "validation/results_literature/pets/seed0/identity.json",
+      "old": "06b0e37096f479a67df8cffb729677381146e8fba536c0c9ec3418db8ed1d4cf",
+      "new": "95a0b662b9b30e4510312e58800b88ed0996de3222df0389c8101e33bdb82c34"
+    }
+  ]
+}

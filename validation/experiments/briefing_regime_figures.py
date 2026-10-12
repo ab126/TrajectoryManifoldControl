@@ -27,8 +27,8 @@ def groups(rows,cohort,arm):
 def save(fig,name):
  for ext in ['png','pdf']:fig.savefig(out/f'{name}.{ext}',bbox_inches='tight')
  plt.close(fig)
-e1=read('E1');arms=['H','L','M','M1','Hstar'];labels=['H: hybrid','L: local linear','M: planner only,\n5-step queue','M1: planner only,\nevery step','H*: H with true\nplant predictor']
-fig,axs=plt.subplots(2,5,figsize=(16,5.7),gridspec_kw={'height_ratios':[4,1]},layout='constrained');stats={}
+e1=read('E1');arms=['H','L'];labels=['H: hybrid','L: fitted linear feedback']
+fig,axs=plt.subplots(2,2,figsize=(8.5,5.7),gridspec_kw={'height_ratios':[4,1]},layout='constrained');stats={}
 for j,(arm,label) in enumerate(zip(arms,labels)):
  g=groups(e1,'D',arm);states=np.array([x[0] for x in g.values()]);v=np.array([x[1] for x in g.values()]);theta=np.rad2deg(states[:,2]);rate=states[:,3]*np.sqrt(9.81)
  xs=np.unique(theta);ys=np.unique(rate);z=np.full((len(ys),len(xs)),np.nan)
@@ -37,9 +37,9 @@ for j,(arm,label) in enumerate(zip(arms,labels)):
  axs[0,j].set(title=label,xlabel=r'Initial angle $\theta_0$ (deg)');axs[0,j].set_xticks([-60,-30,0,30,60])
  if j==0:axs[0,j].set_ylabel(r'Initial angular rate $\dot\theta_0$ (rad/s)')
  b=groups(e1,'B',arm);bs=sorted(b.values(),key=lambda x:x[0][2]);bv=np.array([s for x,s in bs]);bt=np.rad2deg([x[2] for x,s in bs]);axs[1,j].imshow(bv[None,:],extent=[-85.5,85.5,0,1],aspect='auto',cmap=cmap,norm=norm,interpolation='nearest');axs[1,j].set(xlabel='From rest: angle (deg)',yticks=[],xticks=[-80,-40,0,40,80]);
- if j==0:axs[1,j].set_ylabel('B slice')
+ if j==0:axs[1,j].set_ylabel('From rest')
  stats[arm]={'B_any_success_angles_deg':[round(float(x),8) for x in bt[bv>0]],'B_all3_success_angles_deg':[round(float(x),8) for x in bt[bv==1]],'D_successful_cells_of_1681':int(sum(v>0)),'D_successes_of_5043':int(round(sum(v)*3))}
-fig.suptitle('Empirical success frequency at each initial state | 14 s | three whole-run seeds (0, 1, 2)\nD grid and B from-rest slice: initial cart position and cart speed are zero',fontsize=13)
+fig.suptitle('Success frequency at each initial state | 14 s | three fitting/planning seeds\nAngle/rate grid and from-rest slice: initial cart position and speed are zero',fontsize=13)
 cb=fig.colorbar(im,ax=axs.ravel().tolist(),fraction=.018,pad=.015,ticks=[0,1/3,2/3,1]);cb.ax.set_yticklabels(['0/3','1/3','2/3','3/3']);cb.set_label('Successful runs / 3')
 save(fig,'initial_state_regimes')
 e4=read('E4');e6=read('E6_SMC');basearms=['H','L','M1','E5']+[f'DeePC_{k}_{v}' for k in ['state','output'] for v in ['0.001','0.01','0.1']]+['H','L','SMC','SMC_linear'];sources=['E4']*10+['E6']*4;baselabels=['H','L','NN planner (M1)','Ensemble (E5)']+[f'DeePC {k}, {v}' for k in ['state','output'] for v in ['0.001','0.01','0.1']]+['H','L','SMC','SMC zero correction']

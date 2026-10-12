@@ -1,0 +1,13 @@
+{
+  "mean_case_cpu_seconds": {
+    "QP": 0.3729059375000001,
+    "QP+L": 0.3931048125000002
+  },
+  "projected_core_hours": 0.037662195208333346,
+  "remaining_stage_core_hours": 7.994112160277778,
+  "minimum_runs_per_arm": 177,
+  "arms": [
+    "QP",
+    "QP+L"
+  ]
+}

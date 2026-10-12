@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "parallel": false,
+  "refit": false,
+  "results": [
+    {
+      "seed": 0,
+      "maximum_absolute_error": 3.9968028886505635e-15,
+      "source_library_seconds": 0.1421048939228058,
+      "compiled_seconds": 0.0010198447853326797
+    },
+    {
+      "seed": 1,
+      "maximum_absolute_error": 5.329070518200751e-15,
+      "source_library_seconds": 0.1479937955737114,
+      "compiled_seconds": 0.0009736474603414536
+    },
+    {
+      "seed": 2,
+      "maximum_absolute_error": 5.329070518200751e-15,
+      "source_library_seconds": 0.14565496519207954,
+      "compiled_seconds": 0.0009456966072320938
+    }
+  ]
+}

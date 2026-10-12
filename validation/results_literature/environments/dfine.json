@@ -1,0 +1,65 @@
+{
+  "interpreter": "/tmp/trajectory-literature-envs/dfine/bin/python",
+  "prefix": "/tmp/trajectory-literature-envs/dfine",
+  "base_prefix": "/home/ap60/miniconda3/envs/general",
+  "user_site": false,
+  "sys_path": [
+    "/home/ap60/miniconda3/envs/general/lib/python311.zip",
+    "/home/ap60/miniconda3/envs/general/lib/python3.11",
+    "/home/ap60/miniconda3/envs/general/lib/python3.11/lib-dynload",
+    "/tmp/trajectory-literature-envs/dfine/lib/python3.11/site-packages"
+  ],
+  "reconstruction_commands": [
+    [
+      "taskset",
+      "-c",
+      "80-127",
+      "/tmp/trajectory-literature-envs/supervisor/bin/python",
+      "-I",
+      "-m",
+      "venv",
+      "/tmp/trajectory-literature-envs/dfine"
+    ],
+    [
+      "taskset",
+      "-c",
+      "80-127",
+      "/tmp/trajectory-literature-envs/dfine/bin/python",
+      "-I",
+      "-m",
+      "pip",
+      "install",
+      "torch==2.5.1",
+      "--index-url",
+      "https://download.pytorch.org/whl/cu124"
+    ],
+    [
+      "taskset",
+      "-c",
+      "80-127",
+      "/tmp/trajectory-literature-envs/dfine/bin/python",
+      "-I",
+      "-m",
+      "pip",
+      "install",
+      "numpy==2.2.6",
+      "scipy==1.15.3",
+      "scikit-learn==1.6.1",
+      "osqp==1.0.4",
+      "tqdm==4.67.1",
+      "yacs==0.1.8",
+      "matplotlib==3.10.8",
+      "tensorboard==2.20.0"
+    ]
+  ],
+  "lock": "validation/results_literature/environments/dfine.lock",
+  "clear_environment": [
+    "PYTHONHOME",
+    "PYTHONPATH",
+    "CONDA_PREFIX",
+    "CONDA_DEFAULT_ENV",
+    "CONDA_PROMPT_MODIFIER",
+    "CONDA_SHLVL"
+  ],
+  "library_threads": 1
+}

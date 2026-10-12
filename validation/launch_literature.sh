@@ -1,10 +1,28 @@
 #!/usr/bin/env bash
 set -euo pipefail
 VALIDATION_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-PYTHON_BIN="$VALIDATION_DIR/.venv/bin/python"
+BOOTSTRAP_PYTHON="$VALIDATION_DIR/.venv/bin/python"
+SUPERVISOR_ENV="/tmp/trajectory-literature-envs/supervisor"
+PYTHON_BIN="$SUPERVISOR_ENV/bin/python"
 RESULTS_DIR="$VALIDATION_DIR/results_literature"
+# Do not inherit another project's Python packages or active conda environment.
+unset PYTHONHOME PYTHONPATH PYTHONUSERBASE CONDA_PREFIX CONDA_DEFAULT_ENV CONDA_PROMPT_MODIFIER CONDA_SHLVL
+export PYTHONNOUSERSITE=1
+if [[ ! -x "$PYTHON_BIN" ]]; then
+    taskset -c 80-127 "$BOOTSTRAP_PYTHON" -I -m venv --without-pip "$SUPERVISOR_ENV"
+fi
+taskset -c 80-127 "$PYTHON_BIN" -I - "$SUPERVISOR_ENV" <<'PY'
+import pathlib, site, sys
+expected = pathlib.Path(sys.argv[1]).resolve()
+if pathlib.Path(sys.prefix).resolve() != expected or sys.prefix == sys.base_prefix:
+    raise SystemExit('Dedicated literature supervisor venv required.')
+if site.ENABLE_USER_SITE or any('site-packages' in p and not pathlib.Path(p).is_relative_to(expected) for p in sys.path):
+    raise SystemExit('External site-packages detected; refusing mixed environments.')
+PY
+export VIRTUAL_ENV="$SUPERVISOR_ENV"
+export PATH="$SUPERVISOR_ENV/bin:$PATH"
 if [[ "${1:-}" == "--check" ]]; then
-    exec taskset -c 80-127 "$PYTHON_BIN" "$VALIDATION_DIR/literature_supervisor.py" --check
+    exec taskset -c 80-127 "$PYTHON_BIN" -I "$VALIDATION_DIR/literature_supervisor.py" --check
 fi
 if [[ $# -ne 0 ]]; then
     echo 'Usage: bash launch_literature.sh [--check]' >&2
@@ -16,7 +34,7 @@ if [[ ! -w "$HOME/.codex" ]]; then
 fi
 command -v codex >/dev/null
 command -v taskset >/dev/null
-taskset -c 80-127 "$PYTHON_BIN" "$VALIDATION_DIR/literature_supervisor.py" --check
+taskset -c 80-127 "$PYTHON_BIN" -I "$VALIDATION_DIR/literature_supervisor.py" --check
 mkdir -p "$RESULTS_DIR"
 exec 9>"$RESULTS_DIR/.launch.lock"
 flock -n 9 || { echo 'Another literature launch is already in progress.' >&2; exit 2; }
@@ -37,7 +55,7 @@ fi
 printf 'RUNNING\nApproved literature stages1–8; supervisor launch requested on CPUs80–127.\nNext: inventory, isolated setup, EDMD/SINDy implementation and bounded pilots.\n' > "$RESULTS_DIR/STATUS"
 # All model/tools/children inherit this affinity, including detached numerical jobs.
 # workspace-write is explicit; no sandbox/approval bypass is used.
-setsid nohup taskset -c 80-127 "$PYTHON_BIN" "$VALIDATION_DIR/literature_supervisor.py" -- -m gpt-6.1-sol -s workspace-write > "$RESULTS_DIR/launcher.log" 2>&1 < /dev/null 9>&- &
+setsid nohup taskset -c 80-127 "$PYTHON_BIN" -I "$VALIDATION_DIR/literature_supervisor.py" -- -m gpt-6.1-sol -s workspace-write > "$RESULTS_DIR/launcher.log" 2>&1 < /dev/null 9>&- &
 LAUNCHED_PID=$!
 printf '%s\n' "$LAUNCHED_PID" > "$RESULTS_DIR/supervisor.pid"
 echo "Started supervised literature task: PID $LAUNCHED_PID, CPUs80–127, model gpt-6.1-sol, sandbox workspace-write."

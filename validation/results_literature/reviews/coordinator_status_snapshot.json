@@ -1,0 +1,77 @@
+{
+  "observed_at": "2026-10-12T21:32:15.655408+00:00",
+  "kind": "read_only_artifact_inventory_not_numerical_replay",
+  "jobs": {
+    "edmd/JOB_pilot.json": {
+      "state": "complete",
+      "reason": null,
+      "worker_pid": 1331601,
+      "started_at": 1791833663.2545729,
+      "finished_at": 1791833703.0092838
+    },
+    "edmd/JOB_matrix.json": {
+      "state": "running",
+      "reason": null,
+      "worker_pid": 1351619,
+      "started_at": 1791840604.1440098,
+      "finished_at": null
+    },
+    "sindy/JOB_pilot.json": {
+      "state": "running",
+      "reason": null,
+      "worker_pid": 1351622,
+      "started_at": 1791840605.224669,
+      "finished_at": null
+    },
+    "pets/JOB_fit.json": {
+      "state": "complete",
+      "reason": null,
+      "worker_pid": 1351627,
+      "started_at": 1791840606.2458117,
+      "finished_at": 1791840650.9671087
+    },
+    "pets/JOB_checks.json": {
+      "state": "complete",
+      "reason": null,
+      "worker_pid": 1334272,
+      "started_at": 1791833967.5780675,
+      "finished_at": 1791833970.12417
+    }
+  },
+  "ledgers": {
+    "pets/accounting.json": {
+      "cpu_seconds": 66.0468,
+      "wall_seconds": 119.7084469795227,
+      "gpu_seconds": 123.81864042766392
+    },
+    "preparation/accounting.json": {
+      "cpu_seconds": 1.652909,
+      "wall_seconds": 2.1320283580571413,
+      "gpu_seconds": 0.0
+    },
+    "sindy/accounting.json": {
+      "cpu_seconds": 542.164264,
+      "wall_seconds": 575.5006948467344,
+      "gpu_seconds": 0.0
+    },
+    "edmd/accounting.json": {
+      "cpu_seconds": 175.156093,
+      "wall_seconds": 547.9219645056874,
+      "gpu_seconds": 0.0
+    }
+  },
+  "case_counts": {
+    "edmd": 342,
+    "sindy": 16,
+    "pets": 0
+  },
+  "protected_hashes_match": {
+    "scripts/run_inverted_pendulum_mc.py": true,
+    "src/manifold_control.py": true,
+    "src/inverted_pendulum.py": true,
+    "environment.yml": true,
+    "validation/requirements.lock": true,
+    "validation/gpu-requirements.lock": true,
+    "validation/codex_supervisor.py": true
+  }
+}

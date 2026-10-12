@@ -1,0 +1,50 @@
+{
+  "method": "deepkoopman",
+  "watchdog_pid": 1331726,
+  "state": "complete",
+  "commands": [
+    [
+      "taskset",
+      "-c",
+      "80-127",
+      "/tmp/trajectory-literature-envs/supervisor/bin/python",
+      "-I",
+      "-m",
+      "venv",
+      "/tmp/trajectory-literature-envs/deepkoopman"
+    ],
+    [
+      "taskset",
+      "-c",
+      "80-127",
+      "/tmp/trajectory-literature-envs/deepkoopman/bin/python",
+      "-I",
+      "-m",
+      "pip",
+      "install",
+      "torch==2.5.1",
+      "--index-url",
+      "https://download.pytorch.org/whl/cu124"
+    ],
+    [
+      "taskset",
+      "-c",
+      "80-127",
+      "/tmp/trajectory-literature-envs/deepkoopman/bin/python",
+      "-I",
+      "-m",
+      "pip",
+      "install",
+      "numpy==2.2.6",
+      "scipy==1.15.3",
+      "scikit-learn==1.6.1",
+      "osqp==1.0.4",
+      "tqdm==4.67.1",
+      "yacs==0.1.8",
+      "matplotlib==3.10.8",
+      "tensorboard==2.20.0"
+    ]
+  ],
+  "started_at": 1791833776.631553,
+  "finished_at": 1791833836.946465
+}

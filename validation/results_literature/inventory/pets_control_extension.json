@@ -1,0 +1,20 @@
+{
+  "reason": "Add pilot/matrix phases after completed fitting and timing. Fit function, source ensemble, trained weights, data, selection and scaling unchanged.",
+  "identity_updates": [
+    {
+      "path": "validation/results_literature/pets/seed1/identity.json",
+      "old": "fe23940e28ab174a63a9c9f8fbf604fdcf88c03b37b9888cbf806aa00005608a",
+      "new": "cc0ab93d4c2ab7cb796099c70dca9888df385e81a5bd5376bd5cf68cb8aef565"
+    },
+    {
+      "path": "validation/results_literature/pets/seed2/identity.json",
+      "old": "fe23940e28ab174a63a9c9f8fbf604fdcf88c03b37b9888cbf806aa00005608a",
+      "new": "cc0ab93d4c2ab7cb796099c70dca9888df385e81a5bd5376bd5cf68cb8aef565"
+    },
+    {
+      "path": "validation/results_literature/pets/seed0/identity.json",
+      "old": "fe23940e28ab174a63a9c9f8fbf604fdcf88c03b37b9888cbf806aa00005608a",
+      "new": "cc0ab93d4c2ab7cb796099c70dca9888df385e81a5bd5376bd5cf68cb8aef565"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "question": "Does the post-control timestamp adapter preserve causal applied-input alignment and the author quadratic RoKDeePC objective, distinct from ordinary kernel regression MPC?",
+  "sources": {
+    "paper": "https://arxiv.org/html/2206.01866v1",
+    "equations": [
+      29,
+      34,
+      35
+    ],
+    "code": "https://github.com/Linbin-Huang/RoKDeePC",
+    "revision": "157e2389bfeb903405613cabb523c6c13f22cdb0",
+    "files": [
+      "GD_kernel.m",
+      "f_cal.m",
+      "gradient_cal.m",
+      "Load_parameters.m"
+    ]
+  },
+  "implementation": [
+    "validation/experiments/literature/rokdeepc.py",
+    "validation/experiments/literature/run_rokdeepc.py"
+  ],
+  "protocol": {
+    "cohort": "separate E4 3281 \u00d7 32 collection, same seeds/splits as E4 H/L",
+    "retained_windows": 512,
+    "rule": "first train-only columns; starts 1,2 within each episode; no stitching",
+    "context": "u[k-1], measured x[k], candidate u[k:k+30]",
+    "target": "x[k+1:k+31], post-control outputs",
+    "initial_previous_input": 0.0,
+    "initial_state": "actual measured state retained explicitly in cost",
+    "grid": "bandwidth factors .5/1/2 times median-distance scale \u00d7 gamma .02/.2",
+    "fixed_regularization": {
+      "lambda_k_prime": 1000,
+      "lambda_g": 0.005
+    },
+    "cost_scale": 1000,
+    "controller": "Paper equation 35 with bounded generic L-BFGS-B, exact learned-kernel gradients, maxiter=100, per-solve ceiling 2 s. The paper section IV explicitly permits generic nonlinear optimization. Public projected-gradient routine is retained for parity.",
+    "acceptance": "finite input-feasible proposal even at iteration limit; convergence and residuals reported separately"
+  },
+  "proposed_interpretation": "Source quadratic reformulation port, generalized to four measured outputs and matched plant costs; no certified uncertainty radii, global optimum or stability claim. E4 H/L remains a separate cohort.",
+  "review_state": "pending; existing overseer unavailable",
+  "stage": "implemented, numerical checks not launched while four workers are active",
+  "solver_prespecified_before_cases": true
+}

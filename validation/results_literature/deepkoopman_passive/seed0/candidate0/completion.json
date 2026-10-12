@@ -1,0 +1,9 @@
+{
+  "state": "complete",
+  "epochs": 100,
+  "validation_rollout_mse": 0.10905612177040655,
+  "config": {
+    "latent": 4,
+    "recon_lam": 0.001
+  }
+}

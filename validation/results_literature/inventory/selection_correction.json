@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-12T19:33:46.572534+00:00",
+  "invalid_metric": "30-step endpoint only",
+  "prescribed_metric": "mean standardized squared rollout error, steps 1\u201330, four states, train-only scaling",
+  "reason": "Implementation misreading corrected before expansion. Preliminary test forecasts had already been saved; correction is to the approved metric, not outcome-based tuning. Invalid artifacts excluded from scientific conclusions.",
+  "archive": [
+    "edmd/invalid_endpoint_selection",
+    "sindy/invalid_endpoint_selection"
+  ],
+  "approved_grids_unchanged": true
+}

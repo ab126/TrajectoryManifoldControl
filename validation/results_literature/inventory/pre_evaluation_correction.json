@@ -1,0 +1,36 @@
+{
+  "reason": "Before control evaluation, correct 60 s subset to existing authored indices (0,2,5): -60,-15,+60 degrees. Identification, candidate grids, splits and selected models unchanged; no control cases exist.",
+  "time": "2026-10-12T19:32:42.934528+00:00",
+  "identities": [
+    {
+      "path": "validation/results_literature/sindy/seed1/identity.json",
+      "old": "18b0d26d86913d5e9e3b8fdbec2ea83fbc175b49467f0428a02fdebc1c83739f",
+      "new": "e8b5d0449961901e18b5be262f4def4422b2c630bbd68c2a62727c01d7880c8b"
+    },
+    {
+      "path": "validation/results_literature/sindy/seed2/identity.json",
+      "old": "18b0d26d86913d5e9e3b8fdbec2ea83fbc175b49467f0428a02fdebc1c83739f",
+      "new": "e8b5d0449961901e18b5be262f4def4422b2c630bbd68c2a62727c01d7880c8b"
+    },
+    {
+      "path": "validation/results_literature/sindy/seed0/identity.json",
+      "old": "18b0d26d86913d5e9e3b8fdbec2ea83fbc175b49467f0428a02fdebc1c83739f",
+      "new": "e8b5d0449961901e18b5be262f4def4422b2c630bbd68c2a62727c01d7880c8b"
+    },
+    {
+      "path": "validation/results_literature/edmd/seed1/identity.json",
+      "old": "18b0d26d86913d5e9e3b8fdbec2ea83fbc175b49467f0428a02fdebc1c83739f",
+      "new": "e8b5d0449961901e18b5be262f4def4422b2c630bbd68c2a62727c01d7880c8b"
+    },
+    {
+      "path": "validation/results_literature/edmd/seed2/identity.json",
+      "old": "18b0d26d86913d5e9e3b8fdbec2ea83fbc175b49467f0428a02fdebc1c83739f",
+      "new": "e8b5d0449961901e18b5be262f4def4422b2c630bbd68c2a62727c01d7880c8b"
+    },
+    {
+      "path": "validation/results_literature/edmd/seed0/identity.json",
+      "old": "18b0d26d86913d5e9e3b8fdbec2ea83fbc175b49467f0428a02fdebc1c83739f",
+      "new": "e8b5d0449961901e18b5be262f4def4422b2c630bbd68c2a62727c01d7880c8b"
+    }
+  ]
+}

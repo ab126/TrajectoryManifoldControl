@@ -1,0 +1,302 @@
+{
+  "question": "Check source/control wiring, declared SINDy acceleration and exact learned-model gradients, explicit rejection fallbacks and correct limited interpretation before broader claims.",
+  "sources": [
+    "https://github.com/MilanKorda/KoopmanMPC/tree/fde83a1d76adba203178327cf64db62f75b949d6",
+    "https://github.com/dynamicslab/pysindy/tree/c1da1f9e25b008e2f3016f2462ce100d739ea3f9"
+  ],
+  "implementation": "validation/experiments/literature",
+  "results": [
+    {
+      "method": "edmd",
+      "seed": 0,
+      "config": {
+        "trig": false,
+        "ridge": 0.0001
+      },
+      "validation_mse": 0.1575470348272594,
+      "test_mse": 0.16044459960213572
+    },
+    {
+      "method": "edmd",
+      "seed": 1,
+      "config": {
+        "trig": false,
+        "ridge": 0.01
+      },
+      "validation_mse": 0.15654305305087834,
+      "test_mse": 0.14477869848890956
+    },
+    {
+      "method": "edmd",
+      "seed": 2,
+      "config": {
+        "trig": false,
+        "ridge": 0.01
+      },
+      "validation_mse": 0.14527083001408578,
+      "test_mse": 0.15879766194261005
+    },
+    {
+      "method": "sindy",
+      "seed": 0,
+      "config": {
+        "degree": 3,
+        "trig": true,
+        "threshold": 0.1
+      },
+      "validation_mse": 0.06932757142066519,
+      "test_mse": 0.06861588767119828
+    },
+    {
+      "method": "sindy",
+      "seed": 1,
+      "config": {
+        "degree": 3,
+        "trig": true,
+        "threshold": 0.1
+      },
+      "validation_mse": 0.07406357316028124,
+      "test_mse": 0.07103071646161481
+    },
+    {
+      "method": "sindy",
+      "seed": 2,
+      "config": {
+        "degree": 3,
+        "trig": true,
+        "threshold": 0.01
+      },
+      "validation_mse": 0.07109233866032603,
+      "test_mse": 0.07184776549863203
+    }
+  ],
+  "checks": [
+    "validation/results_literature/edmd/checks.json",
+    "validation/results_literature/sindy/checks.json"
+  ],
+  "proposed_interpretation": "Both discrete adapters pass bounded checks. Controller conclusions await pilot/matrix; invalid endpoint-selected artifacts excluded.",
+  "review_state": "pending; existing overseer unreachable; no replacement created",
+  "metric": "mean training-standardized rollout squared error across steps 1\u201330",
+  "protocol_correction": "inventory/selection_correction.json",
+  "edmd_minimum": [
+    {
+      "seed": 0,
+      "arm": "QP",
+      "set": "A",
+      "seconds": 14.0,
+      "n": 6,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 35
+    },
+    {
+      "seed": 0,
+      "arm": "QP",
+      "set": "C",
+      "seconds": 14.0,
+      "n": 50,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 189
+    },
+    {
+      "seed": 0,
+      "arm": "QP",
+      "set": "A",
+      "seconds": 60.0,
+      "n": 3,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 61
+    },
+    {
+      "seed": 0,
+      "arm": "QP+L",
+      "set": "A",
+      "seconds": 14.0,
+      "n": 6,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 35
+    },
+    {
+      "seed": 0,
+      "arm": "QP+L",
+      "set": "C",
+      "seconds": 14.0,
+      "n": 50,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 189
+    },
+    {
+      "seed": 0,
+      "arm": "QP+L",
+      "set": "A",
+      "seconds": 60.0,
+      "n": 3,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 61
+    },
+    {
+      "seed": 1,
+      "arm": "QP",
+      "set": "A",
+      "seconds": 14.0,
+      "n": 6,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 13
+    },
+    {
+      "seed": 1,
+      "arm": "QP",
+      "set": "C",
+      "seconds": 14.0,
+      "n": 50,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 92
+    },
+    {
+      "seed": 1,
+      "arm": "QP",
+      "set": "A",
+      "seconds": 60.0,
+      "n": 3,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 9
+    },
+    {
+      "seed": 1,
+      "arm": "QP+L",
+      "set": "A",
+      "seconds": 14.0,
+      "n": 6,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 13
+    },
+    {
+      "seed": 1,
+      "arm": "QP+L",
+      "set": "C",
+      "seconds": 14.0,
+      "n": 50,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 92
+    },
+    {
+      "seed": 1,
+      "arm": "QP+L",
+      "set": "A",
+      "seconds": 60.0,
+      "n": 3,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 9
+    },
+    {
+      "seed": 2,
+      "arm": "QP",
+      "set": "A",
+      "seconds": 14.0,
+      "n": 6,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 10
+    },
+    {
+      "seed": 2,
+      "arm": "QP",
+      "set": "C",
+      "seconds": 14.0,
+      "n": 50,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 124
+    },
+    {
+      "seed": 2,
+      "arm": "QP",
+      "set": "A",
+      "seconds": 60.0,
+      "n": 3,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 5
+    },
+    {
+      "seed": 2,
+      "arm": "QP+L",
+      "set": "A",
+      "seconds": 14.0,
+      "n": 6,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 10
+    },
+    {
+      "seed": 2,
+      "arm": "QP+L",
+      "set": "C",
+      "seconds": 14.0,
+      "n": 50,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 124
+    },
+    {
+      "seed": 2,
+      "arm": "QP+L",
+      "set": "A",
+      "seconds": 60.0,
+      "n": 3,
+      "successes": 0,
+      "nonfinite_states": 0,
+      "solver_rejections": 5
+    }
+  ],
+  "sindy_pilot": [
+    {
+      "arm": "CEM",
+      "seed": 0,
+      "n": 16,
+      "successes": 0,
+      "solver_rejections": 2387,
+      "states": "six authored + first ten saved random states, 14 s"
+    },
+    {
+      "arm": "CEM+L",
+      "seed": 0,
+      "n": 16,
+      "successes": 6,
+      "solver_rejections": 2387,
+      "states": "six authored + first ten saved random states, 14 s"
+    },
+    {
+      "arm": "NMPC_exact",
+      "seed": 0,
+      "n": 16,
+      "successes": 0,
+      "solver_rejections": 6544,
+      "states": "six authored + first ten saved random states, 14 s"
+    },
+    {
+      "arm": "NMPC_exact+L",
+      "seed": 0,
+      "n": 16,
+      "successes": 1,
+      "solver_rejections": 6256,
+      "states": "six authored + first ten saved random states, 14 s"
+    }
+  ],
+  "sindy_execution_changes": [
+    "serial coefficient evaluator, parity max 5.4e-15",
+    "exact learned-map gradient, finite-difference max error 6.2e-8; same 50 iterations/2 s solve limit"
+  ],
+  "interpretation": "EDMD minimum has 0/59 successes per arm/seed, with recorded QP rejections and finite simulated states. SINDy pilot has no successes in these 16 cases per arm; exact-gradient version is primary, finite-difference pilot is retained as diagnostic. Neither result is a family-wide impossibility or a stability certificate."
+}

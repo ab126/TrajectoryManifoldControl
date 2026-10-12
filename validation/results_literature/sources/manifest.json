@@ -1,0 +1,72 @@
+[
+  {
+    "name": "KoopmanMPC",
+    "url": "https://github.com/MilanKorda/KoopmanMPC",
+    "revision": "fde83a1d76adba203178327cf64db62f75b949d6",
+    "checkout": "/tmp/trajectory-literature-vendor/KoopmanMPC",
+    "license_artifacts": [],
+    "license_status": "No repository-level license found; independent equation-based adapter; do not copy upstream code",
+    "reconstruct": "taskset -c 80-127 git clone https://github.com/MilanKorda/KoopmanMPC.git /tmp/trajectory-literature-vendor/KoopmanMPC; taskset -c 80-127 git -C /tmp/trajectory-literature-vendor/KoopmanMPC checkout fde83a1d76adba203178327cf64db62f75b949d6",
+    "upstream_batch_runners_launched": false
+  },
+  {
+    "name": "pysindy",
+    "url": "https://github.com/dynamicslab/pysindy",
+    "revision": "c1da1f9e25b008e2f3016f2462ce100d739ea3f9",
+    "checkout": "/tmp/trajectory-literature-vendor/pysindy",
+    "license_artifacts": [
+      "validation/results_literature/sources/pysindy_LICENSE"
+    ],
+    "license_status": "recorded",
+    "reconstruct": "taskset -c 80-127 git clone https://github.com/dynamicslab/pysindy.git /tmp/trajectory-literature-vendor/pysindy; taskset -c 80-127 git -C /tmp/trajectory-literature-vendor/pysindy checkout c1da1f9e25b008e2f3016f2462ce100d739ea3f9",
+    "upstream_batch_runners_launched": false
+  },
+  {
+    "name": "handful-of-trials",
+    "url": "https://github.com/kchua/handful-of-trials",
+    "revision": "77fd8802cc30b7683f0227c90527b5414c0df34c",
+    "checkout": "/tmp/trajectory-literature-vendor/handful-of-trials",
+    "license_artifacts": [
+      "validation/results_literature/sources/handful-of-trials_LICENSE"
+    ],
+    "license_status": "recorded",
+    "reconstruct": "taskset -c 80-127 git clone https://github.com/kchua/handful-of-trials.git /tmp/trajectory-literature-vendor/handful-of-trials; taskset -c 80-127 git -C /tmp/trajectory-literature-vendor/handful-of-trials checkout 77fd8802cc30b7683f0227c90527b5414c0df34c",
+    "upstream_batch_runners_launched": false
+  },
+  {
+    "name": "DeepKoopman",
+    "url": "https://github.com/BethanyL/DeepKoopman",
+    "revision": "20a9f2a1e55ebc53ef1b5706c7a3ff8cc91fd879",
+    "checkout": "/tmp/trajectory-literature-vendor/DeepKoopman",
+    "license_artifacts": [
+      "validation/results_literature/sources/DeepKoopman_LICENSE"
+    ],
+    "license_status": "recorded",
+    "reconstruct": "taskset -c 80-127 git clone https://github.com/BethanyL/DeepKoopman.git /tmp/trajectory-literature-vendor/DeepKoopman; taskset -c 80-127 git -C /tmp/trajectory-literature-vendor/DeepKoopman checkout 20a9f2a1e55ebc53ef1b5706c7a3ff8cc91fd879",
+    "upstream_batch_runners_launched": false
+  },
+  {
+    "name": "torchDFINE",
+    "url": "https://github.com/ShanechiLab/torchDFINE",
+    "revision": "37d25e332753eaba49f42e91766d0db8e186aefe",
+    "checkout": "/tmp/trajectory-literature-vendor/torchDFINE",
+    "license_artifacts": [
+      "validation/results_literature/sources/torchDFINE_LICENSE.md"
+    ],
+    "license_status": "recorded",
+    "reconstruct": "taskset -c 80-127 git clone https://github.com/ShanechiLab/torchDFINE.git /tmp/trajectory-literature-vendor/torchDFINE; taskset -c 80-127 git -C /tmp/trajectory-literature-vendor/torchDFINE checkout 37d25e332753eaba49f42e91766d0db8e186aefe",
+    "upstream_batch_runners_launched": false
+  },
+  {
+    "name": "RoKDeePC",
+    "url": "https://github.com/Linbin-Huang/RoKDeePC",
+    "revision": "157e2389bfeb903405613cabb523c6c13f22cdb0",
+    "checkout": "/tmp/trajectory-literature-vendor/RoKDeePC",
+    "license_artifacts": [
+      "validation/results_literature/sources/RoKDeePC_LICENSE"
+    ],
+    "license_status": "recorded",
+    "reconstruct": "taskset -c 80-127 git clone https://github.com/Linbin-Huang/RoKDeePC.git /tmp/trajectory-literature-vendor/RoKDeePC; taskset -c 80-127 git -C /tmp/trajectory-literature-vendor/RoKDeePC checkout 157e2389bfeb903405613cabb523c6c13f22cdb0",
+    "upstream_batch_runners_launched": false
+  }
+]

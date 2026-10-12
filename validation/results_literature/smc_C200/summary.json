@@ -1,0 +1,62 @@
+[
+  {
+    "seed": 0,
+    "n": 200,
+    "successes": 125,
+    "falls": 75,
+    "paired": {
+      "H": {
+        "n": 200,
+        "reference_successes": 48,
+        "reference_only": 1,
+        "smc_only": 78
+      },
+      "L": {
+        "n": 200,
+        "reference_successes": 122,
+        "reference_only": 0,
+        "smc_only": 3
+      }
+    }
+  },
+  {
+    "seed": 1,
+    "n": 200,
+    "successes": 132,
+    "falls": 68,
+    "paired": {
+      "H": {
+        "n": 200,
+        "reference_successes": 31,
+        "reference_only": 0,
+        "smc_only": 101
+      },
+      "L": {
+        "n": 200,
+        "reference_successes": 130,
+        "reference_only": 0,
+        "smc_only": 2
+      }
+    }
+  },
+  {
+    "seed": 2,
+    "n": 200,
+    "successes": 131,
+    "falls": 69,
+    "paired": {
+      "H": {
+        "n": 200,
+        "reference_successes": 78,
+        "reference_only": 1,
+        "smc_only": 54
+      },
+      "L": {
+        "n": 200,
+        "reference_successes": 128,
+        "reference_only": 0,
+        "smc_only": 3
+      }
+    }
+  }
+]

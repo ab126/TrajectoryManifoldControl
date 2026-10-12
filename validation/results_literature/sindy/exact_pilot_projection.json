@@ -1,0 +1,17 @@
+{
+  "mean_case_cpu_seconds": {
+    "CEM": 6.296304624999999,
+    "CEM+L": 4.5931698125,
+    "NMPC_exact": 4.121860625,
+    "NMPC_exact+L": 3.1787746249999973
+  },
+  "projected_core_hours": 1.043765817782738,
+  "remaining_stage_core_hours": 11.490922819722222,
+  "arms": [
+    "CEM",
+    "CEM+L",
+    "NMPC_exact",
+    "NMPC_exact+L"
+  ],
+  "minimum_runs_per_arm": 177
+}

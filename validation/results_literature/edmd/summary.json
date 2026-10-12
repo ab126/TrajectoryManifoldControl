@@ -1,0 +1,182 @@
+[
+  {
+    "seed": 0,
+    "arm": "QP",
+    "set": "A",
+    "seconds": 14.0,
+    "n": 6,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 35
+  },
+  {
+    "seed": 0,
+    "arm": "QP",
+    "set": "C",
+    "seconds": 14.0,
+    "n": 50,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 189
+  },
+  {
+    "seed": 0,
+    "arm": "QP",
+    "set": "A",
+    "seconds": 60.0,
+    "n": 3,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 61
+  },
+  {
+    "seed": 0,
+    "arm": "QP+L",
+    "set": "A",
+    "seconds": 14.0,
+    "n": 6,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 35
+  },
+  {
+    "seed": 0,
+    "arm": "QP+L",
+    "set": "C",
+    "seconds": 14.0,
+    "n": 50,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 189
+  },
+  {
+    "seed": 0,
+    "arm": "QP+L",
+    "set": "A",
+    "seconds": 60.0,
+    "n": 3,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 61
+  },
+  {
+    "seed": 1,
+    "arm": "QP",
+    "set": "A",
+    "seconds": 14.0,
+    "n": 6,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 13
+  },
+  {
+    "seed": 1,
+    "arm": "QP",
+    "set": "C",
+    "seconds": 14.0,
+    "n": 50,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 92
+  },
+  {
+    "seed": 1,
+    "arm": "QP",
+    "set": "A",
+    "seconds": 60.0,
+    "n": 3,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 9
+  },
+  {
+    "seed": 1,
+    "arm": "QP+L",
+    "set": "A",
+    "seconds": 14.0,
+    "n": 6,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 13
+  },
+  {
+    "seed": 1,
+    "arm": "QP+L",
+    "set": "C",
+    "seconds": 14.0,
+    "n": 50,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 92
+  },
+  {
+    "seed": 1,
+    "arm": "QP+L",
+    "set": "A",
+    "seconds": 60.0,
+    "n": 3,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 9
+  },
+  {
+    "seed": 2,
+    "arm": "QP",
+    "set": "A",
+    "seconds": 14.0,
+    "n": 6,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 10
+  },
+  {
+    "seed": 2,
+    "arm": "QP",
+    "set": "C",
+    "seconds": 14.0,
+    "n": 50,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 124
+  },
+  {
+    "seed": 2,
+    "arm": "QP",
+    "set": "A",
+    "seconds": 60.0,
+    "n": 3,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 5
+  },
+  {
+    "seed": 2,
+    "arm": "QP+L",
+    "set": "A",
+    "seconds": 14.0,
+    "n": 6,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 10
+  },
+  {
+    "seed": 2,
+    "arm": "QP+L",
+    "set": "C",
+    "seconds": 14.0,
+    "n": 50,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 124
+  },
+  {
+    "seed": 2,
+    "arm": "QP+L",
+    "set": "A",
+    "seconds": 60.0,
+    "n": 3,
+    "successes": 0,
+    "nonfinite_states": 0,
+    "solver_rejections": 5
+  }
+]

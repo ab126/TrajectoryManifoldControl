@@ -16,7 +16,7 @@ The [collaborator briefing](COLLABORATOR_BRIEF.md) is the short entry point. The
 
 ## Weaknesses in our validation
 
-**Endpoints and sampling.** Early reviewer-added rail/recentering gates were inappropriate to the user's goal and were withdrawn. The current finite-time angle/no-fall endpoint is explicit and supported by tests; it does not establish eventual full-state stability. The [saved 14/60-second witness](E4/long_horizon_prefix_check.json) confirms why that distinction matters. Noise is added to arbitrary state coordinates, including direct angle/position jumps, and scaled using broad collection statistics. [Fluctuation sizes and fall counts](E3/angular_tail_distributions.csv) must accompany strict endpoint failures.
+**Endpoints and sampling.** The finite-time angle/no-fall endpoint is explicit and supported by tests; it does not require cart recentering or establish eventual full-state stability. The [saved 14/60-second witness](E4/long_horizon_prefix_check.json) confirms why that distinction matters. Noise is added to arbitrary state coordinates, including direct angle/position jumps, and scaled using broad collection statistics. [Fluctuation sizes and fall counts](E3/angular_tail_distributions.csv) must accompany strict endpoint failures.
 
 **Statistical scope.** Fixed authored cases and grids are not random population samples. Within-seed matched success counts and seed variation are the clearest evidence. Wilson intervals and paired p values do not establish coverage over an untested operating region; numerous comparisons were made without a campaign-wide multiplicity correction. Nominal SMC differences remain unresolved rather than evidence of equivalence.
 
@@ -26,12 +26,22 @@ The [collaborator briefing](COLLABORATOR_BRIEF.md) is the short entry point. The
 
 **Resource accounting.** The recorded 91,181 seconds (25.33 hours) sum experiment elapsed times. Parallel workers mean this is not aggregate CPU worker-hours, and no comprehensive GPU utilization accounting is supplied. It is below a 40-hour elapsed-time interpretation, but these manifests alone do not certify every interpretation of the handoff's CPU/GPU cap. No cap breach is established by this review. E6 separately records its CPU and wall allowance.
 
-## Documentation corrections and checks
+## Evidence and reproducibility
 
-The validation README now starts with current findings and marks the old navigation as history. The full report links this review and briefing, clarifies statistical/resource scope, and records the replay limitation. Historical plans, logs and the labmate's source were not rewritten. In the preserved annotation set, R05's statement that comparisons “remain needed” applies to its original correspondence check; completed experiments now supply those comparisons. R13's “REPRODUCTION OPEN” category is stale, although its body correctly records reproduction.
+The validation README indexes the current findings and historical experiments. The full report provides statistical/resource scope and replay limitations. The preserved implementation annotations describe an earlier source check: R05 predates completed baseline comparisons, and R13's “REPRODUCTION OPEN” category is stale although its body records reproduction. Use the completed experiment manifests and counts for present empirical status.
 
 This review checked required deliverable presence, completion manifests, source correspondence, selected raw evidence and local links. It launched no scientific jobs. Usage was checked between work chunks using the existing supervisor's read-only `--check`, with unchanged thresholds and credit guard. `STATUS` remains `DONE`; no experiment or detached supervisor was restarted. This monitoring is not a hard per-request token budget, and balance polling is not a provider-side prohibition on credit spending.
 
-## Reader clarification and saved-result figures
+## Operating-region evidence
 
-The revised briefing replaces ambiguous count ranges with explicit seed counts, defines L and both baseline cohorts, and links the specific gain evidence. The [initial-state maps](briefing_figures/initial_state_regimes.png) and [baseline case comparison](briefing_figures/matched_baseline_regimes.png) use saved 14-second cases only. The [caption and reproduction guide](briefing_figures/README.md) explains their three-seed frequencies and limits. The [stability handoff](STABILITY_GUARANTEE_HANDOFF.md) separates a conditional local theorem from the still-unfinished certification of an explicit region. No new controller evaluations were performed.
+The [briefing](COLLABORATOR_BRIEF.md) gives per-seed counts, defines data-fitted L and the two baseline cohorts, and links recorded gain evidence. The [H/L initial-state maps](briefing_figures/initial_state_regimes.png) and [baseline case comparison](briefing_figures/matched_baseline_regimes.png) use saved 14-second cases only. The [caption and reproduction guide](briefing_figures/README.md) explains their three-seed frequencies and limits. The [stability handoff](STABILITY_GUARANTEE_HANDOFF.md) separates a conditional local theorem from the unfinished certification of an explicit region.
+
+L fits measured state/input transitions and does not receive the plant equations
+or its exact linearization. It benefits from noiseless full-state feedback in the
+nominal tests and from strong actuation. DeePC's failure has separate evidence:
+all recorded optimization calls pass acceptance checks, but six saved-plan
+[matched-input replays](E4/deepc_matched_plan_replays.json) produce physically
+invalid forecasts. Linear combinations of nonlinear trajectories can satisfy the
+optimization constraints without satisfying plant dynamics. These diagnostics
+support a model-validity limitation of this baseline, not failure of the entire
+DeePC family or an advantage due to hidden equations in L.

@@ -1,0 +1,10 @@
+{
+  "index": 3,
+  "state": "complete",
+  "epochs": 100,
+  "validation_rollout_mse": 0.036872430716781306,
+  "config": {
+    "latent": 8,
+    "recon_lam": 0.01
+  }
+}

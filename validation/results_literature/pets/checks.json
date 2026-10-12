@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "bounded_logvariance_numpy_max_error": 1.7763568394002505e-15,
+  "particle_member_preserved_30steps": true,
+  "particle_count": 20,
+  "ensemble_members": 5,
+  "source": "handful-of-trials BNN.py:_compile_outputs/_compile_losses; MPC.py:TSinf",
+  "adaptation": "PyTorch port; fixed episode-bootstrap data; normalized increment targets; shared state/input costs; source plant and online data loop excluded"
+}

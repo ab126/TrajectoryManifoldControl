@@ -1,7 +1,14 @@
 {
   "requested_agent": "overseer",
   "requested_model": "gpt-6-astra",
-  "state": "awaiting_user_routing",
+  "state": "coordinator_assigned_shared_file_route_pending_ack",
+  "current_coordinator": "/root in the user interactive session",
+  "current_authorization": "User explicitly assigned coordination and independent review on 2026-10-12; no new reviewer session created",
+  "coordination_packet": "reviews/COORDINATION.md",
+  "review_response": "reviews/coordinator_classical_review.md",
+  "worker_acknowledgement": "reviews/WORKER_ACK.md",
   "initial_message_result": "live agent path /root/overseer not found",
-  "review_policy": "Concise read-only uncertainty and results packets; no broad duplicate audit."
+  "review_policy": "Concise read-only uncertainty and results packets; no broad duplicate audit. Store pending packets until the existing reviewer is reachable.",
+  "user_choice": "Use the existing one; do not create a replacement.",
+  "latest_message_result": "live agent path /root/overseer not found"
 }

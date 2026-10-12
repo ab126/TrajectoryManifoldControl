@@ -1,0 +1,38 @@
+{
+  "revision": "37d25e332753eaba49f42e91766d0db8e186aefe",
+  "files": [
+    {
+      "source": "DFINE.py",
+      "destination": "validation/experiments/literature/vendor/dfine/DFINE.py",
+      "source_sha256": "5e1b1dbbfadd1060813e578c693f3d1813b0cbe5fb8eeaa6a2ee90a82e19e515",
+      "port_sha256": "7349b884797414cfb55e1f2bf0121689d7546f2f46f5e17d67dd4b5fd4319bba",
+      "changes": {
+        "from modules.LDM import LDM": "from .LDM import LDM",
+        "from modules.MLP import MLP": "from .MLP import MLP",
+        "from nn import ": "from .nn import "
+      }
+    },
+    {
+      "source": "modules/LDM.py",
+      "destination": "validation/experiments/literature/vendor/dfine/LDM.py",
+      "source_sha256": "980bf50e886801a75936920dba60482d7e4b958c5fd11ca11cdbea874d12e879",
+      "port_sha256": "980bf50e886801a75936920dba60482d7e4b958c5fd11ca11cdbea874d12e879",
+      "changes": {}
+    },
+    {
+      "source": "modules/MLP.py",
+      "destination": "validation/experiments/literature/vendor/dfine/MLP.py",
+      "source_sha256": "d7fdf3766e76c465fca4f0edb6fcff833ab19a70199574e8e339eac85f7a400c",
+      "port_sha256": "d7fdf3766e76c465fca4f0edb6fcff833ab19a70199574e8e339eac85f7a400c",
+      "changes": {}
+    },
+    {
+      "source": "nn.py",
+      "destination": "validation/experiments/literature/vendor/dfine/nn.py",
+      "source_sha256": "a4ee6e8620e9f3445e0e109f0dbb3f3d096cd8aa7584dd2316904888c4a3b2ef",
+      "port_sha256": "a4ee6e8620e9f3445e0e109f0dbb3f3d096cd8aa7584dd2316904888c4a3b2ef",
+      "changes": {}
+    }
+  ],
+  "changes": "package-relative imports only; no global sys.path modifications; no batch runner imports"
+}

@@ -1,0 +1,17 @@
+{
+  "linear_rollout_max_error": 5.773159728050814e-15,
+  "qp_vs_independent_max_error": 1.6484523222143332e-07,
+  "objective_literal_error": 3.552713678800501e-15,
+  "force_dependence": true,
+  "zero_input": true,
+  "sparse_recovery_max_error": 1.5998580238374416e-10,
+  "sparse_terms": 7,
+  "saved_plant_one_step_max_error": 4.3621929179948893e-07,
+  "data_sha256": "0e825cda7821de4afbe839f5da022b5942c6f8b14dd5208a040f05278cbde119",
+  "passed": true,
+  "accounting": {
+    "cpu_seconds": 0.261972,
+    "wall_seconds": 0.5251493901014328,
+    "gpu_seconds": 0.0
+  }
+}

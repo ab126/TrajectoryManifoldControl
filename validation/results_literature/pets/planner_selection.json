@@ -1,0 +1,7 @@
+{
+  "particles": 20,
+  "population": 256,
+  "iterations": 3,
+  "projected_gpu_hours": 3.0673153651878238,
+  "rule": "largest prespecified particle/population configuration whose timed solves fit minimum matrix"
+}

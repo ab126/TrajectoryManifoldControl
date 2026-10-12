@@ -8,6 +8,12 @@ The completed [campaign](results_v1/RESULTS.md) remains intact. Its [operating h
 
 ## Questions and boundaries
 
+The execution scope also includes **data-driven PID**, fitted from the same
+measured training collections and evaluated on the same controller experiments.
+Its controller structure, tuning restrictions and reserve suballocation are fixed
+in [DATA_DRIVEN_PID_SCOPE.md](results_literature/DATA_DRIVEN_PID_SCOPE.md).
+This adds a comparator without replacing stages 1–8 or increasing total ceilings.
+
 We want to establish whether a nonlinear model with more suitable structure or uncertainty handling improves on **H**, the submitted neural-planning/linear-feedback hybrid, and **L**, its fitted linear feedback used alone. We also want to distinguish prediction quality from control quality, quantify data and computation requirements, and compare noisy/partial-observation modeling. Stages 5–6 reproduce prediction/inference scope; stages 7–8 add our own input-aware control adaptations, clearly distinguished from the original papers.
 
 The old baseline results do not settle these questions. E4 tested a simplified deterministic ensemble and linear DeePC on nonlinear data; it did not implement Koopman, SINDy or DFINE. Three seeds were used on 200 starting states—not 200 seeds. A correct but unsuccessful implementation remains a reported result; success is never a prerequisite for including it.
@@ -124,6 +130,8 @@ For detailed operating regions, evaluate computationally affordable methods on t
 **Stress and data efficiency.** After nominal implementation/evaluation, test the shared one-sample input delay, ±25% parameter mismatches and the smallest existing measurement/process-noise levels on six authored plus fifty random states. Match disturbance arrays and the original training-noise protocol. Report physical noise scales and fluctuation sizes beside strict endpoint counts. Next, within remaining allowance, use nested whole-episode training subsets at three prespecified budgets with a fixed held-out set; report training, validation and total acquired transitions separately. Retrain H/L on those same subsets before making matched data-efficiency claims. Transfer to the existing linear/acrobot plants is an optional expansion, not a prerequisite for measuring cart-pole baselines.
 
 **Statistics and figures.** Give successes/denominator for each seed, paired discordant counts against H and L, and descriptive intervals. Treat grids as fixed tests and three-seed frequencies as descriptive, not calibrated probabilities. Primary comparisons are each new method against L on the fresh 200-state holdout; adjust that family of tests together if claiming statistical significance. Mark smaller diagnostic comparisons exploratory. Produce one initial-angle/angular-rate panel per controller with common axes/colors, per-state comparisons for random cases, and prediction/data/latency plots. Do not interpolate untested outcomes.
+
+**Collaborator comparison matrix.** The introductory operating-region figure contains H and L only. The summary table contains closed-loop controllers; prediction-only stages 5–6 belong in a separate forecast table. Use the prescribed SMC with correction (`SMC`, ρ=0.9, β=0.45φ) as the single SMC entry, chosen by design rather than by which ablation scored best. Keep `SMC_linear` in detailed ablation reporting. Evaluate SMC on all 200 saved E1 random states, in their original order, for seeds 0–2 at 14 seconds. Reuse matched nominal cases only after checking state, model, configuration and endpoint identities, and charge new work to the core reserve. Complete the same 200-state columns for other controller rows where their allocations permit. E4 controllers require their own E4 H/L references on those states; keep that training cohort visibly separate from original-collection results. Untested or cap-limited entries remain missing rather than borrowing 50-state scores or extrapolating success rates. See [the queued specification](results_literature/FOLLOWUP_COMPARISON_MATRIX.md) for acceptance checks.
 
 ## Staging, costs and supervision
 

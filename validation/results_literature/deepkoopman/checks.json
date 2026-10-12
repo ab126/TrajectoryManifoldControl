@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "source_block_numpy_max_error": 2.7755575615628914e-17,
+  "loss_literal_parity": true,
+  "zero_input_reduction": true,
+  "force_dependence": true,
+  "fixed_encoder_input_recovery": true,
+  "source_scope": "frequency-dependent complex blocks, reconstruction/multi-step/latent-consistency/Linf/L2 source terms",
+  "adaptations": "four-state input, dimensions 4/8/16, normalized measured data, forced-only B addition for stage 7"
+}

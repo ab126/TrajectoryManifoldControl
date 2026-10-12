@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-12T19:27:34.598247+00:00",
+  "affinity": [
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "protected": {
+    "scripts/run_inverted_pendulum_mc.py": "b96f4871c282db5118cc7c08dd5f2d3a7d6a78770dbb4fc94d3efd4a05f1d2e4",
+    "src/manifold_control.py": "df3d9680fce60538933fece012082a34a989b3febdc389b52de3ccb2cf5df0e4",
+    "src/inverted_pendulum.py": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+    "environment.yml": "f6958a249d098b662268fac692872ced50adc0268df62ccba7f5b298cbf88b2d",
+    "validation/requirements.lock": "730ae671d0fdba0380d353fdcba2983566a9f8320c0d092a5ec958b31fd5488f",
+    "validation/gpu-requirements.lock": "f87c6f861b12fae621c5a19cca983de50f28fab6acc0fb97bbe7410694853dc1",
+    "validation/codex_supervisor.py": "c134dba7cfe47a38d96f3026f9a1b24143560fd69281a6a87cd8e30757bd08cc"
+  },
+  "artifacts": [
+    {
+      "path": "validation/results_v1/models/episodes3500_seed0/data.npz",
+      "bytes": 1811613,
+      "sha256": "0e825cda7821de4afbe839f5da022b5942c6f8b14dd5208a040f05278cbde119"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed0/transition.pt",
+      "bytes": 310434,
+      "sha256": "c5d1722da39ffd7311bb9518fbc96c4cf615e0800e2fbe28d095604650385d96"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed0/diagnostics.json",
+      "bytes": 6302,
+      "sha256": "41b66a3af0871be9d71794523fea7c413c35a9df80a54fad9c80134438d3f269"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed1/data.npz",
+      "bytes": 1812826,
+      "sha256": "24ba2e7060b663071dd664bd7c50ec5f4f005cfb4e99769b7d6318928498c810"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed1/transition.pt",
+      "bytes": 310434,
+      "sha256": "ccad233d747318ebdb2ef301049f67ada985d02b6e78b941a5808a453aba5bc8"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed1/diagnostics.json",
+      "bytes": 6306,
+      "sha256": "965d5d834fd8a085f4b84523c7c54af9e27618d229089683c2a3139a0756a3da"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed2/data.npz",
+      "bytes": 1811634,
+      "sha256": "70f25773dee01447531d8c49f37b6ab395bd38899362870fa11df967e3245bd4"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed2/transition.pt",
+      "bytes": 310434,
+      "sha256": "08c275afaadc8259343e5a4cd2963f02ddf432582bcc7c91f18a4b6999037f02"
+    },
+    {
+      "path": "validation/results_v1/models/episodes3500_seed2/diagnostics.json",
+      "bytes": 6307,
+      "sha256": "9dde9bc202038e8da60e13d37b28036900c5d0b6e630bbd9a4ac480158625be3"
+    }
+  ],
+  "review": "existing overseer unreachable",
+  "gpu_device_nodes": []
+}

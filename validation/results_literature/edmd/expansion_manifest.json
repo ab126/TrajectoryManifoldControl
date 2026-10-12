@@ -1,0 +1,14 @@
+{
+  "source_sha256": "f76d97a5c971402e387a1912f3e662d2f00cfefad110f01ec5ffc410c1933659",
+  "sets": {
+    "C": {
+      "n": 200,
+      "source": "results_v1/initial_conditions.json:sets.C"
+    },
+    "F": {
+      "n": 200,
+      "source": "inventory/fresh_200_states.json"
+    }
+  },
+  "fitting_and_selection_unchanged": true
+}

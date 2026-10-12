@@ -1,0 +1,75 @@
+{
+  "candidates": [
+    {
+      "degree": 2,
+      "trig": false,
+      "threshold": 0.001
+    },
+    {
+      "degree": 2,
+      "trig": false,
+      "threshold": 0.01
+    },
+    {
+      "degree": 2,
+      "trig": false,
+      "threshold": 0.1
+    },
+    {
+      "degree": 2,
+      "trig": true,
+      "threshold": 0.001
+    },
+    {
+      "degree": 2,
+      "trig": true,
+      "threshold": 0.01
+    },
+    {
+      "degree": 2,
+      "trig": true,
+      "threshold": 0.1
+    },
+    {
+      "degree": 3,
+      "trig": false,
+      "threshold": 0.001
+    },
+    {
+      "degree": 3,
+      "trig": false,
+      "threshold": 0.01
+    },
+    {
+      "degree": 3,
+      "trig": false,
+      "threshold": 0.1
+    },
+    {
+      "degree": 3,
+      "trig": true,
+      "threshold": 0.001
+    },
+    {
+      "degree": 3,
+      "trig": true,
+      "threshold": 0.01
+    },
+    {
+      "degree": 3,
+      "trig": true,
+      "threshold": 0.1
+    }
+  ],
+  "frozen_before_final_tests": true,
+  "sindy_scaling": "RMS feature / increment std, no centering; ridge 1e-6; max STLSQ iterations 20",
+  "solvers": {
+    "qp_max_iterations": 4000,
+    "nmpc_max_iterations": 50,
+    "nmpc_wall_seconds": 2.0,
+    "cem_population": 256,
+    "cem_elite": 32,
+    "cem_iterations": 3
+  },
+  "fallback": "explicit zero input on rejected/nonfinite solve; common L only in declared +L arms"
+}

@@ -1,0 +1,10 @@
+{
+  "reconstruction_standardized_mse": 0.008580736789662572,
+  "standardized_mse_by_horizon": {
+    "1": 0.008384103854570514,
+    "10": 0.023583900217519292,
+    "30": 0.0647441681765292
+  },
+  "rollout_mse": 0.031470255879045804,
+  "configuration_frozen": true
+}

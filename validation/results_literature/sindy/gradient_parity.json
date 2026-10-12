@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "seed": 0,
+      "objective_error": 2.842170943040401e-14,
+      "gradient_max_error": 3.699413486657477e-08
+    },
+    {
+      "seed": 1,
+      "objective_error": 0.0,
+      "gradient_max_error": 3.385834190794412e-08
+    },
+    {
+      "seed": 2,
+      "objective_error": 2.842170943040401e-14,
+      "gradient_max_error": 6.131146079724203e-08
+    }
+  ],
+  "derivatives": "learned coefficient map only; no simulator equations"
+}

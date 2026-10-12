@@ -1,0 +1,25 @@
+{
+  "interpreter": "/tmp/trajectory-literature-envs/edmd/bin/python",
+  "prefix": "/tmp/trajectory-literature-envs/edmd",
+  "base_prefix": "/home/ap60/miniconda3/envs/general",
+  "user_site": false,
+  "sys_path": [
+    "/home/ap60/miniconda3/envs/general/lib/python311.zip",
+    "/home/ap60/miniconda3/envs/general/lib/python3.11",
+    "/home/ap60/miniconda3/envs/general/lib/python3.11/lib-dynload",
+    "/tmp/trajectory-literature-envs/edmd/lib/python3.11/site-packages"
+  ],
+  "reconstruct": [
+    "taskset -c 80-127 /tmp/trajectory-literature-envs/supervisor/bin/python -I -m venv /tmp/trajectory-literature-envs/edmd",
+    "taskset -c 80-127 /tmp/trajectory-literature-envs/edmd/bin/python -I -m pip install -r validation/results_literature/environments/edmd.lock"
+  ],
+  "clear_environment": [
+    "PYTHONHOME",
+    "PYTHONPATH",
+    "CONDA_PREFIX",
+    "CONDA_DEFAULT_ENV",
+    "CONDA_PROMPT_MODIFIER",
+    "CONDA_SHLVL"
+  ],
+  "PYTHONNOUSERSITE": "1"
+}

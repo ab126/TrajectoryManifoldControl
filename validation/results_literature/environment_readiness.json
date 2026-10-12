@@ -1,0 +1,13 @@
+{
+  "supervisor_prefix": "/tmp/trajectory-literature-envs/supervisor",
+  "base_interpreter_prefix": "/home/ap60/miniconda3/envs/general",
+  "user_site_enabled": false,
+  "package_paths": [
+    "/home/ap60/miniconda3/envs/general/lib/python311.zip",
+    "/home/ap60/miniconda3/envs/general/lib/python3.11",
+    "/home/ap60/miniconda3/envs/general/lib/python3.11/lib-dynload",
+    "/tmp/trajectory-literature-envs/supervisor/lib/python3.11/site-packages"
+  ],
+  "original_guard_sha256": "c134dba7cfe47a38d96f3026f9a1b24143560fd69281a6a87cd8e30757bd08cc",
+  "experiment_jobs_started": 0
+}

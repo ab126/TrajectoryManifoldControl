@@ -1,0 +1,15 @@
+{
+  "moment_matched_gaussian_nll_by_state": [
+    -5.9444684982299805,
+    -4.349570274353027,
+    -5.541886329650879,
+    -3.1273701190948486
+  ],
+  "coverage95_by_state": [
+    0.9997460842132568,
+    0.9993650913238525,
+    1.0,
+    0.998984158039093
+  ],
+  "scope": "one-step held-out increments; Gaussian moment approximation to ensemble mixture"
+}

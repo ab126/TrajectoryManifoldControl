@@ -191,7 +191,7 @@ The nearest-6000 fit selects joint angles reaching |q1|=1.07–1.10 rad and |q2|
 
 The reviewed transcription is [trajectory_manifold_implementation.tex](../../../trajectory_manifold_implementation.tex), stored in the parent directory.
 
-**Review complete: no equation/code contradiction found, but the note needs 27 qualifications and clarifications.** The [v3 annotated copy](reviews/implementation_tex_v3/trajectory_manifold_implementation_reviewed_v3.tex) preserves the labmate's text and flags notation overloads, implicit normalized costs, collection details, switch geometry, numerical fallback and evaluation omissions. The [comment ledger](reviews/implementation_tex_v3/annotations.json) records each issue. The selected local-fit neighborhood is substantially broader than the handoff estimate; see the measured E0 diagnostics above.
+**Review complete: no equation/code contradiction found, but the note needs 27 qualifications and clarifications.** The [v3 annotated copy](reviews/implementation_tex_v3/trajectory_manifold_implementation_reviewed_v3.tex) preserves the original text and flags notation overloads, implicit normalized costs, collection details, switch geometry, numerical fallback and evaluation omissions. The [comment ledger](reviews/implementation_tex_v3/annotations.json) records each issue. The selected local-fit neighborhood is substantially broader than the handoff estimate; see the measured E0 diagnostics above.
 
 ## Q3 — Comparison and contribution
 

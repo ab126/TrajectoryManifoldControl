@@ -1,0 +1,56 @@
+{
+  "identity": {
+    "data_sha256": "70f25773dee01447531d8c49f37b6ab395bd38899362870fa11df967e3245bd4",
+    "adapter_hashes": {
+      "edmd.py": "8e4944f436cc6b435b7d09f4fa941756f30aaf9663a442e17288d5d73c6fd4d4",
+      "sindy.py": "c5457ffc647b8cf9172149ef3f305af840ab39e63973448de8fc73309127fab5",
+      "run_classical.py": "551486fdacbd3c22c4b4a878ee5677059de0c610081a4c1435e7cd5940174d01",
+      "common.py": "b38561bf9052a0432aab223c6c579e65b08fe900ba7f5343c899607b1989d352"
+    },
+    "selected": {
+      "trig": false,
+      "ridge": 0.01
+    },
+    "case": {
+      "set": "F",
+      "index": 12,
+      "state": [
+        0.3301240304970108,
+        -0.7006947312272986,
+        -0.000758555171861186,
+        2.282983331933191
+      ],
+      "seconds": 14.0
+    },
+    "arm": "QP",
+    "seed": 2
+  },
+  "case": "seed2_QP_F_0012_14s",
+  "seed": 2,
+  "arm": "QP",
+  "set": "F",
+  "seconds": 14.0,
+  "complete": true,
+  "balanced": false,
+  "no_fall": false,
+  "primary_success": false,
+  "cart_rest": false,
+  "nonfinite_state": false,
+  "max_abs_p": 134.01119066633484,
+  "final_theta": 134.18368845784045,
+  "max_abs_u": 10.0,
+  "effort": 1307.7733674498718,
+  "input_limit_seconds": 12.120000000000001,
+  "local_fraction": 0.0,
+  "switch_toggles": 0,
+  "solver_failures": 1,
+  "solve_count": 700,
+  "solve_latency_quantiles": [
+    0.00020995084196329117,
+    0.0002898779697716236,
+    0.000546921044588089
+  ],
+  "wall_seconds": 1.4527190960943699,
+  "cpu_seconds": 0.4820449999998573,
+  "raw_path": "validation/results_literature/edmd/raw/seed2_QP_F_0012_14s.npz"
+}

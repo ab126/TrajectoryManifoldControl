@@ -1,0 +1,12 @@
+{
+  "index": 2,
+  "config": {
+    "trig": false,
+    "ridge": 0.01
+  },
+  "validation_30step_standardized_mse": 0.4031024192071409,
+  "fit_cpu_seconds": 0.0431919999999999,
+  "fit_wall_seconds": 0.04343556612730026,
+  "condition": 673.5140872374564,
+  "nonzero_coefficients": null
+}

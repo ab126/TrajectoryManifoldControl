@@ -1,0 +1,53 @@
+{
+  "seed": 20261012,
+  "episodes": 1000,
+  "state_samples_per_episode": 100,
+  "control_intervals_per_episode": 99,
+  "split_seed": 20261012,
+  "split_counts": {
+    "train": 700,
+    "validation": 150,
+    "test": 150
+  },
+  "initial_ranges": [
+    {
+      "label": "near",
+      "low": [
+        -0.25,
+        -0.5,
+        -0.3,
+        -0.6
+      ],
+      "high": [
+        0.25,
+        0.5,
+        0.3,
+        0.6
+      ],
+      "episodes": 500
+    },
+    {
+      "label": "broad",
+      "low": [
+        -1.5,
+        -2.5,
+        -1.3,
+        -3.5
+      ],
+      "high": [
+        1.5,
+        2.5,
+        1.3,
+        3.5
+      ],
+      "episodes": 500
+    }
+  ],
+  "force": 0.0,
+  "physical_dt": 0.02,
+  "normalized_dt": 0.06264183905346331,
+  "plant_source_sha256": "c2ce099a7ff020f3e0c75263035f14563e6364dfdeb018339c301be1da2a58d4",
+  "exclusions": "none, including fallen trajectories",
+  "allocation": "Deep Koopman passive stage",
+  "training_windows": "starts 0,30,60; 31 state samples each; extraction only after whole-episode split"
+}
