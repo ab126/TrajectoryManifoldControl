@@ -1,0 +1,20 @@
+test_clipping_and_nonfinite_input_fallback (test_smc_baseline.SlidingNumbers.test_clipping_and_nonfinite_input_fallback) ... ok
+test_cpu_feedback_adapter_has_no_planner_or_LQR_branch (test_smc_baseline.SlidingNumbers.test_cpu_feedback_adapter_has_no_planner_or_LQR_branch) ... ok
+test_delay_adapter_records_inputs_actually_applied_to_plant (test_smc_baseline.SlidingNumbers.test_delay_adapter_records_inputs_actually_applied_to_plant) ... ok
+test_equivalent_map_reaches_surface_and_is_stable (test_smc_baseline.SlidingNumbers.test_equivalent_map_reaches_surface_and_is_stable) ... ok
+test_equivalent_norm_is_no_worse_than_DARE_feedback (test_smc_baseline.SlidingNumbers.test_equivalent_norm_is_no_worse_than_DARE_feedback) ... ok
+test_feedback_pairs_include_linear_correction_control (test_smc_baseline.SlidingNumbers.test_feedback_pairs_include_linear_correction_control) ... ok
+test_fitted_multistate_reaching_matches_scalar_law (test_smc_baseline.SlidingNumbers.test_fitted_multistate_reaching_matches_scalar_law) ... ok
+test_full_state_surface_has_unit_input_gain (test_smc_baseline.SlidingNumbers.test_full_state_surface_has_unit_input_gain) ... ok
+test_hand_computed_inside_and_outside_reaching (test_smc_baseline.SlidingNumbers.test_hand_computed_inside_and_outside_reaching) ... ok
+test_input_variation_uses_applied_not_requested_input (test_smc_baseline.SlidingNumbers.test_input_variation_uses_applied_not_requested_input) ... ok
+test_measurement_adapter_uses_observed_state_and_matched_noise (test_smc_baseline.SlidingNumbers.test_measurement_adapter_uses_observed_state_and_matched_noise) ... ok
+test_noiseless_calibration_has_positive_width_floor (test_smc_baseline.SlidingNumbers.test_noiseless_calibration_has_positive_width_floor) ... ok
+test_scientific_sample_counts_and_pilot_membership (test_smc_baseline.SlidingNumbers.test_scientific_sample_counts_and_pilot_membership) ... ok
+test_validation_calibration_excludes_distant_states (test_smc_baseline.SlidingNumbers.test_validation_calibration_excludes_distant_states) ... ok
+test_zero_correction_is_same_rho_linear_control (test_smc_baseline.SlidingNumbers.test_zero_correction_is_same_rho_linear_control) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 5.248s
+
+OK

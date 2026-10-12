@@ -8,17 +8,21 @@ The primary endpoint is the runner's `balanced` metric (|θ|≤0.02 rad and phys
 
 The fresh authored reproduction gives **6/6 primary successes** (Wilson 95% interval 0.610–1.000), with cart rest in 4/6 rather than the notebook's 3/6. Local feedback supplies 43.1–96.7% of steps and CEM solves range from 6 to 81. Maximum cart excursions span 0.413–7.858 m. These differences from the saved notebook should be retained as reproduction variability, not overwritten. The authored local-fit selection reaches |θ|=1.775 rad (101.7°), with standardized radius 0.809 and inputs spanning the full ±10 limit. Sources: [authored endpoints](E0/authored_cases.csv), [angle/cart/input figure](E0/authored_excursions.png), [model diagnostics](E0/authored_model_diagnostics.json).
 
+The fresh authored run records 216 CEM solves: median 30.2 ms, 95th percentile 31.0 ms, maximum 130.2 ms. All exceed the 20 ms physical sample interval; one exceeds the nominal five-step queue interval of 100 ms. The plant simulator advances a fixed step after the controller returns, so this demonstration does not include computation delay. The measured timing matters for a hardware implementation and for comparing online shooting with direct policy evaluation. Sources: [timing summary](E0/authored_solve_timing.json), [original timings](E0/authored_summary.json), [submitted simulator](../../scripts/run_inverted_pendulum_mc.py).
+
 On IC-A at 14 s, H succeeds in 4–5/6 cases per seed, while L succeeds in 6/6 for every seed. M and M1 each have 0/6 for every seed; H* has 4/6 for every seed. At 60 s, H improves to 4–6/6, L remains 6/6, and H* gives 4–5/6. This supports the local catch's importance; the broader E1 comparisons are below. The true-model failures show that learned-model error is not the only limitation. Sources: [per-seed rates](E0/rates.csv), [paired comparisons](E0/paired_comparisons.csv), [figures](E0/success_rates.png).
 
 M and M1 can approach upright while missing the authored settling limits. In the illustrative seed-0 −15° case, M1's final-three-second maximum angle is 0.0388 rad and maximum physical angular speed is 1.047 rad/s; L gives 0.000275 rad and 0.000102 rad/s. The [terminal-window figure](E0/terminal_behavior.png) and [all 300 seeded 14 s terminal summaries](E0/terminal_behavior.csv) show the distinction between approaching upright and meeting the authored settling limits.
 
 A [feasible-alternative diagnostic](E0/feasible_alternative_diagnostics.json) examines the last saved plans of three illustrative seed-0 misses. It found no lower internal-model cost among the local-law input sequences tried; that does not establish global optimality. Some older E0 arrays lack full planned inputs, so their chosen true-plan costs are left unavailable. E1 saves full plans for matched-input replays. Five [objective, missing-data, interval and matched-selection checks](failure_diagnostic_tests.txt) pass.
 
-A completed E4 long-horizon witness also limits the eventual-stability claim. Seed-1 L from −15° succeeds at 14 seconds but misses the angular endpoint at 60 seconds without falling. Its final θ changes from −0.00115 to −0.0525 rad, final p from −1.63 to −74.64 m, and physical cart speed from −0.136 to −6.20 m/s. The two deterministic trajectories share an identical 14-second prefix. This gain stabilizes its fitted model (radius 0.99588) but destabilizes the true full-state upright Jacobian (radius 1.00166). This is an illustrative case under E4's disclosed 32-step collection, with no added recentering or excursion gate. Sources: [14-second case](E4/cases/seed1_L_A_0002_14s.json), [60-second case](E4/cases/seed1_L_A_0002_60s.json), [prefix check](E4/long_horizon_prefix_check.json), [recorded-gain stability diagnostic](E4/local_stability.csv), [figure](E4/local_stability.png), [independent Jacobian checks](E4/local_stability_checks.json). Full E4 comparisons remain in progress.
+A completed E4 long-horizon witness also limits the eventual-stability claim. Seed-1 L from −15° succeeds at 14 seconds but misses the angular endpoint at 60 seconds without falling. Its final θ changes from −0.00115 to −0.0525 rad, final p from −1.63 to −74.64 m, and physical cart speed from −0.136 to −6.20 m/s. The two deterministic trajectories share an identical 14-second prefix. This gain stabilizes its fitted model (radius 0.99588) but destabilizes the true full-state upright Jacobian (radius 1.00166). This is an illustrative case under E4's disclosed 32-step collection, with no added recentering or excursion gate. Sources: [14-second case](E4/cases/seed1_L_A_0002_14s.json), [60-second case](E4/cases/seed1_L_A_0002_60s.json), [prefix check](E4/long_horizon_prefix_check.json), [recorded-gain stability diagnostic](E4/local_stability.csv), [figure](E4/local_stability.png), [independent Jacobian checks](E4/local_stability_checks.json). The completed E4 comparison is reported under Q3.
+
+A post hoc horizon check scores saved 20-second prefixes only for H/H* runs that missed the 14-second angular endpoint without falling: H adds 2 successes among 11 selected cases and H* adds 0 among 20. This selected diagnostic does not change the authored horizon or estimate a new population success rate. Sources: [selection](E0/horizon_followup.json), [prefix endpoints](E0/horizon_limited_20s.csv).
 
 ## Q1.1 — Failure region, data needs, novel systems
 
-**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection changes alter capture counts. The tested measurement/process noise and one-sample delay give no primary successes, while ±25% mass/length mismatch preserves L's six authored catches. On the additional LTI, L and the known-model LQR catch all tested ICs, while H gives 30–31/50 random-box successes. The acrobot configuration gives no successes and every run falls, including its 60-second subset.**
+**E1 and the nominal E2 data sweep are complete. At 3,500 and 10,000 episodes, local feedback alone (L) is stronger than H on the tested sets. Success first appears at 1,000 episodes and remains seed-dependent; additional data improves predictions without consistently improving control. Collection changes alter capture counts. For H and L, the tested measurement/process noise and one-sample delay give no primary successes, while ±25% mass/length mismatch preserves L's six authored catches. On the additional LTI, L and the known-model LQR catch all tested ICs, while H gives 30–31/50 random-box successes. The acrobot configuration gives no successes and every run falls, including its 60-second subset.**
 
 The table gives the range of primary success counts across seeds 0–2, with each seed kept separate in the [rates and Wilson intervals](E1/rates.csv). These are tested ICs, not continuous-domain guarantees.
 
@@ -180,187 +184,6 @@ A post hoc local diagnostic finds a substantial model/gain mismatch. The three f
 
 The nearest-6000 fit selects joint angles reaching |q1|=1.07–1.10 rad and |q2|=1.22–1.25 rad. Held-out final 30-step NN errors across seeds are q1: 0.132–0.171, relative q2: 0.310–0.454, normalized rate 1: 0.398–0.469 and normalized relative rate 2: 0.908–1.479. Sources: [per-model errors](E3_acrobot/model_diagnostics.csv), [seed-0 neighborhood and fit](E3_acrobot/models/seed0/diagnostics.json). The [descriptive distributions](E3_acrobot/distributions.csv) and [figure](E3_acrobot/descriptive_comparison.png) retain failed-run excursions and saturation rather than adding acceptance thresholds. All 531 cases completed in 0.40 wall hours, including diagnostics ([manifest](E3_acrobot/manifest.json)). Together with the successful LTI local law, this limits the demonstrated transfer: this campaign supports one additional linear system and records failure on its harder nonlinear test.
 
-<!-- E2_AUTO_START -->
-
-### E2 completed measurements
-
-Sources: [per-seed counts and Wilson intervals](E2/rates.csv), [matched comparisons](E2/paired_comparisons.csv), [case metrics](E2/summary.csv), [figure](E2/success_rates.png), [manifest](E2/manifest.json). Raw-array paths are recorded in the case metrics.
-
-Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
-
-| Episodes | IC condition | Seconds | Arm | Success-count range / n |
-|---|---|---|---|---|
-| 100 | A | 14.0 | H | 0/6 |
-| 100 | A | 14.0 | L | 0/6 |
-| 100 | A | 14.0 | M1 | 0/6 |
-| 100 | C50 | 14.0 | H | 0/50 |
-| 100 | C50 | 14.0 | L | 0/50 |
-| 100 | C50 | 14.0 | M1 | 0/50 |
-| 1000 | A | 14.0 | H | 0–4/6 |
-| 1000 | A | 14.0 | L | 0–6/6 |
-| 1000 | A | 14.0 | M1 | 0/6 |
-| 1000 | C50 | 14.0 | H | 0–16/50 |
-| 1000 | C50 | 14.0 | L | 0–37/50 |
-| 1000 | C50 | 14.0 | M1 | 0/50 |
-| 10000 | A | 14.0 | H | 4–5/6 |
-| 10000 | A | 14.0 | L | 6/6 |
-| 10000 | A | 14.0 | M1 | 0/6 |
-| 10000 | C50 | 14.0 | H | 5–20/50 |
-| 10000 | C50 | 14.0 | L | 29–34/50 |
-| 10000 | C50 | 14.0 | M1 | 0/50 |
-| 35 | A | 14.0 | H | 0/6 |
-| 35 | A | 14.0 | L | 0/6 |
-| 35 | A | 14.0 | M1 | 0/6 |
-| 35 | C50 | 14.0 | H | 0/50 |
-| 35 | C50 | 14.0 | L | 0/50 |
-| 35 | C50 | 14.0 | M1 | 0/50 |
-| 350 | A | 14.0 | H | 0/6 |
-| 350 | A | 14.0 | L | 0/6 |
-| 350 | A | 14.0 | M1 | 0/6 |
-| 350 | C50 | 14.0 | H | 0/50 |
-| 350 | C50 | 14.0 | L | 0/50 |
-| 350 | C50 | 14.0 | M1 | 0/50 |
-| 3500 | A | 14.0 | H | 4–5/6 |
-| 3500 | A | 14.0 | L | 6/6 |
-| 3500 | A | 14.0 | M1 | 0/6 |
-| 3500 | C50 | 14.0 | H | 6–19/50 |
-| 3500 | C50 | 14.0 | L | 30–36/50 |
-| 3500 | C50 | 14.0 | M1 | 0/50 |
-
-<!-- E2_AUTO_END -->
-
-
-<!-- E2_distribution_AUTO_START -->
-
-### E2_distribution completed measurements
-
-Sources: [per-seed counts and Wilson intervals](E2_distribution/rates.csv), [matched comparisons](E2_distribution/paired_comparisons.csv), [case metrics](E2_distribution/summary.csv), [figure](E2_distribution/success_rates.png), [manifest](E2_distribution/manifest.json). Raw-array paths are recorded in the case metrics.
-
-Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
-
-| Episodes | IC condition | Seconds | Arm | Success-count range / n |
-|---|---|---|---|---|
-| 3500 | half_box_A | 14.0 | H | 4–5/6 |
-| 3500 | half_box_A | 14.0 | L | 6/6 |
-| 3500 | half_box_A | 14.0 | M1 | 0/6 |
-| 3500 | half_box_C50 | 14.0 | H | 16–22/50 |
-| 3500 | half_box_C50 | 14.0 | L | 28–33/50 |
-| 3500 | half_box_C50 | 14.0 | M1 | 0/50 |
-| 3500 | uniform_only_A | 14.0 | H | 3–5/6 |
-| 3500 | uniform_only_A | 14.0 | L | 6/6 |
-| 3500 | uniform_only_A | 14.0 | M1 | 0/6 |
-| 3500 | uniform_only_C50 | 14.0 | H | 5–20/50 |
-| 3500 | uniform_only_C50 | 14.0 | L | 29–35/50 |
-| 3500 | uniform_only_C50 | 14.0 | M1 | 0/50 |
-
-<!-- E2_distribution_AUTO_END -->
-
-
-<!-- E3_AUTO_START -->
-
-### E3 completed measurements
-
-Sources: [per-seed counts and Wilson intervals](E3/rates.csv), [matched comparisons](E3/paired_comparisons.csv), [case metrics](E3/summary.csv), [figure](E3/success_rates.png), [manifest](E3/manifest.json). Raw-array paths are recorded in the case metrics.
-
-Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
-
-| Episodes | IC condition | Seconds | Arm | Success-count range / n |
-|---|---|---|---|---|
-| 3500 | input_delay_A | 14.0 | H | 0/6 |
-| 3500 | input_delay_A | 14.0 | L | 0/6 |
-| 3500 | input_delay_C50 | 14.0 | H | 0/50 |
-| 3500 | input_delay_C50 | 14.0 | L | 0/50 |
-| 3500 | length_minus25_A | 14.0 | H | 4–5/6 |
-| 3500 | length_minus25_A | 14.0 | L | 6/6 |
-| 3500 | length_minus25_C50 | 14.0 | H | 7–18/50 |
-| 3500 | length_minus25_C50 | 14.0 | L | 38/50 |
-| 3500 | length_plus25_A | 14.0 | H | 4/6 |
-| 3500 | length_plus25_A | 14.0 | L | 6/6 |
-| 3500 | length_plus25_C50 | 14.0 | H | 5–14/50 |
-| 3500 | length_plus25_C50 | 14.0 | L | 26–29/50 |
-| 3500 | mass_minus25_A | 14.0 | H | 4–5/6 |
-| 3500 | mass_minus25_A | 14.0 | L | 6/6 |
-| 3500 | mass_minus25_C50 | 14.0 | H | 6–20/50 |
-| 3500 | mass_minus25_C50 | 14.0 | L | 38/50 |
-| 3500 | mass_plus25_A | 14.0 | H | 4/6 |
-| 3500 | mass_plus25_A | 14.0 | L | 6/6 |
-| 3500 | mass_plus25_C50 | 14.0 | H | 6–19/50 |
-| 3500 | mass_plus25_C50 | 14.0 | L | 29–32/50 |
-| 3500 | measurement_0.01_A | 14.0 | H | 0/6 |
-| 3500 | measurement_0.01_A | 14.0 | L | 0/6 |
-| 3500 | measurement_0.01_C50 | 14.0 | H | 0/50 |
-| 3500 | measurement_0.01_C50 | 14.0 | L | 0/50 |
-| 3500 | measurement_0.03_A | 14.0 | H | 0/6 |
-| 3500 | measurement_0.03_A | 14.0 | L | 0/6 |
-| 3500 | measurement_0.03_C50 | 14.0 | H | 0/50 |
-| 3500 | measurement_0.03_C50 | 14.0 | L | 0/50 |
-| 3500 | measurement_0.1_A | 14.0 | H | 0/6 |
-| 3500 | measurement_0.1_A | 14.0 | L | 0/6 |
-| 3500 | measurement_0.1_C50 | 14.0 | H | 0/50 |
-| 3500 | measurement_0.1_C50 | 14.0 | L | 0/50 |
-| 3500 | process_0.01_A | 14.0 | H | 0/6 |
-| 3500 | process_0.01_A | 14.0 | L | 0/6 |
-| 3500 | process_0.01_C50 | 14.0 | H | 0/50 |
-| 3500 | process_0.01_C50 | 14.0 | L | 0/50 |
-| 3500 | process_0.03_A | 14.0 | H | 0/6 |
-| 3500 | process_0.03_A | 14.0 | L | 0/6 |
-| 3500 | process_0.03_C50 | 14.0 | H | 0/50 |
-| 3500 | process_0.03_C50 | 14.0 | L | 0/50 |
-| 3500 | process_0.1_A | 14.0 | H | 0/6 |
-| 3500 | process_0.1_A | 14.0 | L | 0/6 |
-| 3500 | process_0.1_C50 | 14.0 | H | 0/50 |
-| 3500 | process_0.1_C50 | 14.0 | L | 0/50 |
-
-<!-- E3_AUTO_END -->
-
-
-<!-- E3_linear_AUTO_START -->
-
-### E3_linear completed measurements
-
-Sources: [per-seed counts and Wilson intervals](E3_linear/rates.csv), [matched comparisons](E3_linear/paired_comparisons.csv), [case metrics](E3_linear/summary.csv), [figure](E3_linear/success_rates.png), [manifest](E3_linear/manifest.json). Raw-array paths are recorded in the case metrics.
-
-Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
-
-| Episodes | IC condition | Seconds | Arm | Success-count range / n |
-|---|---|---|---|---|
-| 3500 | A | 14.0 | H | 6/6 |
-| 3500 | A | 14.0 | L | 6/6 |
-| 3500 | A | 14.0 | LQR | 6/6 |
-| 3500 | A | 14.0 | M1 | 0/6 |
-| 3500 | A | 60.0 | H | 3/3 |
-| 3500 | A | 60.0 | L | 3/3 |
-| 3500 | A | 60.0 | LQR | 3/3 |
-| 3500 | A | 60.0 | M1 | 0/3 |
-| 3500 | C50 | 14.0 | H | 30–31/50 |
-| 3500 | C50 | 14.0 | L | 50/50 |
-| 3500 | C50 | 14.0 | LQR | 50/50 |
-| 3500 | C50 | 14.0 | M1 | 0/50 |
-
-<!-- E3_linear_AUTO_END -->
-
-
-<!-- E3_acrobot_AUTO_START -->
-
-### E3_acrobot completed measurements
-
-Sources: [per-seed counts and Wilson intervals](E3_acrobot/rates.csv), [matched comparisons](E3_acrobot/paired_comparisons.csv), [case metrics](E3_acrobot/summary.csv), [figure](E3_acrobot/success_rates.png), [manifest](E3_acrobot/manifest.json). Raw-array paths are recorded in the case metrics.
-
-Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
-
-| Episodes | IC condition | Seconds | Arm | Success-count range / n |
-|---|---|---|---|---|
-| 3500 | A | 14.0 | H | 0/6 |
-| 3500 | A | 14.0 | L | 0/6 |
-| 3500 | A | 14.0 | M1 | 0/6 |
-| 3500 | A | 60.0 | H | 0/3 |
-| 3500 | A | 60.0 | L | 0/3 |
-| 3500 | A | 60.0 | M1 | 0/3 |
-| 3500 | C50 | 14.0 | H | 0/50 |
-| 3500 | C50 | 14.0 | L | 0/50 |
-| 3500 | C50 | 14.0 | M1 | 0/50 |
-
-<!-- E3_acrobot_AUTO_END -->
 
 ## Q2 — Errors in the implementation note
 
@@ -370,7 +193,7 @@ The reviewed transcription is [trajectory_manifold_implementation.tex](../../../
 
 ## Q3 — Comparison and contribution
 
-**H is a full-state learned-dynamics shooting controller. E0–E1 favor its local-feedback ablation over H; matched ensemble, DeePC and SMC comparisons remain unresolved pending E4 and E6.** It combines one-step transition regression, CEM planning, five-step queues and a ridge/DARE local catch. E0–E1 support the catch's importance on the authored and broader tested sets. The graph theorem supplies explicit trajectory coordinates but does not constrain prediction error or guarantee closed-loop success; see the [proof audit](reviews/paper_review_v1/proof_audit.md).
+**H is a full-state learned-dynamics shooting controller with an identified-feedback catch. The catch supplies the strongest empirical evidence; the full-state graph theorem establishes neither prediction accuracy nor control stability.** It combines one-step transition regression, CEM planning, five-step queues and a ridge/DARE local catch. E0–E1 support the catch's importance on the authored and broader tested sets. The graph theorem supplies explicit trajectory coordinates but does not constrain prediction error or guarantee closed-loop success; see the [proof audit](reviews/paper_review_v1/proof_audit.md).
 
 | Comparison | What differs from H | What this campaign can establish |
 |---|---|---|
@@ -380,65 +203,69 @@ The reviewed transcription is [trajectory_manifold_implementation.tex](../../../
 | Baek deep RL | Model-free SAC, symmetry augmentation, triple pendulum and hardware demonstrations. | Qualitative budget/task comparison; its 0.8–2 million steps cannot establish a matched sample-efficiency advantage for H. |
 | Same-data SMC | Designed scalar sliding variable and a sampled boundary-layer reaching law, using the saved local fit. | E6 compares SMC with its zero-correction control, L and H; nonlinear-plant robustness remains empirical. |
 
-The [verified primary-source matrix](reviews/paper_review_v1/literature_matrix.csv) supports these distinctions. Nagabandi neural shooting MPC and single-model variants of PETS are the closest algorithmic antecedents. H's training and online controller do not use plant equations. Its limitations include full-state measurement, deterministic one-step learning, no uncertainty estimate, open-loop queues, a hard switch and no stability guarantee. So far, the identified local law supplies the strongest control-performance evidence. Completed E2–E3 quantify data dependence, noise/delay sensitivity and limited transfer. Matched baseline comparisons remain pending E4 and E6.
+The [verified primary-source matrix](reviews/paper_review_v1/literature_matrix.csv) supports these distinctions. Nagabandi neural shooting MPC and single-model variants of PETS are the closest algorithmic antecedents. H's training and online controller do not use plant equations. Its limitations include full-state measurement, deterministic one-step learning, no uncertainty estimate, open-loop queues, a hard switch and no stability guarantee. So far, the identified local law supplies the strongest control-performance evidence. Completed E2–E3 quantify data dependence, noise/delay sensitivity and limited transfer. E4 and E6 complete the matched baseline comparisons below.
+
+### Matched NN-MPC, ensemble and DeePC comparison
+
+E4 uses one shared new collection for every arm: 3281 × 32 steps, or 104992 transitions, with 73504 fitted transitions. The longer collection permits two observed past samples plus thirty future inputs without joining episodes; H keeps its submitted N=30 control/training algorithm. This is a different collection from E0/E1/E2's 3500 × 30, so E4 is assessed within its own cohort. Costs, input limit and primary endpoint are shared. Output-only DeePC receives (p, θ), starts with two actual zero-input samples and uses forward differences for velocity costs; that disclosed cost/initialization difference remains in the comparison. Three prespecified coefficient penalties, 0.001, 0.01 and 0.1 per column, are all reported. Sources: [protocol](E4/manifest.json), [code](../experiments/e4_deepc.py).
+
+| Seed | IC-A H | IC-A L | IC-C50 H | IC-C50 L |
+|---|---|---|---|---|
+| 0 | 6/6 | 6/6 | 21/50 | 35/50 |
+| 1 | 2/6 | 6/6 | 4/50 | 36/50 |
+| 2 | 6/6 | 6/6 | 33/50 | 33/50 |
+
+M1 and the five-member mean-cost ensemble E5 score 0/6 and 0/50 in every seed. Both also score 0/3 on every 60-second authored subset. E5 is PETS-lite: deterministic episode-bootstrap models, mean member costs, one-step feedback and no local catch; it lacks full PETS's aleatoric variance and particle propagation. All six state/output DeePC settings have zero successes and every run falls, including their long subsets. This evaluates the specified regularized linear-span baseline on nonlinear data, with the nonlinear limitation stated in the manifest. It does not establish a result for every nonlinear DeePC construction. Sources: [all per-seed counts and Wilson intervals](E4/rates.csv), [case metrics](E4/summary.csv), [success figure](E4/matched_success_rates.png).
+
+On IC-C50, L adds 14 and 32 catches beyond H in seeds 0 and 1, with no H-only catches (exact paired p=0.000122 and 4.66×10⁻¹⁰). Seed 2 has two catches unique to each arm, p=1. H therefore has no success-count advantage in this cohort, although it sometimes catches an individual IC that L misses. At 60 seconds H and L each score 3/3, 0/3 and 3/3 across seeds. The seed-1 local-law miss and fitted/true stability mismatch are detailed under Q1. Sources: [paired comparisons](E4/paired_comparisons.csv), [cart excursion, settling, final position and input distributions](E4/distributions.csv).
+
+An E4 diagnostic examines six saved first plans from seed 0, −15°, covering every full-state/output-only regularizer. Each predicts a final angle within 0.00063 rad of zero after 0.6 seconds. True-plant replay on the **same saved input sequence** ends at −1.58 to −1.74 rad and crosses the fall boundary in every case. Initial observations and applied first inputs match the saved data; independent first-step replays have zero residual. These six closed-loop cases record no QP failures. This is an illustrative saved-case diagnostic, not a population result or a claim about every DeePC variant. Sources: [matched-input figure](E4/deepc_matched_plan_replays.png), [numbers and wiring checks](E4/deepc_matched_plan_replays.json), [replay code](../experiments/deepc_rollout_diagnostics.py).
+
+The retained nonlinear-data bases have full row rank in all three seeds: 154/154 for full state and 98/98 for output only, at the stated 1e−8 relative cutoff. The trajectories are stored in float32. For comparison, a noise-free fully observed four-state LTI rollout with thirty scalar inputs has linear behavior dimension 34. A nonlinear graph can have that intrinsic dimension while its linear span fills a much larger ambient space. Regularization supplies a coefficient prior here; it does not require the predicted sequence to satisfy the nonlinear plant. This helps explain the model-validity issue in the six replays and the relevance of learning a nonlinear rollout map. It does not establish new algorithmic novelty beyond existing learned-dynamics MPC. Sources: [basis dimensions and retained singular values](E4/models/seed0/state_basis.json), [all three basis dimensions](E4/deepc_matched_plan_replays.json), [Part I proof audit](reviews/paper_review_v1/proof_audit.md). The comparison retains all six DeePC settings.
+
+All 866538 DeePC calls pass the recorded acceptance checks, with zero QP fallbacks; the largest initial-condition residual is 1.90×10⁻⁸. The six matched-input replays show a model-validity failure despite feasible QPs. Six [hand-computed DeePC checks](deepc_tests.txt), two [recorded-data wiring checks](deepc_data_wiring_tests.txt) and three [ensemble checks](ensemble_tests.txt) pass. E4 completed all 1770 cases in 2.02 wall hours ([manifest](E4/manifest.json)).
+
+### Same-data sliding feedback and zero-correction comparison
 
 Classical SMC designs desired motion on a state/error surface and a law that attracts and maintains that motion. Its ideal rejection result concerns uncertainty entering through the control channel; smoothing changes exact invariance to practical accuracy. H's quadratic ellipsoid selects the CEM or LQR branch, and its [source](../../scripts/run_inverted_pendulum_mc.py) supplies no sliding-variable reaching law. Mode switching alone does not establish a sliding-mode design. Source: [Spurgeon's tutorial](https://kar.kent.ac.uk/41730/1/sliding_mode.pdf).
 
-A relevant planning/feedback connection is [Dynamic Tube MPC](https://arxiv.org/abs/1907.06553), which combines nominal trajectory optimization with boundary-layer feedback and an uncertainty-dependent tube. H's origin-centered catch does not implement that construction. The approved [E6 specification](smc_research.md) instead tests one same-data discrete feedback design. Its boundary width comes from validation residuals, not a certified uncertainty bound; its fitted linear-model guarantee does not extend automatically to the nonlinear plant, clipping, measurement noise or delay. Comparing with the zero-correction control separates the added nonlinear correction from the different underlying feedback gain. Fifteen [scientific wiring and numerical checks](E6_SMC/smc_tests.txt) passed during preparation; empirical outcomes remain unresolved until E6 runs after E4.
+A relevant planning/feedback connection is [Dynamic Tube MPC](https://arxiv.org/abs/1907.06553), which combines nominal trajectory optimization with boundary-layer feedback and an uncertainty-dependent tube. H's origin-centered catch does not implement that construction. The approved [E6 specification](smc_research.md) instead tests one same-data discrete feedback design. Its boundary width comes from validation residuals, not a certified uncertainty bound; its fitted linear-model guarantee does not extend automatically to the nonlinear plant, clipping, measurement noise or delay. Comparing with the zero-correction control separates the added nonlinear correction from the different underlying feedback gain. Fifteen [scientific wiring and numerical checks](E6_SMC/smc_tests.txt) passed during preparation; the completed empirical comparison follows.
 
-An interim E4 diagnostic examines six already completed first plans from seed 0, −15°, covering every full-state/output-only regularizer. Each predicts a final angle within 0.00063 rad of zero after 0.6 seconds. True-plant replay on the **same saved input sequence** ends at −1.58 to −1.74 rad and crosses the fall boundary in every case. Initial observations and applied first inputs match the saved data; independent first-step replays have zero residual. These six closed-loop cases record no QP failures. This is an illustrative saved-case diagnostic, not a population result or a claim about every DeePC variant. Sources: [matched-input figure](E4/deepc_matched_plan_replays.png), [numbers and wiring checks](E4/deepc_matched_plan_replays.json), [replay code](../experiments/deepc_rollout_diagnostics.py).
+E6 reuses the original 3500 × 30 nominal/process-trained fits for seeds 0–2, together with H/L cases from E0/E1/E3. It requires no NN training or GPU planning. Its results are matched within that original cohort; E4's different collection prevents a direct paired DeePC-versus-SMC conclusion. The prescribed discrete surface law uses ρ=0.9, β=0.45φ and input clipping at ±10; the zero-correction control uses β=0 with the same A, C, φ and ρ. The nominal validation selection contains 1205–1445 transitions per seed and gives φ=21.46–24.85 in the normalized surface coordinate. The width is an empirical residual scale, not a certified uncertainty bound. Sources: [approved request](E6_SMC/REQUEST.json), [design and assumptions](smc_research.md), [saved calibration](E6_SMC/models/nominal_seed0.json), [implementation](../experiments/smc_baseline.py).
 
-The retained nonlinear-data bases have full row rank in all three seeds: 154/154 for full state and 98/98 for output only, at the stated 1e−8 relative cutoff. The trajectories are stored in float32. For comparison, a noise-free fully observed four-state LTI rollout with thirty scalar inputs has linear behavior dimension 34. A nonlinear graph can have that intrinsic dimension while its linear span fills a much larger ambient space. Regularization supplies a coefficient prior here; it does not require the predicted sequence to satisfy the nonlinear plant. This helps explain the model-validity issue in the six replays and the relevance of learning a nonlinear rollout map. It does not establish new algorithmic novelty beyond existing learned-dynamics MPC. Sources: [basis dimensions and retained singular values](E4/models/seed0/state_basis.json), [all three basis dimensions](E4/deepc_matched_plan_replays.json), [Part I proof audit](reviews/paper_review_v1/proof_audit.md). Full E4 outcomes remain pending.
+Counts in each list retain seeds 0, 1 and 2.
 
-The fresh authored run records 216 CEM solves: median 30.2 ms, 95th percentile 31.0 ms, maximum 130.2 ms. All exceed the 20 ms physical sample interval; one exceeds the nominal five-step queue interval of 100 ms. The plant simulator advances a fixed step after the controller returns, so this demonstration does not include computation delay. The measured timing matters for a hardware implementation and for comparing online shooting with direct policy evaluation. Sources: [timing summary](E0/authored_solve_timing.json), [original timings](E0/authored_summary.json), [submitted simulator](../../scripts/run_inverted_pendulum_mc.py).
+| Arm | IC-A, 14 s | IC-C50, 14 s | IC-A subset, 60 s |
+|---|---|---|---|
+| H | 4/6, 4/6, 4/6 | 11/50, 6/50, 16/50 | 3/3, 1/3, 2/3 |
+| L | 6/6, 6/6, 6/6 | 33/50, 36/50, 36/50 | 3/3, 3/3, 3/3 |
+| SMC | 6/6, 6/6, 6/6 | 35/50, 36/50, 36/50 | 3/3, 3/3, 3/3 |
+| Zero correction | 6/6, 6/6, 6/6 | 35/50, 37/50, 37/50 | 3/3, 3/3, 0/3 |
+
+Nominal gains over L are small: SMC adds two random-subset catches in seed 0 and none in the others; zero correction adds two, one and one, with no L-only catches. Their exact paired p values are 0.5 or 1. This sample provides no statistically resolved nominal success advantage over L. The correction loses one random catch relative to zero correction in each of seeds 1 and 2, but gains three long-subset successes in seed 2 (n=3, paired p=0.25). Sources: [counts and Wilson intervals](E6_SMC/rates.csv), [feedback paired comparisons](E6_SMC/feedback_paired_comparisons.csv), [success figure with per-seed intervals](E6_SMC/feedback_success_comparison.png).
+
+With a 20 ms input delay, zero correction scores **6/6 and 33–34/50 in every seed**, while H, L and SMC each score 0/6 and 0/50. Against either L or SMC, the zero-correction design adds 33, 34 and 34 random catches, with no opposing catches (paired p=2.33×10⁻¹⁰, 1.16×10⁻¹⁰, 1.16×10⁻¹⁰). All six new-feedback authored cases remain upright under delay; the difference is in the strict settling endpoint. Thus the added correction reduces delay tolerance for these fixed parameters. This is a controlled comparison of the correction term, rather than attribution of every feedback improvement to sliding-mode theory.
+
+| Stress, IC-C50 at 14 s | L | SMC | Zero correction |
+|---|---|---|---|
+| Mass ratio −25% | 38/50 | 38/50 | 38/50 |
+| Mass ratio +25% | 29–32/50 | 30–34/50 | 30–34/50 |
+| Length −25% | 38/50 | 38/50 | 38/50 |
+| Length +25% | 26–29/50 | 28–29/50 | 29–34/50 |
+| One-sample delay | 0/50 | 0/50 | 33–34/50 |
+
+All three feedback designs retain 6/6 under the four mismatch conditions. Both new designs have zero primary successes at every measurement/process-noise level, under the same stringent endpoint discussed in E3. Their fall counts differ: at process level 0.03 in seed 1, zero correction falls in 46/50 random cases, versus 19/50 for SMC and L. At process level 0.1 every arm falls in every case. Mismatch, arbitrary state noise and delay are distinct protocols and are not collectively certified matched disturbances. Sources: [all stress counts and falls](E6_SMC/rates.csv), [H-reference comparisons](E6_SMC/paired_comparisons.csv), [case records](E6_SMC/summary.csv).
+
+The effort tradeoff is substantial. Across seeds, nominal IC-A median applied-input total variation is 13.31–13.62 for L, 12.58–12.86 for SMC and 7.28–7.59 for zero correction, in normalized-input units. Under delay these medians become 4288–4289, 4315–4328 and 15.04–15.34 respectively. Nominal median maximum cart excursion is 1.17–1.48 m for L, 1.21–1.68 m for SMC and 1.76–5.34 m for zero correction; weaker effort can accompany more cart travel. Full settling is separate: on the nominal 60-second subset, SMC records full settling in 3/3, 1/3 and 1/3 cases across seeds, while zero correction records 3/3, 0/3 and 0/3. These finite-time observations impose no recentering requirement or asymptotic guarantee. Sources: [effort distributions](E6_SMC/feedback_distributions.csv), [effort figure](E6_SMC/feedback_effort_comparison.png), [excursion/settling/final-position distributions](E6_SMC/distributions.csv).
+
+The independently checked true upright radii are 0.99197, 0.99939 and 1.00017 for SMC, and 0.98733, 1.00039 and 1.00145 for zero correction; all six fitted-model radii are below one. Finite angle success therefore does not certify full-state eventual stability, even for these alternative feedback laws. Sources: [radii](E6_SMC/feedback_local_stability.csv), [analytic/finite-difference plant and law checks](E6_SMC/feedback_local_stability_checks.json). Per-seed medians of per-case mean CPU-law evaluation times on nominal IC-A are 14.4–14.7 μs ([timing](E6_SMC/feedback_timing.csv)); these time the feedback calculation only. E6 completed 4050 new and reused 4050 reference cases in 9.7 wall minutes and 4.3 CPU minutes, within its one-hour allowance ([manifest](E6_SMC/manifest.json)). Its fifteen [scientific checks](E6_SMC/smc_tests.txt) pass. The evidence supports a particular same-data feedback adaptation with accuracy, effort, delay and long-horizon tradeoffs.
 
 A plausible research gap is nonlinear input/output data-enabled prediction with explicit identifiability, noise and approximation conditions. Part I flags the output injectivity issue and defers learning/control; the current full-state implementation does not exercise that extension. The [15-row claim ledger](reviews/paper_review_v1/claim_ledger.csv) separates correct graph/rank results from these unsupported extensions.
 
 
-<!-- E4_AUTO_START -->
-
-### E4 completed measurements
-
-Sources: [per-seed counts and Wilson intervals](E4/rates.csv), [matched comparisons](E4/paired_comparisons.csv), [case metrics](E4/summary.csv), [figure](E4/success_rates.png), [manifest](E4/manifest.json). Raw-array paths are recorded in the case metrics.
-
-Counts below are ranges across whole-run seeds; seeds are not pooled. The common cart-pole endpoint remains angle stabilization with no fall. Novel-plant endpoints are stated in their manifests.
-
-| Episodes | IC condition | Seconds | Arm | Success-count range / n |
-|---|---|---|---|---|
-| 3281 | A | 14.0 | DeePC_output_0.001 | 0/6 |
-| 3281 | A | 14.0 | DeePC_output_0.01 | 0/6 |
-| 3281 | A | 14.0 | DeePC_output_0.1 | 0/6 |
-| 3281 | A | 14.0 | DeePC_state_0.001 | 0/6 |
-| 3281 | A | 14.0 | DeePC_state_0.01 | 0/6 |
-| 3281 | A | 14.0 | DeePC_state_0.1 | 0/6 |
-| 3281 | A | 14.0 | E5 | 0/6 |
-| 3281 | A | 14.0 | H | 2–6/6 |
-| 3281 | A | 14.0 | L | 6/6 |
-| 3281 | A | 14.0 | M1 | 0/6 |
-| 3281 | A | 60.0 | DeePC_output_0.001 | 0/3 |
-| 3281 | A | 60.0 | DeePC_output_0.01 | 0/3 |
-| 3281 | A | 60.0 | DeePC_output_0.1 | 0/3 |
-| 3281 | A | 60.0 | DeePC_state_0.001 | 0/3 |
-| 3281 | A | 60.0 | DeePC_state_0.01 | 0/3 |
-| 3281 | A | 60.0 | DeePC_state_0.1 | 0/3 |
-| 3281 | A | 60.0 | E5 | 0/3 |
-| 3281 | A | 60.0 | H | 0–3/3 |
-| 3281 | A | 60.0 | L | 0–3/3 |
-| 3281 | A | 60.0 | M1 | 0/3 |
-| 3281 | C50 | 14.0 | DeePC_output_0.001 | 0/50 |
-| 3281 | C50 | 14.0 | DeePC_output_0.01 | 0/50 |
-| 3281 | C50 | 14.0 | DeePC_output_0.1 | 0/50 |
-| 3281 | C50 | 14.0 | DeePC_state_0.001 | 0/50 |
-| 3281 | C50 | 14.0 | DeePC_state_0.01 | 0/50 |
-| 3281 | C50 | 14.0 | DeePC_state_0.1 | 0/50 |
-| 3281 | C50 | 14.0 | E5 | 0/50 |
-| 3281 | C50 | 14.0 | H | 4–33/50 |
-| 3281 | C50 | 14.0 | L | 33–36/50 |
-| 3281 | C50 | 14.0 | M1 | 0/50 |
-
-<!-- E4_AUTO_END -->
-
 ## Protocol and resume
+
+All required stages and the approved feedback extension are complete. Recorded experiment wall times, including the separate authored reproduction, sum to **25.33 hours**, below the 40-hour cap. E6 also remains below its separate one-hour CPU/wall limits. The [completion checks](completed_campaign_checks.json) verify final counts, reused-reference identity, sampled raw-trajectory endpoints and matched saved noise arrays.
 
 Operating instructions: [superseding handoff](../codex_handoff_from_claude_v1.md). Jobs longer than two minutes run detached; each experiment's `JOB` records its PID and command. New evaluations save per-case outputs and skip completed cases. The usage supervisor handles account limits; this campaign does not track them.
 
@@ -450,155 +277,14 @@ Wilson 95% intervals are reported separately per seed/condition. Fixed authored 
 
 The bounded [paper ledger and proof audit](reviews/paper_review_v1/proof_audit.md) and [primary-source literature matrix](reviews/paper_review_v1/literature_matrix.csv) are available. The graph and rank results are correct under their assumptions. The process-noise extension needs qualification if noise is not retained in the behavior vector. The [v3 annotated implementation copy](reviews/implementation_tex_v3/trajectory_manifold_implementation_reviewed_v3.tex) contains 27 comments and preserves source prose/equations. No equation/code contradiction was identified; normalization, notation, evaluation and collection omissions remain real specification issues.
 
-## Deviations
+## Deviations and remaining limits
 
-2026-10-11 (user request): Queue the same-data SMC and zero-correction feedback baselines automatically after required E2–E4 measurements. The [request](E6_SMC/REQUEST.json) and [research specification](smc_research.md) define CPU-only evaluation on saved models, matched ICs and affordable E3 conditions, with a one-hour CPU/wall allowance inside the original cap. The future E4 entry point and resumed continuation invoke `experiments/queued_smc.py`; active jobs and supervisor guards are unchanged. Inspect `E6_SMC/JOB` and its manifest on resume, and keep STATUS RUNNING until the extension finishes or records a cap deferral. Summarize its [results](E6_SMC/RESULTS.md), paired feedback comparisons and figures before the final verdict; no SMC outcome exists yet.
+2026-10-09: E0 was parallelized across eight workers after measured serial GPU utilization was 9%; saved models/cases were reused. Unused CVXPY imports were omitted when loading the submitted functions. The submitted source files remain unchanged. E1's three-IC long subsets were fixed before evaluation; their exact indices are recorded in the manifests and case tables.
 
-2026-10-09: E0 was restarted with eight independent GPU workers after measuring 9% serial GPU utilization. Saved cases/models were reused. Only progress-bar display was suppressed; each case still calls the submitted runner/class implementation. E1 runtime projection will be checked against the cap using measured parallel throughput.
+E4 changed collection length to 32 steps to support a two-sample IO past without joining episodes, while retaining N=30 control and approximately equal transition count. Every E4 arm shares that new collection. IO initialization, forward-difference velocity costs, SVD truncation and all prespecified regularizers are disclosed above and in its manifest.
 
-E1 long-horizon subsets are fixed before evaluation: IC-B −60°, 0°, +60°; IC-C indices 0–2; IC-D indices 20, 840, 1660 (θ0=−85°, 0°, +85°, zero angular velocity). All five arms are evaluated for 60 s on these subsets.
+2026-10-11 (user addition): E6 automatically followed the core stages, using saved fits and matched references, CPU feedback only, and a one-hour CPU/wall allowance inside the original cap. All planned nominal and stress cases completed. No active core job was restarted to adopt it.
 
-Prepared for the post-checkpoint stages: `parallel_campaign.py E2 --workers 8`, then `e2_distribution.py`, then `e3_robustness.py`. The E2 collection adapters and E3 nominal/length/noise wiring have passed three collection checks and six robustness checks ([collection](collection_variant_tests.txt), [robustness](robustness_wiring_tests.txt)). They have not yet run as scientific experiments. E3 robustness uses H and L. Novel-system code is now prepared for a four-state LTI and a uniform-rod acrobot; ten [scientific adapter, dynamics, endpoint and optimal-cost checks](novel_plant_tests.txt) pass. These runs remain pending E2. The DeePC preparation and checks are recorded below.
+Optional EDMD/SAC and the second cart-velocity grid were not run. Comparisons with Lusch, DFINE and Baek are limited to verified primary sources; a matched deep-RL sample-efficiency advantage remains **unresolved**. Hardware behavior, certified nonlinear robustness and general eventual stabilization remain **unresolved**. The completed experiments delimit the observed claims and do not supply those guarantees.
 
-<!-- E0_AUTO_START -->
-
-### E0 measured results
-
-Sources: [E0 rates](E0/rates.csv), [matched comparisons](E0/paired_comparisons.csv), [case metrics](E0/summary.csv), [distributions](E0/distributions.csv), [success figure](E0/success_rates.png), [manifest](E0/manifest.json).
-
-| Seed | IC set | Arm | Successes/n (14 s, no fall) | Wilson 95% CI |
-|---|---|---|---|---|
-| 0 | A | H | 4/6 | 0.300–0.903 |
-| 0 | A | Hstar | 4/6 | 0.300–0.903 |
-| 0 | A | L | 6/6 | 0.610–1.000 |
-| 0 | A | M1 | 0/6 | 0.000–0.390 |
-| 0 | A | M | 0/6 | 0.000–0.390 |
-| 1 | A | H | 4/6 | 0.300–0.903 |
-| 1 | A | Hstar | 4/6 | 0.300–0.903 |
-| 1 | A | L | 6/6 | 0.610–1.000 |
-| 1 | A | M1 | 0/6 | 0.000–0.390 |
-| 1 | A | M | 0/6 | 0.000–0.390 |
-| 2 | A | H | 4/6 | 0.300–0.903 |
-| 2 | A | Hstar | 4/6 | 0.300–0.903 |
-| 2 | A | L | 6/6 | 0.610–1.000 |
-| 2 | A | M1 | 0/6 | 0.000–0.390 |
-| 2 | A | M | 0/6 | 0.000–0.390 |
-| 3 | A | H | 5/6 | 0.436–0.970 |
-| 3 | A | Hstar | 4/6 | 0.300–0.903 |
-| 3 | A | L | 6/6 | 0.610–1.000 |
-| 3 | A | M1 | 0/6 | 0.000–0.390 |
-| 3 | A | M | 0/6 | 0.000–0.390 |
-| 4 | A | H | 5/6 | 0.436–0.970 |
-| 4 | A | Hstar | 4/6 | 0.300–0.903 |
-| 4 | A | L | 6/6 | 0.610–1.000 |
-| 4 | A | M1 | 0/6 | 0.000–0.390 |
-| 4 | A | M | 0/6 | 0.000–0.390 |
-| 5 | A | H | 4/6 | 0.300–0.903 |
-| 5 | A | Hstar | 4/6 | 0.300–0.903 |
-| 5 | A | L | 6/6 | 0.610–1.000 |
-| 5 | A | M1 | 0/6 | 0.000–0.390 |
-| 5 | A | M | 0/6 | 0.000–0.390 |
-| 6 | A | H | 4/6 | 0.300–0.903 |
-| 6 | A | Hstar | 4/6 | 0.300–0.903 |
-| 6 | A | L | 6/6 | 0.610–1.000 |
-| 6 | A | M1 | 0/6 | 0.000–0.390 |
-| 6 | A | M | 0/6 | 0.000–0.390 |
-| 7 | A | H | 5/6 | 0.436–0.970 |
-| 7 | A | Hstar | 4/6 | 0.300–0.903 |
-| 7 | A | L | 6/6 | 0.610–1.000 |
-| 7 | A | M1 | 0/6 | 0.000–0.390 |
-| 7 | A | M | 0/6 | 0.000–0.390 |
-| 8 | A | H | 4/6 | 0.300–0.903 |
-| 8 | A | Hstar | 4/6 | 0.300–0.903 |
-| 8 | A | L | 6/6 | 0.610–1.000 |
-| 8 | A | M1 | 0/6 | 0.000–0.390 |
-| 8 | A | M | 0/6 | 0.000–0.390 |
-| 9 | A | H | 5/6 | 0.436–0.970 |
-| 9 | A | Hstar | 4/6 | 0.300–0.903 |
-| 9 | A | L | 6/6 | 0.610–1.000 |
-| 9 | A | M1 | 0/6 | 0.000–0.390 |
-| 9 | A | M | 0/6 | 0.000–0.390 |
-
-Settling, excursion, input saturation and local fractions are distributions, not extra acceptance criteria. The 60 s runs remain separate in the CSVs.
-
-Across the ten whole-run seeds, authored-set primary successes per six cases: H 4–5/6, Hstar 4–4/6, L 6–6/6, M 0–0/6, M1 0–0/6. These are repeated fixed ICs; the per-seed counts, not a pooled population interval, are the reproducibility evidence.
-
-<!-- E0_AUTO_END -->
-
-Resolved launcher metadata issue: the host Python lacks `shlex.join`; command quoting now uses `shlex.quote`. E1 was already running and was reattached without duplication.
-
-The detached E1 job is PID 679000; its completion watcher is recorded in `ADVANCE_JOB`. The watcher metadata error after initial launch was repaired without rerunning E0 or launching another E1.
-
-E0 horizon follow-up uses saved 60 s trajectories: score a 20 s prefix only for H/H* cases that were not balanced but had no fall at 14 s. This is a post hoc horizon-limitation diagnostic, not a new random sample ([selection and counts](E0/horizon_followup.json), [20 s prefix endpoints](E0/horizon_limited_20s.csv)). No extra simulation or altered controller was used.
-
-The 20 s prefix check finds 2 successes among 11 selected H cases and 0 among 20 selected H* cases. Most misses are not resolved by adding only six seconds. This selection excludes cases that already succeeded or fell at 14 s and is not a population success estimate.
-
-Prepared novel-system choices: the LTI has discrete A=diag(1.06, 1.02, 0.96, 0.90), B=(0.2, 0.2, 0.1, 0.1)^T and identity Q. Acrobot uses two unit uniform rods, normalized elbow torque limited to ±1, and the authored 100-per-angle/10-per-rate weight rule. All arms share costs and data within a plant. The [harness](../experiments/e3_novel.py) records units, dynamics, integration, ICs and plant-specific endpoints in each manifest. No novel-system performance claim is available yet.
-
-2026-10-09: Prepared E4 compares H, L, M1 and full-state/output-only regularized DeePC on IC-A plus the same fixed 50 IC-C subset used in E2, with three seeds. To fit a two-sample observed past and N=30 future without joining episodes, collection uses 3281 × 32 steps (104992 transitions, compared with authored 105000). All E4 arms share this new collection/split; H keeps N=30 and the submitted training/control algorithm. IO DeePC receives only (p, theta), starts with two actual zero-input samples, and uses finite-difference velocities in its cost; this cost difference is disclosed. Three prespecified coefficient penalties are all reported, without selection on test ICs. SVD compression retains directions above 1e−8 times the largest singular value after row-standard-deviation scaling; coefficient-norm equivalence applies within that retained subspace. The [baseline code](../experiments/e4_deepc.py) records those choices and QP residual/failure diagnostics. Six [hand-computed DeePC checks](deepc_tests.txt) and ten [endpoint/arm/paired-statistic checks](reported_number_tests.txt) pass. Scientific E4 runs remain pending E0–E3.
-
-E1 plotting now explicitly excludes the 60 s subsets from 14 s maps and includes descriptive cart-excursion maps and overlapping failure-category counts. Switch-toggle counts are reported without inventing a chatter cutoff. The completion watcher regenerated figures using this corrected plotting code before the E0+E1 checkpoint.
-
-Optional E5 is now prepared inside E4 on the same base data: five independent training-episode bootstraps, mean of member trajectory costs, one-step replanning and no local switch. This is PETS-lite; it has neither learned aleatoric variance nor particle propagation. Three [ensemble checks](ensemble_tests.txt) pass. Two [recorded-data QP checks](deepc_data_wiring_tests.txt) pass without closed-loop baseline execution. `e4_deepc.py --skip-ensemble` omits E5 if required by the stated cut order.
-
-E3 now derives applied-delay inputs and actual measurement-coordinate switch membership from saved arrays, so a pause between a case save and diagnostic augmentation is recoverable. Per-seed nominal state standard deviations and actual noise amplitudes will be recorded. No E2–E4 scientific result is implied by these preparation checks.
-
-E1's completion postprocessing now updates the leading Q1.1 answer and saves exact tested from-rest success intervals without bridging failed or missing grid points. E3 also records final-three-second angular RMS and peak values in physical velocity units, alongside the unchanged primary endpoint, to distinguish noisy fluctuations from loss of the operating region.
-
-<!-- E1_AUTO_START -->
-
-### E1 measured results
-
-Sources: [E1 rates](E1/rates.csv), [matched comparisons](E1/paired_comparisons.csv), [case metrics](E1/summary.csv), [distributions](E1/distributions.csv), [success figure](E1/success_rates.png), [manifest](E1/manifest.json).
-
-| Seed | IC set | Arm | Successes/n (14 s, no fall) | Wilson 95% CI |
-|---|---|---|---|---|
-| 0 | B | H | 83/171 | 0.412–0.560 |
-| 0 | C | H | 48/200 | 0.186–0.304 |
-| 0 | D | H | 412/1681 | 0.225–0.266 |
-| 0 | B | Hstar | 85/171 | 0.423–0.571 |
-| 0 | C | Hstar | 42/200 | 0.159–0.272 |
-| 0 | D | Hstar | 454/1681 | 0.249–0.292 |
-| 0 | B | L | 137/171 | 0.735–0.854 |
-| 0 | C | L | 122/200 | 0.541–0.675 |
-| 0 | D | L | 1073/1681 | 0.615–0.661 |
-| 0 | B | M1 | 0/171 | 0.000–0.022 |
-| 0 | C | M1 | 0/200 | 0.000–0.019 |
-| 0 | D | M1 | 0/1681 | 0.000–0.002 |
-| 0 | B | M | 0/171 | 0.000–0.022 |
-| 0 | C | M | 0/200 | 0.000–0.019 |
-| 0 | D | M | 0/1681 | 0.000–0.002 |
-| 1 | B | H | 72/171 | 0.350–0.496 |
-| 1 | C | H | 31/200 | 0.111–0.212 |
-| 1 | D | H | 356/1681 | 0.193–0.232 |
-| 1 | B | Hstar | 95/171 | 0.481–0.628 |
-| 1 | C | Hstar | 53/200 | 0.209–0.330 |
-| 1 | D | Hstar | 548/1681 | 0.304–0.349 |
-| 1 | B | L | 141/171 | 0.761–0.874 |
-| 1 | C | L | 130/200 | 0.582–0.713 |
-| 1 | D | L | 1089/1681 | 0.625–0.670 |
-| 1 | B | M1 | 0/171 | 0.000–0.022 |
-| 1 | C | M1 | 0/200 | 0.000–0.019 |
-| 1 | D | M1 | 0/1681 | 0.000–0.002 |
-| 1 | B | M | 0/171 | 0.000–0.022 |
-| 1 | C | M | 0/200 | 0.000–0.019 |
-| 1 | D | M | 0/1681 | 0.000–0.002 |
-| 2 | B | H | 107/171 | 0.551–0.695 |
-| 2 | C | H | 78/200 | 0.325–0.459 |
-| 2 | D | H | 717/1681 | 0.403–0.450 |
-| 2 | B | Hstar | 97/171 | 0.492–0.639 |
-| 2 | C | Hstar | 51/200 | 0.200–0.320 |
-| 2 | D | Hstar | 545/1681 | 0.302–0.347 |
-| 2 | B | L | 141/171 | 0.761–0.874 |
-| 2 | C | L | 128/200 | 0.571–0.703 |
-| 2 | D | L | 1085/1681 | 0.622–0.668 |
-| 2 | B | M1 | 0/171 | 0.000–0.022 |
-| 2 | C | M1 | 0/200 | 0.000–0.019 |
-| 2 | D | M1 | 0/1681 | 0.000–0.002 |
-| 2 | B | M | 0/171 | 0.000–0.022 |
-| 2 | C | M | 0/200 | 0.000–0.019 |
-| 2 | D | M | 0/1681 | 0.000–0.002 |
-
-Settling, excursion, input saturation and local fractions are distributions, not extra acceptance criteria. The 60 s runs remain separate in the CSVs.
-
-<!-- E1_AUTO_END -->
+Validation includes the linked metric/arm, collection/noise, novel-plant, ensemble, DeePC and feedback checks, plus independent saved-plan and local-Jacobian diagnostics. Raw arrays and weights remain local and ignored by git; their paths are recorded in case/model metadata.

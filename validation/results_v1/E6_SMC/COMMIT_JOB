@@ -1,0 +1,33 @@
+COMMAND python3 -c 'OWNED=['"'"'validation/experiments/e6_smc.py'"'"', '"'"'validation/experiments/queued_smc.py'"'"', '"'"'validation/experiments/smc_baseline.py'"'"', '"'"'validation/experiments/test_smc_baseline.py'"'"', '"'"'validation/experiments/e4_deepc.py'"'"', '"'"'validation/experiments/plot_feedback_comparison.py'"'"', '"'"'validation/experiments/plot_e4_summary.py'"'"', '"'"'validation/codex_handoff_from_claude_v1.md'"'"', '"'"'validation/results_v1/smc_research.md'"'"', '"'"'validation/results_v1/E6_SMC'"'"', '"'"'validation/results_v1/E4/manifest.json'"'"', '"'"'validation/results_v1/completed_campaign_checks.json'"'"', '"'"'validation/results_v1/RESULTS.md'"'"', '"'"'validation/results_v1/reviews/paper_review_v1/proof_audit.md'"'"', '"'"'validation/results_v1/.gitignore'"'"', '"'"'validation/results_v1/STATUS'"'"']
+FIGURES=['"'"'validation/results_v1/E6_SMC/feedback_success_comparison.png'"'"', '"'"'validation/results_v1/E6_SMC/feedback_effort_comparison.png'"'"', '"'"'validation/results_v1/E6_SMC/distributions.png'"'"', '"'"'validation/results_v1/E6_SMC/success_rates.png'"'"', '"'"'validation/results_v1/E4/matched_success_rates.png'"'"']
+import subprocess
+print("Staging completed validation artifacts",flush=True)
+subprocess.run(["git","add","--"]+OWNED,check=True)
+subprocess.run(["git","add","-f","--"]+FIGURES,check=True)
+subprocess.run(["git","add","--","validation/results_v1/E6_SMC/COMMIT_JOB"],check=True)
+subprocess.run(["git","diff","--cached","--check"],check=True)
+paths=subprocess.check_output(["git","diff","--cached","--name-only"],universal_newlines=True).splitlines()
+assert all(any(p==x or p.startswith(x+"/") for x in OWNED+FIGURES) for p in paths)
+assert not any(p.endswith((".npz",".npy",".pt")) or "/raw/" in p for p in paths)
+print("Committing",len(paths),"files",flush=True)
+subprocess.run(["git","commit","-q","-m","Complete SMC comparison and consolidate validation findings"],check=True)
+print("DONE",subprocess.check_output(["git","rev-parse","HEAD"],universal_newlines=True).strip(),flush=True)
+'
+NOTE Detached final artifact commit; inspect commit.log and git log before retrying.
+PID 1117490
+
+NOTE First attempt stopped before commit because standard CSV CRLF was reported as trailing whitespace. Git check with core.whitespace=cr-at-eol passed; scientific data unchanged.
+COMMAND python3 -c 'OWNED=['"'"'validation/experiments/e6_smc.py'"'"', '"'"'validation/experiments/queued_smc.py'"'"', '"'"'validation/experiments/smc_baseline.py'"'"', '"'"'validation/experiments/test_smc_baseline.py'"'"', '"'"'validation/experiments/e4_deepc.py'"'"', '"'"'validation/experiments/plot_feedback_comparison.py'"'"', '"'"'validation/experiments/plot_e4_summary.py'"'"', '"'"'validation/codex_handoff_from_claude_v1.md'"'"', '"'"'validation/results_v1/smc_research.md'"'"', '"'"'validation/results_v1/E6_SMC'"'"', '"'"'validation/results_v1/E4/manifest.json'"'"', '"'"'validation/results_v1/completed_campaign_checks.json'"'"', '"'"'validation/results_v1/RESULTS.md'"'"', '"'"'validation/results_v1/reviews/paper_review_v1/proof_audit.md'"'"', '"'"'validation/results_v1/.gitignore'"'"', '"'"'validation/results_v1/STATUS'"'"']
+FIGURES=['"'"'validation/results_v1/E6_SMC/feedback_success_comparison.png'"'"', '"'"'validation/results_v1/E6_SMC/feedback_effort_comparison.png'"'"', '"'"'validation/results_v1/E6_SMC/distributions.png'"'"', '"'"'validation/results_v1/E6_SMC/success_rates.png'"'"', '"'"'validation/results_v1/E4/matched_success_rates.png'"'"']
+import subprocess
+paths=subprocess.check_output(["git","diff","--cached","--name-only"],universal_newlines=True).splitlines()
+assert all(any(p==x or p.startswith(x+"/") for x in OWNED+FIGURES) for p in paths)
+assert not any(p.endswith((".npz",".npy",".pt")) or "/raw/" in p for p in paths)
+assert len(paths)>8100
+print("Verified scoped staged artifacts:",len(paths),flush=True)
+subprocess.run(["git","add","--","validation/results_v1/E6_SMC/COMMIT_JOB"],check=True)
+print("Committing final validation artifacts",flush=True)
+subprocess.run(["git","commit","-q","-m","Complete SMC comparison and consolidate validation findings"],check=True)
+print("DONE",subprocess.check_output(["git","rev-parse","HEAD"],universal_newlines=True).strip(),flush=True)
+'
+PID 1118151

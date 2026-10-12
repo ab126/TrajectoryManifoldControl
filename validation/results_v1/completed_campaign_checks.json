@@ -1,0 +1,77 @@
+{
+  "E4": {
+    "case_count": 1770,
+    "rate_groups": 90,
+    "primary_and_count_consistency": true
+  },
+  "E6_SMC": {
+    "case_count": 8100,
+    "rate_groups": 300,
+    "primary_and_count_consistency": true
+  },
+  "reference_cohort": {
+    "reused_cases": 4050,
+    "source_fields_agree": true
+  },
+  "independent_saved_trajectory_endpoints": {
+    "cases": [
+      "seed0_SMC_nominal_A_0002_14s",
+      "seed0_SMC_linear_nominal_A_0002_14s",
+      "seed0_SMC_measurement_0.01_A_0002_14s",
+      "seed0_SMC_linear_measurement_0.01_A_0002_14s",
+      "seed0_SMC_process_0.03_A_0002_14s",
+      "seed0_SMC_linear_process_0.03_A_0002_14s",
+      "seed0_SMC_mass_plus25_A_0002_14s",
+      "seed0_SMC_linear_mass_plus25_A_0002_14s",
+      "seed0_SMC_input_delay_A_0002_14s",
+      "seed0_SMC_linear_input_delay_A_0002_14s"
+    ],
+    "authored_metric_and_no_fall_agree": true
+  },
+  "matched_noise_saved_arrays": true,
+  "completed_experiments": {
+    "E0": {
+      "status": "DONE",
+      "wall_seconds": 1044.9908900465816
+    },
+    "E1": {
+      "status": "DONE",
+      "wall_seconds": 62114.57981018536
+    },
+    "E2": {
+      "status": "DONE",
+      "wall_seconds": 12946.077211154625
+    },
+    "E2_distribution": {
+      "status": "DONE",
+      "wall_seconds": 2930.5157678723335
+    },
+    "E3": {
+      "status": "DONE",
+      "wall_seconds": 1628.3281038496643
+    },
+    "E3_acrobot": {
+      "status": "DONE",
+      "wall_seconds": 1428.5556217208505
+    },
+    "E3_linear": {
+      "status": "DONE",
+      "wall_seconds": 1033.560534439981
+    },
+    "E4": {
+      "status": "DONE",
+      "wall_seconds": 7268.979427605867
+    },
+    "E6_SMC": {
+      "status": "DONE",
+      "wall_seconds": 584.3972121383995
+    },
+    "historical_oracle": {
+      "status": "DONE",
+      "wall_seconds": 1.0913457050919533
+    }
+  },
+  "authored_reproduction_wall_seconds": 200.35632061958313,
+  "total_experiment_wall_seconds": 91181.43224533834,
+  "experiment_wall_cap_seconds": 144000
+}

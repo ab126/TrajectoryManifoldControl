@@ -1,0 +1,23 @@
+{
+  "requested_by": "user",
+  "requested_date": "2026-10-11",
+  "request": "Add the SMC baseline and auto-launch after E2-E4 finish",
+  "after": ["E2", "E2_distribution", "E3", "E3_linear", "E4"],
+  "experiment": "E6_SMC",
+  "new_arms": ["SMC", "SMC_linear"],
+  "reference_arms": ["H", "L"],
+  "seeds": [0, 1, 2],
+  "initial_conditions": ["A", "C50"],
+  "nominal_horizon_seconds": 14,
+  "long_horizon_seconds": 60,
+  "long_horizon_A_indices": [0, 2, 5],
+  "stress_conditions": "Reuse the existing E3 conditions if the measured pilot fits the allowance",
+  "max_wall_seconds": 3600,
+  "max_cpu_seconds": 3600,
+  "additional_gpu_hours": 0,
+  "budget": "Inside the existing campaign cap; preserve core E2-E4 priority",
+  "specification": "validation/results_v1/smc_research.md",
+  "entrypoint": "validation/experiments/e6_smc.py",
+  "launcher": "validation/experiments/queued_smc.py",
+  "execution": "Detached numerical job; model work remains under the existing usage supervisor"
+}

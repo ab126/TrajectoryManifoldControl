@@ -1,0 +1,51 @@
+{
+  "experiment": "E6_SMC",
+  "git_commit": "825c0ddd61733bf5e7ed02ee2cb5779f819f8a3b",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "device": "cpu",
+  "wall_seconds": 584.3972121383995,
+  "cpu_seconds": 259.101429295,
+  "config": {
+    "arms": [
+      "H",
+      "L",
+      "SMC",
+      "SMC_linear"
+    ],
+    "new_arms": [
+      "SMC",
+      "SMC_linear"
+    ],
+    "ic_sets": [
+      "A",
+      "C50"
+    ],
+    "physical_sample_seconds": 0.02,
+    "input_bounds": [
+      -10.0,
+      10.0
+    ],
+    "rho": 0.9,
+    "beta_rule": ".45*phi; zero for SMC_linear",
+    "calibration": "max(.001,4*validation residual abs q95), inside training-scale nearest-6000 fit radius",
+    "process_models": "Reuse E3 process-trained fits; freeze nominal calibration for measurement/mismatch/delay",
+    "pilot": "seed0 nominal A[0] and C50[0], both new arms, included in final outcomes",
+    "nominal_cases": 354,
+    "stress_cases": 3696,
+    "neural_training": false,
+    "reference_cohort": "E0/E1/E3 development collection: 3500 x 30; E4 recollects different data, so no direct paired DeePC claim",
+    "limitations": "Same-data quasi-SMC adaptation; no certified nonlinear uncertainty bounds or saturation guarantee"
+  },
+  "status": "DONE",
+  "requested_max_wall_seconds": 3600.0,
+  "max_cpu_seconds": 3600.0,
+  "completed_new_cases": 4050,
+  "total_new_cases": 4050,
+  "initial_estimate_seconds": 383.3136471339634,
+  "include_stress": true,
+  "comparison_postprocess_wall_seconds": 0.968477038666606
+}

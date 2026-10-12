@@ -1,0 +1,6 @@
+PID 1108863
+COMMAND timeout 3600 /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/.venv-gpu/bin/python /home/ap60/github/data-driven-control/TrajectoryManifoldControl/validation/experiments/e6_smc.py --max-wall-seconds 3600.0 --max-cpu-seconds 3600
+WORKDIR /tmp/trajectory-manifold-smc
+MAX_WALL_SECONDS 3600.0
+MAX_CPU_SECONDS 3600
+NOTE User-requested post-E4 CPU-only feedback comparison; saved-case resume.

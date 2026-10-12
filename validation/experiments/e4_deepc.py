@@ -156,3 +156,8 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--skip-ensemble',action='store_true');args=parser.parse_args()
     if args.skip_ensemble:ARMS_E4.remove('E5')
     initialize();main()
+    # The active continuation already loaded its code before this extension was
+    # requested. This future entry point therefore also schedules the post-core
+    # comparison, without restarting any running scientific job or supervisor.
+    from queued_smc import launch_after_core
+    print('Post-core SMC:',launch_after_core(),flush=True)

@@ -1,0 +1,24 @@
+{
+  "plant_linearization_checks": {
+    "central_difference_epsilons": [
+      1e-05,
+      1e-06
+    ],
+    "maximum_abs_errors": [
+      6.3079819145883675e-12,
+      6.306066779870889e-14
+    ],
+    "uncontrolled_radius": 1.0926313789887772,
+    "true_DARE_radius": 0.9983820938925552,
+    "interpretation": "Jacobian of the sample-and-hold true RK4 closed loop at x=0, before input saturation; diagnostic only, not a finite-IC stability guarantee"
+  },
+  "law_derivative_max_errors": [
+    2.220446049250313e-16,
+    8.881784197001252e-15,
+    7.105427357601002e-15,
+    7.105427357601002e-15,
+    1.7763568394002505e-15,
+    3.552713678800501e-15
+  ],
+  "interpretation": "At the nominal upright origin, inside the boundary and before saturation; no finite-IC or noisy-plant guarantee"
+}

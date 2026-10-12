@@ -98,12 +98,13 @@
     2
   ],
   "device": "cuda",
-  "wall_seconds": 7268.4485636446625,
+  "wall_seconds": 7268.979427605867,
   "status": "DONE",
   "cvxpy_unused_import_workaround": true,
   "initial_conditions": "validation/results_v1/initial_conditions.json",
   "oracle_exploration_scaling": "learned training scaling; plant replaced only",
   "full_stabilization_position_rate_m_s": 0.01,
   "completed_cases": 1770,
-  "total_cases": 1770
+  "total_cases": 1770,
+  "readable_figure_wall_seconds": 0.5308639612048864
 }
