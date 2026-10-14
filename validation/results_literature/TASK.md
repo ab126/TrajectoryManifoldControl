@@ -1,5 +1,18 @@
 # Approved literature extension: execution handoff
 
+**Continuation authorized — October 14, 2026.** The user has explicitly allowed
+resuming the literature extension. Read [CONTINUATION_20261014.md](CONTINUATION_20261014.md)
+and [RESUME_AUTHORIZATION_20261014.json](RESUME_AUTHORIZATION_20261014.json). They
+supersede the historical restart hold below for that incident only; usage/credit
+restrictions remain. Actual host launch is still required.
+
+**Execution hold — October 14, 2026.** The supervisor exited after its credit
+guard detected a balance decrease. Read [STATUS](STATUS), [CREDIT_ALERT](CREDIT_ALERT)
+and the [current summary](../results_v1/COLLABORATOR_BRIEF.md) first. Do not restart
+the launcher or queue, relax the guard, or reset the credit baseline. Earlier
+resumption instructions below do not clear this hold.
+
+
 Additional approved comparator: read [DATA_DRIVEN_PID_SCOPE.md](DATA_DRIVEN_PID_SCOPE.md).
 Include data-driven PID in the same matched experiments and controller tables,
 within the existing total ceilings and the specified unspent-reserve suballocation.
@@ -76,6 +89,10 @@ pending. If the reviewer remains unreachable, record review as pending and repor
 the routing obstacle; do not claim independent approval.
 
 ## Immediate next actions
+
+Include [HORIZONTAL_SENSITIVITY_SCOPE.md](HORIZONTAL_SENSITIVITY_SCOPE.md) at the
+next checkpoint: separate terminal-recovery endpoint and matched theta80 settings,
+preserving existing no-fall metrics/counts and respecting the remaining reserve.
 
 Read [RESUME_CHECKPOINT.md](RESUME_CHECKPOINT.md) for usage-interrupted job states
 and the existing reviewer's delegation authorization before restarting workers.

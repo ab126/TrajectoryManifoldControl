@@ -1,5 +1,5 @@
 {
-  "watchdog_pid": 1357457,
+  "watchdog_pid": 1396138,
   "method": "pets",
   "phase": "matrix",
   "command": [
@@ -11,8 +11,8 @@
     "--phase",
     "matrix"
   ],
-  "state": "running",
-  "started_at": 1791842341.8151677,
+  "state": "complete",
+  "started_at": 1791858675.52947,
   "cpu_affinity": [
     80,
     81,
@@ -65,6 +65,13 @@
   ],
   "max_workers": 1,
   "library_threads": 1,
-  "worker_pid": 1357459,
-  "log_path": "validation/results_literature/pets/matrix_attempt_1791842341837830808.log"
+  "worker_pid": 1396140,
+  "log_path": "validation/results_literature/pets/matrix_attempt_1791858675553042221.log",
+  "worker_cpu_seconds": 2874.531948,
+  "watchdog_cpu_seconds": 2.183535,
+  "worker_elapsed_seconds": 3143.315090417862,
+  "accounting_stage": "pets",
+  "reason": null,
+  "exit_code": 0,
+  "finished_at": 1791861818.8896096
 }

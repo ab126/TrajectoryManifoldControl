@@ -93,7 +93,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--phase',choices=['checks','fit','pilot','matrix'],required=True);args=parser.parse_args();isolation('rokdeepc');budget=Budget('rokdeepc',12);budget.checkpoint()
     if args.phase=='checks':checks(budget);return
     assert json.loads((OUT/'rokdeepc/checks.json').read_text())['passed']
-    from run_classical import cases
+    from casebook import cases
     if args.phase=='matrix':
         projection=json.loads((OUT/'rokdeepc/pilot_projection.json').read_text())
         if projection['projected_core_hours']>projection['remaining_core_hours']:raise RuntimeError('RoKDeePC minimum projects beyond cap; retain partial')

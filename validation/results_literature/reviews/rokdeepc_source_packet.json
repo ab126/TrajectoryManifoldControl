@@ -38,7 +38,22 @@
     "acceptance": "finite input-feasible proposal even at iteration limit; convergence and residuals reported separately"
   },
   "proposed_interpretation": "Source quadratic reformulation port, generalized to four measured outputs and matched plant costs; no certified uncertainty radii, global optimum or stability claim. E4 H/L remains a separate cohort.",
-  "review_state": "pending; existing overseer unavailable",
+  "review_state": "pending; existing overseer not visible",
   "stage": "implemented, numerical checks not launched while four workers are active",
-  "solver_prespecified_before_cases": true
+  "solver_prespecified_before_cases": true,
+  "correctness_checks": {
+    "passed": true,
+    "source_equations": [
+      29,
+      34,
+      35
+    ],
+    "independent_g_error": 1.6419504644815675e-13,
+    "literal_objective_error": 0.0,
+    "gradient_max_error": 2.18756052161595e-09,
+    "linear_kernel_limit": true,
+    "saved_post_control_replay_max_error": 4.5512179092099814e-07,
+    "data_sha256": "83482b94814658bde51ebf99432559eaa05428d91c96254304988a4954668088",
+    "source_scope": "author quadratic reformulation; no certified uncertainty radii or plant stability claim"
+  }
 }

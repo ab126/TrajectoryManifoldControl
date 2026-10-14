@@ -11,7 +11,7 @@
     "--phase",
     "matrix"
   ],
-  "state": "running",
+  "state": "complete",
   "started_at": 1791842340.7784164,
   "cpu_affinity": [
     80,
@@ -66,5 +66,8 @@
   "max_workers": 1,
   "library_threads": 1,
   "worker_pid": 1357456,
-  "log_path": "validation/results_literature/sindy/exact_matrix_attempt_1791842340802881339.log"
+  "log_path": "validation/results_literature/sindy/exact_matrix_attempt_1791842340802881339.log",
+  "reason": null,
+  "exit_code": 0,
+  "finished_at": 1791846320.6633136
 }

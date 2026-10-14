@@ -55,7 +55,8 @@ def configured_guard():
     )
     guard.RESUME_PROMPT = (
         'Continue the approved literature extension. Read validation/results_literature/'
-        'TASK.md, FOLLOWUP_COMPARISON_MATRIX.md, STATUS, manifest.json, RESULTS.md and '
+        'TASK.md, CONTINUATION_20261014.md when present, FOLLOWUP_COMPARISON_MATRIX.md, '
+        'STATUS, manifest.json, RESULTS.md and '
         'JOB files. Check existing detached '
         'jobs before launching anything. Preserve CPU affinity80–127, unchanged usage '
         'guard, 30 GPU-hour/84 CPU core-hour ceilings and dedicated project venvs; '

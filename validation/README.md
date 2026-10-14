@@ -1,13 +1,19 @@
-# Validation: current results and historical work
+# Validation: results and evidence
 
-The campaign completed on October 11, 2026. Start with the
-[one-page collaborator briefing](results_v1/COLLABORATOR_BRIEF.md), then the
-[full findings](results_v1/RESULTS.md) and
-[completion review and limitations](results_v1/DOCUMENTATION_REVIEW.md).
-The [final status](results_v1/STATUS) is DONE; the
-[completion checks](results_v1/completed_campaign_checks.json) record the completed stages.
-The [superseding handoff](codex_handoff_from_claude_v1.md) defines the agreed goals.
-No experiment or restart is needed to read these results.
+Start with the single [collaborator summary](results_v1/COLLABORATOR_BRIEF.md)
+for methods, notation, completed counts, figures, the matched-example notebook,
+limitations and outstanding work. Updated October 14, 2026.
+
+The [original campaign](results_v1/RESULTS.md) completed on October 11.
+The [literature extension](results_literature/RESULTS.md) is incomplete and
+**stopped after its credit guard fired**; see [STATUS](results_literature/STATUS)
+and [CREDIT_ALERT](results_literature/CREDIT_ALERT). No restart is authorized.
+[Exact controller coverage](results_literature/CONTROLLER_COUNTS.md),
+[endpoint sensitivity](results_literature/horizontal_sensitivity/README.md),
+and [review limitations](results_v1/DOCUMENTATION_REVIEW.md) provide supporting evidence.
+The [original handoff](codex_handoff_from_claude_v1.md) and
+[approved comparison plan](LITERATURE_COMPARISON_PLAN.md) retain protocol history.
+Reading the saved results requires no experiments.
 
 ## Historical readiness and oracle campaign
 

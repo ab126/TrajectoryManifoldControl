@@ -1,5 +1,9 @@
 # Current hybrid-versus-linear examples
 
+Project overview: [collaborator summary](../results_v1/COLLABORATOR_BRIEF.md).
+This notebook illustrates original H/L results, not all literature baselines.
+
+
 Open [collaborator_hybrid_linear_examples.ipynb](collaborator_hybrid_linear_examples.ipynb)
 for the completed campaign's matched hybrid (H) and linear-feedback (L) examples.
 It contains embedded state/input plots and side-by-side play/pause/scrub animations
@@ -13,7 +17,9 @@ requires a JavaScript-capable trusted notebook viewer; it has not been checked
 in a real browser during this update. Running cells or rebuilding requires the
 local E1 trajectory archive and a Python kernel with NumPy, Matplotlib and IPython.
 Open Jupyter from the project or notebook directory, then open this notebook;
-no scientific training/controller code is imported or run.
+no scientific training/controller code is imported or run. Use a dedicated
+project venv or conda prefix; do not use another project's environment.
+
 
 Rebuild using [the saved-data builder](../experiments/build_collaborator_notebook.py)
 with `--project /absolute/path/to/TrajectoryManifoldControl` in a compatible
@@ -28,7 +34,13 @@ Its reviewer-added gates and different controller are not the current H/L compar
 
 ---
 
-# Saved Gate A animations
+# Historical Gate A animations
+
+The launch/environment instructions in this section describe the earlier archive.
+They are not the current project setup. The old `overseeg` display environment
+and launcher must not be reused for this work; use a dedicated project environment
+for execution, or read the saved plots without executing cells.
+
 
 **October 8:** the GPU diagnosis has now completed; its aggregate review is in
 [cem_findings.md](../diagnostics/cem_findings.md). This notebook/gallery show

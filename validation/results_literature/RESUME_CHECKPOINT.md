@@ -1,5 +1,12 @@
 # Supervised continuation checkpoint
 
+**Execution hold — October 14, 2026.** The supervisor exited after its credit
+guard detected a balance decrease. Read [STATUS](STATUS), [CREDIT_ALERT](CREDIT_ALERT)
+and the [current summary](../results_v1/COLLABORATOR_BRIEF.md) first. Do not restart
+the launcher or queue, relax the guard, or reset the credit baseline. Earlier
+resumption instructions below do not clear this hold.
+
+
 Primary execution handoff: [TASK.md](TASK.md). Approved research plan:
 [LITERATURE_COMPARISON_PLAN.md](../LITERATURE_COMPARISON_PLAN.md). Additional
 controller comparison requirements: [FOLLOWUP_COMPARISON_MATRIX.md](FOLLOWUP_COMPARISON_MATRIX.md).
