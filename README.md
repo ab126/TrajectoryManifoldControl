@@ -116,6 +116,13 @@ The notebook is available at [manifold_control.ipynb](manifold_control.ipynb). I
 
 ## Tests
 
+The independent validation project is pinned as a submodule under
+`external/TrajectoryManifoldControl`. See [the integration protocol](docs/validation/PLAN.md)
+and [technical report and reproduction commands](docs/validation/REPORT.md).
+Opt-in standalone experiments are in `src/manifold_experiments.py`; original
+controller implementations remain unchanged. Baseline reproduction, tuning
+screens, and final independent validation must be reported separately.
+
 Run the full test suite with:
 
 ```bash

@@ -10,4 +10,8 @@ __pycache__/
 /saves/
 *.out
 
-/docs
+/docs/**
+!/docs/codex/
+!/docs/codex/**
+!/docs/validation/
+!/docs/validation/**
