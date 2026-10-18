@@ -197,3 +197,18 @@ parameters to controllers.
   current fork as a branch and merge history while keeping our local version.
 - Pre-publication verification: 50 tests passed in5.75s; git diff --check passed.
 - Cleanup commit/push and history-only merge are next; no experiment reruns.
+
+### Published cleanup and Roy's original history
+
+- Cleanup committed as 7d495857bf0f5429f288f0d80b11218296081805 and pushed to
+  origin/main. Queried Roy's current default main: e66a2b79f27f347286576f678f424625f60787b4.
+- Added remote roy (https://github.com/aroyphillips/TrajectoryManifoldControl.git),
+  fetched main, created roy-validation, and pushed that branch to origin.
+  Original author metadata and commit IDs are retained, not filtered or squashed.
+- `git merge --no-ff -s ours roy-validation` created and published merge
+  75f0671222788b70a77f7074a3f5b787b175ac39. Parents are cleanup 7d495857 and
+  Roy's e66a2b79. Shared ancestor was 325beae718ab093d3ca48b18a59ae61fd93798a3.
+- `git diff --exit-code HEAD^1 HEAD` and ancestry verification passed. Both
+  cleanup and merge trees equal a379977e5319f406b4d30bd6fb27ecc4132b8777:
+  no upstream redundant files or source changes entered the working tree.
+- Handoff documentation updated separately; no research results changed.

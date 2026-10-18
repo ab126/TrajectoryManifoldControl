@@ -1,9 +1,9 @@
 # Codex Project State
 
 ## Current objective
-Commit and publish the minimal validation integration, then preserve Roy's
-current fork history on a published branch and merge its ancestry into main
-without replacing the local implementation or restoring redundant files.
+Completed: published the minimal validation integration and preserved Roy's
+current fork history on roy-validation and in main's ancestry, without replacing
+the local implementation or restoring redundant files.
 
 Previous objective (completed):
 Replace the redundant full validation submodule with the minimal root validation
@@ -69,9 +69,13 @@ Never tune the frozen configuration using these observed final outcomes.
   remains separately identified. No full final-validation success claimed.
 
 ## Uncommitted changes
-On main at f41056d. Submodule/gitmodules deletions staged by git rm; snapshot,
-import/migration tools, loader/path/test/docs changes uncommitted. No commit/push.
-No unrelated edits discarded; no saved local experiment or model removed.
+Cleanup committed/pushed as 7d495857bf0f5429f288f0d80b11218296081805.
+Roy's branch roy-validation points to e66a2b79f27f347286576f678f424625f60787b4
+and is published on origin. Local remote roy tracks his original fork.
+History-only merge 75f0671222788b70a77f7074a3f5b787b175ac39 is pushed to main.
+Its tree exactly equals cleanup commit's tree; Roy's original author/commit IDs
+and ancestry are preserved. Only this handoff update remains to commit/push.
+No saved local experiment or model removed.
 
 ## Next actions
 1. Review docs/validation/LAYOUT.md and SOURCE.json for this completed refactor.
@@ -81,6 +85,7 @@ No unrelated edits discarded; no saved local experiment or model removed.
    any new selection must use only training/validation and independent tuning.
 
 ## Last checkpoint
-2026-10-18. User authorized committing/pushing cleanup, preserving Roy's current
-fork branch, and a history-only merge retaining our tree. Rechecked 50 tests
-(5.75s) and whitespace checks before committing. No new research experiments.
+2026-10-18. Authorized cleanup commit and history merge pushed successfully.
+Verified merge parents, identical before/after trees, and Roy branch ancestry.
+50 tests passed (5.75s) before publication; no scientific files changed afterward.
+Final handoff documentation is being committed/pushed separately.
