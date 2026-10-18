@@ -9,7 +9,10 @@ import numpy as np
 from scipy.stats import binomtest
 
 ROOT=Path(__file__).resolve().parents[1]
-UPSTREAM=ROOT/'external/TrajectoryManifoldControl'
+if __package__:
+    from .validation_benchmark import load_reference_cases
+else:
+    from validation_benchmark import load_reference_cases
 ENDPOINTS=('legacy_uninterrupted','terminal_recovery','periodic_terminal_recovery')
 
 
@@ -22,9 +25,8 @@ def summarize(directories):
             row['artifact_kind']=manifest['artifact_kind']; records.append(row)
             experiment='E0' if row['ic_set']=='A' else 'E1'
             name=f"seed{row['seed']}_{row['arm']}_{row['ic_set']}_{row['ic_index']:04d}_{manifest['seconds']:g}s.json"
-            archived=UPSTREAM/f'validation/results_v1/{experiment}/cases'/name
-            if archived.exists():
-                prior=json.loads(archived.read_text())
+            prior=load_reference_cases().get(f'{experiment}/cases/{name}')
+            if prior is not None:
                 comparison=dict(case=name,artifact_kind=row['artifact_kind'],
                     legacy_agrees=row['legacy_uninterrupted']==prior['primary_success'],
                     recovery_agrees=row['terminal_recovery']==prior['balanced'])

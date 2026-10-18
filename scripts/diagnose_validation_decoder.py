@@ -20,8 +20,8 @@ def main():
     p.add_argument('--device',choices=('cpu','cuda'),default='cpu')
     p.add_argument('--candidates',type=int,default=4)
     args=p.parse_args();args.output=args.output.resolve()
-    if args.output.is_relative_to(ROOT/'external'):
-        p.error('output must be outside external')
+    if args.output.is_relative_to(ROOT/'validation'):
+        p.error('output must be outside validation snapshot')
     args.output.mkdir(parents=True,exist_ok=True)
     if (args.output/'diagnostics.json').exists():
         p.error('diagnostic output already exists; use a new directory')

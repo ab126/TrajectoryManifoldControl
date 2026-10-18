@@ -9,16 +9,22 @@ L on a completed independent benchmark and takes about 0.2 s per solve on this C
 ## Provenance and method identity
 
 Upstream: https://github.com/aroyphillips/TrajectoryManifoldControl.git,
-submodule `external/TrajectoryManifoldControl`, pinned at
+minimal root `validation/` snapshot, pinned at
 `e66a2b79f27f347286576f678f424625f60787b4`.
+The original full submodule was replaced on October18 at the user's request;
+[current layout and continuation commands](LAYOUT.md) supersede its path-dependent
+integration instructions below. Scientific results and historical artifacts are
+unchanged. `validation/SOURCE.json` pins every imported file and the reused
+local baseline source. The snapshot is2.2MB,19files, including1236 H/L reference
+records packed losslessly into one JSON file.
 Original local `src/manifold_control.py` and
 `scripts/run_inverted_pendulum_mc.py` are byte-identical to upstream.
 The implementation specification in upstream
 `validation/handoff/sources/trajectory_manifold_implementation.tex` was read
 alongside the source. Upstream has no tracked project-level license; vendor
-licenses apply to their vendors only. Upstream stays unmodified; this integration
-calls its functions locally without copying validation source. Redistribution
-terms remain unresolved.
+licenses apply to their vendors only. Required validation helpers and metadata
+are copied verbatim with attribution; controller/plant files are reused locally
+and checked against upstream hashes. Redistribution terms remain unresolved.
 
 The active model is a normalized residual transition network
 `f_hat(x,u)=x+mu_dx+std_dx*h((col(x,u)-mu_xu)/std_xu)`. Recursing it gives the
@@ -40,11 +46,11 @@ hidden parameters enter learning or any new optimization code.
 
 ## Benchmark contracts and endpoints
 
-The adapter runs in a fresh interpreter to avoid the two repositories' `src` and
-`scripts` namespace collision. It calls upstream collection, splitting, saved
-initial states, controller factories, simulation, and legacy metrics directly.
-It checks module paths and the pinned/clean upstream tree. Outputs go outside
-the submodule. Upstream CUDA-only campaign orchestration is bypassed; its
+The adapter runs in a fresh interpreter. It calls the identical local collection,
+splitting, simulation and original controller, and the unchanged imported
+initial-state, controller-selection and legacy-metric helpers directly.
+It checks module paths and all pinned snapshot/baseline hashes. Outputs go outside
+the snapshot. Upstream CUDA-only campaign orchestration is bypassed; its
 scientific functions run unchanged, on an explicitly recorded device.
 
 State order is normalized cart position, cart speed, angle, angular speed:
@@ -259,7 +265,13 @@ compression as a problem. A direct model would need explicit cross-time feasibil
 and prefix validation. Geometry penalties are likewise deferred without evidence
 that their extra computation addresses the measured errors.
 
-## Reproduction
+## Historical reproduction (original submodule layout)
+
+The commands in this section record the original experiment, at repository
+commit `f41056d`. Source-hash guards intentionally prevent reusing those old
+manifests with changed integration code. Use [LAYOUT.md](LAYOUT.md) for the
+current root layout, migrated frozen continuation and fresh output directories.
+The controller/model/scoring settings have not changed.
 
 Run from the repository root. Current tested interpreter is
 `/tmp/tmc-validation-env/bin/python`; this temporary environment is not portable.

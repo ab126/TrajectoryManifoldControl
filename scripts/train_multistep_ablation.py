@@ -21,7 +21,7 @@ def main():
     p.add_argument('--window',type=int,default=5)
     p.add_argument('--device',choices=['cpu','cuda'],default='cpu')
     args=p.parse_args();args.output=args.output.resolve()
-    if args.output.is_relative_to(ROOT/'external'):p.error('output must be outside external')
+    if args.output.is_relative_to(ROOT/'validation'):p.error('output must be outside validation snapshot')
     if args.output.exists() and any(args.output.iterdir()):p.error('output must be new or empty')
     if args.epochs<1 or not 1<=args.window<=30:p.error('invalid epochs/window')
     args.output.mkdir(parents=True,exist_ok=True)

@@ -13,12 +13,12 @@ from pathlib import Path
 import sys
 import time
 
-from validation_benchmark import ROOT,UPSTREAM,PIN,load_upstream,sha256,write_json
+from validation_benchmark import ROOT,VALIDATION,PIN,SOURCE_SHA256,load_upstream,sha256,write_json,verify_snapshot
 
 
 def freeze(args):
-    if args.bundle.resolve().is_relative_to(UPSTREAM):
-        raise ValueError('freeze bundle must be outside the submodule')
+    if args.bundle.resolve().is_relative_to(VALIDATION):
+        raise ValueError('freeze bundle must be outside the validation snapshot')
     evidence=args.screen.resolve()
     summary=json.loads((evidence/'summary.json').read_text())
     manifest=json.loads((evidence/'manifest.json').read_text())
@@ -29,6 +29,7 @@ def freeze(args):
     if args.variant not in manifest['variants'] or not isinstance(manifest['variants'][args.variant],dict):
         raise ValueError('variant must identify a native configuration in the completed tuning screen')
     if args.bundle.exists():raise ValueError('freeze bundle already exists')
+    verify_snapshot()
     baselines=args.baseline_models or args.models
     if len(baselines)!=len(args.models):
         raise ValueError('one original baseline model is required per candidate model')
@@ -43,7 +44,8 @@ def freeze(args):
                            baseline_data_sha256=sha256(baseline/'data.npz')))
     if not any(row['checkpoint_sha256']==manifest['checkpoint_sha256'] for row in models):
         raise ValueError('selection model must be included in frozen bundle')
-    write_json(args.bundle,dict(upstream=PIN,configuration=manifest['variants'][args.variant],
+    write_json(args.bundle,dict(upstream=PIN,validation_manifest_sha256=SOURCE_SHA256,
+        configuration=manifest['variants'][args.variant],
         source_sha256=sha256(ROOT/'src/manifold_experiments.py'),
         scoring_sha256=sha256(ROOT/'src/validation_metrics.py'),
         evaluator_sha256=sha256(__file__),models=models,
@@ -57,7 +59,7 @@ def freeze(args):
 
 def evaluate(args):
     bundle=json.loads(args.bundle.read_text());args.output=args.output.resolve()
-    if args.output.is_relative_to(UPSTREAM):raise ValueError('output must be outside submodule')
+    if args.output.is_relative_to(VALIDATION):raise ValueError('output must be outside validation snapshot')
     if bundle['upstream']!=PIN:raise ValueError('upstream pin mismatch')
     for filename,key in [('src/manifold_experiments.py','source_sha256'),
                          ('src/validation_metrics.py','scoring_sha256'),
@@ -89,7 +91,7 @@ def evaluate(args):
     gain,_=c.runner.fit_local_feedback(split['train'],c.Q,c.R)
     configuration=bundle['configuration'].copy();configuration['seed']=seed
     native_config=module.NativeConfig(**configuration)
-    fresh_path=UPSTREAM/'validation/results_literature/inventory/fresh_200_states.json'
+    fresh_path=VALIDATION/'results_literature/inventory/fresh_200_states.json'
     identities=json.loads(fresh_path.read_text())['states'] if args.set=='fresh' else sets[args.set]
     indices=list(range(len(identities))) if args.indices is None else args.indices
     if len(set(indices))!=len(indices) or any(i<0 or i>=len(identities) for i in indices):

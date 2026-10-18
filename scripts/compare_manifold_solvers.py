@@ -14,7 +14,7 @@ def main():
     p.add_argument('--model-dir',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
     args=p.parse_args();args.output=args.output.resolve()
-    if args.output.is_relative_to(ROOT/'external'):p.error('output must be outside external')
+    if args.output.is_relative_to(ROOT/'validation'):p.error('output must be outside validation snapshot')
     if (args.output/'comparison.json').exists():p.error('output already exists')
     args.output.mkdir(parents=True,exist_ok=True)
     c,_,_=load_upstream(args.output);np,torch=c.np,c.torch

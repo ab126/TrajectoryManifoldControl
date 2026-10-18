@@ -146,3 +146,54 @@ parameters to controllers.
   Estimated native C200~7.8CPU hours/seed before other arms/holdouts. No active
   controller experiment remains after the bounded run. Future configuration
   selection must not use the observed final C scores.
+
+## 2026-10-18 — Minimal root validation integration (user-requested replacement)
+
+- Started clean on main at f41056d670cdb60a03ca73e118be9517fff987cd; read STATE/LOG
+  and verified upstream remained at e66a2b79. Reviewed Roy's checked-in reader
+  brief and plans (harness under root validation/, submitted source unchanged).
+  Public GitHub commit/issue comment endpoints returned empty lists.
+- Replaced the full submodule with root validation/:19files,2.2MB. Selected six
+  runtime helpers plus saved ICs, seed diagnostics, four reports and method note.
+ 16source/data/report files byte-identical;1236 H/L reference JSON objects packed
+  losslessly and individually compared with originals before removal.
+- SOURCE.json pins upstream URLs/paths/commit and hashes, including local reused
+  SUT. SHA2567d97e6bd3a8f082b5b87c0c9c6372545e203e6cde06643c695ee347cbb913dea.
+  No duplicate controller, plant or root notebooks; no runtime submodule needed.
+- `git submodule deinit -- external/TrajectoryManifoldControl` and `git rm --
+  external/TrajectoryManifoldControl .gitmodules`:clean checkout removed, Git
+  object store retained locally. Saved local models/results unchanged; no commit.
+- Initial patch request timed out in permission review without execution; retry
+  succeeded. This was a timeout, not a safety rejection. Sandbox bwrap remains
+  broken, so approved escalated commands were used.
+- Root adapter --verify passes. L six authored + first3random replays:9archived
+  comparisons,0endpoint mismatches and0differences in compared trajectory scalars.
+- New integration-only bundle01e556c2f7100e95bb121482bbb76ff596b2bd04d854e340df6ef16e80e04767;
+  scientific settings/models/scoring/protocol identical to prior release97a3d77c.
+  Authenticated old integration hashes against f41056d. Copied6caseJSON+6rawNPZ+
+  summary into final-root-layout-seed0-C;13files byte/hash matched, old artifacts
+  untouched. LAYOUT_MIGRATION.json records ancestry; --verify-only succeeds.
+- Importer and guarded migration commands in docs/validation/LAYOUT.md. Historical
+  report commands explicitly labeled for the old source version. No new native
+  simulations, training, parameter changes or validation-score selection.
+-49tests passed before adding the final migration guard test; final suite pending.
+
+### Final layout verification
+
+- `env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+  /tmp/tmc-validation-env/bin/python -m pytest -q`:50passed in5.83s.
+- Syntax compilation and git diff --check pass. git submodule status is empty.
+  Root snapshot has19tracked-candidate files (2.2MB); no duplicate src/notebooks.
+- Historical freeze still97a3d77c12d69a30a8ef799f8703c77f425f0dc94f762c88a0403c7a01ad9f41;
+  historical EVIDENCE.json untouched. All13 copied historical files verified
+  byte-identical in both old and migrated outputs. Root-layout freeze verification
+  passes; no new native control, tuning or training performed.
+- Handoff now names the new bundle/output and exact continuation command.
+  Uncommitted cleanup/import changes ready for review; no commit or push.
+
+## 2026-10-18 — Authorized publication and upstream history preservation
+
+- User requested: first commit/push the local cleanup, then preserve Roy's
+  current fork as a branch and merge history while keeping our local version.
+- Pre-publication verification: 50 tests passed in5.75s; git diff --check passed.
+- Cleanup commit/push and history-only merge are next; no experiment reruns.

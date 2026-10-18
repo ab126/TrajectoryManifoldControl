@@ -1,80 +1,86 @@
 # Codex Project State
 
 ## Current objective
-Integrate the independent validation benchmark, establish baseline parity, then
-diagnose and improve standalone nonlinear learned trajectory-manifold control.
+Commit and publish the minimal validation integration, then preserve Roy's
+current fork history on a published branch and merge its ancestry into main
+without replacing the local implementation or restoring redundant files.
 
-## Working state
-Phases1–3 and bounded Phase4/5 screens complete; Phase6 partial. Submodule at external/TrajectoryManifoldControl,
-pin e66a2b79f27f347286576f678f424625f60787b4. Original local controller/decoder
-are byte-identical to upstream. Added isolated adapter and explicit A/B/C metrics;
-47 tests pass. See docs/validation/REPORT.md and PLAN.md. Reconstructed original seed0 H gives
-4/6 authored successes, matched L 6/6; all authored binary outcomes agree with
-archive. Exact H trajectories differ (retrained CPU versus archived CUDA).
+Previous objective (completed):
+Replace the redundant full validation submodule with the minimal root validation
+snapshot, preserving scientific behavior, results and frozen-run continuity.
+The research target (native recovery exceeding L on independent starts) remains
+unachieved; this task changes integration layout only.
 
-## Decisions and assumptions
-Preserve originals and all historical data. Do not redesign before baseline and
-diagnostic gates. No project-level upstream license found; call functions locally,
-do not copy/adapt upstream source. Canonical decoder has 34 coordinates (30 free
-inputs for fixed x0), no active learned encoder. Force bound is normalized ±10.
+## Completed work
+- Root validation/: 2.2 MB, 19 files. Removed the full submodule checkout,
+  gitlink and .gitmodules. Retained its Git object store for recovery.
+- Upstream pin e66a2b79f27f347286576f678f424625f60787b4; SOURCE.json SHA256
+  7d97e6bd3a8f082b5b87c0c9c6372545e203e6cde06643c695ee347cbb913dea.
+- Six unchanged runtime helpers, original/fresh saved starts, fitted diagnostics,
+  four reports and implementation note. All16 copied files match upstream bytes.
+  Packed1236 H/L reference objects losslessly; no duplicated src or notebooks.
+- Adapter reuses local baseline source after upstream hash verification. Updated
+  loaders, reference reader, path guards, docs and pytest discovery.
+- Reviewed Roy's checked-in plans/reader notes; public commit/issue comment
+  endpoints contained no additional comments.
+- Old saved models, experiments, frozen bundle and EVIDENCE.json stay unchanged.
+  New integration-only bundle and continuation reuse6 completed controller cases
+  (two paired starts),6 raw arrays and summary with byte/hash checks.
 
-## Verified results
-Git branch main, starting commit 325beae. Only pre-existing untracked AGENTS.md.
-Upstream manuscript/source inspected. Missing upstream raw arrays/checkpoints
-confirmed with git ls-files. Adapter contracts pass, true CVXPY installed.
-Nine archived-gain L replays agree exactly on compared numerical values.
-Seed0 decoder test NRMSE [0.01018,0.01695,0.00910,0.01839]; rank34, exact initial/
-input/predicted-prefix consistency. Four validation candidate replays show angle
-terminal error up to0.124 rad; one CEM cost exceeds diagnostic L candidate cost.
-All four measured CEM solves ~83ms, above20ms. Artifacts saves/validation/.
-Full archived-gain L seed0/1/2:122/130/128 of200, exact600-case compared scalar
-agreement and A/B agreement. H9-case binary agreement. Opt-in native projected
-Adam/safe CEM and periodic/window objectives implemented and tested, originals
-unchanged. Completed16-case tuning screen: Adam2/2, periodic1/2, window2/2;
-M0/2,H1/2,L2/2,CEM5/CEM1 both0/2. Adam~0.2s/solve, not real-time.
-Multistep5 fine-tuning did not improve common validation criterion or M0/2
-successes. Static20iter Adam objective beats CEM1/4, worse3/4; no blanket claim.
-Frozen nominal C0/1: native1/2,H1/2,L2/2 under all endpoints; native0pairedwins,
-1loss vsL. Case0 angle meets tolerance but speed0.06899rad/s exceeds0.05.
-Delay1 sample, authored−15deg: native1/1,H0/1,L0/1. Cartmass+25% same start:
-all1/1. Baseline60s±15deg H/L both2/2; native60s not run. No target achievement
-claimed. Figures/raw data/manifests under saves/validation; compact EVIDENCE.json
-and full report/reproduction commands under docs/validation.
+## Verified results and tests
+- Root-layout adapter contracts pass: import provenance, states, timing, units,
+  episode separation. Nine L replays exactly match archived outcomes and compared
+  final angle/cart position/maximum cart excursion (all differences0).
+- 50 tests passed in5.83s, including snapshot corruption, packed H/L coverage
+  and rejection of scientific changes during layout migration. Syntax and
+  whitespace checks pass. See docs/validation/LAYOUT.md for commands.
+- Frozen new-layout verification passes; no new native evaluation or training.
+- Original baseline plant/controller, native optimizer and scoring source remain
+  unchanged. Scientific frozen settings and evaluation protocol compare equal.
 
-## Blockers
-Sandbox bwrap fails before commands; approved escalated execution works.
-System Python lacks scientific dependencies and ensurepip. Temporary environment
-/tmp/tmc-validation-env created via micromamba; dependencies installed.
-Original upstream CUDA checkpoints unavailable in Git; CPU reconstruction is
-distinct evidence and cannot be called exact checkpoint reproduction.
+## Frozen continuation
+Historical bundle saves/validation/frozen-native.json, SHA256
+97a3d77c12d69a30a8ef799f8703c77f425f0dc94f762c88a0403c7a01ad9f41.
+New bundle saves/validation/frozen-native-root-validation.json, SHA256
+01e556c2f7100e95bb121482bbb76ff596b2bd04d854e340df6ef16e80e04767.
+New output saves/validation/final-root-layout-seed0-C contains copied measurements
+and LAYOUT_MIGRATION.json, authenticated against original source commit
+f41056d670cdb60a03ca73e118be9517fff987cd. Old hash guards were not relaxed.
 
-## Next steps
-1. Tuning16/16 complete: plain Adam2/2, periodic1/2, terminalwindow2/2,
-   original M0/2,H1/2,L2/2, safe CEM5/1 both0/2. Plain Adam selected using
-   predeclared original-objective tie rule, frozen-native.json SHA256
-   97a3d77c12d69a30a8ef799f8703c77f425f0dc94f762c88a0403c7a01ad9f41.
-2. Frozen verification passed; bounded C200 stopped after2paired starts in306.2s
-   (180s between-case budget permits current case to finish). Resume unchanged:
-   /tmp/tmc-validation-env/bin/python -u scripts/frozen_manifold_validation.py evaluate --bundle saves/validation/frozen-native.json --arms L H native --set C --output saves/validation/final-seed0-C --max-wall-seconds 180
-   Completed delay/mass/60s-baseline commands and outputs are in REPORT.md.
-3. Frozen evaluator supports C/fresh/A60 and H/native/L; full native C200 estimated
-   ~7.8hours per fitted seed on this CPU. Do not claim it ran. Seed1/2 model
-   reconstruction and full H/native validation remain incomplete. Never retune
-   this frozen configuration using the arriving final outcomes.
-4. Original seed1/2 models still need independent reconstruction; use seed0
-   training command with explicit --seed and distinct paths. Frozen evaluator
-   can pin all3models in a new bundle with unchanged selected settings.
-5. Full200/fresh200/native60s remain unrun. Further method development may use
-   only training/validation and independent tuning data. Existing broad-validation
-   cold-start costs, prediction precision and CPU latency suggest next studies;
-   final C outcomes must not be used to select a passing revision.
+Current resume command (NOT run during layout work):
+/tmp/tmc-validation-env/bin/python -u scripts/frozen_manifold_validation.py evaluate --bundle saves/validation/frozen-native-root-validation.json --arms L H native --set C --output saves/validation/final-root-layout-seed0-C --max-wall-seconds 180
+
+## Scientific context retained
+Original L reproduces122/130/128 of200 for seeds0/1/2. Original seed0 H agrees
+on9 baseline cases. Tuning: native Adam2/2,M0/2,H1/2,L2/2; periodic1/2,window2/2.
+Frozen nominal first2starts: native1/2,H1/2,L2/2; native0wins/1loss vsL.
+Delay1 on authored-15deg: native1/1,H0/1,L0/1; mass+25% all1/1.
+Native~0.2s/call misses20ms; full C200/fresh200/remaining seeds/native60s pending.
+Never tune the frozen configuration using these observed final outcomes.
+
+## Decisions, limits and blockers
+- Minimal local copy is explicitly requested; imported helpers stay unchanged.
+  No upstream project-level license found; preserve attribution, infer no new
+  redistribution license. Detailed reports may link omitted upstream media.
+- System Python lacks scientific libraries. Use /tmp/tmc-validation-env/bin/python
+  or rebuild from docs/validation/requirements-cpu.txt.
+- Sandbox bwrap still fails before execution; approved escalated commands work.
+- Original upstream weights/raw arrays absent from Git; prior CPU reconstruction
+  remains separately identified. No full final-validation success claimed.
+
+## Uncommitted changes
+On main at f41056d. Submodule/gitmodules deletions staged by git rm; snapshot,
+import/migration tools, loader/path/test/docs changes uncommitted. No commit/push.
+No unrelated edits discarded; no saved local experiment or model removed.
+
+## Next actions
+1. Review docs/validation/LAYOUT.md and SOURCE.json for this completed refactor.
+2. Research continuation, only if requested: use the new frozen bundle/output
+   command above; it skips preserved cases. Full native C200 costs~8CPU hours/seed.
+3. Seed1/2 reconstruction, fresh200 and native60s remain separate future work;
+   any new selection must use only training/validation and independent tuning.
 
 ## Last checkpoint
-2026-10-18 (work started October17). Uncommitted .gitmodules/gitlink staged by git submodule add;
-local metrics, adapter, native solver/controller, training/ablation/diagnostic/
-freeze scripts, tests, pytest config, .gitignore, README, plan/report/checkpoints.
-All experimental processes finished or stopped at their own saved budget boundary;
-no background controller/training run is left active.47tests pass; upstream clean.
-No commit or push made. Two directories L-seed1-C200 and L-seed2-C200 were
-mistakenly launched without --seed (both are seed0 duplicates); exclude them.
-Corrected explicit seed runs use *-corrected paths. No data deleted.
+2026-10-18. User authorized committing/pushing cleanup, preserving Roy's current
+fork branch, and a history-only merge retaining our tree. Rechecked 50 tests
+(5.75s) and whitespace checks before committing. No new research experiments.

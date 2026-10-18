@@ -1,10 +1,13 @@
 # Validation integration and research gates
 
 Protocol established 2026-10-17 before new controller experiments.
+Layout revised 2026-10-18 at the user's request: retain only the minimal upstream
+validation dependency set at root `validation/`, reusing the identical local
+plant/controller source. See [layout and continuation instructions](LAYOUT.md).
 
 1. Pin upstream; inspect its license, manuscript, plant, datasets, metrics and
-   controller entry points. Call upstream functions in a separate Python process
-   so its `src`/`scripts` imports cannot accidentally resolve to this repository.
+   controller entry points. Call pinned validation helpers in a fresh process;
+   verify the local `src`/`scripts` baseline hashes against upstream before reuse.
 2. Verify six authored starts and a fixed prefix of three random starts. Compare
    archived L gains and archived per-case results before expensive training.
    Reproduced training is a new artifact, not the unavailable original checkpoint.
@@ -39,7 +42,8 @@ published result tables is evidence inspection, not reproducing an experiment.
 
 Upstream pin: `e66a2b79f27f347286576f678f424625f60787b4`.
 No project-level LICENSE/COPYING was found in tracked files. Third-party license
-files do not license the validation project. Keep it an unmodified submodule;
-call its functions locally as requested, with no source copying or redistribution
-of derivative upstream code. Obtain explicit reuse terms before distributing
-adapted upstream source. No legal conclusion is asserted.
+files do not license the validation project. The user's later layout request
+supersedes the original submodule plan: import the required validation files
+verbatim, retain attribution and individual source hashes, and omit duplicated
+controller/plant files. No redistribution license is inferred. No legal
+conclusion is asserted.

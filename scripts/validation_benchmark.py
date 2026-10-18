@@ -1,25 +1,26 @@
-"""Isolated adapter to the pinned validation project; never imports local src.
+"""Adapter to the minimal pinned root validation snapshot.
 
 Run this entry point in a fresh process. All benchmark physics, collection,
-splitting, baseline policies, initial conditions and legacy scoring are upstream.
-Only additional scoring is loaded from this repository by an explicit file path.
+splitting and baseline policies use this repository's original source, verified
+against upstream hashes. Initial states and legacy scoring come from validation/.
 """
 from __future__ import annotations
 
 import argparse
 from dataclasses import asdict
 import hashlib
+from functools import lru_cache
 import importlib.util
 import json
 import os
 from pathlib import Path
-import subprocess
 import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-UPSTREAM = ROOT / 'external/TrajectoryManifoldControl'
+VALIDATION = ROOT / 'validation'
 PIN = 'e66a2b79f27f347286576f678f424625f60787b4'
+SOURCE_SHA256 = '7d97e6bd3a8f082b5b87c0c9c6372545e203e6cde06643c695ee347cbb913dea'
 
 
 def sha256(path):
@@ -30,12 +31,30 @@ def sha256(path):
     return h.hexdigest()
 
 
+def verify_snapshot():
+    source = VALIDATION/'SOURCE.json'
+    if sha256(source) != SOURCE_SHA256:
+        raise RuntimeError('validation provenance manifest changed')
+    manifest = json.loads(source.read_text())
+    if manifest['commit'] != PIN:
+        raise RuntimeError('validation source pin changed')
+    for relative, record in manifest['files'].items():
+        if sha256(VALIDATION/relative) != record['sha256']:
+            raise RuntimeError(f'validation snapshot changed: {relative}')
+    for relative, digest in manifest['sut'].items():
+        if sha256(ROOT/relative) != digest:
+            raise RuntimeError(f'original benchmark source changed: {relative}')
+    return manifest
+
+
+@lru_cache(maxsize=1)
+def load_reference_cases():
+    verify_snapshot()
+    return json.loads((VALIDATION/'reference_cases.json').read_text())
+
+
 def load_upstream(output):
-    actual = subprocess.check_output(['git', '-C', str(UPSTREAM), 'rev-parse', 'HEAD'], text=True).strip()
-    if actual != PIN:
-        raise RuntimeError(f'upstream pin changed: {actual}')
-    if subprocess.check_output(['git', '-C', str(UPSTREAM), 'status', '--porcelain'], text=True).strip():
-        raise RuntimeError('upstream working tree must be clean')
+    verify_snapshot()
     if any(key == 'src' or key.startswith('src.') or key == 'scripts' or key.startswith('scripts.') for key in sys.modules):
         raise RuntimeError('run adapter as a fresh process to avoid import collisions')
     os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
@@ -43,17 +62,17 @@ def load_upstream(output):
     os.environ['MPLCONFIGDIR'] = str(output / '.mpl')
     for key in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'NUMEXPR_NUM_THREADS'):
         os.environ[key] = '1'
-    sys.path[:0] = [str(UPSTREAM), str(UPSTREAM/'validation'), str(UPSTREAM/'validation/experiments')]
+    sys.path[:0] = [str(ROOT), str(VALIDATION), str(VALIDATION/'experiments')]
     import campaign
     campaign.torch.set_num_threads(1)
     campaign.runner.tqdm = lambda values, **kwargs: values
     for module in (campaign.runner, sys.modules['src.manifold_control'], sys.modules['src.inverted_pendulum']):
-        if not Path(module.__file__).resolve().is_relative_to(UPSTREAM):
+        if not Path(module.__file__).resolve().is_relative_to(ROOT):
             raise RuntimeError(f'wrong upstream module: {module.__file__}')
     if not (campaign.OUT/'initial_conditions.json').exists():
-        raise RuntimeError('missing upstream saved initial states; refuse to create inside submodule')
+        raise RuntimeError('missing saved initial states; refuse to regenerate the benchmark')
     sets = campaign.ic_sets()  # Reads the upstream saved identities, never regenerates.
-    campaign.OUT = output  # Prevent later campaign writes into the submodule.
+    campaign.OUT = output  # Prevent campaign writes into the pinned snapshot.
     spec = importlib.util.spec_from_file_location('tmc_validation_metrics', ROOT/'src/validation_metrics.py')
     metrics = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(metrics)
@@ -79,8 +98,8 @@ def main():
     parser.add_argument('--verify', action='store_true', help='Run adapter contract checks only')
     args = parser.parse_args()
     args.output = args.output.resolve()
-    if args.output.is_relative_to(UPSTREAM):
-        parser.error('output must be outside the submodule')
+    if args.output.is_relative_to(VALIDATION):
+        parser.error('output must be outside the validation snapshot')
     args.output.mkdir(parents=True, exist_ok=True)
     c, sets, scoring = load_upstream(args.output)
     np, torch = c.np, c.torch
@@ -102,7 +121,8 @@ def main():
         groups = [set(v[0][:,0,0]) for v in split.values()]
         assert sum(len(g) for g in groups) == len(set.union(*groups)) == 20
         result = dict(passed=True, pin=PIN, cvxpy_workaround=c.CVXPY_WORKAROUND,
-                      initial_conditions_sha256=sha256(UPSTREAM/'validation/results_v1/initial_conditions.json'),
+                      source_manifest_sha256=SOURCE_SHA256,
+                      initial_conditions_sha256=sha256(VALIDATION/'results_v1/initial_conditions.json'),
                       imports={name: sys.modules[name].__file__ for name in ('src.manifold_control','src.inverted_pendulum','scripts.run_inverted_pendulum_mc')})
         write_json(args.output/'adapter_checks.json', result)
         print(json.dumps(result, indent=2)); return
@@ -111,11 +131,11 @@ def main():
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
     model_dir = args.model_dir.resolve() if args.model_dir else args.output/'model'
-    if model_dir.is_relative_to(UPSTREAM) and args.train:
-        parser.error('training artifacts must be outside the submodule')
+    if model_dir.is_relative_to(VALIDATION) and args.train:
+        parser.error('training artifacts must be outside the validation snapshot')
     decoder = None
     artifact_kind = 'archived_gain_only'
-    archived_diagnostics = UPSTREAM/f'validation/results_v1/models/episodes3500_seed{args.seed}/diagnostics.json'
+    archived_diagnostics = VALIDATION/f'results_v1/models/episodes3500_seed{args.seed}/diagnostics.json'
     if args.train:
         model_dir.mkdir(parents=True, exist_ok=True)
         if (model_dir/'data.npz').exists():
