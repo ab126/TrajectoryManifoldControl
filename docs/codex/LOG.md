@@ -212,3 +212,57 @@ parameters to controllers.
   cleanup and merge trees equal a379977e5319f406b4d30bd6fb27ecc4132b8777:
   no upstream redundant files or source changes entered the working tree.
 - Handoff documentation updated separately; no research results changed.
+
+## 2026-10-21 — Trajectory Manifold Control Visualization
+
+- Started clean main at dd6de61a; read STATE/LOG, source and all three pendulum
+  notebooks. Canonical decoder packs input-first, legacy decoder state-first;
+  visualization explicitly repacks complete horizons state-first for projection.
+- New observational module src/trajectory_visualization.py, example/export driver
+  scripts/visualize_trajectory_manifold.py, notebook-only execution helper
+  scripts/execute_visualization_notebook.py and docs/validation/VISUALIZATION.md.
+- Canonical conditioning fixes x0 and samples bounded future inputs. Legacy search
+  operates only on temporary encoder-derived latent coordinates, with initial-state
+  and bound residual masks. No plant access in sampling, projection or rendering.
+- Normalization/projection/background/camera/color scale fixed across run. All
+  sampling, costs, selected plans and projections cached before rendering; pure
+  rendering verified by tests replacing decoder/sample/transform with failures.
+- New sections appended to primary manifold_control.ipynb and historical debug
+  notebook. Historical preflight references missing runner interfaces; those cells
+  are untouched. Explicit canonical-checkpoint path permits isolated execution.
+- System sandbox still fails before commands (bwrap loopback); approved escalated
+  commands used. Installed nbclient/nbformat/ipykernel only into /tmp environment,
+  registered tmc-viz kernel within that environment. No mandatory runtime dependency.
+- 59tests passed in10.40s, including GIF frames, latent search, determinism,
+  conditioning, fixed projection and preserving live notebook model flags.
+- CLI .6s seed234 visualization using unchanged reconstructed seed0 checkpoint:
+  256background,24candidates/frame,31frames including final measurement. PCA variance
+  fraction .729988, neighbor overlap .563965, temporal distortion .883913. Optional
+  UMAP absent, explicitly fell back to PCA. No ffmpeg; GIF works, MP4 guard tested.
+- Debug notebook's three new cells executed successfully using nbclient; static
+  figure visually inspected. Original62cells/metadata verified unchanged. Primary
+  notebook's appended cells and final full-suite rerun pending at this checkpoint.
+- No training/controller code altered, no benchmark retuning, commit or push.
+
+### Final visualization verification
+
+- Final full suite:60passed in10.46s; compileall and git diff --check passed.
+  Added primary notebook summary-config reuse and model-isolation tests, plus
+  an exact rank-three embedding regression for continuity normalization.
+- Corrected temporal distortion to use RMS Euclidean background radius in each
+  space, avoiding dimension-dependent scaling. Final value .168267 replaces the
+  earlier .883913. PCA variance .729988 and neighbor overlap .563965 unchanged.
+- `python -m scripts.execute_visualization_notebook --kernel tmc-viz` executed
+  all3 primary visualization code cells successfully, after the debug section was
+  independently executed. Final source notebooks preserve all16primary/62debug
+  original cells and metadata. Existing primary missing-ID metadata warning is
+  harmless; no historical cells were normalized/re-written.
+- Refreshed CLI with --projection compare: optional UMAP absent, clear PCA fallback.
+  Model checkpoint SHA c3f6032f5e35b6bb36395a4eec23813ac41e44a4c72a04037b03629f5cbf4b4f.
+- Validated both final GIFs:31frames,696949bytes; static PNG276226bytes. Full cached
+  backgrounds(256,154), candidates(31,24,154); all744 current-state candidates
+  decoder-feasible, max x0 residual1.41472e-8. Terminal selected horizon absent
+  as intended. Executed notebook has no error outputs. No model fitting/evaluation
+  claims follow from this .6s visualization demonstration.
+- Changed files: new visualization module, two scripts, test module and docs;
+  README and append-only notebook sections; STATE/LOG. No commit/push requested.

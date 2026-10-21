@@ -114,6 +114,14 @@ The notebook is available at [manifold_control.ipynb](manifold_control.ipynb). I
 - optimizer timing and terminal-policy usage; and
 - the existing system animation.
 
+### Trajectory manifold visualization
+
+The appended visualization sections in `manifold_control.ipynb` (primary) and
+`inverted_pendulum_mc_debug.ipynb` show synchronized physical-state and full-horizon
+manifold projections. They reuse trained models without changing earlier experiments.
+Static PNG and GIF/optional MP4 exports use a fixed projection and camera.
+See [usage and geometric limitations](docs/validation/VISUALIZATION.md).
+
 ## Tests
 
 The minimal independent validation snapshot lives in root [`validation/`](validation/README.md),

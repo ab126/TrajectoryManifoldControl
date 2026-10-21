@@ -1,9 +1,41 @@
 # Codex Project State
 
 ## Current objective
-Completed: published the minimal validation integration and preserved Roy's
-current fork history on roy-validation and in main's ancestry, without replacing
-the local implementation or restoring redundant files.
+Completed reusable trajectory-manifold visualization and appended examples to
+the existing simulation notebooks, without changing training or MPC logic.
+
+## Visualization milestone (2026-10-21)
+- Added src/trajectory_visualization.py: state-first full-horizon cloud, canonical
+  exact conditioning, legacy latent feasibility search, explicit residual/bounds
+  masks, fixed normalization/PCA/camera/cost scale, optional diagnosed UMAP fallback.
+- Static and cached GIF/MP4 rendering; no decoder/optimizer/projection calls during
+  rendering. Physical panel uses SI cart position, continuous angle, physical rate;
+  selected and applied force are separately shown. Terminal measured state included.
+- Added visualization-only driver and notebook-cell executor. Append-only sections
+  in primary manifold_control.ipynb and inverted_pendulum_mc_debug.ipynb; original
+  experiments unchanged. Canonical live model copied to preserve training flags.
+- Output examples under saves/visualizations/trajectory_manifold_cli and
+  trajectory_manifold_notebook: static.png, animation.gif, closed_loop.npz,
+  trajectories.npz, metadata.json, executed.ipynb (notebook). No artifact committed.
+- Final verification: 60 tests passed in10.46s; syntax/whitespace checks pass.
+  CLI and both notebooks' appended code cells executed with existing seed0
+  checkpoint; 31frames, .6s run,256background,24candidates/frame. Primary notebook
+  executed artifact retained. All744 conditioned candidates pass; maximum initial
+  residual1.415e-8. Both final GIFs contain31frames; cached behaviors dimension154.
+- PCA variance fraction .72999, neighbor overlap .56396; UMAP unavailable and
+  fallback verified. ffmpeg unavailable; GIF executed, MP4 dependency guard tested.
+  Final temporal distortion .168267; radius normalization regression tested on
+  an exactly embedded rank-three19D trajectory set. Earlier .883913 diagnostic
+  used dimension-dependent normalization and is superseded by final metadata.
+- No new training, benchmark scoring or scientific performance claims. Legacy
+  notebook has obsolete earlier interfaces, unchanged; live latent integration
+  cannot be exercised end-to-end without its missing checkpoint. Synthetic
+  latent-search tests pass. Optional notebook tools installed in temporary env.
+- See docs/validation/VISUALIZATION.md for exact commands and geometry caveats.
+
+Previous history task completed: published the minimal validation integration
+and preserved Roy's current fork history on roy-validation and in main's ancestry,
+without replacing the local implementation or restoring redundant files.
 
 Previous objective (completed):
 Replace the redundant full validation submodule with the minimal root validation
@@ -74,18 +106,20 @@ Roy's branch roy-validation points to e66a2b79f27f347286576f678f424625f60787b4
 and is published on origin. Local remote roy tracks his original fork.
 History-only merge 75f0671222788b70a77f7074a3f5b787b175ac39 is pushed to main.
 Its tree exactly equals cleanup commit's tree; Roy's original author/commit IDs
-and ancestry are preserved. Only this handoff update remains to commit/push.
-No saved local experiment or model removed.
+and ancestry are preserved. Handoff committed/pushed as dd6de61a.
+Current uncommitted changes: visualization module, two scripts, tests, docs,
+README links, appended cells in both notebooks, and STATE/LOG. No commit/push
+authorized for the visualization task. No saved model or experiment removed.
 
 ## Next actions
-1. Review docs/validation/LAYOUT.md and SOURCE.json for this completed refactor.
+1. Review docs/validation/VISUALIZATION.md and generated outputs. Optional future
+   checks: real UMAP, installed ffmpeg, and a legacy trained autoencoder checkpoint.
 2. Research continuation, only if requested: use the new frozen bundle/output
    command above; it skips preserved cases. Full native C200 costs~8CPU hours/seed.
 3. Seed1/2 reconstruction, fresh200 and native60s remain separate future work;
    any new selection must use only training/validation and independent tuning.
 
 ## Last checkpoint
-2026-10-18. Authorized cleanup commit and history merge pushed successfully.
-Verified merge parents, identical before/after trees, and Roy branch ancestry.
-50 tests passed (5.75s) before publication; no scientific files changed afterward.
-Final handoff documentation is being committed/pushed separately.
+2026-10-21. Visualization complete; 60tests pass, both appended notebook sections
+and CLI executed, final GIF/caches validated. Original16primary/62debug cells and
+metadata unchanged. No controller/training source modified; no commit or push.
