@@ -1,17 +1,31 @@
-name: trajectory-manifold-control
+name: control311
 
 channels:
-  - pytorch
   - conda-forge
 
 dependencies:
   - python=3.11
+  - pip
   - numpy>=2.0
   - scipy>=1.13
   - matplotlib>=3.8
   - tqdm>=4.66
   - cvxpy>=1.5
-  - pytorch>=2.2
+  # CPU default is portable and avoids downloading a multi-GB CUDA stack.
+  - pytorch-cpu>=2.2
   - jupyterlab>=4.0
+  - jupyter
   - ipykernel>=6.0
+  - nbclient
+  - nbformat
+  - pillow
+  - scikit-learn
+  - umap-learn
+  - ffmpeg
+  - casadi
+  - ecos
   - pytest>=8.0
+  - pip:
+      - do-mpc
+      # Upstream has no PyPI release; preserve a reproducible source revision.
+      - PyDeePC @ git+https://github.com/rssalessio/PyDeePC.git@ab05d231e39c5dfe616f3edd60a317b4f9419665

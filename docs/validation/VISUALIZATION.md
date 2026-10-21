@@ -4,6 +4,11 @@
 not modify training, MPC objectives, solvers, benchmark endpoints or checkpoints.
 The demonstration is not a new performance comparison.
 
+For the maintained Python3.11 `control311` micromamba environment (including
+UMAP, ffmpeg and notebook tools), use [current setup and commands](../visualization.md).
+The `/tmp/tmc-validation-env` commands and unavailable-dependency notes below
+describe the historical2026-10-21 verification environment, not the new setup.
+
 ## Interpretation
 
 The left panel uses cart position [m], continuous/unwrapped angle [rad] and

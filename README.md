@@ -24,20 +24,24 @@ The learned decoder maps `q` to `w`, passes the measured initial state and propo
 
 ## Installation
 
-Python 3.11 is recommended. The results in this repository were produced with Python 3.11.4.
+Python 3.11 is recommended. `environment.yml` selects the newest compatible
+3.11 patch available when the environment is created. Historical results used
+Python 3.11.4; changing environments does not reproduce or replace those results.
+The verified `control311` environment resolves Python **3.11.17**.
 
-The easiest setup uses Conda or Mamba and the included environment file:
+Create the complete environment with micromamba:
 
 ```bash
-conda env create -f environment.yml
-conda activate trajectory-manifold-control
+micromamba create -f environment.yml -y
+micromamba activate control311
 ```
 
-Mamba can be used as a faster drop-in replacement:
+If shell activation is not initialized, use `micromamba run -n control311`:
 
 ```bash
-mamba env create -f environment.yml
-mamba activate trajectory-manifold-control
+micromamba run -n control311 python --version
+micromamba run -n control311 python -m pytest -q
+micromamba run -n control311 jupyter lab manifold_control.ipynb
 ```
 
 Confirm the installation:
@@ -47,7 +51,23 @@ python --version
 python -c "import torch; print(torch.__version__); print('CUDA available:', torch.cuda.is_available())"
 ```
 
-The workflow runs on CPU, but a CUDA-capable PyTorch installation is recommended for training and batched online optimization. If your platform needs a different CUDA build, install the appropriate PyTorch package for that system after creating the environment.
+The environment includes PyTorch (CPU), NumPy, SciPy, Matplotlib, CVXPY, tqdm,
+pytest, JupyterLab, notebook execution tools, Pillow, scikit-learn, UMAP and ffmpeg.
+CasADi, do-mpc and PyDeePC are included for optional/legacy control experiments;
+some historical notebooks still reference obsolete project interfaces.
+PyDeePC is installed from its [official repository](https://github.com/rssalessio/PyDeePC)
+at pinned commit `ab05d231e39c5dfe616f3edd60a317b4f9419665` (no PyPI release).
+Conda or Mamba can also create the same `environment.yml` as `control311`.
+
+CPU is the portable default, not a claim that controller calls meet a20ms
+deadline. For GPU training, use a separate environment with a PyTorch CUDA build
+matched to your hardware; do not mix CPU and CUDA packages in this environment.
+Register a notebook kernel once (the environment-local prefix avoids changing
+other kernels):
+
+```bash
+python -m ipykernel install --sys-prefix --name control311 --display-name "Python (control311)"
+```
 
 ## Run the current simulation
 
@@ -120,7 +140,8 @@ The appended visualization sections in `manifold_control.ipynb` (primary) and
 `inverted_pendulum_mc_debug.ipynb` show synchronized physical-state and full-horizon
 manifold projections. They reuse trained models without changing earlier experiments.
 Static PNG and GIF/optional MP4 exports use a fixed projection and camera.
-See [usage and geometric limitations](docs/validation/VISUALIZATION.md).
+See [visualization setup and commands](docs/visualization.md) and
+[geometric limitations](docs/validation/VISUALIZATION.md).
 
 ## Tests
 

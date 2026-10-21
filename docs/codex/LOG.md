@@ -266,3 +266,31 @@ parameters to controllers.
   claims follow from this .6s visualization demonstration.
 - Changed files: new visualization module, two scripts, test module and docs;
   README and append-only notebook sections; STATE/LOG. No commit/push requested.
+
+## 2026-10-21 — Named micromamba project environment and publication
+
+- Started main at03733c2e (visualization already committed); only AGENTS.md was
+  dirty. User requested control311, complete dependencies, README and
+  docs/visualization.md updates, then commit/push including other changes.
+- README recommends Python3.11. micromamba2.9.0 selected3.11.17 under
+  /home/ab126/micromamba/envs/control311. Updated existing environment.yml,
+  retaining3.11 line rather than switching to3.12+. CPU PyTorch is portable default.
+- Added notebook execution, UMAP, ffmpeg, CasADi, optional do-mpc/PyDeePC. First
+  pip step failed (no pydeepc index release); inspected official upstream setup,
+  pinned Git revisionab05d231e39c5dfe616f3edd60a317b4f9419665 and retried using
+  micromamba install -n control311 -f environment.yml -y. Installation succeeded.
+- pip check clean; scientific/notebook/optional-control imports pass. do-mpc
+  warns about unused ONNX/OPC-UA extras, not required by repository workflows.
+- Registered environment-local control311 kernel. Full suite60passed in10.50s.
+  Primary appended notebook3code cells executed under control311 successfully.
+- Real UMAP comparison and MP4 export completed for .6s run,31frames. UMAP
+  overlap .59375 > PCA .563965 but temporal distortion7.0891 > PCA .16825;
+  reliability criterion correctly falls back to PCA. Artifacts under
+  saves/visualizations/control311-compare and control311-notebook (execution).
+- README/environment setup updated; new docs/visualization.md tracked via an
+  explicit .gitignore exception. Historical detailed docs retain old validation
+  notes with pointer to maintained instructions. No source/model changes.
+- User's AGENTS.md edit preserved verbatim and included in authorized publication.
+- Final ffprobe verification: H.264,31frames. git diff --check clean. Publishing
+  all8setup/docs/instruction files with git commit and git push origin main;
+  resolve exact commit hash from Git history (not embedded recursively here).

@@ -11,6 +11,7 @@ __pycache__/
 *.out
 
 /docs/**
+!/docs/visualization.md
 !/docs/codex/
 !/docs/codex/**
 !/docs/validation/

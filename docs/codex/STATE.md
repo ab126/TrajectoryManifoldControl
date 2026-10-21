@@ -1,8 +1,30 @@
 # Codex Project State
 
 ## Current objective
-Completed reusable trajectory-manifold visualization and appended examples to
-the existing simulation notebooks, without changing training or MPC logic.
+Completed requested micromamba control311 setup, project dependencies, notebook
+kernel and updated README/docs/visualization.md. User authorized committing and
+pushing all pending changes, including their existing AGENTS.md edit.
+
+## control311 milestone
+- Created /home/ab126/micromamba/envs/control311 with Python3.11.17 (README
+  recommends3.11; micromamba selected current compatible patch). environment.yml
+  now names control311 and uses conda-forge CPU PyTorch, core scientific packages,
+  Jupyter/notebook tools, UMAP, ffmpeg and optional legacy control dependencies.
+- First pip phase failed because pydeepc has no index release. Replaced it with
+  official Git source pinned at ab05d231e39c5dfe616f3edd60a317b4f9419665; completed
+  installation with micromamba install -n control311 -f environment.yml -y.
+- Python3.11.17, torch2.14.1 CPU, numpy2.4.6, scipy1.17.1, cvxpy1.9.3,
+  matplotlib3.11.2, umap0.5.12, ffmpeg9.0.2, casadi3.7.2, do-mpc5.1.2,
+  PyDeePC0.3.6. pip check clean, imports pass, all60tests pass in10.50s.
+- Registered control311 kernel within environment using ipykernel --sys-prefix.
+  Primary visualization cells execute in it. UMAP comparison+MP4 export completed
+  under saves/visualizations/control311-compare; notebook execution artifact under
+  saves/visualizations/control311-notebook/executed.ipynb (notebook media use its
+  configured trajectory_manifold_notebook directory).
+- UMAP overlap .59375 vs PCA .563965, temporal distortion7.0891 vs .16825:
+  retained PCA on empirical reliability criterion, not an installation failure.
+- Added docs/visualization.md and .gitignore exception; historical detailed
+  visualization document points to current setup. No model/controller changes.
 
 ## Visualization milestone (2026-10-21)
 - Added src/trajectory_visualization.py: state-first full-horizon cloud, canonical
@@ -107,19 +129,22 @@ and is published on origin. Local remote roy tracks his original fork.
 History-only merge 75f0671222788b70a77f7074a3f5b787b175ac39 is pushed to main.
 Its tree exactly equals cleanup commit's tree; Roy's original author/commit IDs
 and ancestry are preserved. Handoff committed/pushed as dd6de61a.
-Current uncommitted changes: visualization module, two scripts, tests, docs,
-README links, appended cells in both notebooks, and STATE/LOG. No commit/push
-authorized for the visualization task. No saved model or experiment removed.
+Visualization changes were already committed as03733c2e before this task.
+This task's environment setup commit includes: environment.yml, README, docs/visualization.md,
+historical-doc pointer, .gitignore exception, STATE/LOG and user's AGENTS.md edit.
+User authorized committing/pushing all of them. No saved experiment/model removed.
 
 ## Next actions
-1. Review docs/validation/VISUALIZATION.md and generated outputs. Optional future
-   checks: real UMAP, installed ffmpeg, and a legacy trained autoencoder checkpoint.
+1. Use micromamba activate control311 or micromamba run -n control311. Review
+   docs/visualization.md. Legacy trained-autoencoder checkpoint remains absent;
+   optional ONNX/OPC-UA integrations are unused and not installed.
 2. Research continuation, only if requested: use the new frozen bundle/output
    command above; it skips preserved cases. Full native C200 costs~8CPU hours/seed.
 3. Seed1/2 reconstruction, fresh200 and native60s remain separate future work;
    any new selection must use only training/validation and independent tuning.
 
 ## Last checkpoint
-2026-10-21. Visualization complete; 60tests pass, both appended notebook sections
-and CLI executed, final GIF/caches validated. Original16primary/62debug cells and
-metadata unchanged. No controller/training source modified; no commit or push.
+2026-10-21. control311 installed and verified;60tests pass, notebook and MP4
+executed; ffprobe confirms31-frame H.264 MP4. This handoff is part of the
+authorized environment/docs commit, including user's AGENTS.md edit.
+Prior visualization source already on main at03733c2e.

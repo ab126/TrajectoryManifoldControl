@@ -34,7 +34,7 @@ Maintain repository-level continuity across Codex sessions.
 ### Safety and Git
 - Never store credentials, tokens, passwords, or private
   subject information in checkpoint documents.
-- Do not commit or push changes without authorization.
+- Commit and push whenever significant progress has been made
 - Do not overwrite or discard unrelated changes.
 - Do not claim a task or test succeeded without verification.
 - When multiple agents work concurrently, avoid conflicting
