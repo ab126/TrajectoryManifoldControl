@@ -138,7 +138,9 @@ def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=25
     metadata = {'seed': seed, 'model_source': model_source, 'config': config_record,
                 'seconds': seconds, 'background_samples': samples, 'candidates': candidates,
                 'feasibility_tolerance': tolerance, 'frame_stride': frame_stride,
+                'projection_requested': method,
                 'projection': visualization.projection.method,
+                'comparison_projections': list(visualization.comparisons),
                 'projection_diagnostics': visualization.projection.diagnostics,
                 'background_rejected': visualization.background_rejected,
                 'frames': len(visualization.frames),
@@ -150,6 +152,9 @@ def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=25
 
 
 def export(visualization, metadata, output, *, fps=15, movie_format='gif'):
+    for name, view in visualization.comparisons.items():
+        export(view, {**metadata, 'projection': name, 'comparison_projections': []},
+               Path(output)/name, fps=fps, movie_format=movie_format)
     output = Path(output); output.mkdir(parents=True, exist_ok=True)
     visualization.save_static(output/'static.png', step=visualization.frames[len(visualization.frames)//2].step)
     animation = visualization.save_animation(output/f'animation.{movie_format}', fps=fps)

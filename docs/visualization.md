@@ -60,9 +60,16 @@ Decoder feasibility does not establish true-plant feasibility. Projection,
 normalization, background, camera and color scale remain fixed over the run;
 rendering uses cached trajectories without new optimizer or decoder calls.
 
-PCA is the default. `compare`/`umap` attempts UMAP and checks neighborhood overlap
-and temporal-continuity distortion against PCA; an installed UMAP is not
-automatically selected if its diagnostics are worse. Projected distances and
+PCA is the default. `umap` displays UMAP even when its neighborhood or
+continuity diagnostics are worse than PCA, with a quality warning. `compare`
+computes both from the same trajectories: the notebook displays both static
+views, and export writes each complete visualization under `pca/` and `umap/`.
+The top-level view still selects using the empirical diagnostics. Metadata records
+`projection_requested`, the actual `projection`, diagnostics and available comparisons.
+If UMAP cannot be imported or fitted, both modes warn and fall back to PCA;
+inspect `projection_diagnostics['fallback']` for the reason. Rerun the configuration,
+creation/display, and export cells after changing `VIZ_PROJECTION`; existing notebook
+outputs do not update automatically. Projected distances and
 apparent curvature are not exact manifold geometry. See the
 [full API, feasibility definitions and limitations](validation/VISUALIZATION.md).
 

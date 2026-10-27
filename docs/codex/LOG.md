@@ -294,3 +294,28 @@ parameters to controllers.
 - Final ffprobe verification: H.264,31frames. git diff --check clean. Publishing
   all8setup/docs/instruction files with git commit and git push origin main;
   resolve exact commit hash from Git history (not embedded recursively here).
+
+## 2026-10-27 — Projection mode debugging and comparison output
+
+- Started main with user's manifold_control.ipynb modified. Verified argument
+  forwarding was correct: FixedProjection treated explicit umap and compare
+  identically, rejecting UMAP for poorer diagnostics; compare rendered only winner.
+- Changed explicit UMAP to retain a finite fitted embedding with quality warning.
+  compare retains automatic top-level selection while exposing pca/umap views from
+  identical cached trajectories. Notebook static and animation cells show both;
+  export writes both complete artifact sets. Metadata records requested method.
+- src/trajectory_visualization.py, scripts/visualize_trajectory_manifold.py,
+  both visualization notebook sections, tests and docs/visualization.md updated.
+  User's prior notebook output/source edits preserved and excluded from commit.
+- NUMBA_CACHE_DIR=/tmp/tmc-numba-cache MPLBACKEND=Agg python -m pytest -q:
+  61 passed, 1 failed (unrelated archived validation set exact comparison,
+  max difference 4.4408921e-16). Focused visualization suite:12 passed in16.91s.
+- Fresh-kernel nbclient execution of actual primary notebook visualization cells
+  passed for pca, umap and compare using synthetic canonical live decoder.
+  24 background samples,3 candidates,.04s; artifacts under
+  saves/visualizations/projection-notebook-debug/<method>/executed.ipynb.
+- Real UMAP0.5.12 integration and GIF exports passed; UMAP static visually checked.
+  CLI compare with saved canonical_decoder_dev.pt also passed and generated
+  both labeled views at saves/visualizations/projection-checkpoint-debug/.
+  Syntax and git diff --check pass. Jupyter socket access required escalation;
+  Numba required writable /tmp cache under sandbox. No scientific models changed.

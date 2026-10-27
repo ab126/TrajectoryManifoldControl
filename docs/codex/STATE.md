@@ -1,3 +1,46 @@
+# Current checkpoint — 2026-10-27
+
+## Current objective
+Completed end-to-end debugging of notebook visualization projection modes.
+
+## Completed and verified
+- Explicit umap now retains its fitted embedding despite diagnostic quality
+  warnings. compare exposes both cached views via viz.comparisons, displays
+  both static/animated notebook outputs and exports pca/ and umap/ subdirectories.
+  Top-level compare still selects the empirically preferred projection.
+- Metadata distinguishes requested/actual projection and available comparisons.
+  Genuine UMAP import/fit failures still warn and fall back to PCA.
+- Both notebook visualization sections updated; preserved user's pre-existing
+  manifold_control.ipynb changes and outputs. Stage only our source-cell edits.
+- Visualization tests: 12 passed. Full suite: 61 passed, 1 unrelated failure in
+  test_upstream_adapter_contract: archived-vs-regenerated exact array comparison
+  differs by at most 4.4408921e-16 on this Mac environment. Not changed here.
+- Real UMAP 0.5.12: PCA/UMAP/compare notebook cells executed in fresh Jupyter
+  kernels with a synthetic live canonical decoder, 24 samples, 3 candidates,
+  .04s. Outputs: saves/visualizations/projection-notebook-debug/<method>/.
+- CLI compare also executed with saves/saved_models/canonical_decoder_dev.pt;
+  three-frame GIFs and both views at saves/visualizations/projection-checkpoint-debug/.
+  UMAP static image visually inspected. compileall and diff whitespace checks pass.
+
+## Decisions and environment
+- Same trajectories, costs and physical limits shared across comparison views;
+  only cached projections differ. No controller/training/scoring changes.
+- Use NUMBA_CACHE_DIR=/tmp/tmc-numba-cache in restricted sandbox; default Numba
+  cache cannot write in installed UMAP package. Notebook execution needs local
+  kernel socket access and succeeded with sandbox escalation.
+- UMAP uses deterministic random initialization to support tiny backgrounds
+  (spectral initialization fails for small three-dimensional embeddings).
+
+## Uncommitted changes and next actions
+- Publish this fix and checkpoint per repository instructions. User's previous
+  notebook changes remain uncommitted, excluded from the fix commit.
+- User: restart notebook kernel, rerun model/config cells, then all three
+  visualization cells with VIZ_PROJECTION='umap' or 'compare'.
+- No visualization blocker. Separate exact-equality validation failure remains.
+
+---
+Previous checkpoint (historical; environment paths below refer to prior machine):
+
 # Codex Project State
 
 ## Current objective

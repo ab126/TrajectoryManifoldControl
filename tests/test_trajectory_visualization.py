@@ -159,3 +159,47 @@ def test_mp4_dependency_error_is_clear(monkeypatch, tmp_path):
     monkeypatch.setattr(writers, 'is_available', lambda writer: False)
     with pytest.raises(RuntimeError, match='ffmpeg'):
         make_visualization().save_animation(tmp_path/'run.mp4')
+
+
+@pytest.mark.parametrize('method', ['umap', 'compare'])
+def test_umap_quality_warning_does_not_hide_explicit_view(monkeypatch, tmp_path, method):
+    import sys
+    from scripts.visualize_trajectory_manifold import notebook_visualization, export
+    from scripts.run_inverted_pendulum_mc import make_config
+
+    class DistortedUMAP:
+        def __init__(self, **kwargs):
+            pass
+
+        def fit_transform(self, z):
+            return self.transform(z)
+
+        def transform(self, z):
+            return np.column_stack((np.sin(z[:, 0]*100), np.cos(z[:, 1]*100), z[:, 2]))
+
+    monkeypatch.setitem(sys.modules, 'umap', SimpleNamespace(UMAP=DistortedUMAP))
+    monkeypatch.setattr('src.trajectory_visualization._neighborhood_score',
+                        lambda high, low: 1. if np.max(np.abs(low[:, 0])) > 1 else 0.)
+    torch.set_num_threads(1)
+    with pytest.warns(RuntimeWarning, match='UMAP worse'):
+        viz, metadata = notebook_visualization(
+            {'decoder': CanonicalBehaviorDecoder(SimpleTransition(), 3),
+             'cfg': make_config('smoke', horizon=3, device='cpu')},
+            method=method, seconds=.04, samples=20, candidates=3)
+    assert metadata['projection_requested'] == method
+    assert viz.projection.method == ('umap' if method == 'umap' else 'pca')
+    views = viz.comparisons if method == 'compare' else {'umap': viz}
+    assert set(views) == ({'pca', 'umap'} if method == 'compare' else {'umap'})
+    for name, view in views.items():
+        assert view.frames is viz.frames
+        fig, axes = view.figure()
+        view.draw_frame(0, axes)
+        assert name.upper() in axes[1].get_title()
+        plt.close(fig)
+    export(viz, metadata, tmp_path, fps=5)
+    if method == 'compare':
+        import json
+        for name in views:
+            assert (tmp_path/name/'animation.gif').is_file()
+            assert json.loads((tmp_path/name/'metadata.json').read_text())['projection'] == name
+    plt.close('all')

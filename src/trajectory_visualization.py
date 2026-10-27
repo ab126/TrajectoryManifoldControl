@@ -6,6 +6,7 @@ initial-state agreement and input bounds, NOT verified true-plant feasibility.
 """
 from __future__ import annotations
 
+import copy
 from dataclasses import dataclass
 from pathlib import Path
 import warnings
@@ -124,8 +125,9 @@ class FixedProjection:
     """Fit once on a fixed background; out-of-sample transform for every frame.
 
     Per-feature standardization and PCA use NumPy, without a sklearn dependency.
-    UMAP is optional and rejected if its neighborhood or continuity diagnostics
-    deteriorate relative to PCA. Diagnostics are empirical, not geometric proofs.
+    Explicit UMAP retains its embedding despite quality warnings; compare selects
+    using neighborhood and continuity diagnostics and exposes both embeddings.
+    Diagnostics are empirical, not geometric proofs.
     """
     def __init__(self, background, *, method='pca', seed=234, continuity=None):
         w = np.asarray(background, dtype=float)
@@ -139,7 +141,9 @@ class FixedProjection:
         z = (w-self.mean)/self.scale
         _, singular, vt = np.linalg.svd(z, full_matrices=False)
         self.components = vt[:3].T
+        self.requested_method = method
         self.method, self.umap = 'pca', None
+        self.umap_reducer = None
         self.diagnostics = {'pca': {'variance_fraction': float((singular[:3]**2).sum()/max((singular**2).sum(), 1e-12))}}
         # Bound diagnostics cost independently of cloud size.
         indices = np.random.default_rng(seed).choice(len(z), min(len(z), 256), replace=False)
@@ -164,7 +168,7 @@ class FixedProjection:
             try:
                 import umap
                 reducer = umap.UMAP(n_components=3, random_state=seed, transform_seed=seed,
-                                    n_neighbors=min(15, len(z)-1))
+                                    n_neighbors=min(15, len(z)-1), init='random', n_jobs=1)
                 embedding = reducer.fit_transform(z)
                 path = None if continuity is None else reducer.transform((continuity-self.mean)/self.scale)
                 if not np.isfinite(embedding).all() or (path is not None and not np.isfinite(path).all()):
@@ -175,7 +179,12 @@ class FixedProjection:
                 reliable = score['neighbor_overlap'] >= reference['neighbor_overlap']
                 if 'temporal_step_distortion' in reference:
                     reliable &= score['temporal_step_distortion'] <= reference['temporal_step_distortion'] + .1
-                if reliable:
+                self.umap_reducer = reducer
+                if not reliable:
+                    self.diagnostics['quality_warning'] = 'UMAP worse than PCA on empirical diagnostics'
+                    if method == 'umap':
+                        warnings.warn(self.diagnostics['quality_warning'], RuntimeWarning)
+                if method == 'umap' or reliable:
                     self.method, self.umap = 'umap', reducer
                 else:
                     self.diagnostics['fallback'] = 'UMAP worse than PCA on empirical diagnostics'
@@ -260,6 +269,27 @@ class TrajectoryManifoldVisualization:
         path = [f.selected.w[0] for f in self.frames if f.selected is not None and np.isfinite(f.selected.w).all()]
         continuity = np.asarray(path) if path else None
         self.projection = FixedProjection(self.background.w, method=method, seed=seed, continuity=continuity)
+        self._cache_projection()
+        physical = [self.states*self.scale, (self.target*self.scale)[None]]
+        physical += [f.selected.x[0]*self.scale for f in self.frames if f.selected is not None]
+        self.physical_limits = self._limits(np.concatenate(physical)[:, [0, 2, 3]])
+        valid_costs = np.concatenate([f.costs[f.feasible & np.isfinite(f.costs)] for f in self.frames])
+        self.cost_limits = (float(valid_costs.min()), float(valid_costs.max())) if len(valid_costs) else (0., 1.)
+
+        self.comparisons = {}
+        if method == 'compare':
+            for name in ('pca', 'umap'):
+                if name == 'umap' and self.projection.umap_reducer is None:
+                    continue
+                view = copy.copy(self)
+                view.projection = copy.copy(self.projection)
+                view.projection.method = name
+                view.projection.umap = self.projection.umap_reducer if name == 'umap' else None
+                view.comparisons = {}
+                view._cache_projection()
+                self.comparisons[name] = view
+
+    def _cache_projection(self):
         self.background_xyz = self.projection.transform(self.background.w)
         self.candidate_xyz, self.selected_xyz = [], []
         for frame in self.frames:
@@ -274,11 +304,6 @@ class TrajectoryManifoldVisualization:
         all_xyz = np.concatenate([self.background_xyz, *self.candidate_xyz,
                                   np.asarray([p for p in self.selected_xyz if p is not None]).reshape(-1, 3)])
         self.projected_limits = self._limits(all_xyz)
-        physical = [self.states*self.scale, (self.target*self.scale)[None]]
-        physical += [f.selected.x[0]*self.scale for f in self.frames if f.selected is not None]
-        self.physical_limits = self._limits(np.concatenate(physical)[:, [0, 2, 3]])
-        valid_costs = np.concatenate([f.costs[f.feasible & np.isfinite(f.costs)] for f in self.frames])
-        self.cost_limits = (float(valid_costs.min()), float(valid_costs.max())) if len(valid_costs) else (0., 1.)
 
     @staticmethod
     def _limits(points):
