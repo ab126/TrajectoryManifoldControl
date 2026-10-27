@@ -161,6 +161,54 @@ def test_mp4_dependency_error_is_clear(monkeypatch, tmp_path):
         make_visualization().save_animation(tmp_path/'run.mp4')
 
 
+@pytest.mark.parametrize('notebook', ['manifold_control.ipynb', 'inverted_pendulum_mc_debug.ipynb'])
+def test_notebook_cells_refresh_stale_imports_and_export(notebook, tmp_path):
+    """An existing kernel may hold the class from before comparisons existed."""
+    import os
+    from pathlib import Path
+    import subprocess
+    import sys
+    import textwrap
+
+    script = textwrap.dedent('''
+        import json
+        from pathlib import Path
+        import torch
+        import src.trajectory_visualization as module
+        import scripts.visualize_trajectory_manifold as driver
+        from src.manifold_control import CanonicalBehaviorDecoder, DataDrivenTransition
+        from scripts.run_inverted_pendulum_mc import make_config
+
+        class StaleVisualization(module.TrajectoryManifoldVisualization):
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, **kwargs)
+                del self.comparisons
+
+        module.TrajectoryManifoldVisualization = StaleVisualization
+        driver.TrajectoryManifoldVisualization = StaleVisualization
+        cells = [c for c in json.loads(Path(NOTEBOOK).read_text())['cells']
+                 if c['cell_type'] == 'code' and c.get('id', '').startswith('tmc-viz-')]
+        assert len(cells) == 3
+        namespace = {'decoder': CanonicalBehaviorDecoder(DataDrivenTransition(4, 1, ()), 3),
+                     'cfg': make_config('smoke', horizon=3, device='cpu')}
+        exec(''.join(cells[0]['source']), namespace)
+        namespace.update(VIZ_SECONDS=.04, VIZ_SAMPLES=12, VIZ_CANDIDATES=3,
+                         VIZ_OUTPUT=Path(OUTPUT), display=lambda *args: None)
+        for cell in cells[1:]:
+            exec(''.join(cell['source']), namespace)
+        assert namespace['viz'].comparisons == {}
+        for filename in ('static.png', 'animation.gif', 'metadata.json',
+                         'closed_loop.npz', 'trajectories.npz'):
+            assert (Path(OUTPUT)/filename).stat().st_size > 0
+    ''')
+    script = 'NOTEBOOK = {!r}\nOUTPUT = {!r}\n'.format(notebook, str(tmp_path)) + script
+    result = subprocess.run([sys.executable, '-c', script],
+                            cwd=Path(__file__).resolve().parents[1],
+                            env={**os.environ, 'MPLBACKEND': 'Agg'},
+                            capture_output=True, text=True, timeout=120)
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
 @pytest.mark.parametrize('method', ['umap', 'compare'])
 def test_umap_quality_warning_does_not_hide_explicit_view(monkeypatch, tmp_path, method):
     import sys

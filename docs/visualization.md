@@ -73,6 +73,12 @@ outputs do not update automatically. Projected distances and
 apparent curvature are not exact manifold geometry. See the
 [full API, feasibility definitions and limitations](validation/VISUALIZATION.md).
 
+After updating visualization code, rerun all three visualization code cells,
+starting with the configuration cell. It reloads both visualization modules in
+dependency order so an existing kernel uses the current classes. This resolves
+stale-import errors such as a missing `comparisons` attribute without rerunning
+training. Existing `viz` objects are replaced by the creation/display cell.
+
 The optional legacy control dependencies do not repair obsolete notebook calls;
 the historical debug notebook's old interfaces and missing autoencoder checkpoint
 remain separate limitations. No performance improvement is inferred from these

@@ -319,3 +319,43 @@ parameters to controllers.
   both labeled views at saves/visualizations/projection-checkpoint-debug/.
   Syntax and git diff --check pass. Jupyter socket access required escalation;
   Numba required writable /tmp cache under sandbox. No scientific models changed.
+
+## 2026-10-27 — Right-panel horizon selection clarification
+
+- Inspected DecoderSampler.sample, visualization frame construction/rendering,
+  notebook configuration and notebook_visualization driver. Canonical colored
+  candidates use measured current state and independently sampled bounded future
+  input sequences, rolled forward by the learned decoder. Full H+1 state/H input
+  behaviors are projected to single points. Gray background varies initial state;
+  red star is the separate actual controller solve, not best-of-plotted samples.
+- Legacy path samples encoded training latents and optimizes initial-state/input
+  feasibility. Neither path constructs current-state candidates from H past samples.
+- No code/notebook edits or runtime tests; only continuity docs updated. Main at
+  e2908c95; pre-existing modified manifold_control.ipynb preserved. No pending task.
+
+## 2026-10-27 — Fix visualization imports in running notebook kernels
+
+- User notebook saved traceback fails at viz.comparisons after displaying an old
+  metadata schema, confirming stale imported class; current disk constructor
+  initializes comparisons for every method. Both notebooks now reload dependency
+  then driver in configuration cell and rebind helpers. Model/training untouched.
+- Added two regression cases executing actual notebook cells in subprocesses with
+  deliberately injected old visualization classes missing comparisons. Both pass,
+  including static/GIF/data export. Updated docs/visualization.md with rerun steps.
+- NUMBA_CACHE_DIR=/tmp/tmc-numba-cache MPLBACKEND=Agg python -m pytest -q:
+  63 passed, 1 pre-existing failure. Direct validation_benchmark.py --verify
+  reproduces exact-array mismatch, max absolute difference 4.4408921e-16.
+- /tmp/tmc_verify_viz_cells.py executed all three actual visualization cells in
+  fresh control311 Jupyter kernels with simulated stale imports: both notebooks,
+  pca/umap/compare (six passes), real canonical_decoder_dev.pt, .04s, 24 background,
+  3 candidates. Verified requested/actual methods, both comparison directories,
+  nonempty exports, 3-frame GIFs, and no notebook error outputs. Artifacts under
+  saves/visualizations/stale-import-check/<notebook>/<mode>/executed.ipynb.
+  Local kernel sockets required sandbox escalation; execution approved/succeeded.
+- git diff --check clean. Preserve user's existing primary notebook changes and
+  stage only configuration import source changes; publish fix per AGENTS.md.
+  User action: rerun all three viz code cells starting with configuration.
+- Publication blocked: automatic approval review rejected combined git commit
+  and push to origin/main because default branch/external remote publication
+  needs explicit approval of this payload/target. Neither action executed.
+  Verified fix remains staged; this final blocker note and STATE update unstaged.

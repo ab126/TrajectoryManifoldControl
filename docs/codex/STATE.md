@@ -1,42 +1,41 @@
 # Current checkpoint — 2026-10-27
 
 ## Current objective
-Completed end-to-end debugging of notebook visualization projection modes.
+Fix notebook visualization missing comparisons attribute in existing kernels;
+verify visualization cells and exports without retraining.
 
-## Completed and verified
-- Explicit umap now retains its fitted embedding despite diagnostic quality
-  warnings. compare exposes both cached views via viz.comparisons, displays
-  both static/animated notebook outputs and exports pca/ and umap/ subdirectories.
-  Top-level compare still selects the empirically preferred projection.
-- Metadata distinguishes requested/actual projection and available comparisons.
-  Genuine UMAP import/fit failures still warn and fall back to PCA.
-- Both notebook visualization sections updated; preserved user's pre-existing
-  manifold_control.ipynb changes and outputs. Stage only our source-cell edits.
-- Visualization tests: 12 passed. Full suite: 61 passed, 1 unrelated failure in
-  test_upstream_adapter_contract: archived-vs-regenerated exact array comparison
-  differs by at most 4.4408921e-16 on this Mac environment. Not changed here.
-- Real UMAP 0.5.12: PCA/UMAP/compare notebook cells executed in fresh Jupyter
-  kernels with a synthetic live canonical decoder, 24 samples, 3 candidates,
-  .04s. Outputs: saves/visualizations/projection-notebook-debug/<method>/.
-- CLI compare also executed with saves/saved_models/canonical_decoder_dev.pt;
-  three-frame GIFs and both views at saves/visualizations/projection-checkpoint-debug/.
-  UMAP static image visually inspected. compileall and diff whitespace checks pass.
+## Completed work and decisions
+- Saved notebook traceback and old metadata confirm stale imported visualization
+  class. Current constructor already initializes comparisons in every mode.
+- Both notebooks' configuration cells now reload src.trajectory_visualization,
+  then scripts.visualize_trajectory_manifold, then bind notebook helpers.
+- Added subprocess regressions executing all three actual visualization cells
+  after injecting an old class without comparisons, for both notebooks.
+- docs/visualization.md explains rerunning configuration, creation and export.
+- Prior question verified: right-panel points encode future H-step behaviors,
+  not past measured windows (see LOG.md).
 
-## Decisions and environment
-- Same trajectories, costs and physical limits shared across comparison views;
-  only cached projections differ. No controller/training/scoring changes.
-- Use NUMBA_CACHE_DIR=/tmp/tmc-numba-cache in restricted sandbox; default Numba
-  cache cannot write in installed UMAP package. Notebook execution needs local
-  kernel socket access and succeeded with sandbox escalation.
-- UMAP uses deterministic random initialization to support tiny backgrounds
-  (spectral initialization fails for small three-dimensional embeddings).
+## Verified results and test status
+- Full suite: 63 passed, 1 pre-existing failure in test_upstream_adapter_contract.
+  Direct reproduction confirms archived/regenerated exact-array comparison differs
+  by at most 4.4408921e-16. Scientific validation code unchanged.
+- All six Jupyter executions pass: both notebooks, PCA/UMAP/compare, deliberately
+  stale imports, saved canonical checkpoint, .04s, 24 samples, 3 candidates.
+  Static images, 3-frame GIFs, comparison subdirectories and metadata verified.
+  Artifacts: saves/visualizations/stale-import-check/<notebook>/<mode>/.
+- git diff --check passes. No visualization execution errors.
 
 ## Uncommitted changes and next actions
-- Publish this fix and checkpoint per repository instructions. User's previous
-  notebook changes remain uncommitted, excluded from the fix commit.
-- User: restart notebook kernel, rerun model/config cells, then all three
-  visualization cells with VIZ_PROJECTION='umap' or 'compare'.
-- No visualization blocker. Separate exact-equality validation failure remains.
+- Fix, regression tests and continuity/docs updates verified and staged.
+  Final publication-blocker note below is not staged.
+- User's pre-existing manifold_control.ipynb outputs/metadata remain untouched;
+  stage only our configuration-cell source patch for that notebook.
+- Commit/push blocked by automatic approval review: default-branch push to
+  origin/main needs explicit user approval of this payload/target. No commit or
+  push performed. Ask approval before retrying publication; fix is usable locally.
+- User should rerun all three visualization code cells starting with configuration;
+  kernel restart/training rerun is unnecessary.
+- No fix blocker; unrelated exact-equality validation failure remains.
 
 ---
 Previous checkpoint (historical; environment paths below refer to prior machine):
