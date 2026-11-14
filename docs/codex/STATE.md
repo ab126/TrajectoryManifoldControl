@@ -1,27 +1,35 @@
 # Current checkpoint — 2026-11-14
 
 ## Current objective
-Document clean-checkout TMC validation after missing-model error.
+Completed saved TMC/L results report with historical map and convergence figures.
 
-## Completed work and decisions
-- Updated docs/validation/TMC.md: train matching seed-0 checkpoint/data first,
-  artifact check, separate smoke/tuning outputs, existing dev artifacts,
-  unmatched archived gain limits, fresh evaluation versus resumability.
-- Verified saves/saved_models is empty; saves/ is Git-ignored. Prior session's
-  local seed234 checkpoint is unavailable in this checkout.
-- Controller code and frozen validation sources unchanged.
+## Completed work
+- src/validation_report.py and scripts/report_tmc.py render saved cases only:
+  recovery scatter projection, all shared starts in paginated convergence plots,
+  report and manifest/case/raw-hash evidence. No validation source hashes changed.
+- docs/validation/tmc-seed0-results/REPORT.md and PNG/evidence artifacts generated
+  from saves/validation/tmc-c200-seed0-v1; historical user screenshot included.
+- docs/validation/TMC.md and README link report/figure commands for smoke,
+  tuning and C200. No simulation rerun needed to produce current plots.
 
-## Verified results and test status
-- Both launchers' --help pass with .venv/bin/python; documented options checked
-  against implementations. No expensive training or validation launched.
-- Documentation-only change; git diff --check checked before commit.
+## Verified results and tests
+- Actual saved run is partial:7/400 cases; TMC3/4 recoveries,L2/3; shared3
+  starts yield1 TMC-only win,1 L-only win,1 joint recovery. No superiority claim.
+- Median of case median controller latency:TMC232.680ms,L0.014ms; ideal feedback.
+- Legacy phase-map plotting remains in validation/experiments/figures.py. User
+  screenshot exists under saves/validation/temp and labels hybrid, three seeds;
+  exact provenance unverified, never presented as new standalone TMC evidence.
+- Rendered real report with control311 Python; inspected convergence PNG.
+- Focused report test passed:1 test covering partial/missing, failed empty traces,
+  no shared starts and paired rendering. git diff --check passed.
 
-## Important assumptions and blockers
-- User must generate or supply trained artifacts before TMC validation.
-- Training reconstruction uses 3500 episodes/100 epochs; no training time limit.
-- Sandbox execution fails at bwrap network setup; escalated commands work.
+## Decisions, assumptions, blockers
+- C starts vary four coordinates: map is a projection, no basin interpolation.
+- .venv lacks numpy; use activated control311 or its explicit interpreter.
+- No new training or simulations launched. Existing validation can resume exact
+  original command; report regeneration does not affect resumability.
 
 ## Uncommitted changes and next actions
-- Documentation commit 31f91ef6 pushed to origin/main; no unrelated edits.
-- Follow guide to train, smoke-check, then screen. Lock tuning settings before
-  C/fresh evaluation. No new recovery/performance result claimed.
+- Task source, tests, docs and generated report prepared for commit/push.
+- Resume C200 run if desired, then regenerate report; lock tuning protocol before
+  final evaluation and repeat across seeds. Preserve historical snapshot context.

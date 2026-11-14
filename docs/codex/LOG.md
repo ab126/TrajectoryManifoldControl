@@ -447,3 +447,18 @@ parameters to controllers.
 - .venv/bin/python launcher --help checks passed for both documented launchers.
   First edit attempt used unavailable bare python; reran with .venv/bin/python.
 - git diff --check passed; documentation commit 31f91ef6 pushed to origin/main.
+
+## 2026-11-14 — Saved TMC report and convergence comparisons
+
+- Found user screenshot in saves/validation/temp; legacy phase-map code still in
+  validation/experiments/figures.py, uses legacy schema. Screenshot hybrid/3-seed
+  provenance not verified; explicitly historical context in new report.
+- Current tmc-c200-seed0-v1 contains7/400 cases: TMC3/4,L2/3 recovery; shared3,
+  wins1/losses1. Median case median latency232.680ms vs0.014ms. Partial evidence.
+- Implemented src/validation_report.py + scripts/report_tmc.py, report/evidence,
+  saved-outcome map and all shared-start convergence pages. Frozen sources and
+  launcher unchanged, allowing original run resume. Updated usage figure commands.
+- Generated docs/validation/tmc-seed0-results with historical screenshot included.
+  Inspected convergence figure. No simulation rerun or expensive training.
+- control311 pytest -q tests/test_validation_report.py:1passed in1.48s;
+  git diff --check passed. .venv has no numpy; control311 rendering succeeded.

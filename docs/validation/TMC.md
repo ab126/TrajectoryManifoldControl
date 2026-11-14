@@ -71,6 +71,12 @@ python scripts/validate_tmc.py \
   --replan-interval 1 --arms TMC L
 ```
 
+Generate figures and a report from the smoke output:
+
+```sh
+python scripts/report_tmc.py saves/validation/tmc-smoke-seed0-v1
+```
+
 Check `summary.json` for `complete: true`, and each case JSON for
 `completed: true` and `failure: null`. Short smoke runs cannot establish recovery.
 Then launch the requested 14-second tuning screen in a separate output directory:
@@ -83,6 +89,12 @@ python scripts/validate_tmc.py \
   --set tuning --limit 2 --seconds 14 --max-wall-seconds 600 \
   --solver adam --iterations 20 --learning-rate .15 --starts 3 \
   --replan-interval 1 --arms TMC L
+```
+
+Generate the tuning figures after each validation invocation:
+
+```sh
+python scripts/report_tmc.py saves/validation/tmc-screen-seed0-v1
 ```
 
 L is fitted only on the training split using the checkpoint's seed and validation
@@ -157,3 +169,41 @@ improvement. Periodic cost is optional, not the recommended default. Do not
 increase horizon without checking learned prediction error at the added steps.
 Select settings on tuning data, then lock them before C/fresh testing. The tiny
 screen and historical final outcomes do not establish superiority over linear.
+
+## Reports and convergence figures
+
+For the existing C200 run, generate or refresh the report without rerunning any
+controller:
+
+```sh
+python scripts/report_tmc.py saves/validation/tmc-c200-seed0-v1
+```
+
+This writes `report/REPORT.md`, `recovery_map.png`, paginated
+`convergence_*.png` (all starts shared by the requested arms), and `evidence.json`
+(manifest, per-case metrics, raw-trace hashes). Optional `--output PATH` selects
+a different report directory. Run the report command again after resuming the
+validation to include newly saved cases. Plotting does not change the validation
+manifest or require a new simulation. Use the same activated project environment.
+
+The map shows recovery at measured angle/rate starts, labels case indices, and
+marks unsaved starts gray. C/fresh starts also vary cart position and velocity;
+this is a projection, not a dense fixed-cart recovery basin or an interpolation.
+The convergence pages overlay state errors and inputs for each shared start,
+with physical time and speed units and angular recovery thresholds.
+
+[Current saved-run report](tmc-seed0-results/REPORT.md) includes the historical
+screenshot supplied under `saves/validation/temp/`. To reproduce that snapshot:
+
+```sh
+python scripts/report_tmc.py saves/validation/tmc-c200-seed0-v1 \
+  --output docs/validation/tmc-seed0-results \
+  --reference-image saves/validation/temp/*.png
+```
+
+The wildcard assumes exactly one PNG. The historical screenshot depicts hybrid
+TMC and three-seed aggregates; it is not current standalone TMC evidence. Legacy
+map code remains at `validation/experiments/figures.py` and expects legacy campaign
+records. Current saved data can be plotted immediately; no simulation rerun is
+needed. The current report is partial, so resume the original C200 command with
+its exact original settings/output before interpreting aggregate results.
