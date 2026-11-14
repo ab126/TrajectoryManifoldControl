@@ -80,19 +80,19 @@ def test_cli_records_strict_failure_continues_linear_and_resumes(tmp_path):
         x_dim=4,u_dim=1,horizon=4,hidden_dims=(8,),config=asdict(cfg)), checkpoint)
     root = Path(__file__).resolve().parents[1]
     output = tmp_path/'evaluation'
-    cmd = [sys.executable,str(root/'scripts/validate_tmx.py'),'--checkpoint',str(checkpoint),
+    cmd = [sys.executable,str(root/'scripts/validate_tmc.py'),'--checkpoint',str(checkpoint),
         '--archived-gain-seed','0','--output',str(output),'--limit','1','--seconds','.04',
         '--iterations','1','--x-ref','1','0','0','0','--u-ref','.2']
     env = {**os.environ, 'MPLCONFIGDIR':str(tmp_path/'mpl')}
     subprocess.run(cmd, cwd=root, env=env, capture_output=True, text=True, check=True)
-    row = json.loads((output/'cases/TMX_0000.json').read_text())
+    row = json.loads((output/'cases/TMC_0000.json').read_text())
     assert not row['completed'] and not row['terminal_recovery']
     assert row['failure_steps']==[0] and row['fallback_events']==[] and row['linear_steps']==[]
-    with np.load(output/'raw/TMX_0000.npz') as raw:assert raw['U'].shape==(0,1)
+    with np.load(output/'raw/TMC_0000.npz') as raw:assert raw['U'].shape==(0,1)
     assert json.loads((output/'cases/L_0000.json').read_text())['completed']
-    before = (output/'cases/TMX_0000.json').read_bytes()
+    before = (output/'cases/TMC_0000.json').read_bytes()
     subprocess.run(cmd,cwd=root,env=env,capture_output=True,text=True,check=True)
-    assert (output/'cases/TMX_0000.json').read_bytes()==before
+    assert (output/'cases/TMC_0000.json').read_bytes()==before
     assert json.loads((output/'summary.json').read_text())['complete']
     result = subprocess.run(cmd+['--learning-rate','.1'],cwd=root,env=env,capture_output=True,text=True)
     assert result.returncode!=0 and 'output protocol differs' in result.stderr

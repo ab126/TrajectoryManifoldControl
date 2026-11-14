@@ -1,16 +1,17 @@
 # Current checkpoint — 2026-11-13
 
 ## Current objective
-Implemented shared reference-aware validation LQR, prepared hybrid controller,
-and new strict standalone TMX versus L CLI. No long validation launched.
+Rename the new standalone controller/validation terminology to TMC (trajectory
+manifold control), verify renamed CLI and tests, and push pending commits.
+Shared reference-aware LQR/hybrid implementation remains unchanged.
 
 ## Completed work and decisions
 - src/validation_controllers.py: validation L law generalized to x_ref/u_ref;
   hybrid uses the same callable for local switch and failed manifold solves.
   Switch region, tracking objective and initial input plan use references.
-- TMX uses learned NativeSolver, no LQR or failed-plan substitution. Invalid
+- TMC uses learned NativeSolver, no LQR or failed-plan substitution. Invalid
   plans terminate the case; launcher records failure and continues other arms.
-- scripts/validate_tmx.py: TMX/L default, optional hybrid, tuning/A/C/fresh starts,
+- scripts/validate_tmc.py: TMC/L default, optional hybrid, tuning/A/C/fresh starts,
   reference flags, solver knobs, paired summary, raw traces, latency, explicit
   failures, source/artifact/config manifest and guarded resumability.
 - Frozen validation sources and old native/frozen launchers unchanged. New
@@ -18,7 +19,7 @@ and new strict standalone TMX versus L CLI. No long validation launched.
 - Local checkpoint saves/saved_models/canonical_decoder_dev.pt has seed234;
   its training data absent. --archived-gain-seed explicitly labels unmatched
   comparison; --data is required for a matched refit.
-- README links docs/validation/TMX.md with runnable local screen, matched
+- README links docs/validation/TMC.md with runnable local screen, matched
   reconstruction/evaluation commands, reference/hybrid flags and tuning advice.
 - Advice from REPORT.md: Adam20/.15/3starts, replan1, plain cost/window1 as
   starting protocol; screen10/20/40 iterations and .05/.10/.15 rates on tuning
@@ -33,22 +34,26 @@ and new strict standalone TMX versus L CLI. No long validation launched.
   with test expecting empty comparisons; known upstream exact-array mismatch.
   Notebook source matches HEAD and was not edited in this task.
 - Actual seed234 checkpoint: zero-reference .04s smoke and nonzero x_ref/u_ref
-  .04s smoke for TMX/L/hybrid passed; exact L action replay and resume verified.
-  Outputs saves/validation/tmx-smoke and tmx-reference-smoke (ignored).
-- verify_snapshot passes. py_compile and git diff --check pass.
+  .04s smoke for TMC/L/hybrid passed; exact L action replay and resume verified.
+  Historical outputs saves/validation/tmx-smoke and tmx-reference-smoke remain
+  unchanged as prior-run evidence; new runs use tmc names.
+- Rename verification:12 focused controller/CLI/native tests passed in9.08s;
+  renamed CLI --help exposes TMC/L/hybrid; git diff --check passes.
+- Earlier verify_snapshot and py_compile pass; frozen sources unchanged.
 - No 14s recovery benchmark or matched training reconstruction executed.
 
 ## Uncommitted changes and blockers
 - Preserve user's pre-existing manifold_control.ipynb outputs/metadata.
-- Task files: new controller, CLI, six tests, usage doc, README and checkpoints.
-- Prior docs commit5ab64b0b is local; push was rejected by automatic approval
-  review because external origin/main publication needs explicit payload/target
-  approval. Do not bypass this decision; publication requires user approval.
+- Renamed CLI to scripts/validate_tmc.py and guide to docs/validation/TMC.md;
+  arm identifiers, tests, README and current checkpoint use TMC. Historical LOG
+  entries retain original names as a record of actual earlier runs.
+- User explicitly authorized renaming and pushing pending work to origin/main.
+  Pending local commits include5ab64b0b (audit) and62e9eb84 (controllers/CLI).
 - Missing local matched training dataset is not a code blocker; explicit archived
   gain smoke path is supported and scientific reconstruction commands documented.
 
 ## Specific next actions
-1. Run new CLI tuning screen using docs/validation/TMX.md; exact command resumes.
+1. Run new CLI tuning screen using docs/validation/TMC.md; exact command resumes.
 2. For matched comparison reconstruct/provide transition.pt + data.npz, tune
    only on tuning starts, then lock protocol for C/fresh and repeat across seeds.
 3. Assess recovery AND controller latency; ideal simulation does not inject

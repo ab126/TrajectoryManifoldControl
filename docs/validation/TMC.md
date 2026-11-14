@@ -1,4 +1,4 @@
-# Reference-aware TMX and hybrid validation
+# Reference-aware TMC and hybrid validation
 
 `src/validation_controllers.py` implements validation's fitted linear law as
 `clip(u_ref - K @ (x - x_ref), -umax, umax)`. The hybrid and new linear arm use
@@ -7,7 +7,7 @@ The hybrid switches when `(x-x_ref).T @ Q @ (x-x_ref) < .75`, and uses L on
 invalid manifold plans. Switching clears queued manifold inputs. Both manifold
 cost and warm-start input initialization use the requested references.
 
-TMX means standalone trajectory-manifold control in this launcher. It has no
+TMC means standalone trajectory-manifold control in this launcher. It has no
 linear branch or failure substitution. An invalid solve terminates that case,
 records failure, and allows other cases to run. Optimizer warm starts and
 scheduled plan execution are normal MPC operation, not failure fallbacks.
@@ -33,13 +33,13 @@ A runnable local screen using the existing seed-234 checkpoint and an explicitly
 unmatched archived seed-0 linear gain:
 
 ```sh
-python scripts/validate_tmx.py \
+python scripts/validate_tmc.py \
   --checkpoint saves/saved_models/canonical_decoder_dev.pt \
   --archived-gain-seed 0 \
-  --output saves/validation/tmx-screen-v1 \
+  --output saves/validation/tmc-screen-v1 \
   --set tuning --limit 2 --seconds 14 --max-wall-seconds 600 \
   --solver adam --iterations 20 --learning-rate .15 --starts 3 \
-  --replan-interval 1 --arms TMX L
+  --replan-interval 1 --arms TMC L
 ```
 
 For matched scientific validation, use a checkpoint and its original training
@@ -57,13 +57,13 @@ python scripts/validation_benchmark.py --train --seed 0 \
 Then launch the new paired evaluation:
 
 ```sh
-python scripts/validate_tmx.py \
+python scripts/validate_tmc.py \
   --checkpoint saves/validation/models/reconstructed-seed0/transition.pt \
   --data saves/validation/models/reconstructed-seed0/data.npz \
-  --output saves/validation/tmx-c200-seed0-v1 \
+  --output saves/validation/tmc-c200-seed0-v1 \
   --set C --seconds 14 --max-wall-seconds 600 \
   --solver adam --iterations 20 --learning-rate .15 --starts 3 \
-  --replan-interval 1 --arms TMX L
+  --replan-interval 1 --arms TMC L
 ```
 
 Repeat the exact command to resume between cases. The wall budget is checked
@@ -78,10 +78,10 @@ To include the prepared hybrid and test a displaced target, use a new output
 path and append:
 
 ```sh
---arms TMX L hybrid --x-ref 1 0 0 0 --u-ref 0
+--arms TMC L hybrid --x-ref 1 0 0 0 --u-ref 0
 ```
 
-The default paired run contains only TMX and L. Raw measured states/inputs,
+The default paired run contains only TMC and L. Raw measured states/inputs,
 controller/solver latencies and solve steps are saved under `raw/`; case results
 include explicit failure, linear-use and fallback steps. `summary.json` reports
 recovery counts and paired wins/losses on shared starts, including failed cases.

@@ -416,3 +416,20 @@ parameters to controllers.
   tmx-smoke and tmx-reference-smoke. verify_snapshot and py_compile pass.
 - No long scientific run launched or new recovery improvement claimed. Prior
   origin/main push rejection still requires explicit publication approval.
+
+## 2026-11-13 — Correct controller abbreviation to TMC; authorized publication
+
+- User clarified TMX was a typo for trajectory manifold control (TMC) and
+  explicitly requested all necessary renaming and push.
+- Renamed scripts/validate_tmx.py to scripts/validate_tmc.py and
+  docs/validation/TMX.md to docs/validation/TMC.md. Current CLI arm identifiers,
+  filenames, manifest source path, tests, README, guide and STATE now use TMC.
+- Historical log entries and ignored old smoke artifacts retain their actual
+  original names; no saved experimental evidence rewritten. Controller logic
+  unchanged. User's existing manifold_control.ipynb edits preserved.
+- control311 pytest -q tests/test_validation_controllers.py
+  tests/test_manifold_experiments.py:12 passed in9.08s. Includes real subprocess
+  CLI strict-failure/resume/protocol-guard test through renamed entrypoint.
+  CLI --help and git diff --check pass. No long validation launched.
+- User authorized publishing the pending audit/controller commits and rename
+  to origin/main; publication outcome recorded in current handoff/final response.

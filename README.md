@@ -152,8 +152,8 @@ and [technical report and reproduction commands](docs/validation/REPORT.md).
 Opt-in standalone experiments are in `src/manifold_experiments.py`; original
 controller implementations remain unchanged. Baseline reproduction, tuning
 screens, and final independent validation must be reported separately.
-For the new reference-aware shared LQR/hybrid and strict standalone TMX versus
-linear launcher, see [TMX CLI usage and suggested settings](docs/validation/TMX.md).
+For the new reference-aware shared LQR/hybrid and strict standalone TMC versus
+linear launcher, see [TMC CLI usage and suggested settings](docs/validation/TMC.md).
 
 Run the full test suite with:
 

@@ -1,4 +1,4 @@
-"""New resumable paired TMX/L validation; TMX has no fallback of any kind."""
+"""New resumable paired TMC/L validation; TMC has no fallback of any kind."""
 from __future__ import annotations
 
 import argparse
@@ -21,7 +21,7 @@ def main():
     p.add_argument('--limit', type=int)
     p.add_argument('--seconds', type=float, default=14.)
     p.add_argument('--max-wall-seconds', type=float, default=300.)
-    p.add_argument('--arms', nargs='+', choices=('TMX', 'L', 'hybrid'), default=['TMX', 'L'])
+    p.add_argument('--arms', nargs='+', choices=('TMC', 'L', 'hybrid'), default=['TMC', 'L'])
     p.add_argument('--x-ref', type=float, nargs=4, default=[0.] * 4)
     p.add_argument('--u-ref', type=float, nargs=1, default=[0.])
     p.add_argument('--solver', choices=('adam', 'safe_cem'), default='adam')
@@ -95,10 +95,10 @@ def main():
         switch_cost=args.switch_cost, Q=c.Q.tolist(), R=c.R.tolist(),
         sources={f:sha256(ROOT/f) for f in ('src/validation_controllers.py', 'src/manifold_experiments.py',
             'src/manifold_control.py', 'src/inverted_pendulum.py', 'src/validation_metrics.py',
-            'scripts/validate_tmx.py', 'scripts/run_inverted_pendulum_mc.py', 'scripts/validation_benchmark.py')},
+            'scripts/validate_tmc.py', 'scripts/run_inverted_pendulum_mc.py', 'scripts/validation_benchmark.py')},
         torch=str(torch.__version__), numpy=str(np.__version__),
         timing='Ideal feedback, solver latency recorded, no computational delay injected.',
-        failure_policy='TMX terminates case on invalid plan; no substituted action.',
+        failure_policy='TMC terminates case on invalid plan; no substituted action.',
         references='Absolute initial states; reference-relative metrics, normalized coordinates.')
     manifest = args.output/'manifest.json'
     if manifest.exists() and json.loads(manifest.read_text()) != json.loads(json.dumps(protocol)):

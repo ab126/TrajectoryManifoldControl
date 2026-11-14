@@ -46,7 +46,7 @@ class TrackingObjective(LearnedObjective):
 
 def trajectory_controller(decoder, config, *, x_ref=None, u_ref=None,
                           Q=None, R=None, umax=10., linear=None, switch_cost=.75):
-    """Standalone TMX (linear=None), or hybrid sharing an injected L callable.
+    """Standalone TMC (linear=None), or hybrid sharing an injected L callable.
 
     Hybrid uses L inside the reference-centered switch region and on failed
     solves. Standalone raises ControllerFailure, never silently substitutes input.
