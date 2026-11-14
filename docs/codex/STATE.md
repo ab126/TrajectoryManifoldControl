@@ -22,6 +22,6 @@ Document clean-checkout TMC validation after missing-model error.
 - Sandbox execution fails at bwrap network setup; escalated commands work.
 
 ## Uncommitted changes and next actions
-- Task documentation and checkpoints to be committed/pushed.
+- Documentation commit 31f91ef6 pushed to origin/main; no unrelated edits.
 - Follow guide to train, smoke-check, then screen. Lock tuning settings before
   C/fresh evaluation. No new recovery/performance result claimed.

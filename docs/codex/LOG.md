@@ -446,3 +446,4 @@ parameters to controllers.
   output paths versus resume. No controller changes or training launched.
 - .venv/bin/python launcher --help checks passed for both documented launchers.
   First edit attempt used unavailable bare python; reran with .venv/bin/python.
+- git diff --check passed; documentation commit 31f91ef6 pushed to origin/main.
