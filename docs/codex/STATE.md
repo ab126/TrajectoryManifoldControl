@@ -30,6 +30,6 @@ Completed saved TMC/L results report with historical map and convergence figures
   original command; report regeneration does not affect resumability.
 
 ## Uncommitted changes and next actions
-- Task source, tests, docs and generated report prepared for commit/push.
+- Task source, tests, docs and report committed as cf4c80d3 and pushed to origin/main.
 - Resume C200 run if desired, then regenerate report; lock tuning protocol before
   final evaluation and repeat across seeds. Preserve historical snapshot context.

@@ -462,3 +462,4 @@ parameters to controllers.
   Inspected convergence figure. No simulation rerun or expensive training.
 - control311 pytest -q tests/test_validation_report.py:1passed in1.48s;
   git diff --check passed. .venv has no numpy; control311 rendering succeeded.
+- Publication verified: cf4c80d3 pushed to origin/main.
