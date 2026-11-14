@@ -382,3 +382,37 @@ parameters to controllers.
   tests/test_manifold_experiments.py: 6 passed in 2.33s.
 - Audit only; checkpoint documents updated. Any target-aware LQR failure policy
   would require a separately identified experiment, preserving frozen contracts.
+
+- Audit documentation committed as 5ab64b0b. Push to origin/main rejected by
+  automatic approval review: external default-branch destination not verified
+  trusted; requires explicit payload/destination approval. No push performed.
+  This publication note remains uncommitted; user notebook edit preserved.
+
+## 2026-11-13 — Shared target-aware LQR/hybrid and strict TMX launch
+
+- User requested validation L as target, arbitrary x_ref/u_ref, prepared hybrid,
+  new standalone TMX-versus-linear validation and parameter/CLI guidance.
+- Added src/validation_controllers.py with shared clipped validation feedback,
+  reference-centered hybrid switch, reference-aware manifold objective and
+  strict TMX failure exception. Hybrid L outputs preserve float64 baseline
+  precision; no cast through torch before returning linear actions.
+- Added scripts/validate_tmx.py with paired arms, artifact/source/config guards,
+  bounded between-case budget/resume, raw trajectories, reference-relative
+  metrics, latency, explicit failures and paired summary. TMX never applies a
+  substitute action after failed solve. New experiment; frozen sources unchanged.
+- Added tests/test_validation_controllers.py (6 tests), docs/validation/TMX.md,
+  README pointer. Local seed234 canonical checkpoint lacks training data; CLI
+  requires either --data for matched fit or explicit --archived-gain-seed for an
+  accurately labeled unmatched screen. Reconstruction command documented.
+- Recommendations grounded in docs/validation/REPORT.md small screen: Adam/plain
+  2/2 vs CEM0/2 and L2/2; no superiority claim. Start20iterations/.15/3starts,
+  replan1, terminal window1. Screen runtime budgets and rates on tuning only.
+- control311: six new tests pass (7.30s), initial focused tests11pass. Full suite
+  68passed,2failed in48.67s: unchanged notebook compare configuration vs test
+  expecting comparisons=={}, and pre-existing adapter exact-array floating-point
+  mismatch. Verified notebook source equals HEAD; user output edits preserved.
+- Real checkpoint CLI .04s zero and nonzero references, TMX/L/hybrid, resume and
+  exact archived-L-law action replay passed. Outputs under ignored saves/validation/
+  tmx-smoke and tmx-reference-smoke. verify_snapshot and py_compile pass.
+- No long scientific run launched or new recovery improvement claimed. Prior
+  origin/main push rejection still requires explicit publication approval.
