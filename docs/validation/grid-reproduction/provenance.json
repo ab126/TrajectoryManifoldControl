@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/aroyphillips/TrajectoryManifoldControl",
+  "commit": "053b14890a107063db9b58859884f655173528b8",
+  "sha256": {
+    "validation/experiments/campaign.py": "887f6fffe96da2b03d67d674613763b6a04f99f3c5b50babce7b99833640dd4f",
+    "validation/experiments/briefing_regime_figures.py": "7a1456e9732c11173545a6225d44daa6e8b2c23828410ed3e139f5bf00a4054e",
+    "validation/experiments/literature/plot_endpoint_sensitivity.py": "2803c84a44f8bca419099059a0d58eef24767e2f1f634303078d316301303fd4",
+    "validation/results_v1/E1/summary.csv": "e8b65a018e9008a7dc169ba040ba24af83e8d909823517047aea37c9f6b28426"
+  },
+  "archived_counts": {
+    "terminal_recovery": {
+      "H": 2864,
+      "L": 3247
+    },
+    "primary_success": {
+      "H": 1485,
+      "L": 3247
+    }
+  },
+  "runs_per_arm": 5043,
+  "new_controller_runs_for_archived_figures": 0
+}

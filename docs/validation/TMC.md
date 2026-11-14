@@ -207,3 +207,13 @@ map code remains at `validation/experiments/figures.py` and expects legacy campa
 records. Current saved data can be plotted immediately; no simulation rerun is
 needed. The current report is partial, so resume the original C200 command with
 its exact original settings/output before interpreting aggregate results.
+
+## Reproduce the dense historical convergence map
+
+The random C200 report above is not the fixed-cart screenshot experiment.
+Use the [complete three-seed grid reproduction guide](grid-reproduction/README.md)
+for the original 41×41 sweep, exact convergence definitions, matched training,
+automatic PNG/PDF figures, raw counts, resume commands and verified archived maps.
+The screenshot uses terminal recovery (earlier crossings allowed); the sweep
+also exports the stricter no-crossing primary-success map. Its default controller
+is the original CEM hybrid, with an explicitly labeled standalone TMC option.

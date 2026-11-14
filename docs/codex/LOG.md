@@ -463,3 +463,23 @@ parameters to controllers.
 - control311 pytest -q tests/test_validation_report.py:1passed in1.48s;
   git diff --check passed. .venv has no numpy; control311 rendering succeeded.
 - Publication verified: cf4c80d3 pushed to origin/main.
+
+## 2026-11-14 — Exact original convergence map and new sweep launcher
+
+- Cloned requested upstream into /tmp/tmc-upstream-figure at053b14890a107063db9b58859884f655173528b8.
+  campaign.py SHA matches pinned local887f6fffe96da2b03d67d674613763b6a04f99f3c5b50babce7b99833640dd4f.
+- Initially identified primary no-crossing endpoint, then compared both archived
+  maps: screenshot pattern matches terminal recovery, including earlier falls.
+  Corrected default, documented distinction, export both endpoints.
+- Reproduced10086 archived D cases: terminal H2864,L3247; primary H1485,L3247
+  successes out of5043each. Stored provenance/hashes, maps and NPZ counts in
+  docs/validation/grid-reproduction. No new controller runs for archived maps.
+- Added src/validation_sweep.py, scripts/sweep_tmc.py, scripts/plot_legacy_grid.py,
+  test_validation_sweep.py; updated guide/report. Original CEM hybrid default,
+  optional standalone Adam; matched per-seed model/data; resumable raw hash checks.
+- control311 focused sweep/report/controller tests:9passed in16.21s. Actual
+  seed0 first D H/L14s pair verified legacy metric parity;H15.64s,140solves.
+  Exact resume and plot-only passed; actual hybrid/standalone .04s smoke passed.
+- No new full grid/training1,2 launched. User receives full launch commands;
+  original artifacts absent, reconstruction cannot promise identical weights.
+- git diff --check passed. Source and docs prepared for publication.

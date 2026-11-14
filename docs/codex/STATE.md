@@ -1,35 +1,45 @@
 # Current checkpoint — 2026-11-14
 
 ## Current objective
-Completed saved TMC/L results report with historical map and convergence figures.
+Complete original screenshot experiment reproduction and launchable IC sweep.
 
 ## Completed work
-- src/validation_report.py and scripts/report_tmc.py render saved cases only:
-  recovery scatter projection, all shared starts in paginated convergence plots,
-  report and manifest/case/raw-hash evidence. No validation source hashes changed.
-- docs/validation/tmc-seed0-results/REPORT.md and PNG/evidence artifacts generated
-  from saves/validation/tmc-c200-seed0-v1; historical user screenshot included.
-- docs/validation/TMC.md and README link report/figure commands for smoke,
-  tuning and C200. No simulation rerun needed to produce current plots.
+- Inspected requested upstream repo at053b14890a107063db9b58859884f655173528b8
+  in /tmp/tmc-upstream-figure. Campaign bytes match pinned migrated copy.
+- Exact screenshot pattern is TERMINAL RECOVERY (earlier crossings allowed),
+  not stricter primary_success. Both endpoints implemented and plotted.
+- src/validation_sweep.py + scripts/sweep_tmc.py: saved D41x41 fixed-cart grid,
+  seeds0/1/2, matched per-seed dev checkpoint/data, original CEM hybrid/L default;
+  optional explicitly labeled standalone Adam20/.15/3start/replan1. Raw traces,
+  diagnostics, hashes, source/artifact protocol guards, budget/resume and plots.
+- scripts/plot_legacy_grid.py imports complete archived E1 CSV to a separate
+  output, validates1681states x3seeds x2arms and reproduces screenshot format.
+- docs/validation/grid-reproduction/README.md includes exact definitions,
+  full training/sweep/resume/plot/archive commands and verified PNG/count data.
+  TMC.md and prior report link corrected provenance and new sweep workflow.
 
 ## Verified results and tests
-- Actual saved run is partial:7/400 cases; TMC3/4 recoveries,L2/3; shared3
-  starts yield1 TMC-only win,1 L-only win,1 joint recovery. No superiority claim.
-- Median of case median controller latency:TMC232.680ms,L0.014ms; ideal feedback.
-- Legacy phase-map plotting remains in validation/experiments/figures.py. User
-  screenshot exists under saves/validation/temp and labels hybrid, three seeds;
-  exact provenance unverified, never presented as new standalone TMC evidence.
-- Rendered real report with control311 Python; inspected convergence PNG.
-- Focused report test passed:1 test covering partial/missing, failed empty traces,
-  no shared starts and paired rendering. git diff --check passed.
+- Rebuilt archived all10086cases: terminal H2864/5043,L3247/5043; strict primary
+  H1485/5043,L3247/5043. Inspected both maps, terminal matches supplied pattern.
+- Nine focused sweep/report/controller tests pass in16.21s. Grid orientation,
+  incomplete-seed masking, finite/short traces, crossing/recovery distinctions.
+- Real seed0 matched artifacts:14s original H/L first D pair verified both
+  endpoints against legacy campaign; H~15.64s wall,140CEM solves. Exact resume
+  skipped cases and verified raw hashes; plot-only regenerated both maps.
+- Real original hybrid and standalone .04s smoke paths passed. Latest concise
+  console-output version checked with separate grid-launch-check-v1 output.
+- git diff --check passed; no frozen/old launcher changes.
 
-## Decisions, assumptions, blockers
-- C starts vary four coordinates: map is a projection, no basin interpolation.
-- .venv lacks numpy; use activated control311 or its explicit interpreter.
-- No new training or simulations launched. Existing validation can resume exact
-  original command; report regeneration does not affect resumability.
+## Important decisions and assumptions
+- Screenshot default is legacy HYBRID; standalone is optional different experiment.
+- No new full10086-case sweep launched. Full command provided to user; training
+  seeds1/2 and long simulation remain. Original archived maps are not new runs.
+- Reconstructed weights can differ from archived weights; exact archived counts
+  are reproducible via imported CSV, not guaranteed by retraining.
+- 48h per-invocation rollout budget suggested; training excluded. Exact rerun
+  resumes. Use one writer/output and new output for changed scientific settings.
 
 ## Uncommitted changes and next actions
-- Task source, tests, docs and report committed as cf4c80d3 and pushed to origin/main.
-- Resume C200 run if desired, then regenerate report; lock tuning protocol before
-  final evaluation and repeat across seeds. Preserve historical snapshot context.
+- Task source/tests/docs/maps/checkpoints prepared for commit and push.
+- User can launch documented --train full sweep, or separate training and sweep.
+  Check summary.complete and saved10086; repeat exact command if budget expires.
