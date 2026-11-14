@@ -1,3 +1,43 @@
+# Current checkpoint — 2026-11-13
+
+## Current objective
+Completed audit of trajectory-manifold fallback, target handling, validation,
+and equality with linear baseline. No controller behavior changed.
+
+## Verified findings
+- Validation H uses runner.make_controller: near-origin state@Q@state < .75
+  switches to clipped -gain@state. Same gain/formula/bounds as validation L,
+  separate implementations. Neither accepts nonzero state/input references.
+- Failed H/M solve returns zero; this is not an LQR failure fallback.
+- Frozen native arm calls native_controller, with no LQR branch. Failed solve
+  uses shifted prior plan first action, or zero with no usable prior plan.
+- Separate scripts/run_linear_mc.py passes the identical finite-horizon LQR
+  callable to manifold fallback and baseline, and forwards x_ref. Its CLI uses
+  zero u_ref. LQR helper supports nonzero x_ref/u_ref, but shifted feedback
+  requires an equilibrium reference for exact constant-target regulation.
+- src/inverted_pendulum.py lqr_u_caller also supports y_ref/u_ref, but is not
+  the validation H/L controller.
+
+## Tests and decisions
+- control311 Python: focused runtime audit via validation adapter passes H/L
+  equality including clipping, forced failed H solve returns zero while L is
+  nonzero, and finite-horizon LQR nonzero x_ref/u_ref checks.
+- tests/test_manifold_experiments.py: 6 passed in 2.33s, including explicit
+  failed-solver fallback without linear switch. No full benchmark rerun.
+- Initial audit assertion used state outside switch region; corrected probe
+  stays within threshold and exercises clipping using larger synthetic gain.
+- Preserve frozen source/hash contracts; this was an audit, not redesign.
+
+## Uncommitted changes, blockers, next actions
+- User's pre-existing manifold_control.ipynb modification preserved.
+- Only continuity docs updated by this task. No implementation blocker.
+- If requested, design a new target-aware shared LQR failure policy for hybrid
+  evaluation separately from frozen baselines; do not silently alter archives.
+
+---
+Historical checkpoint follows (some old publication notes are stale; actual
+starting main HEAD for this audit was e61ba0ae, clean except user notebook).
+
 # Current checkpoint — 2026-10-27
 
 ## Current objective

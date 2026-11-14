@@ -359,3 +359,26 @@ parameters to controllers.
   and push to origin/main because default branch/external remote publication
   needs explicit approval of this payload/target. Neither action executed.
   Verified fix remains staged; this final blocker note and STATE update unstaged.
+
+## 2026-11-13 — Audit fallback LQR and nonzero target support
+
+- Main e61ba0ae; pre-existing manifold_control.ipynb edit preserved.
+- Traced scripts/run_linear_mc.py:510–536: same u_lqr callable injected into
+  failure fallback and simulated baseline; x_ref forwarded; CLI u_ref zero.
+  src/linear_system.py:485–561 supports u_ref-K@(x-x_ref), clipping. Constant
+  reference regulation assumes equilibrium A*x_ref+B*u_ref=x_ref.
+- Validation campaign.controller L uses clipped -gain@state; H delegates to
+  scripts/run_inverted_pendulum_mc.py:199–249 with same gain. H switches only
+  when state@Q@state < .75; failed solves elsewhere return zero. No reference
+  parameters. Frozen native uses src/manifold_experiments.py:native_controller,
+  deliberately no LQR, failure uses shifted seed or zero. Fallback event counts
+  in reports must not be interpreted as LQR usage.
+- Runtime audit via validation adapter and mocked failing solver confirms H/L
+  exact action equality locally including saturation, failed H returns zero
+  unlike L outside region, and nonzero finite-horizon LQR x_ref/u_ref honored.
+  Initial clipping probe lay outside H switch region; corrected synthetic gain
+  tests clipping within region. No scientific source changes or benchmark rerun.
+- MPLCONFIGDIR=/tmp/tmc-lqr-mpl control311/bin/python -m pytest -q
+  tests/test_manifold_experiments.py: 6 passed in 2.33s.
+- Audit only; checkpoint documents updated. Any target-aware LQR failure policy
+  would require a separately identified experiment, preserving frozen contracts.
