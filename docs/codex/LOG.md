@@ -435,3 +435,14 @@ parameters to controllers.
   to origin/main; publication outcome recorded in current handoff/final response.
 - Publication verified: rename commit65c82e4f pushed successfully to origin/main
   (remote advanced62e9eb84..65c82e4f); prior audit/implementation included in ancestry.
+
+## 2026-11-14 — Clean-checkout validation instructions
+
+- Confirmed main starts clean; saves/saved_models is empty and saves/ ignored.
+  Earlier guide incorrectly assumed prior session's local dev checkpoint.
+- Documented seed0 reconstruction, artifact presence check, separate matched
+  smoke and tuning commands, existing-dev alternative and archived-gain limits.
+- Clarified training reuse, cost, per-invocation between-case budget and fresh
+  output paths versus resume. No controller changes or training launched.
+- .venv/bin/python launcher --help checks passed for both documented launchers.
+  First edit attempt used unavailable bare python; reran with .venv/bin/python.

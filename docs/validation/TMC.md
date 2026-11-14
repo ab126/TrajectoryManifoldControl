@@ -29,46 +29,91 @@ Activate the project environment first:
 micromamba activate control311
 ```
 
-A runnable local screen using the existing seed-234 checkpoint and an explicitly
-unmatched archived seed-0 linear gain:
+### Clean checkout: generate artifacts first
+
+`validate_tmc.py` loads a trained checkpoint; it does not train one. `saves/`
+is ignored by Git, so a clean clone has no saved model or training data.
+The old example assumed a locally generated
+`saves/saved_models/canonical_decoder_dev.pt`. `--archived-gain-seed 0` supplies
+only a linear gain; it cannot supply or replace a missing learned model.
+
+From the repository root, reconstruct a seed-0 model and matching dataset:
 
 ```sh
-python scripts/validate_tmc.py \
-  --checkpoint saves/saved_models/canonical_decoder_dev.pt \
-  --archived-gain-seed 0 \
-  --output saves/validation/tmc-screen-v1 \
-  --set tuning --limit 2 --seconds 14 --max-wall-seconds 600 \
-  --solver adam --iterations 20 --learning-rate .15 --starts 3 \
-  --replan-interval 1 --arms TMC L
-```
-
-For matched scientific validation, use a checkpoint and its original training
-`data.npz`. L is fitted only on the training split, with the validation recipe
-and Q/R, never on evaluation starts. If those artifacts need reconstruction,
-the existing training command is available (potentially expensive):
-
-```sh
-python scripts/validation_benchmark.py --train --seed 0 \
+python scripts/validation_benchmark.py --train --seed 0 --device cpu \
   --model-dir saves/validation/models/reconstructed-seed0 \
   --output saves/validation/reconstruction-seed0 \
   --arms L --set A --limit 1 --seconds .04
 ```
 
-Then launch the new paired evaluation:
+This collects 3,500 episodes and trains for 100 epochs, which can take substantial
+time. `.04` limits only the subsequent baseline rollout, not training. There is
+no training wall-time limit. This creates `transition.pt`, `data.npz` and
+`diagnostics.json` in the model directory. This is newly reconstructed training,
+not a replay of an archived checkpoint. `--train` reuses existing data and a
+compatible checkpoint; choose a new model directory for fresh training.
+
+Check the required artifacts:
+
+```sh
+python -c "from pathlib import Path; p = Path('saves/validation/models/reconstructed-seed0'); assert (p/'transition.pt').is_file(), 'missing checkpoint'; assert (p/'data.npz').is_file(), 'missing training data'; print('Artifacts present')"
+```
+
+First run a pipeline smoke check in its own output directory:
 
 ```sh
 python scripts/validate_tmc.py \
   --checkpoint saves/validation/models/reconstructed-seed0/transition.pt \
   --data saves/validation/models/reconstructed-seed0/data.npz \
-  --output saves/validation/tmc-c200-seed0-v1 \
-  --set C --seconds 14 --max-wall-seconds 600 \
+  --output saves/validation/tmc-smoke-seed0-v1 \
+  --set tuning --limit 1 --seconds .04 --max-wall-seconds 600 \
   --solver adam --iterations 20 --learning-rate .15 --starts 3 \
   --replan-interval 1 --arms TMC L
 ```
 
+Check `summary.json` for `complete: true`, and each case JSON for
+`completed: true` and `failure: null`. Short smoke runs cannot establish recovery.
+Then launch the requested 14-second tuning screen in a separate output directory:
+
+```sh
+python scripts/validate_tmc.py \
+  --checkpoint saves/validation/models/reconstructed-seed0/transition.pt \
+  --data saves/validation/models/reconstructed-seed0/data.npz \
+  --output saves/validation/tmc-screen-seed0-v1 \
+  --set tuning --limit 2 --seconds 14 --max-wall-seconds 600 \
+  --solver adam --iterations 20 --learning-rate .15 --starts 3 \
+  --replan-interval 1 --arms TMC L
+```
+
+L is fitted only on the training split using the checkpoint's seed and validation
+Q/R, never on evaluation starts. Keep the checkpoint and its original dataset
+together: `--data` must point to that model's training data. After selecting
+settings on tuning starts, lock them, choose a new output path and use `--set C`
+without `--limit` for all 200 starts. Repeat across training seeds.
+
+### Existing development artifacts
+
+If you already ran `python scripts/run_inverted_pendulum_mc.py --profile dev`,
+replace the checkpoint/data arguments above with:
+
+```sh
+--checkpoint saves/saved_models/canonical_decoder_dev.pt \
+--data saves/datasets/canonical_trajectories_dev.npz
+```
+
+If only the checkpoint exists and its original training data is unavailable,
+replace `--data ...` with `--archived-gain-seed 0` for an explicitly **unmatched**
+screen. This does not fix a missing checkpoint or provide a matched comparison.
+Supply exactly one of these gain-source options.
+
+### Resume or start a fresh evaluation
+
 Repeat the exact command to resume between cases. The wall budget is checked
-between cases; it does not interrupt an active rollout. Use a new output path
-for changed settings. `--set fresh` uses saved fresh-200 starts; `--set A` uses
+between cases; it does not interrupt an active rollout. Use a new, unused output path
+for a clean evaluation or changed settings; existing case files are skipped,
+not rerun. Keep smoke and 14-second outputs separate. A budget-limited run can
+exit normally with `summary.json` reporting `complete: false`; repeat the same
+command until complete. The wall budget is per invocation. `--set fresh` uses saved fresh-200 starts; `--set A` uses
 the six authored starts; `--set tuning` uses the eight independent tuning starts.
 Use tuning starts for parameter screening before locking a final protocol.
 The manifest pins sources, checkpoint, gain/data, references, solver settings,
