@@ -483,3 +483,4 @@ parameters to controllers.
 - No new full grid/training1,2 launched. User receives full launch commands;
   original artifacts absent, reconstruction cannot promise identical weights.
 - git diff --check passed. Source and docs prepared for publication.
+- Publication verified:24fef25c pushed to origin/main.

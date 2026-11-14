@@ -40,6 +40,6 @@ Complete original screenshot experiment reproduction and launchable IC sweep.
   resumes. Use one writer/output and new output for changed scientific settings.
 
 ## Uncommitted changes and next actions
-- Task source/tests/docs/maps/checkpoints prepared for commit and push.
+- Task source/tests/docs/maps committed as24fef25c and pushed to origin/main.
 - User can launch documented --train full sweep, or separate training and sweep.
   Check summary.complete and saved10086; repeat exact command if budget expires.
