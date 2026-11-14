@@ -1,8 +1,8 @@
 # Current checkpoint — 2026-11-13
 
 ## Current objective
-Rename the new standalone controller/validation terminology to TMC (trajectory
-manifold control), verify renamed CLI and tests, and push pending commits.
+Completed renaming standalone controller/validation terminology to TMC
+(trajectory manifold control), verified renamed CLI/tests and pushed to origin/main.
 Shared reference-aware LQR/hybrid implementation remains unchanged.
 
 ## Completed work and decisions
@@ -47,8 +47,9 @@ Shared reference-aware LQR/hybrid implementation remains unchanged.
 - Renamed CLI to scripts/validate_tmc.py and guide to docs/validation/TMC.md;
   arm identifiers, tests, README and current checkpoint use TMC. Historical LOG
   entries retain original names as a record of actual earlier runs.
-- User explicitly authorized renaming and pushing pending work to origin/main.
-  Pending local commits include5ab64b0b (audit) and62e9eb84 (controllers/CLI).
+- User explicitly authorized publication. Rename commit65c82e4f pushed to
+  origin/main successfully; audit5ab64b0b and implementation62e9eb84 are included
+  in published ancestry. Only user notebook edit remains unrelated to task.
 - Missing local matched training dataset is not a code blocker; explicit archived
   gain smoke path is supported and scientific reconstruction commands documented.
 

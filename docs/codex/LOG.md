@@ -433,3 +433,5 @@ parameters to controllers.
   CLI --help and git diff --check pass. No long validation launched.
 - User authorized publishing the pending audit/controller commits and rename
   to origin/main; publication outcome recorded in current handoff/final response.
+- Publication verified: rename commit65c82e4f pushed successfully to origin/main
+  (remote advanced62e9eb84..65c82e4f); prior audit/implementation included in ancestry.
