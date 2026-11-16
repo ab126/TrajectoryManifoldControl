@@ -508,3 +508,15 @@ parameters to controllers.
   under saves/validation/investigation-final-v1; report evidence updated on completion.
 - Final raw-hash audit and four-figure regeneration succeeded; py_compile and
   diff check passed. c75c9f39 pushed to origin/main; all three tuning jobs finished.
+
+## 2026-11-16 — Launch pure TMC versus LQR
+
+- User clarified pure TMC, no hybrid, versus LQR using previous setup.
+- Read controller path: standalone has no linear switch or fallback.
+- Launched scripts/sweep_tmc.py --seeds 0 1 2 --controller standalone
+  --models-root saves/validation/models --seconds 14
+  --output saves/validation/grid-standalone-3seed-v1 --max-wall-seconds 172800.
+- Detached PID1499380 verified live; manifest verified arms TMC/L,3seeds,
+  10086expected cases. No new training; original matched checkpoints reused.
+- Adam20/lr.15/3starts/replan1 differs from prior hybrid CEM; disclosed to user.
+- Simulation in progress; no recovery results or completion claimed.

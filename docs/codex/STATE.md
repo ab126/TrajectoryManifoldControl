@@ -1,6 +1,10 @@
 # Current checkpoint — 2026-11-16
 
 ## Current objective
+Run pure standalone TMC versus matched data-driven LQR on the previous three-seed
+D grid. Active launch details below supersede the earlier completed investigation.
+
+## Previous objective
 Investigate completed TMC hybrid versus linear grid and publish concise visual
 report, measured tuning outcomes and executable candidate-training/evaluation.
 
@@ -51,3 +55,16 @@ report, measured tuning outcomes and executable candidate-training/evaluation.
 - Screen all8tuning starts before locking parameters; run expensive proposed
   training only using provided commands. Final dense candidate confirmation can
   take days. Continue to keep scientific hypotheses distinct from verified wins.
+
+## Active simulation — 2026-11-16
+- User requested pure TMC (no hybrid) versus LQR, as before.
+- Verified scripts/sweep_tmc.py standalone passes no linear callable to
+  trajectory_controller: no LQR switch/fallback; invalid plans fail the case.
+- Launched PID1499380; verified live process and manifest: standalone, arms TMC/L,
+  seeds0/1/2,14s,1681starts/seed,10086total cases. Existing matched models reused.
+- Standalone uses Adam20,lr.15,3starts,replan1; prior hybrid used CEM.
+  This is a controller comparison, not an isolated switching ablation.
+- Output/log: saves/validation/grid-standalone-3seed-v1/{manifest.json,launch.log}.
+- Budget172800s checked between cases; resume exact launch command if incomplete.
+- No outcome or completion verified yet; next inspect log/cases/process and
+  generate final maps only after checking completion. No source changes.
