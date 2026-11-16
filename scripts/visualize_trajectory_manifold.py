@@ -20,7 +20,7 @@ from src.trajectory_visualization import DecoderSampler, TrajectoryManifoldVisua
 
 def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=256,
                            candidates=24, tolerance=1e-4, method='pca', seed=234,
-                           frame_stride=1, until_converged=False):
+                           frame_stride=1, until_converged=False, manifold_style='reference'):
     """Reuse notebook model/config when present, otherwise explicit checkpoint.
 
     Returns visualization and metadata. The live latent path uses the notebook's
@@ -159,7 +159,7 @@ def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=25
         sampler, t, states, inputs, chosen, objective, state_bounds=state_bounds,
         target=target, background_samples=samples, candidates_per_frame=candidates,
         feasibility_tolerance=tolerance, method=method, frame_stride=frame_stride,
-        state_scale=scale, force_scale=force_scale, seed=seed)
+        state_scale=scale, force_scale=force_scale, seed=seed, manifold_style=manifold_style)
     metadata = {'seed': seed, 'model_source': model_source, 'config': config_record,
                 'seconds': float(t[-1]), 'max_seconds': seconds, 'convergence': convergence,
                 'physical_coordinates': ['angle', 'angle_dot', 'position_dot'],
@@ -202,14 +202,19 @@ def export(visualization, metadata, output, *, fps=15, movie_format='gif'):
                              for f in visualization.frames]),
         mean=visualization.projection.mean, scale=visualization.projection.scale,
         pca_components=visualization.projection.components)
-    metadata = {**metadata, 'fps': fps, 'movie_format': movie_format}
+    metadata = {**metadata, 'fps': fps, 'movie_format': movie_format,
+                'manifold_style': visualization.manifold_style,
+                'target_state_model': visualization.target.tolist(),
+                'manifold_reference': 'constant target state over horizon, zero input; ideal reference, not verified feasible'}
     (output/'metadata.json').write_text(json.dumps(metadata, indent=2)+'\n')
     return animation
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--checkpoint', type=Path, required=True)
+    parser.add_argument('--checkpoint', type=Path)
+    parser.add_argument('--replay', type=Path, help='rerender an existing PCA export without running control')
+    parser.add_argument('--manifold-style', choices=['reference', 'legacy'], default='reference')
     parser.add_argument('--output', type=Path, default=Path('saves/visualizations/trajectory_manifold'))
     parser.add_argument('--seconds', type=float, default=.6)
     parser.add_argument('--until-converged', action='store_true',
@@ -222,9 +227,18 @@ def main():
     parser.add_argument('--format', choices=['gif', 'mp4'], default='gif')
     args = parser.parse_args()
     torch.set_num_threads(1)
-    visualization, metadata = notebook_visualization({}, checkpoint=args.checkpoint, seconds=args.seconds,
-        samples=args.samples, candidates=args.candidates, method=args.projection,
-        frame_stride=args.frame_stride, until_converged=args.until_converged)
+    if args.replay:
+        if args.replay.resolve() == args.output.resolve():
+            parser.error('use a separate output directory to preserve the original export')
+        visualization, metadata = TrajectoryManifoldVisualization.from_export(
+            args.replay, manifold_style=args.manifold_style)
+    else:
+        if args.checkpoint is None:
+            parser.error('--checkpoint or --replay is required')
+        visualization, metadata = notebook_visualization({}, checkpoint=args.checkpoint, seconds=args.seconds,
+            samples=args.samples, candidates=args.candidates, method=args.projection,
+            frame_stride=args.frame_stride, until_converged=args.until_converged,
+            manifold_style=args.manifold_style)
     export(visualization, metadata, args.output, fps=args.fps, movie_format=args.format)
     print(json.dumps(metadata, indent=2))
 

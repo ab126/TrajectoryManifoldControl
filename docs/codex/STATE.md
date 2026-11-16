@@ -34,3 +34,19 @@
 - No artifact-generation blockers. Full cart-position convergence would need
   separate controller investigation; not changed for this visualization request.
 - Next monitor active grid and inspect completeness before interpreting results.
+
+## Completed — target marker update
+- Right selected horizon now blue diamond (X if infeasible), blue history;
+  target red star is ideal constant target-state/zero-input full behavior.
+- Arbitrary inputs do not preserve target states; no unjustified plane drawn.
+- All existing source function names from ef522a23 retained (AST verified).
+  Existing notebook/export/render APIs retained; new PCA from_export replay and
+  --replay, --manifold-style reference|legacy. Original GIF directories intact.
+- Updated GIFs: saves/visualizations/trajectory_manifold_convergence_target/
+  animation.gif (301frames) and trajectory_manifold_cli_target/animation.gif
+  (31frames). Both decoded through final frame; preview inspected.
+- Both complete NPZ archives match original raw data/costs/feasibility/projections
+  to1e-12; no simulation, sampling or projection fitting rerun.
+- Focused visualization tests:18passed in71.44s; git diff --check passed.
+- Source/docs/tests/handoff finalized for commit/push. No blockers or remaining
+  requested visualization work. Generated files remain ignored by Git.

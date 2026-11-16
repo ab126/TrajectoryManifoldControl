@@ -129,3 +129,36 @@ near-target tolerances throughout the final second. The full-state convergence
 criterion is **not** reached because cart position drifts to 4.40 m. This export
 shows stabilization, not return of the cart to its original position. The
 original short GIF is preserved; generated artifacts remain Git-ignored.
+
+## Target marker and replay
+
+The right plot uses a blue diamond for the selected controller horizon (blue X
+if infeasible) and a red star for the ideal reference: the target state repeated
+across the horizon, with zero future input. The reference is projected with the
+same fixed normalization and projection as the sampled/selected trajectories;
+it is not asserted to belong to the learned decoder manifold. Arbitrary future
+inputs generally change future states, so they do not define an equilibrium
+target plane. A fixed initial target state with free inputs would instead define
+a separate decoded slice, generally curved after projection.
+
+Both source workflows remain available: `notebook_visualization` runs the
+experiment, `TrajectoryManifoldVisualization.from_export` restores a PCA cache,
+and `export` writes its static image, movie, raw arrays and metadata. Rendering
+and saving functions remain in `src/trajectory_visualization.py`. Replay does not
+rerun the controller, sample candidates, or fit the projection. Older UMAP
+exports cannot replay because their fitted reducer was not serialized.
+
+```bash
+python -m scripts.visualize_trajectory_manifold \
+  --replay saves/visualizations/trajectory_manifold_convergence \
+  --output saves/visualizations/trajectory_manifold_convergence_target
+
+python -m scripts.visualize_trajectory_manifold \
+  --replay saves/visualizations/trajectory_manifold_cli \
+  --output saves/visualizations/trajectory_manifold_cli_target
+```
+
+Original GIF directories remain untouched. Use `--manifold-style legacy` (or
+`manifold_style='legacy'` in Python) to retain the previous selected red star and
+omit the reference star. The new `reference` style is the default. Replay uses a
+separate output directory to preserve its source.

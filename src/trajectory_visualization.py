@@ -222,7 +222,10 @@ class TrajectoryManifoldVisualization:
                  state_bounds=None, target=None, background_samples=400,
                  candidates_per_frame=48, feasibility_tolerance=1e-4,
                  method='pca', frame_stride=1, state_scale=None, force_scale=1.,
-                 seed=234, selected_path=True):
+                 seed=234, selected_path=True, manifold_style='reference'):
+        if manifold_style not in ('reference', 'legacy'):
+            raise ValueError('manifold_style must be reference or legacy')
+        self.manifold_style = manifold_style
         self.sampler = sampler
         self.t, self.states, self.inputs = map(np.asarray, (t, states, inputs))
         if (self.states.shape != (len(t), 4) or self.inputs.shape != (len(t)-1, 1)
@@ -301,9 +304,76 @@ class TrajectoryManifoldVisualization:
                 return result
             self.candidate_xyz.append(project_finite(frame.candidates.w))
             self.selected_xyz.append(None if frame.selected is None else project_finite(frame.selected.w)[0])
-        all_xyz = np.concatenate([self.background_xyz, *self.candidate_xyz,
+        # Ideal reference behavior, not a claim of decoder/plant feasibility.
+        self.reference = Trajectories(
+            np.broadcast_to(self.target, (1, self.sampler.horizon+1, 4)).copy(),
+            np.zeros((1, self.sampler.horizon, self.sampler.u_dim)))
+        self.reference_xyz = self.projection.transform(self.reference.w)[0]
+        all_xyz = np.concatenate([self.background_xyz, self.reference_xyz[None], *self.candidate_xyz,
                                   np.asarray([p for p in self.selected_xyz if p is not None]).reshape(-1, 3)])
         self.projected_limits = self._limits(all_xyz)
+
+    @classmethod
+    def from_export(cls, directory, *, manifold_style='reference'):
+        """Load a PCA export for rendering without sampling, solving, or fitting.
+
+        Older exports omit target/bounds; their documented zero target and
+        symmetric simulation bounds are used. UMAP needs its fitted reducer,
+        which older NPZ exports do not serialize, so it is rejected explicitly.
+        """
+        import json
+        from types import SimpleNamespace
+        directory = Path(directory)
+        metadata = json.loads((directory/'metadata.json').read_text())
+        if metadata['projection'] != 'pca':
+            raise ValueError('cache replay requires a PCA export; UMAP reducer is not serialized')
+        if manifold_style not in ('reference', 'legacy'):
+            raise ValueError('manifold_style must be reference or legacy')
+        self = cls.__new__(cls)
+        self.manifold_style, self.selected_path = manifold_style, True
+        with np.load(directory/'closed_loop.npz') as trace:
+            self.t, self.states, self.inputs = (trace[key].copy() for key in ('t', 'X', 'U'))
+        self.target = np.asarray(metadata.get('target_state_model', np.zeros(4)))
+        self.scale = np.asarray(metadata['state_scale_to_SI'])
+        self.force_scale = metadata['force_scale_to_N']
+        self.background_rejected = metadata.get('background_rejected', 0)
+        with np.load(directory/'trajectories.npz') as cache:
+            horizon = (cache['background_w'].shape[1]-4)//5
+            umax = metadata.get('config', {}).get('simulation', {}).get('umax', 10.)
+            self.sampler = SimpleNamespace(horizon=horizon, u_dim=1, bounds=(-umax, umax))
+            def unpack(w):
+                w = np.atleast_2d(w)
+                split = (horizon+1)*4
+                return Trajectories(w[:, :split].reshape(-1, horizon+1, 4),
+                                    w[:, split:].reshape(-1, horizon, 1))
+            self.background = unpack(cache['background_w'])
+            self.projection = FixedProjection.__new__(FixedProjection)
+            for name, key in [('mean', 'mean'), ('scale', 'scale'), ('components', 'pca_components')]:
+                setattr(self.projection, name, cache[key].copy())
+            self.projection.method, self.projection.umap = 'pca', None
+            self.projection.diagnostics = metadata['projection_diagnostics']
+            self.frames = []
+            for i, step in enumerate(cache['steps']):
+                selected_w = cache['selected_w'][i]
+                plan = unpack(selected_w) if np.isfinite(selected_w).all() else None
+                accepted, residual = False, float('nan')
+                if plan is not None:
+                    feasible, r, _ = plan.feasibility(self.states[step], self.sampler.bounds,
+                                                      metadata['feasibility_tolerance'])
+                    accepted, residual = bool(feasible[0]), float(r[0])
+                self.frames.append(VisualizationFrame(
+                    int(step), unpack(cache['candidates_w'][i]), plan,
+                    *[cache[key][i].copy() for key in
+                      ('costs', 'feasible', 'initial_residual', 'bound_violation')],
+                    accepted, residual))
+        self._cache_projection()
+        physical = [self.states*self.scale, (self.target*self.scale)[None]]
+        physical += [f.selected.x[0]*self.scale for f in self.frames if f.selected is not None]
+        self.physical_limits = self._limits(np.concatenate(physical)[:, [2, 3, 1]])
+        costs = np.concatenate([f.costs[f.feasible & np.isfinite(f.costs)] for f in self.frames])
+        self.cost_limits = (float(costs.min()), float(costs.max())) if len(costs) else (0., 1.)
+        self.comparisons = {}
+        return self, metadata
 
     @staticmethod
     def _limits(points):
@@ -352,11 +422,18 @@ class TrajectoryManifoldVisualization:
             manifold.scatter(*points[bad].T, c='orange', marker='x', s=18, label='approximate/infeasible')
         point = self.selected_xyz[index]
         if point is not None and np.isfinite(point).all():
-            manifold.scatter(*point, marker='*' if frame.selected_feasible else 'X',
-                             s=170, c='red', label='selected controller horizon')
+            marker = ('*' if self.manifold_style == 'legacy' else 'D') if frame.selected_feasible else 'X'
+            color = 'red' if self.manifold_style == 'legacy' else 'dodgerblue'
+            manifold.scatter(*point, marker=marker, s=110, c=color,
+                             edgecolors='black', linewidths=.6, label='selected controller horizon')
+        if self.manifold_style == 'reference':
+            manifold.scatter(*self.reference_xyz, marker='*', s=190, c='red',
+                             edgecolors='darkred', linewidths=.5,
+                             label='target reference (constant state, zero input)')
         if self.selected_path:
             path = np.asarray([p if p is not None else [np.nan]*3 for p in self.selected_xyz[:index+1]])
-            manifold.plot(*path.T, color='tab:red', alpha=.6, linewidth=1)
+            manifold.plot(*path.T, color='tab:red' if self.manifold_style == 'legacy' else 'dodgerblue',
+                          alpha=.6, linewidth=1)
         manifold.set(xlabel='projection 1', ylabel='projection 2', zlabel='projection 3',
                      title=f'Full-trajectory {self.projection.method.upper()} (not exact geometry)')
         manifold.legend(fontsize=7, loc='upper left')

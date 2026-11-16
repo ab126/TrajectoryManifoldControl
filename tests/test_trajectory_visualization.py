@@ -282,3 +282,36 @@ def test_convergence_export_requires_sustained_full_state_target(
     assert axes[0].get_ylabel() == 'angular speed [rad/s]'
     assert axes[0].get_zlabel() == 'cart speed [m/s]'
     plt.close(fig)
+
+
+def test_target_reference_and_cache_replay_preserve_behavior(tmp_path, monkeypatch):
+    from scripts.visualize_trajectory_manifold import export
+    viz = make_visualization()
+    metadata = {'projection': 'pca', 'projection_diagnostics': viz.projection.diagnostics,
+                'state_scale_to_SI': viz.scale.tolist(), 'force_scale_to_N': viz.force_scale,
+                'feasibility_tolerance': 1e-4}
+    export(viz, metadata, tmp_path, fps=5)
+    def forbidden(*args, **kwargs):
+        raise AssertionError('replay must not fit, sample, or run the controller')
+    monkeypatch.setattr(FixedProjection, '__init__', forbidden)
+    monkeypatch.setattr(DecoderSampler, 'sample', forbidden)
+    replay, _ = TrajectoryManifoldVisualization.from_export(tmp_path)
+    np.testing.assert_array_equal(replay.states, viz.states)
+    np.testing.assert_array_equal(replay.inputs, viz.inputs)
+    np.testing.assert_allclose(replay.background_xyz, viz.background_xyz)
+    np.testing.assert_allclose(replay.reference_xyz, viz.projection.transform(viz.reference.w)[0])
+    np.testing.assert_array_equal(replay.reference.x, np.zeros((1, 4, 4)))
+    np.testing.assert_array_equal(replay.reference.u, np.zeros((1, 3, 1)))
+    for original, restored in zip(viz.frames, replay.frames):
+        np.testing.assert_array_equal(original.candidates.w, restored.candidates.w)
+        assert original.selected_feasible == restored.selected_feasible
+        assert (original.selected is None) == (restored.selected is None)
+    fig, axes = replay.figure()
+    replay.draw_frame(0, axes)
+    labels = axes[1].get_legend_handles_labels()[1]
+    assert 'selected controller horizon' in labels
+    assert 'target reference (constant state, zero input)' in labels
+    legacy, _ = TrajectoryManifoldVisualization.from_export(tmp_path, manifold_style='legacy')
+    legacy.draw_frame(0, axes)
+    assert 'target reference (constant state, zero input)' not in axes[1].get_legend_handles_labels()[1]
+    plt.close('all')

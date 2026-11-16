@@ -561,3 +561,31 @@ parameters to controllers.
   Three new cases verify sustained full-state stopping/time cap/axis labels.
 - Active standalone grid PID1499380 verified alive; no changes to its sources,
   artifacts, training, settings or process. git diff --check passed.
+
+## 2026-11-16 — Distinguish selected horizon from target reference
+
+- User requested a distinct selected marker/color and red target star (or plane),
+  retaining source functions for both visualization versions.
+- Right selected horizon now blue diamond, infeasible selection blue X, history
+  blue; red star projects ideal constant target state/zero future inputs. It is
+  labelled as a reference, not guaranteed decoder/plant feasible. No plane:
+  arbitrary future inputs generally move states away from target, and projected
+  fixed-x0 decoded slices are generally curved, not guaranteed planes.
+- Preserved all existing source function names (verified via AST against HEAD),
+  notebook/control/export APIs, existing GIF directories; added optional legacy
+  selected-red-star style and PCA cache replay with from_export / --replay.
+  Replay restores full behavior arrays and original PCA mean/scales/components;
+  does not fit, sample, or solve. Old UMAP caches explicitly rejected because
+  fitted reducer was never serialized. Replay requires separate output path.
+- Updated source:src/trajectory_visualization.py and
+  scripts/visualize_trajectory_manifold.py; commands/semantics in
+  docs/visualization.md. New sibling output folders end in _target.
+- Focused visualization tests:18passed in71.44s. Roundtrip test checks raw data,
+  projected coordinates, target semantics, legacy style and forbidden fit/sample.
+- Both updated GIFs completed: trajectory_manifold_cli_target/animation.gif
+  (31frames) and trajectory_manifold_convergence_target/animation.gif (301frames).
+  Pillow decoded final frames,1170x540. Both closed_loop.npz and trajectories.npz
+  match originals to1e-12 across every field (NaNs equal). No controller rerun.
+- Original function-name comparison used ef522a23 source. Both prior GIFs and
+  all source functions retained. Source/docs/tests/handoff ready for publication;
+  git diff --check passed.
