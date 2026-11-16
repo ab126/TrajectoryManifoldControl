@@ -589,3 +589,45 @@ parameters to controllers.
 - Original function-name comparison used ef522a23 source. Both prior GIFs and
   all source functions retained. Source/docs/tests/handoff ready for publication;
   git diff --check passed.
+
+## 2026-11-16 — Right-plot audit, training provenance and exact target plane
+
+- User flagged distant target/star, asked for a plane matching left target,
+  explanation with figures, and whether gray/nearby points were training data.
+- Verified original points:256random decoded background horizons,24random decoded
+  current-state candidates; neither is measured training data/optimizer population.
+- Original full-zero-state/zero-input reference constrains cart position, unlike
+  left3coordinate target. PCA star distance1.32094->48.20309; background-center
+  distance1.79787->48.33116; gray cloud ranges37.30/33.45/15.49, not a point.
+  x0 background position±.5 versus actual final4.402m explains cloud placement.
+- Corrected geometry explicitly changes embedding: first2standardized full-behavior
+  PCs fitted on2450actual training episodes, third coordinate log1p(norm of SI
+  x0 angle/angular-speed/cart-speed errors divided by [.02,.05,.05]). Planezero
+  contains exactly left target, futureinputs and position free; not a feasible
+  decoder manifold, terminal condition or guaranteed future tracking. Generic
+  arbitrary full-behavior PCA cannot guarantee such a2Dplane. No point moved by hand.
+- Added256actual measured train episodes with original dataset IDs as separate
+  filled squares; old synthetic background hollow circles; decoded candidates
+  keep cost colors. Original split seed0 excludes525validation/525test episodes.
+  Verified checkpoint SHA and companion data SHA0e825cda7821de4afbe839f5da022b5942c6f8b14dd5208a040f05278cbde119.
+- New src/trajectory_target_visualization.py; scripts/explain_trajectory_visualization.py.
+  Command: control311 python -m scripts.explain_trajectory_visualization
+  --source saves/visualizations/trajectory_manifold_convergence
+  --dataset saves/validation/models/reconstructed-seed0/data.npz
+  --output saves/visualizations/trajectory_manifold_convergence_plane.
+  --skip-animation refreshes report/cache without control or GIF encoding.
+- Added docs/visualization/RIGHT_PLOT.md, target-plane/{elements,progress,snapshots}.png
+  and audit.json. Added tracked-doc ignore exceptions; docs/visualization.md links
+  corrected explanation and identifies historical constant-reference view.
+- Normalized displayed error7.5->.0932882; planeheight2.140066->.0891899.
+  Final cart position4.402m remains off full target; no false convergence claim.
+- Focused visualization suite20passed in71.40s; py_compile/diff check passed.
+  Tests prove exact plane with nonzero target/freefuturestates/inputs/position,
+  fixed SI scaling and cached rendering; existing18tests retained.
+- GIF written301frames1170x540; renderer session returned143 after file write,
+  so artifact was independently decoded through EVERY frame. Verified raw closed
+  loop arrays identical, every plotted training row exactly equals its dataset
+  row and belongs to train split, selected height equals state-error height to2e-6.
+  Report regeneration/provenance verification completed with exit0.
+- All earlier source functions/GIF directories retained unchanged. Active grid
+  not touched or queried; no controller/training experiments rerun.

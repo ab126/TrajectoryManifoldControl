@@ -1,52 +1,46 @@
 # Current checkpoint — 2026-11-16
 
 ## Current objective / completed work
-- Requested separate convergence GIF completed at
-  saves/visualizations/trajectory_manifold_convergence/animation.gif.
-- Same checkpoint/initial state/Adam20/seed234 as original short CLI GIF;
-  30s cap,1500control steps,301frames,stride5,PCA,15FPS. Original GIF untouched.
-- Left x/y/z now angle, angular velocity, cart velocity throughout paths,
-  targets, predictions and fixed limits. Added --until-converged/--frame-stride.
-- Optional canonical stop requires all four SI coordinates inside
-  [.05m,.05m/s,.02rad,.05rad/s] for50samples (1s); --seconds is cap.
+- Audited misleading right plot; added illustrated docs/visualization/RIGHT_PLOT.md
+  with element table, exact computations, provenance and3figures plus audit.json.
+- Corrected GIF: saves/visualizations/trajectory_manifold_convergence_plane/
+  animation.gif,301frames,1170x540,15FPS; original30s controller run reused.
+- New src/trajectory_target_visualization.py and
+  scripts/explain_trajectory_visualization.py preserve all earlier renderers/GIFs.
+  .gitignore now permits tracked docs/visualization figures and explanations.
 
-## Verified results / important limits
-- Final SI [position,velocity,angle,angular_velocity]:
-  [4.4020925,.00010423,-.00029679,-.00460384].
-- Displayed three coordinates meet tolerances throughout final second.
-  Full-state convergence FALSE: cart drifts4.40m. Do not claim return to origin.
-- Pillow decoded final GIF frame and verified301frames,1170x540.
-  Raw arrays verified1501states/1500actions. Static preview inspected.
-- control311 focused visualization suite:17passed in34.35s; diff check passed.
-  Notebook refresh test now explicitly selects PCA, independent of notebook's
-  compare default (initial run13passed/1failed due stale test assumption).
-- Artifacts under saves are ignored; code/docs/tests are committed separately.
+## Findings / important decisions
+- Original gray background and colored nearby points are synthetic decoded
+  trajectories, NOT training records or actual optimizer population.
+- Original zero-state/zero-input full-horizon star includes zero cart position,
+  whereas left target omits position. Old PCA star distance1.32->48.20 while
+  displayed state stabilizes; background center distance1.80->48.33. Background
+  x0 position sampled±.5, final actual cart4.40m; fixed PCA/limits compress cloud.
+- Generic full-horizon PCA does not map target constraint to a2Dplane. New view
+  explicitly uses2full-behavior PCs fitted on2450actual training episodes plus
+  height=log1p(norm(SI x0 errors in angle/angular speed/cart speed / [.02,.05,.05])).
+  Planezero matches left target exactly, cart position/futureinputs free. It is
+  a target-constraint summary, not a decoder-feasible surface/terminal condition.
+- Added256measured training episodes as filled gray squares, separate from old
+  decoded hollow gray background and colored conditioned decoder candidates.
+  Original seed0 train split and episodeIDs preserved; hashes verified.
+- Displayed normalized error7.5->.0933; height2.140->.0892. Not monotonic.
+  Final SI [position,velocity,angle,angular_velocity]:
+  [4.4020925,.00010423,-.00029679,-.00460384]. Full-state convergence FALSE.
 
-## Other ongoing work (preserved)
-- Standalone TMC/L grid PID1499380 verified live during this task; untouched.
-  Output saves/validation/grid-standalone-3seed-v1, seeds0/1/2,10086cases.
-  Exact launch/resume and historical evidence in LOG.md and docs/launch.md.
-- Wait for grid completion before launching proposed tuning/training plan.
-  No final core-TMC recovery conclusion; large candidate remains unverified.
+## Verified results / tests
+- Focused tests/test_trajectory_visualization.py:20passed in71.40s.
+  Includes exact target plane with arbitrary position/futureinput/futurestates,
+  physical scales, separate training labels, and cached rendering.
+- All301GIFframes decoded. Raw t/X/U identical to previous rollout; actual
+  training rows exactly match dataset and training split; cached selected-plane
+  heights match measured state error within2e-6. Three report figures inspected.
+- py_compile and git diff --check passed. No controller, plant, model, training,
+  or original visualization source functions changed. Source/docs ready to push.
 
-## Uncommitted changes / blockers / next actions
-- Visualization source,docs,tests and handoff finalized for publication.
-- No artifact-generation blockers. Full cart-position convergence would need
-  separate controller investigation; not changed for this visualization request.
-- Next monitor active grid and inspect completeness before interpreting results.
-
-## Completed — target marker update
-- Right selected horizon now blue diamond (X if infeasible), blue history;
-  target red star is ideal constant target-state/zero-input full behavior.
-- Arbitrary inputs do not preserve target states; no unjustified plane drawn.
-- All existing source function names from ef522a23 retained (AST verified).
-  Existing notebook/export/render APIs retained; new PCA from_export replay and
-  --replay, --manifold-style reference|legacy. Original GIF directories intact.
-- Updated GIFs: saves/visualizations/trajectory_manifold_convergence_target/
-  animation.gif (301frames) and trajectory_manifold_cli_target/animation.gif
-  (31frames). Both decoded through final frame; preview inspected.
-- Both complete NPZ archives match original raw data/costs/feasibility/projections
-  to1e-12; no simulation, sampling or projection fitting rerun.
-- Focused visualization tests:18passed in71.44s; git diff --check passed.
-- Source/docs/tests/handoff finalized for commit/push. No blockers or remaining
-  requested visualization work. Generated files remain ignored by Git.
+## Other ongoing work / next actions
+- Prior standalone TMC/L grid output saves/validation/grid-standalone-3seed-v1
+  left untouched; no training/tuning launched. Its process status was not checked
+  this task. Monitor completion before interpreting maps or starting tuning.
+- No remaining requested visualization work or blockers. GIFs stay ignored;
+  explanatory figures/audit/source/tests are tracked. Publish this checkpoint.

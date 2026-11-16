@@ -1,5 +1,11 @@
 # Trajectory manifold visualization
 
+For the corrected target-plane view, element-by-element computations, training
+versus decoded-point provenance, and measured before/after figures, see
+[What the right plot shows](visualization/RIGHT_PLOT.md). The constant-reference
+star view below is retained as a historical renderer; its distance is not a
+state-convergence metric.
+
 ## Environment
 
 From the repository root:

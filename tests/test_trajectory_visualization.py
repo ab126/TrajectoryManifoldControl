@@ -315,3 +315,47 @@ def test_target_reference_and_cache_replay_preserve_behavior(tmp_path, monkeypat
     legacy.draw_frame(0, axes)
     assert 'target reference (constant state, zero input)' not in axes[1].get_legend_handles_labels()[1]
     plt.close('all')
+
+
+def test_target_plane_contains_left_target_with_free_position_and_inputs():
+    from src.trajectory_target_visualization import TargetAlignedProjection
+    rng = np.random.default_rng(5)
+    training = rng.normal(size=(30, 19))
+    target = np.array([.7, .2, -.1, .3])
+    scale = np.array([1., 3., 1., 3.])
+    projection = TargetAlignedProjection(training, target, scale)
+    behaviors = rng.normal(size=(20, 19))
+    behaviors[:, :4] = target
+    behaviors[:, 0] = rng.normal(size=20)*10  # cart position is omitted on left
+    # Future states and all future inputs remain arbitrary.
+    np.testing.assert_array_equal(projection.transform(behaviors)[:, 2], np.zeros(20))
+    behaviors[:, 2] += .02
+    np.testing.assert_allclose(projection.transform(behaviors)[:, 2], np.log(2))
+    behaviors[:, 2] -= .02
+    behaviors[:, 1] += .05/3
+    np.testing.assert_allclose(projection.transform(behaviors)[:, 2], np.log(2))
+
+
+def test_target_plane_reuses_cached_data_and_draws_training_separately(monkeypatch):
+    from src.trajectory_target_visualization import target_plane_view
+    base = make_visualization()
+    original_projection = base.projection
+    training = base.background
+    view = target_plane_view(base, training, training_indices=np.arange(len(training.x)))
+    assert base.projection is original_projection
+    assert view.frames is base.frames
+    np.testing.assert_array_equal(view.states, base.states)
+    np.testing.assert_array_equal(view.training.w, training.w[view.training_indices])
+    assert np.all(view.state_errors == 0)
+    def forbidden(*args, **kwargs):
+        raise AssertionError('drawing must use cached data only')
+    monkeypatch.setattr(view.projection, 'transform', forbidden)
+    monkeypatch.setattr(view.sampler, 'sample', forbidden)
+    fig, axes = view.figure()
+    view.draw_frame(0, axes)
+    labels = axes[1].get_legend_handles_labels()[1]
+    assert 'actual training episodes (fixed subset)' in labels
+    assert 'decoded background (synthetic)' in labels
+    assert 'decoded current-state candidates' in labels
+    assert axes[1].get_zlabel() == 'log(1 + displayed-state error)'
+    plt.close(fig)
