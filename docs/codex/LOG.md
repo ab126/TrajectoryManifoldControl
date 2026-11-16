@@ -484,3 +484,25 @@ parameters to controllers.
   original artifacts absent, reconstruction cannot promise identical weights.
 - git diff --check passed. Source and docs prepared for publication.
 - Publication verified:24fef25c pushed to origin/main.
+
+## 2026-11-16 — Completed-grid investigation and candidate pipeline
+
+- Audited completed10086-case grid: H2880/5043,L3247. Seed2H1225vsL1085
+  already wins; seed0/1 lose. H-only1275,L-only1642. No recorded solve failures.
+- Added investigate_tmc.py: matched artifact audits, selected raw replay checks,
+  witness, coverage and disagreement plots, multistep-error and optimizer probes.
+  24 independent tuning seed/start pairs per solver: CEM10 true replay median
+  cost ratio.869,Adam40ratio1.233 againstCEM3; short-horizon costs not coverage.
+- Launched three real two-start14s seed0 tuning screens. CEM3/queue5 and
+  CEM10/queue5 eachH1/2,L2/2;Adam20/replan1 same. All jobs finished. Small
+  screens reject claiming measured improvement, not a full tuning conclusion.
+- Added configurable candidate train/data mixture and candidate hybrid/L screen
+  (tuning orDgrid); preserved frozen sources/original sweep protocol. Tiny
+  40episode/1epoch/16x16 train plus one-step/multistep fine-tuning and eval passed.
+- Nine candidate/sweep/controller tests pass30.73s; new candidate workflow test
+  checks CLI data/train/dimensions/short endpoint/resume/protocol change guard.
+- Visual report and LAUNCH.md propose14000episodes/256x3/200epochs +20epochs
+  multistepwindow10 with broad+25%upright data; explicitly unverified, no promised
+  near-certain win. Seed2 repeat is posthoc existing-grid evidence, not new test.
+- Large candidate training and new dense grids not launched. Final audit rerun
+  under saves/validation/investigation-final-v1; report evidence updated on completion.

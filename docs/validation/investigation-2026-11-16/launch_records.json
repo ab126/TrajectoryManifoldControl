@@ -1,0 +1,81 @@
+{
+  "adam-screen-launch.json": {
+    "pid": 1484660,
+    "command": [
+      "/home/ab126/micromamba/envs/control311/bin/python",
+      "scripts/validate_tmc.py",
+      "--checkpoint",
+      "saves/validation/models/reconstructed-seed0/transition.pt",
+      "--data",
+      "saves/validation/models/reconstructed-seed0/data.npz",
+      "--output",
+      "saves/validation/investigation-adam20-seed0-v1",
+      "--set",
+      "tuning",
+      "--limit",
+      "2",
+      "--seconds",
+      "14",
+      "--max-wall-seconds",
+      "900",
+      "--solver",
+      "adam",
+      "--iterations",
+      "20",
+      "--learning-rate",
+      ".15",
+      "--starts",
+      "3",
+      "--replan-interval",
+      "1",
+      "--arms",
+      "hybrid",
+      "L"
+    ],
+    "status": "finished; requested two tuning starts saved"
+  },
+  "cem3-launch.json": {
+    "pid": 1486166,
+    "command": [
+      "/home/ab126/micromamba/envs/control311/bin/python",
+      "scripts/screen_tmc_candidate.py",
+      "--model-dir",
+      "saves/validation/models/reconstructed-seed0",
+      "--output",
+      "saves/validation/investigation-cem3-seed0-v1",
+      "--limit",
+      "2",
+      "--seconds",
+      "14",
+      "--replan-interval",
+      "5",
+      "--cem-iterations",
+      "3",
+      "--max-wall-seconds",
+      "600"
+    ],
+    "status": "finished; requested two tuning starts saved"
+  },
+  "cem10-launch.json": {
+    "pid": 1486167,
+    "command": [
+      "/home/ab126/micromamba/envs/control311/bin/python",
+      "scripts/screen_tmc_candidate.py",
+      "--model-dir",
+      "saves/validation/models/reconstructed-seed0",
+      "--output",
+      "saves/validation/investigation-cem10-seed0-v1",
+      "--limit",
+      "2",
+      "--seconds",
+      "14",
+      "--replan-interval",
+      "5",
+      "--cem-iterations",
+      "10",
+      "--max-wall-seconds",
+      "600"
+    ],
+    "status": "finished; requested two tuning starts saved"
+  }
+}

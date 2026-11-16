@@ -217,3 +217,10 @@ automatic PNG/PDF figures, raw counts, resume commands and verified archived map
 The screenshot uses terminal recovery (earlier crossings allowed); the sweep
 also exports the stricter no-crossing primary-success map. Its default controller
 is the original CEM hybrid, with an explicitly labeled standalone TMC option.
+
+## Investigating the completed grid
+
+See the [concise visual investigation](investigation-2026-11-16/REPORT.md) for
+measured coverage differences, seed interpretation, model/optimizer probes and
+completed tuning screens. [Launch codes](investigation-2026-11-16/LAUNCH.md) cover
+larger measured-data training, multistep fine-tuning and fair matched-L evaluation.
