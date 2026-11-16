@@ -506,3 +506,5 @@ parameters to controllers.
   near-certain win. Seed2 repeat is posthoc existing-grid evidence, not new test.
 - Large candidate training and new dense grids not launched. Final audit rerun
   under saves/validation/investigation-final-v1; report evidence updated on completion.
+- Final raw-hash audit and four-figure regeneration succeeded; py_compile and
+  diff check passed. c75c9f39 pushed to origin/main; all three tuning jobs finished.

@@ -46,7 +46,8 @@ report, measured tuning outcomes and executable candidate-training/evaluation.
 - L/H are simulated with ideal feedback; measured compute delay not injected.
 
 ## Uncommitted changes and next actions
-- Task scripts/tests/docs/evidence prepared for commit/push after final audit.
+- Final audit succeeded; scripts/tests/docs/evidence committed as c75c9f39
+  and pushed to origin/main. All tuning jobs finished; no long job remains active.
 - Screen all8tuning starts before locking parameters; run expensive proposed
   training only using provided commands. Final dense candidate confirmation can
   take days. Continue to keep scientific hypotheses distinct from verified wins.
