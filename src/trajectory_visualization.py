@@ -272,7 +272,7 @@ class TrajectoryManifoldVisualization:
         self._cache_projection()
         physical = [self.states*self.scale, (self.target*self.scale)[None]]
         physical += [f.selected.x[0]*self.scale for f in self.frames if f.selected is not None]
-        self.physical_limits = self._limits(np.concatenate(physical)[:, [0, 2, 3]])
+        self.physical_limits = self._limits(np.concatenate(physical)[:, [2, 3, 1]])
         valid_costs = np.concatenate([f.costs[f.feasible & np.isfinite(f.costs)] for f in self.frames])
         self.cost_limits = (float(valid_costs.min()), float(valid_costs.max())) if len(valid_costs) else (0., 1.)
 
@@ -333,13 +333,13 @@ class TrajectoryManifoldVisualization:
             axis.view_init(elev=23, azim=-58)
         k = frame.step
         x = self.states*self.scale
-        physical.plot(*x[:k+1, [0, 2, 3]].T, color='tab:blue', label='realized')
-        physical.scatter(*x[k, [0, 2, 3]], color='tab:blue', s=55, label='measured current')
-        physical.scatter(*(self.target*self.scale)[[0, 2, 3]], marker='*', s=110, color='green', label='target')
+        physical.plot(*x[:k+1, [2, 3, 1]].T, color='tab:blue', label='realized')
+        physical.scatter(*x[k, [2, 3, 1]], color='tab:blue', s=55, label='measured current')
+        physical.scatter(*(self.target*self.scale)[[2, 3, 1]], marker='*', s=110, color='green', label='target')
         if frame.selected is not None:
             plan = frame.selected.x[0]*self.scale
-            physical.plot(*plan[:, [0, 2, 3]].T, color='tab:red', linestyle='--', label='controller plan')
-        physical.set(xlabel='cart [m]', ylabel='unwrapped angle [rad]', zlabel='angular speed [rad/s]', title='Physical state space (3 of 4 coordinates)')
+            physical.plot(*plan[:, [2, 3, 1]].T, color='tab:red', linestyle='--', label='controller plan')
+        physical.set(xlabel='unwrapped angle [rad]', ylabel='angular speed [rad/s]', zlabel='cart speed [m/s]', title='Physical state space (3 of 4 coordinates)')
         physical.legend(fontsize=7, loc='upper left')
         manifold.scatter(*self.background_xyz.T, s=5, c='gray', alpha=.25, label='fixed decoded background')
         points = self.candidate_xyz[index]

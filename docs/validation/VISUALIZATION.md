@@ -11,8 +11,8 @@ describe the historical2026-10-21 verification environment, not the new setup.
 
 ## Interpretation
 
-The left panel uses cart position [m], continuous/unwrapped angle [rad] and
-physical angular speed [rad/s]; cart speed is shown in the status text. It shows
+The left panel uses continuous/unwrapped angle [rad], physical angular speed
+[rad/s], and cart speed [m/s], in x/y/z order. It shows
 the measured state, upright target, realized path and selected predicted rollout.
 The right panel projects **whole horizon behaviors**, not single states:
 `w = [vec(x[0:H+1]), vec(u[0:H])]`. This visualization packing is state-first;

@@ -45,6 +45,22 @@ python -m scripts.visualize_trajectory_manifold \
 python -m pytest -q
 ```
 
+For a longer GIF that stops after one second near the upright target:
+
+```bash
+python -m scripts.visualize_trajectory_manifold \
+  --checkpoint saves/validation/models/reconstructed-seed0/transition.pt \
+  --output saves/visualizations/trajectory_manifold_convergence \
+  --seconds 30 --until-converged --frame-stride 5 --projection pca
+```
+
+Here `--seconds` caps the run. Convergence requires cart position within 0.05 m,
+cart speed within 0.05 m/s, angle within 0.02 rad, and angular speed within
+0.05 rad/s for 50 consecutive samples (1 s). Metadata records whether the
+criterion was reached and the final SI state. The controller still runs at every
+sample; frame stride only reduces rendered frames and always includes the final
+state. The left plot uses angle, angular speed, and cart speed as x/y/z.
+
 Outputs include `static.png`, `animation.gif` or `animation.mp4`, `metadata.json`,
 `closed_loop.npz` and `trajectories.npz`; notebook execution also saves an
 `executed.ipynb`. Keep separate output paths for comparisons; rerunning an export
@@ -100,3 +116,16 @@ exported a31-frame MP4 under `saves/visualizations/control311-compare/`.
 UMAP was actually evaluated: neighbor overlap0.594 versus PCA0.564, but temporal
 distortion7.089 versus PCA0.168. The reliability check therefore retained PCA.
 These results describe the short visualization example, not controller quality.
+
+## Convergence GIF (2026-11-16)
+
+`saves/visualizations/trajectory_manifold_convergence/animation.gif` covers 30 s
+(1,500 controller steps; 301 rendered frames at stride5; 15 FPS). It reuses the
+original CLI checkpoint, initial condition, Adam20 controller and seed234.
+Final SI state in position/velocity/angle/angular-velocity order:
+`[4.40209, 0.0001042, -0.0002968, -0.0046038]`.
+The displayed angle/angular-speed/cart-speed coordinates remain within their
+near-target tolerances throughout the final second. The full-state convergence
+criterion is **not** reached because cart position drifts to 4.40 m. This export
+shows stabilization, not return of the cart to its original position. The
+original short GIF is preserved; generated artifacts remain Git-ignored.

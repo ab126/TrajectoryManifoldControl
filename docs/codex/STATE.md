@@ -1,45 +1,36 @@
 # Current checkpoint — 2026-11-16
 
-## Objective
-Use core TMC versus matched data-driven LQR for new launches and tuning.
-Active grid must finish before starting the proposed tuning/training plan.
+## Current objective / completed work
+- Requested separate convergence GIF completed at
+  saves/visualizations/trajectory_manifold_convergence/animation.gif.
+- Same checkpoint/initial state/Adam20/seed234 as original short CLI GIF;
+  30s cap,1500control steps,301frames,stride5,PCA,15FPS. Original GIF untouched.
+- Left x/y/z now angle, angular velocity, cart velocity throughout paths,
+  targets, predictions and fixed limits. Added --until-converged/--frame-stride.
+- Optional canonical stop requires all four SI coordinates inside
+  [.05m,.05m/s,.02rad,.05rad/s] for50samples (1s); --seconds is cap.
 
-## Completed work and decisions
-- New entry point docs/launch.md links concise tuning/launch plan at
-  docs/validation/investigation-2026-11-16/LAUNCH.md. README, TMC guide and grid
-  guide explicitly select core TMC; historical hybrid evidence retains labels.
-- Candidate launcher now defaults to --arms TMC L; hybrid requires explicit opt-in.
-  Core TMC receives no linear callable; invalid plans record failed cases.
-- Sweep source/default unchanged to preserve running manifest/resumability;
-  always pass --controller standalone. Candidate source changed: old hybrid
-  candidate screens require old source for resume; new protocols need new output.
-- Historical completed hybrid grid:2880/5043 versus LQR3247/5043; seed2 hybrid
-  1225 versus LQR1085. These are not core-TMC outcomes.
-- Larger candidate remains unverified:14000episodes,256x3,200epochs plus20
-  multistep/window10,85deg domain,25%near-upright data. No guaranteed improvement.
+## Verified results / important limits
+- Final SI [position,velocity,angle,angular_velocity]:
+  [4.4020925,.00010423,-.00029679,-.00460384].
+- Displayed three coordinates meet tolerances throughout final second.
+  Full-state convergence FALSE: cart drifts4.40m. Do not claim return to origin.
+- Pillow decoded final GIF frame and verified301frames,1170x540.
+  Raw arrays verified1501states/1500actions. Static preview inspected.
+- control311 focused visualization suite:17passed in34.35s; diff check passed.
+  Notebook refresh test now explicitly selects PCA, independent of notebook's
+  compare default (initial run13passed/1failed due stale test assumption).
+- Artifacts under saves are ignored; code/docs/tests are committed separately.
 
-## Active simulation
-- PID1499380 verified live during docs update; first TMC/L pair saved.
-- scripts/sweep_tmc.py --seeds 0 1 2 --controller standalone
-  --models-root saves/validation/models --seconds 14
-  --output saves/validation/grid-standalone-3seed-v1 --max-wall-seconds 172800
-- Manifest verified:TMC/L,seeds0/1/2,1681starts/seed,10086total cases.
-- Adam20,lr.15,3starts,replan1; previous hybrid used CEM. Not a switch-only ablation.
-- Log: saves/validation/grid-standalone-3seed-v1/launch.log. Budget checked between
-  cases; exact command resumes. Never run two writers on this output.
+## Other ongoing work (preserved)
+- Standalone TMC/L grid PID1499380 verified live during this task; untouched.
+  Output saves/validation/grid-standalone-3seed-v1, seeds0/1/2,10086cases.
+  Exact launch/resume and historical evidence in LOG.md and docs/launch.md.
+- Wait for grid completion before launching proposed tuning/training plan.
+  No final core-TMC recovery conclusion; large candidate remains unverified.
 
-## Verification / next actions
-- Focused candidate/controller tests pending; record outcome before commit.
-- No final recovery outcome yet. Monitor process/log; check completeness before
-  interpreting maps. After completion review docs/launch.md tuning plan.
-- Current changes: concise docs, candidate core-default support, workflow test.
-  No blockers. Commit/push after checks; leave running grid unchanged.
-
-## Verification and next actions
-- control311 pytest -q tests/test_candidate_workflow.py
-  tests/test_validation_controllers.py:7passed in29.34s. Covers default core arms,
-  short-trace failure, exact resume, protocol guard and standalone failure behavior.
-- git diff --check passed. No simulation restart or training launched.
-- Changes ready to commit/push: launch docs, candidate CLI, workflow test, handoff.
-- Next inspect active grid log/cases and completion; only then review tuning plan.
-  No blockers; no final core-TMC recovery conclusion yet.
+## Uncommitted changes / blockers / next actions
+- Visualization source,docs,tests and handoff finalized for publication.
+- No artifact-generation blockers. Full cart-position convergence would need
+  separate controller investigation; not changed for this visualization request.
+- Next monitor active grid and inspect completeness before interpreting results.

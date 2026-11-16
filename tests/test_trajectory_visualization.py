@@ -193,6 +193,7 @@ def test_notebook_cells_refresh_stale_imports_and_export(notebook, tmp_path):
                      'cfg': make_config('smoke', horizon=3, device='cpu')}
         exec(''.join(cells[0]['source']), namespace)
         namespace.update(VIZ_SECONDS=.04, VIZ_SAMPLES=12, VIZ_CANDIDATES=3,
+                         VIZ_PROJECTION='pca',
                          VIZ_OUTPUT=Path(OUTPUT), display=lambda *args: None)
         for cell in cells[1:]:
             exec(''.join(cell['source']), namespace)
@@ -251,3 +252,33 @@ def test_umap_quality_warning_does_not_hide_explicit_view(monkeypatch, tmp_path,
             assert (tmp_path/name/'animation.gif').is_file()
             assert json.loads((tmp_path/name/'metadata.json').read_text())['projection'] == name
     plt.close('all')
+
+
+@pytest.mark.parametrize('plant_state,seconds,reached,steps', [
+    ([0., 0., 0., 0.], 1.4, True, 50),
+    ([.2, 0., 0., 0.], 1.4, False, 70),
+    ([0., 0., 0., 0.], .04, False, 2),
+])
+def test_convergence_export_requires_sustained_full_state_target(
+        monkeypatch, plant_state, seconds, reached, steps):
+    from scripts.visualize_trajectory_manifold import notebook_visualization
+    from scripts.run_inverted_pendulum_mc import make_config
+
+    monkeypatch.setattr('scripts.run_inverted_pendulum_mc._plant_step',
+                        lambda state, action, dt: np.asarray(plant_state))
+    torch.set_num_threads(1)
+    viz, metadata = notebook_visualization(
+        {'decoder': CanonicalBehaviorDecoder(SimpleTransition(), 3),
+         'cfg': make_config('smoke', horizon=3, device='cpu')},
+        seconds=seconds, until_converged=True, frame_stride=10,
+        samples=12, candidates=3)
+    assert metadata['convergence']['reached'] is reached
+    assert len(viz.inputs) == steps
+    assert viz.frames[-1].step == steps
+    assert metadata['seconds'] == pytest.approx(steps*.02)
+    fig, axes = viz.figure()
+    viz.draw_frame(len(viz.frames)-1, axes)
+    assert axes[0].get_xlabel() == 'unwrapped angle [rad]'
+    assert axes[0].get_ylabel() == 'angular speed [rad/s]'
+    assert axes[0].get_zlabel() == 'cart speed [m/s]'
+    plt.close(fig)

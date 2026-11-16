@@ -20,18 +20,20 @@ from src.trajectory_visualization import DecoderSampler, TrajectoryManifoldVisua
 
 def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=256,
                            candidates=24, tolerance=1e-4, method='pca', seed=234,
-                           frame_stride=1):
+                           frame_stride=1, until_converged=False):
     """Reuse notebook model/config when present, otherwise explicit checkpoint.
 
     Returns visualization and metadata. The live latent path uses the notebook's
     existing solver, not its optional LQR fallback; feasibility failures remain
-    visible. Both paths run a NEW short visualization-only experiment, leaving
+    visible. Both paths run a NEW visualization-only experiment, leaving
     existing notebook experiment arrays and diagnostics alone.
     """
     from scripts import run_inverted_pendulum_mc as runner
     from src.manifold_control import CanonicalBehaviorDecoder
     from src.manifold_experiments import NativeConfig, native_controller
 
+    if not np.isfinite(seconds) or seconds < .02:
+        raise ValueError('seconds must be finite and at least one 20 ms sample')
     decoder = namespace.get('decoder')
     latent = decoder is not None and not hasattr(decoder, 'coordinates')
     if decoder is None:
@@ -49,6 +51,9 @@ def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=25
             cfg = runner.make_config('dev', **cfg)
         model_source = 'live notebook decoder (not retrained)'
     chosen = {}
+    if until_converged and latent:
+        raise ValueError('convergence stopping requires the canonical checkpoint path')
+    convergence = None
     if latent:
         original = namespace.get('single_step_solver')
         if original is None:
@@ -118,7 +123,27 @@ def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=25
         policy.solver.solve = record
         initial = np.asarray(namespace.get('y0_normalized', [0., 0., .15, 0.]))
         try:
-            t, states, inputs = runner.simulate_plant(control, initial, cfg, seconds=seconds)
+            if until_converged:
+                # Same plant, clipping and physical 20 ms sample clock as simulate_plant.
+                # Require a full second inside the SI box, including cart position.
+                from src.inverted_pendulum import _physical_state_scale
+                _, si_scale, _ = _physical_state_scale(1., 9.81, 1.)
+                limits = np.array([.05, .05, .02, .05])
+                history, actions, held = [initial.copy()], [], 0
+                for k in range(round(seconds/.02)):
+                    action = np.clip(control(k, history[-1]), -cfg.umax, cfg.umax)
+                    actions.append(np.asarray(action).reshape(1))
+                    history.append(runner._plant_step(history[-1], action, cfg.dt))
+                    held = held + 1 if np.all(np.abs(history[-1]*si_scale) <= limits) else 0
+                    if held >= 50:
+                        break
+                states, inputs = np.asarray(history), np.asarray(actions)
+                t = np.arange(len(states))*.02
+                convergence = {'reached': held >= 50, 'hold_seconds': 1.,
+                               'tolerances_SI_state_order': limits.tolist(),
+                               'final_state_SI': (states[-1]*si_scale).tolist()}
+            else:
+                t, states, inputs = runner.simulate_plant(control, initial, cfg, seconds=seconds)
         finally:
             policy.solver.solve = solve
         from src.inverted_pendulum import _physical_state_scale
@@ -136,7 +161,9 @@ def notebook_visualization(namespace, *, checkpoint=None, seconds=.6, samples=25
         feasibility_tolerance=tolerance, method=method, frame_stride=frame_stride,
         state_scale=scale, force_scale=force_scale, seed=seed)
     metadata = {'seed': seed, 'model_source': model_source, 'config': config_record,
-                'seconds': seconds, 'background_samples': samples, 'candidates': candidates,
+                'seconds': float(t[-1]), 'max_seconds': seconds, 'convergence': convergence,
+                'physical_coordinates': ['angle', 'angle_dot', 'position_dot'],
+                'background_samples': samples, 'candidates': candidates,
                 'feasibility_tolerance': tolerance, 'frame_stride': frame_stride,
                 'projection_requested': method,
                 'projection': visualization.projection.method,
@@ -185,6 +212,9 @@ def main():
     parser.add_argument('--checkpoint', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=Path('saves/visualizations/trajectory_manifold'))
     parser.add_argument('--seconds', type=float, default=.6)
+    parser.add_argument('--until-converged', action='store_true',
+                        help='stop after 1 s near target in all four SI coordinates; --seconds is the cap')
+    parser.add_argument('--frame-stride', type=int, default=1)
     parser.add_argument('--samples', type=int, default=256)
     parser.add_argument('--candidates', type=int, default=24)
     parser.add_argument('--projection', choices=['pca', 'umap', 'compare'], default='pca')
@@ -193,7 +223,8 @@ def main():
     args = parser.parse_args()
     torch.set_num_threads(1)
     visualization, metadata = notebook_visualization({}, checkpoint=args.checkpoint, seconds=args.seconds,
-        samples=args.samples, candidates=args.candidates, method=args.projection)
+        samples=args.samples, candidates=args.candidates, method=args.projection,
+        frame_stride=args.frame_stride, until_converged=args.until_converged)
     export(visualization, metadata, args.output, fps=args.fps, movie_format=args.format)
     print(json.dumps(metadata, indent=2))
 

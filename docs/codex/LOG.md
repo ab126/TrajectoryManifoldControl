@@ -535,3 +535,29 @@ parameters to controllers.
 - control311 pytest -q tests/test_candidate_workflow.py
   tests/test_validation_controllers.py:7passed in29.34s; git diff --check passed.
 - Tuning/model improvements remain hypotheses pending active-grid completion.
+
+## 2026-11-16 — Longer convergence visualization
+
+- User requested another GIF spanning near-target stabilization, with left axes
+  angle/angular velocity/cart velocity. Updated rendering coordinates/labels/
+  fixed bounds consistently; preserved original short output.
+- Added --until-converged (canonical), --frame-stride and metadata for actual
+  duration/cap/final SI state. Stop: all4 SI errors within [.05,.05,.02,.05]
+  for50successive samples; controller/plant/weights/checkpoint unchanged.
+- Generated saves/visualizations/trajectory_manifold_convergence with command:
+  control311 python -m scripts.visualize_trajectory_manifold
+  --checkpoint saves/validation/models/reconstructed-seed0/transition.pt
+  --output saves/visualizations/trajectory_manifold_convergence
+  --seconds 30 --until-converged --frame-stride 5 --projection pca.
+- 30s cap reached:1500actions,301GIFframes,15FPS. Final SI state
+  [4.402092507,.000104232,-.000296787,-.004603840]. Final second meets all
+  three displayed-coordinate tolerances; full-state convergence false because
+  position drift4.40m. Stabilization cannot be presented as return to origin.
+- Pillow verified301frames and decoded final frame; NPZ shapes and final-second
+  tolerance verified. Static preview inspected. Outputs ignored by Git as usual.
+- Initial focused suite13passed/1failed: old notebook refresh test assumed empty
+  comparisons despite notebook compare default. Test explicitly sets PCA now.
+  Final tests/test_trajectory_visualization.py:17passed in34.35s.
+  Three new cases verify sustained full-state stopping/time cap/axis labels.
+- Active standalone grid PID1499380 verified alive; no changes to its sources,
+  artifacts, training, settings or process. git diff --check passed.
