@@ -21,9 +21,11 @@ def test_candidate_training_and_resumable_screen(tmp_path):
             '--output',str(output),'--limit','1','--seconds','.04','--max-wall-seconds','60']
     done=subprocess.run(screen,cwd=ROOT,capture_output=True,text=True)
     assert done.returncode==0,done.stderr
-    case=output/'cases'/'hybrid_0000.json';before=case.stat().st_mtime_ns
+    case=output/'cases'/'TMC_0000.json';before=case.stat().st_mtime_ns
     assert not json.loads(case.read_text())['terminal_recovery']
     assert json.loads((output/'summary.json').read_text())['saved']==2
+    assert json.loads((output/'manifest.json').read_text())['arms']==['TMC','L']
+    assert not (output/'cases'/'hybrid_0000.json').exists()
     done=subprocess.run(screen,cwd=ROOT,capture_output=True,text=True)
     assert done.returncode==0,done.stderr
     assert case.stat().st_mtime_ns==before

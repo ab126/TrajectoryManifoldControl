@@ -13,6 +13,7 @@ def main():
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--set',choices=['tuning','D'],default='tuning')
     p.add_argument('--limit',type=int)
+    p.add_argument('--arms',nargs='+',choices=['TMC','L','hybrid'],default=['TMC','L'])
     p.add_argument('--solver',choices=['original_cem','safe_cem','adam'],default='original_cem')
     p.add_argument('--cem-iterations',type=int,default=10)
     p.add_argument('--population',type=int,default=256)
@@ -24,11 +25,12 @@ def main():
     p.add_argument('--max-wall-seconds',type=float,default=900.)
     args=p.parse_args()
     if args.output.resolve().is_relative_to(ROOT/'validation'):p.error('output outside frozen validation required')
+    if len(set(args.arms))!=len(args.arms):p.error('arms must be distinct')
     if args.seconds<=0 or args.max_wall_seconds<=0 or (args.limit is not None and args.limit<1):p.error('positive durations/limit required')
     args.output.mkdir(parents=True,exist_ok=True)
     c,sets,_=load_upstream(args.output);np,torch=c.np,c.torch
     from src.manifold_experiments import NativeConfig
-    from src.validation_controllers import validation_lqr,trajectory_controller
+    from src.validation_controllers import validation_lqr,trajectory_controller,ControllerFailure
     from src.validation_sweep import terminal_recovery,primary_success
     model,payload=c.runner.load_transition(args.model_dir/'transition.pt','cpu')
     cfg=c.runner.ExperimentConfig(**{**payload['config'],'device':'cpu'})
@@ -44,22 +46,26 @@ def main():
     spec=dict(checkpoint=sha256(args.model_dir/'transition.pt'),data=sha256(args.model_dir/'data.npz'),
               source={s:sha256(ROOT/s) for s in ['scripts/screen_tmc_candidate.py','src/validation_controllers.py','src/manifold_experiments.py','src/validation_sweep.py']},
               config=asdict(config),states=states,seconds=args.seconds,gain=gain.tolist(),seed=cfg.seed,
-              torch=str(torch.__version__),numpy=str(np.__version__),controller='current hybrid; same fitted L for switch/failure and baseline')
+              torch=str(torch.__version__),numpy=str(np.__version__),arms=args.arms,controller='TMC: no linear switch/fallback; hybrid: opt-in shared fitted L')
     path=args.output/'manifest.json'
     if path.exists() and json.loads(path.read_text())!=json.loads(json.dumps(spec)):p.error('protocol differs; new output required')
     write_json(path,spec)
     torch.use_deterministic_algorithms(True);torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
     tick=time.perf_counter();stop=False
     for i,state in enumerate(states[:args.limit] if args.limit else states):
-        for arm in ['hybrid','L']:
+        for arm in args.arms:
             key=f'{arm}_{i:04d}';case=args.output/'cases'/f'{key}.json'
             if case.exists():continue
             if time.perf_counter()-tick>=args.max_wall_seconds:stop=True;break
             linear=validation_lqr(gain,x_ref=[0.]*4,u_ref=[0.],umax=cfg.umax)
-            ctl=linear if arm=='L' else trajectory_controller(decoder,config,x_ref=[0.]*4,u_ref=[0.],umax=cfg.umax,linear=linear)
+            ctl=linear if arm=='L' else trajectory_controller(decoder,config,x_ref=[0.]*4,u_ref=[0.],umax=cfg.umax,linear=linear if arm=='hybrid' else None)
             x=[np.asarray(state)];u=[];lat=[];failure=None
             for k in range(round(args.seconds/.02)):
-                before=time.perf_counter();action=np.asarray(ctl(k,x[-1])).reshape(1);lat.append(time.perf_counter()-before)
+                before=time.perf_counter()
+                try:action=np.asarray(ctl(k,x[-1])).reshape(1)
+                except ControllerFailure as exc:
+                    failure=str(exc);lat.append(time.perf_counter()-before);break
+                lat.append(time.perf_counter()-before)
                 if not np.isfinite(action).all():failure='nonfinite action';break
                 with np.errstate(over='ignore',invalid='ignore'):next_x=c.runner._plant_step(x[-1],action,cfg.dt)
                 x.append(next_x);u.append(action)
@@ -73,8 +79,8 @@ def main():
             write_json(case,row);print(json.dumps(row),flush=True)
         if stop:break
     rows=[json.loads(f.read_text()) for f in (args.output/'cases').glob('*.json')]
-    write_json(args.output/'summary.json',dict(complete=len(rows)==2*len(states),saved=len(rows),expected=2*len(states),
-        rates={arm:dict(n=sum(r['arm']==arm for r in rows),successes=sum(r['terminal_recovery'] for r in rows if r['arm']==arm)) for arm in ['hybrid','L']}))
+    write_json(args.output/'summary.json',dict(complete=len(rows)==len(args.arms)*len(states),saved=len(rows),expected=len(args.arms)*len(states),
+        rates={arm:dict(n=sum(r['arm']==arm for r in rows),successes=sum(r['terminal_recovery'] for r in rows if r['arm']==arm)) for arm in args.arms}))
 
 
 if __name__=='__main__':main()

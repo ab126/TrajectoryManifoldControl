@@ -1,70 +1,45 @@
 # Current checkpoint — 2026-11-16
 
-## Current objective
-Run pure standalone TMC versus matched data-driven LQR on the previous three-seed
-D grid. Active launch details below supersede the earlier completed investigation.
+## Objective
+Use core TMC versus matched data-driven LQR for new launches and tuning.
+Active grid must finish before starting the proposed tuning/training plan.
 
-## Previous objective
-Investigate completed TMC hybrid versus linear grid and publish concise visual
-report, measured tuning outcomes and executable candidate-training/evaluation.
+## Completed work and decisions
+- New entry point docs/launch.md links concise tuning/launch plan at
+  docs/validation/investigation-2026-11-16/LAUNCH.md. README, TMC guide and grid
+  guide explicitly select core TMC; historical hybrid evidence retains labels.
+- Candidate launcher now defaults to --arms TMC L; hybrid requires explicit opt-in.
+  Core TMC receives no linear callable; invalid plans record failed cases.
+- Sweep source/default unchanged to preserve running manifest/resumability;
+  always pass --controller standalone. Candidate source changed: old hybrid
+  candidate screens require old source for resume; new protocols need new output.
+- Historical completed hybrid grid:2880/5043 versus LQR3247/5043; seed2 hybrid
+  1225 versus LQR1085. These are not core-TMC outcomes.
+- Larger candidate remains unverified:14000episodes,256x3,200epochs plus20
+  multistep/window10,85deg domain,25%near-upright data. No guaranteed improvement.
 
-## Completed work
-- Completed grid verified10086cases: hybrid2880/5043(57.1%),L3247(64.4%).
-  Seed2 hybrid1225/1681(72.9%) beats matchedL1085(64.5%);seed0/1 lose.
-  H-only1275,L-only1642;no controller failures/nonfinite CEM recorded.
-- scripts/investigate_tmc.py audits models/data and raw witness/replay hashes,
-  measures forecast errors, local diagnostic spectral radii, and24 independent
-  tuning seed/start pairs per optimizer. Four reproducible visual figures.
-- docs/validation/investigation-2026-11-16/REPORT.md concise visuals and seed/
-  endpoint explanation; LAUNCH.md investigation, tuning, larger model and grid codes.
-- scripts/train_tmc_candidate.py: configurable measured-data collection, broader
-  angle domain and near-upright mixture, width/epochs and existing paired
-  one-step/multistep fine-tuning. No original/frozen source changes.
-- scripts/screen_tmc_candidate.py: flexible candidates, original/safe CEM/Adam,
-  current hybrid + same-data fitted L, independent tuning orDgrid, resumability.
+## Active simulation
+- PID1499380 verified live during docs update; first TMC/L pair saved.
+- scripts/sweep_tmc.py --seeds 0 1 2 --controller standalone
+  --models-root saves/validation/models --seconds 14
+  --output saves/validation/grid-standalone-3seed-v1 --max-wall-seconds 172800
+- Manifest verified:TMC/L,seeds0/1/2,1681starts/seed,10086total cases.
+- Adam20,lr.15,3starts,replan1; previous hybrid used CEM. Not a switch-only ablation.
+- Log: saves/validation/grid-standalone-3seed-v1/launch.log. Budget checked between
+  cases; exact command resumes. Never run two writers on this output.
 
-## Verified findings and tests
-- Forecast endpoint angle RMSE .054-.069rad vs one-step .0012-.0015rad.
-  L-only-case median .6s replay angle RMSE .029initial,.156at8s; selected cases,
-  association not isolated causality. Equilibrium biases and near-critical gains.
-- 24 tuning probes: CEM10 median true replay cost ratio .869 vs CEM3;
-  Adam40 ratio1.233. Cold-start .6s plans, not coverage evidence.
-- Launched and completed2-start14s seed0 screens: CEM3queue5,CEM10queue5,
-  Adam20replan1 all hybrid1/2 vs L2/2. No improvement established; only2starts.
-- Candidate collection/train40episodes/1epoch/16x16 plus fine-tune smoke passed;
-  candidate fine-tuned checkpoint evaluated; short traces correctly fail recovery.
-- Nine focused candidate workflow/sweep/controller tests pass in30.73s:
-  CLI train/evaluate/resume/changed-protocol guard plus controller/metric checks.
-- Final investigation rerun checks all model/data identities, raw replay hashes,
-  preserves script hash and generates all four plots. No full candidate training
-  or new dense grid launched. git diff --check before publication.
+## Verification / next actions
+- Focused candidate/controller tests pending; record outcome before commit.
+- No final recovery outcome yet. Monitor process/log; check completeness before
+  interpreting maps. After completion review docs/launch.md tuning plan.
+- Current changes: concise docs, candidate core-default support, workflow test.
+  No blockers. Commit/push after checks; leave running grid unchanged.
 
-## Decisions and assumptions
-- No credible almost-sure hyperparameter guarantee. Seed2 already wins existing
-  grid; selecting it post hoc is not independent evidence or general guarantee.
-- Candidate hypothesis:14000episodes,256x3,200epochs+20multistep/window10,
-  initialtheta85deg,25%upright/small-input collection;CEM10,replan1vs5screen.
-  Test each factor separately and refit matchedL on the same candidate data.
-- Three plotted runs are seeds0/1/2 (whole fit/planner), not3convergence rules;
-  terminal recovery finite +final3s angle/rate tolerances, cart not constrained.
-- L/H are simulated with ideal feedback; measured compute delay not injected.
-
-## Uncommitted changes and next actions
-- Final audit succeeded; scripts/tests/docs/evidence committed as c75c9f39
-  and pushed to origin/main. All tuning jobs finished; no long job remains active.
-- Screen all8tuning starts before locking parameters; run expensive proposed
-  training only using provided commands. Final dense candidate confirmation can
-  take days. Continue to keep scientific hypotheses distinct from verified wins.
-
-## Active simulation — 2026-11-16
-- User requested pure TMC (no hybrid) versus LQR, as before.
-- Verified scripts/sweep_tmc.py standalone passes no linear callable to
-  trajectory_controller: no LQR switch/fallback; invalid plans fail the case.
-- Launched PID1499380; verified live process and manifest: standalone, arms TMC/L,
-  seeds0/1/2,14s,1681starts/seed,10086total cases. Existing matched models reused.
-- Standalone uses Adam20,lr.15,3starts,replan1; prior hybrid used CEM.
-  This is a controller comparison, not an isolated switching ablation.
-- Output/log: saves/validation/grid-standalone-3seed-v1/{manifest.json,launch.log}.
-- Budget172800s checked between cases; resume exact launch command if incomplete.
-- No outcome or completion verified yet; next inspect log/cases/process and
-  generate final maps only after checking completion. No source changes.
+## Verification and next actions
+- control311 pytest -q tests/test_candidate_workflow.py
+  tests/test_validation_controllers.py:7passed in29.34s. Covers default core arms,
+  short-trace failure, exact resume, protocol guard and standalone failure behavior.
+- git diff --check passed. No simulation restart or training launched.
+- Changes ready to commit/push: launch docs, candidate CLI, workflow test, handoff.
+- Next inspect active grid log/cases and completion; only then review tuning plan.
+  No blockers; no final core-TMC recovery conclusion yet.

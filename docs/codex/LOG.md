@@ -520,3 +520,18 @@ parameters to controllers.
   10086expected cases. No new training; original matched checkpoints reused.
 - Adam20/lr.15/3starts/replan1 differs from prior hybrid CEM; disclosed to user.
 - Simulation in progress; no recovery results or completion claimed.
+
+## 2026-11-16 — Core TMC launch guidance and tuning defaults
+
+- User requested concise existing docs, core TMC for new launches/tuning, and push.
+- Added docs/launch.md entry; compressed investigation LAUNCH.md and adjusted
+  README, TMC guide and grid launch commands to explicit core TMC versus LQR.
+- Candidate screen previously hard-coded hybrid; now defaults to --arms TMC L,
+  with hybrid opt-in. Invalid standalone plans become recorded failed cases.
+  Existing hybrid candidate outputs cannot resume under changed source/protocol.
+- Preserved historical hybrid evidence and sweep source/default to avoid breaking
+  running grid source hashes; docs always pass --controller standalone.
+- PID1499380 still live; first TMC/L grid pair saved. No restart or new long job.
+- control311 pytest -q tests/test_candidate_workflow.py
+  tests/test_validation_controllers.py:7passed in29.34s; git diff --check passed.
+- Tuning/model improvements remain hypotheses pending active-grid completion.

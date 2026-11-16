@@ -1,4 +1,4 @@
-# Reference-aware TMC and hybrid validation
+# Core TMC versus LQR validation
 
 `src/validation_controllers.py` implements validation's fitted linear law as
 `clip(u_ref - K @ (x - x_ref), -umax, umax)`. The hybrid and new linear arm use
@@ -131,12 +131,9 @@ Use tuning starts for parameter screening before locking a final protocol.
 The manifest pins sources, checkpoint, gain/data, references, solver settings,
 initial states and library versions; incompatible resumes fail.
 
-To include the prepared hybrid and test a displaced target, use a new output
-path and append:
-
-```sh
---arms TMC L hybrid --x-ref 1 0 0 0 --u-ref 0
-```
+For a displaced target, use a new output and append
+`--arms TMC L --x-ref 1 0 0 0 --u-ref 0`.
+Hybrid is available only as an explicit historical/diagnostic comparison.
 
 The default paired run contains only TMC and L. Raw measured states/inputs,
 controller/solver latencies and solve steps are saved under `raw/`; case results
@@ -215,8 +212,8 @@ Use the [complete three-seed grid reproduction guide](grid-reproduction/README.m
 for the original 41×41 sweep, exact convergence definitions, matched training,
 automatic PNG/PDF figures, raw counts, resume commands and verified archived maps.
 The screenshot uses terminal recovery (earlier crossings allowed); the sweep
-also exports the stricter no-crossing primary-success map. Its default controller
-is the original CEM hybrid, with an explicitly labeled standalone TMC option.
+also exports the stricter no-crossing primary-success map. New launch commands explicitly select `--controller standalone` for core TMC
+versus LQR. The sweep CLI retains its legacy hybrid default; do not omit the flag.
 
 ## Investigating the completed grid
 

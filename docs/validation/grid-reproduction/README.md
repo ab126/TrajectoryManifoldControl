@@ -76,24 +76,23 @@ budget. Keep each `transition.pt` with its own `data.npz`.
 Run a quick pipeline check (not a scientific map):
 
 ```sh
-python scripts/sweep_tmc.py --seeds 0 --limit 1 --seconds .04 \
+python scripts/sweep_tmc.py --controller standalone --seeds 0 --limit 1 --seconds .04 \
   --output saves/validation/grid-smoke-v2 --max-wall-seconds 60
 ```
 
-Launch the full original-hybrid versus linear sweep:
+Launch core TMC versus matched LQR:
 
 ```sh
 python scripts/sweep_tmc.py \
   --models-root saves/validation/models --seeds 0 1 2 \
-  --controller legacy-hybrid --seconds 14 \
-  --output saves/validation/grid-hybrid-3seed-v1 \
+  --controller standalone --seconds 14 \
+  --output saves/validation/grid-standalone-3seed-v1 \
   --max-wall-seconds 172800
 ```
 
-The 48-hour per-invocation budget is checked between cases. A tested extreme
-seed-0 H case took about 16 s on this CPU; 5,043 H cases alone could take about
-22 hours at that rate, with substantial variation by initial state/hardware.
-No compute delay is injected into the simulated plant.
+The 48-hour budget is checked between cases. Core TMC uses Adam20/.15/3starts/
+replan1 with no LQR switch or fallback. Runtime varies by state and hardware;
+compute delay is recorded but not injected into the plant.
 
 Repeat the **same** full command to resume. Saved raw hashes are checked and
 completed cases skipped. `--limit` and the budget may change on resume; the grid,
@@ -118,30 +117,10 @@ Regenerate both figures from saved sweep cases at any time:
 
 ```sh
 python scripts/sweep_tmc.py \
-  --output saves/validation/grid-hybrid-3seed-v1 --plot-only
+  --output saves/validation/grid-standalone-3seed-v1 --plot-only
 ```
 
-For **current standalone TMC** on the identical grid and convergence rules, use
-`--controller standalone` and a separate output such as
-`saves/validation/grid-standalone-3seed-v1`. This uses Adam20/.15/3starts/replan1
-with no substitute actions. Its panel says “standalone”; its outcomes are not
-expected to reproduce the historical hybrid's colors.
-
-## Rebuild directly from the original archived outcomes
-
-To recover the same data/color counts without retraining or running controllers:
-
-```sh
-git clone --depth 1 https://github.com/aroyphillips/TrajectoryManifoldControl.git \
-  /tmp/tmc-figure-upstream
-git -C /tmp/tmc-figure-upstream checkout 053b14890a107063db9b58859884f655173528b8
-python scripts/plot_legacy_grid.py \
-  --summary /tmp/tmc-figure-upstream/validation/results_v1/E1/summary.csv \
-  --output saves/validation/grid-original-archive-v1
-```
-
-The archive importer requires a new output directory and all 10,086 original
-seed/arm/state records. Use `--endpoint primary_success` and another output to
-rebuild the stricter map. If the shallow clone no longer contains the pinned
-commit, fetch that commit before checkout. This archive workflow and new
-simulation workflows are deliberately stored in separate directories.
+For historical reproduction only, explicitly use `--controller legacy-hybrid`
+with a separate output. The CLI retains that legacy default; always pass
+`--controller standalone` for new comparisons. See the [tuning plan](../investigation-2026-11-16/LAUNCH.md)
+after the active grid finishes.
